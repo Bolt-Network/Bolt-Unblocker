@@ -7,15 +7,6 @@ var discord = document.getElementById("discord");
 
 async function init() {
     try {
-        const connection = new BareMux.BareMuxConnection("/baremux/worker.js");
-        //grrr
-
-        let wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
-
-        if (await connection.getTransport() !== "/epoxy/index.mjs") {
-            await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
-            console.log("Using websocket transport " + "wisp url is: " + wispUrl);
-        }
         const scramjet = new ScramjetController({
             prefix: "/scram/service/",
             files: {
@@ -31,7 +22,7 @@ async function init() {
 
 
     } catch (error) {
-        console.error("Error setting up BareMux transport:", error);
+        console.error("Error setting up uv & sj:", error);
     }
     if (!localStorage.getItem("proxy")) {
         localStorage.setItem("proxy", "uv");
@@ -43,14 +34,11 @@ async function init() {
     } catch (err) {
         throw new Error(err)
     }
-    var url = input.value;
 }
 init();
 
 if (form && input) {
     form.addEventListener("submit", async (event) => {
-
-
         function isUrl(val = "") {
             if (
                 /^http(s?):\/\//.test(val) ||
@@ -74,7 +62,7 @@ if (form && input) {
             throw new Error(err)
         }
 
-        var url = input.value;
+        var url = input.value.trim();
 
         if (!isUrl(url)) {
             url = "https://www.google.com/search?q=" + url;
