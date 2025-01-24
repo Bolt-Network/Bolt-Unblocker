@@ -11,6 +11,7 @@ var themeselect = document.getElementById("theme-select");
 var bginput = document.getElementById("bginput");
 var bgset = document.getElementById("bgset");
 var loadselect = document.getElementById("load-select");
+var engineSelect = document.getElementById("engine-select");
 
 if (ptab && ttab && etab) {
   checkTabs();
@@ -27,6 +28,10 @@ if (ptab && ttab && etab) {
     checkTabs();
   });
 
+  if (!localStorage.getItem("engine")) {
+    localStorage.setItem("engine", "google");
+  }
+
   function checkTabs() {
     proxy.hidden = true;
     wisp.hidden = true;
@@ -34,6 +39,7 @@ if (ptab && ttab && etab) {
     cheats.hidden = true;
     themes.hidden = true;
     load.hidden = true;
+    engine.hidden = true;
     cbg.style.display = "none";
     if (tab == 0) {
       ptab.classList.add("active");
@@ -54,6 +60,7 @@ if (ptab && ttab && etab) {
       ttab.classList.remove("active");
       cheats.hidden = false;
       cloaking.hidden = false;
+      engine.hidden = false;
     }
   }
 }
@@ -157,5 +164,13 @@ if (load) {
   loadselect.value = localStorage.getItem("load") || "fancy";
   loadselect.addEventListener("change", function () {
     localStorage.setItem("load", loadselect.value);
+  });
+}
+
+
+if (engineSelect) {
+  engineSelect.value = localStorage.getItem("engine") || "google";
+  engineSelect.addEventListener("change", function () {
+    localStorage.setItem("engine", engineSelect.value);
   });
 }

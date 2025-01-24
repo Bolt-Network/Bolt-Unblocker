@@ -65,7 +65,13 @@ if (form && input) {
         var url = input.value.trim();
 
         if (!isUrl(url)) {
-            url = "https://www.google.com/search?q=" + url;
+            if (localStorage.getItem("engine") == "google") {
+                url = "https://www.google.com/search?q=" + url;
+            }
+            else {
+                url = "https://www.bing.com/search?q=" + url;
+            }
+
         } else if (!(url.startsWith("https://") || url.startsWith("http://"))) {
             url = `https://${url}`;
         }

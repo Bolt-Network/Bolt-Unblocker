@@ -903,3 +903,22 @@ input:hover {
     color: var(--secondary);
     text-shadow: 0 0 10px var(--secondary);
 }
+
+#engine-select {
+    width: 200px;
+    height: 75px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-size: 20px;
+    color: var(--primary);
+    font-family: "font";
+    background-color: var(--secondary);
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+}
+
+#engine-select:hover {
+    box-shadow: var(--accent) 0px 0px 20px;
+}
