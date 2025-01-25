@@ -69,7 +69,7 @@ if (form && input) {
                 url = "https://www.google.com/search?q=" + url;
             }
             else {
-                url = "https://www.bing.com/search?q=" + url;
+                url = "https://duckduckgo.com/?t=h_&q=" + url;
             }
 
         } else if (!(url.startsWith("https://") || url.startsWith("http://"))) {
