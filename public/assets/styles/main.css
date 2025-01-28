@@ -87,7 +87,7 @@ body {
 }
 
 #input {
-    width: 115vh;
+    width: 55%;
     height: 11vh;
     border-radius: 20px;
     border: none;
@@ -550,7 +550,7 @@ input:hover {
     box-shadow: var(--accent) 0px 0px 20px;
 }
 
-#wisp-select {
+#trans-select {
     width: 200px;
     height: 75px;
     border-radius: 20px;
@@ -565,7 +565,7 @@ input:hover {
     transition: all 0.2s ease-out;
 }
 
-#wisp-select:hover {
+#trans-select:hover {
     box-shadow: var(--accent) 0px 0px 20px;
 }
 

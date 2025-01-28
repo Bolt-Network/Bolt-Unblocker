@@ -7,6 +7,25 @@ var discord = document.getElementById("discord");
 
 async function init() {
     try {
+        const connection = new BareMux.BareMuxConnection("/baremux/worker.js");
+        const wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
+        if (localStorage.getItem("transport") == "epoxy") {
+            if (await connection.getTransport() !== "/epoxy/index.mjs") {
+                await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
+                console.log("Using websocket transport. Wisp URL is: " + wispUrl);
+            }
+        }
+        else {
+            if (await connection.getTransport() !== "/libcurl/index.mjs") {
+                await connection.setTransport("/libcurl/index.mjs", [{ wisp: wispUrl }]);
+                console.log("Using websocket transport. Wisp URL is: " + wispUrl);
+            }
+        }
+
+    } catch (err) {
+        console.error("An error occurred while setting up baremux:", err);
+    }
+    try {
         const scramjet = new ScramjetController({
             prefix: "/scram/service/",
             files: {
@@ -16,6 +35,9 @@ async function init() {
                 shared: "/scram/scramjet.shared.js",
                 sync: "/scram/scramjet.sync.js"
             },
+            flags: {
+                syncxhr: true
+            }
         });
         window.sj = scramjet;
         scramjet.init("/sw.js");
@@ -107,7 +129,7 @@ if (form && input) {
 
 if (discord) {
     discord.addEventListener("click", async (event) => {
-        await navigator.clipboard.writeText("https://discord.gg/boltunblocker");
+        await navigator.clipboard.writeText("https://discord.gg/Td7v7Acm5s");
         alert('💪🔥 Invite link copied to clipboard!');
     });
 }

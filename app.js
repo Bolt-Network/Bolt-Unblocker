@@ -1,6 +1,7 @@
 import express from "express";
 import { createServer } from "node:http";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
+import { libcurlPath } from "@mercuryworkshop/libcurl-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 import { join } from "node:path";
 import { hostname } from "node:os";
@@ -12,6 +13,7 @@ const app = express();
 const publicPath = join(__dirname, "public");
 app.use(express.static(publicPath));
 app.use("/epoxy/", express.static(epoxyPath));
+app.use("/libcurl/", express.static(libcurlPath));
 app.use("/baremux/", express.static(baremuxPath));
 
 const server = createServer();

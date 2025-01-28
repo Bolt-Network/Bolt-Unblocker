@@ -1,5 +1,5 @@
 var proxySelect = document.getElementById("proxy-select");
-var wispSelect = document.getElementById("wisp-select");
+var transSelect = document.getElementById("trans-select");
 var ab = document.getElementById("ab");
 var blooket = document.getElementById("blooket");
 var gimkit = document.getElementById("gimkit");
@@ -10,7 +10,6 @@ var etab = document.getElementById("etab");
 var themeselect = document.getElementById("theme-select");
 var bginput = document.getElementById("bginput");
 var bgset = document.getElementById("bgset");
-var loadselect = document.getElementById("load-select");
 var engineSelect = document.getElementById("engine-select");
 
 if (ptab && ttab && etab) {
@@ -34,11 +33,10 @@ if (ptab && ttab && etab) {
 
   function checkTabs() {
     proxy.hidden = true;
-    wisp.hidden = true;
+    transport.hidden = true;
     cloaking.hidden = true;
     cheats.hidden = true;
     themes.hidden = true;
-    load.hidden = true;
     engine.hidden = true;
     cbg.style.display = "none";
     if (tab == 0) {
@@ -46,8 +44,7 @@ if (ptab && ttab && etab) {
       ttab.classList.remove("active");
       etab.classList.remove("active");
       proxy.hidden = false;
-      wisp.hidden = false;
-      load.hidden = false;
+      transport.hidden = false;
     } else if (tab == 1) {
       ttab.classList.add("active");
       ptab.classList.remove("active");
@@ -72,19 +69,13 @@ if (proxySelect) {
   });
 }
 
-if (wispSelect) {
-  if (localStorage.getItem("wisp") == (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/") {
-    wispSelect.value = "default";
-  } else {
-    wispSelect.value = "tp";
-  }
-  wispSelect.addEventListener("change", function () {
-    if (wispSelect.value == "default") {
-      localStorage.setItem("wisp", (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/");
-    }
-    if (wispSelect.value == "tp") {
-      localStorage.setItem("wisp", prompt("Enter your WISP URL:"));
-    }
+if (localStorage.getItem("transport") == null) {
+  localStorage.setItem("transport", "epoxy");
+}
+if (transSelect) {
+  transSelect.value = localStorage.getItem("transport") || "epoxy";
+  transSelect.addEventListener("change", function () {
+    localStorage.setItem("transport", transSelect.value);
   });
 }
 
@@ -160,12 +151,6 @@ if (bginput && bgset) {
   });
 }
 
-if (load) {
-  loadselect.value = localStorage.getItem("load") || "fancy";
-  loadselect.addEventListener("change", function () {
-    localStorage.setItem("load", loadselect.value);
-  });
-}
 
 
 if (engineSelect) {
