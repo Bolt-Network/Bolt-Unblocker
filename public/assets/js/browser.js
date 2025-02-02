@@ -23,3 +23,37 @@ async function init() {
 
 init().then(() => {
 });
+
+var reload = document.getElementById("reload");
+reload.addEventListener("click", function () {
+    document.getElementById("frame").contentWindow.location.reload();
+});
+
+var oin = document.getElementById("oin");
+oin.addEventListener("click", function () {
+    window.open(document.getElementById("frame").src);
+});
+
+var home = document.getElementById("ghome");
+home.addEventListener("click", function () {
+    window.location.href = "/";
+
+});
+
+var py = document.getElementById("py");
+py.addEventListener("click", function () {
+    if (localStorage.getItem("proxy") == "uv") {
+
+        localStorage.setItem("currenturl", (__uv$config.decodeUrl(document.getElementById("frame").src.replace(window.location.origin, "").substring(12))));
+        localStorage.setItem("url", "/scram/service/" + encodeURIComponent(localStorage.getItem("currenturl")));
+    }
+    else if (localStorage.getItem("proxy") == "sj") {
+        localStorage.setItem("currenturl", decodeURIComponent(document.getElementById("frame").src).replace(window.location.origin, "").substring(15));
+        localStorage.setItem("url", __uv$config.prefix + __uv$config.encodeUrl(localStorage.getItem("currenturl")));
+    }
+    localStorage.setItem("proxy", localStorage.getItem("proxy") == "uv" ? "sj" : "uv");
+    alert("Proxy set to " + localStorage.getItem("proxy"));
+    window.location.reload();
+
+
+});

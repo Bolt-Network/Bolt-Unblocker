@@ -18,16 +18,12 @@ app.use("/baremux/", express.static(baremuxPath));
 
 const server = createServer();
 
-app.get("/games", (req, res) => {
+app.get("/lessons", (req, res) => {
     res.sendFile(join(publicPath, "games.html"));
 });
 
 app.get("/apps", (req, res) => {
     res.sendFile(join(publicPath, "apps.html"));
-});
-
-app.get("/chat", (req, res) => {
-    res.sendFile(join(publicPath, "chat.html"));
 });
 
 app.get("/settings", (req, res) => {

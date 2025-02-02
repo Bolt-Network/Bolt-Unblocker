@@ -1,0 +1,100 @@
+#overlay {
+    position: absolute;
+    z-index: 100;
+    width: 14.3%;
+    height: 10vh;
+    background-color: var(--primary);
+    border-radius: 20px;
+    box-shadow: var(--accent) 0px 0px 20px;
+    top: 10px;
+    left: 10px;
+    cursor: move;
+    opacity: 0.5;
+    transition: opacity 0.2s ease-in-out;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#overlay:hover {
+    opacity: 1;
+}
+
+#reload {
+    color: var(--secondary);
+    opacity: 2;
+    max-width: 4vh;
+    max-height: 4vh;
+    margin: auto;
+    margin-left: 2vh;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#reload:hover {
+    color: var(--accent);
+    transform: rotate(20deg);
+}
+
+#oin {
+    color: var(--secondary);
+    opacity: 2;
+    max-width: 4.2vh;
+    max-height: 4.2vh;
+    margin: auto;
+    margin-left: 2vh;
+    translate: 0vh .1vh;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#oin:hover {
+    color: var(--accent);
+    transform: translateY(-.3vh);
+}
+
+#ghome {
+    color: var(--secondary);
+    opacity: 2;
+    max-width: 4.2vh;
+    max-height: 4.2vh;
+    margin: auto;
+    margin-left: 2vh;
+    translate: 0vh .1vh;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#ghome:hover {
+    color: var(--accent);
+    transform: translateY(-.3vh);
+
+}
+
+#py {
+    color: var(--secondary);
+    opacity: 2;
+    max-width: 4.2vh;
+    max-height: 4.2vh;
+    margin: auto;
+    margin-left: 2vh;
+    translate: 0vh .1vh;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#py:hover {
+    color: var(--accent);
+    transform: translateY(-.3vh);
+
+}
+
+#t {
+    fill: var(--primary);
+    stroke: var(--secondary);
+    transition: all 0.2s ease-in-out;
+}
+
+#py:hover #t {
+    stroke: var(--accent);
+}

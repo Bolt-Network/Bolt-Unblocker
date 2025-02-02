@@ -1,5 +1,5 @@
 :root {
-    --primary: rgb(0, 0, 0);
+    --primary: rgb(0, 4, 7);
     --secondary: rgb(255, 255, 255);
     --font: rgb(255, 255, 255);
     --accent: rgb(0, 153, 255);
@@ -239,101 +239,20 @@ input:hover {
     text-overflow: ellipsis;
 }
 
+canvas {
+    display: block;
+}
 
 #logo:hover {
     color: var(--secondary);
     text-shadow: 0 0 10px var(--secondary);
 }
 
-#newTabButton {
-    background-color: var(--primary);
-    margin-top: -35px;
-    margin-left: 193vh;
-    width: 30px;
-    height: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease-in-out;
-    cursor: pointer;
-}
-
-#newTab {
-    font-size: 30px;
-    color: var(--secondary);
-    text-decoration: none;
-    user-select: none;
-    cursor: pointer;
-    line-height: 1;
-    margin-top: 17px;
-}
-
-#newTabButton:hover {
-    box-shadow: 0 0 10px var(--secondary);
-}
-
-.tabs {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: fixed;
-    top: 10px;
-    left: 245px;
-    overflow-x: auto;
-    max-width: calc(100% - 80px);
-    /* Adjust as needed */
-}
-
-#x {
-    position: absolute;
-    font-size: 20px;
-    color: var(--secondary);
-    text-decoration: none;
-    user-select: none;
-    cursor: pointer;
-    margin-top: -5px;
-    margin-left: 160px;
-    transition: all 0.1s ease-in-out;
-}
-
-#x:hover {
-    color: var(--accent);
-    text-shadow: 0 0 10px var(--secondary);
-}
-
-#tab.active {
-    background-color: var(--secondary);
-    color: var(--primary);
-}
-
-#tab.active #tabTxt {
-    color: var(--primary);
-}
-
-#tab.active #x {
-    color: var(--primary);
-}
-
-#firsttab.active {
-    background-color: var(--secondary);
-    color: var(--primary);
-}
-
-#firsttab.active #ftabtxt {
-    color: var(--primary);
-}
-
-#icons {
-    margin-left: 0px;
-}
-
 .nav {
     background-color: var(--primary);
     box-shadow: var(--accent) 0px 0px 50px;
     height: 100vh;
-    width: 50px;
+    width: 3.5%;
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -341,7 +260,6 @@ input:hover {
     justify-content: center;
     text-align: center;
     position: fixed;
-
 }
 
 #home {
@@ -420,7 +338,7 @@ input:hover {
 
 .app {
     background-color: var(--primary);
-    box-shadow: 0 0 30px var(--accent);
+    box-shadow: 0 0 25px var(--accent);
     border-radius: 20px;
     color: var(--secondary);
     width: 200px;
@@ -507,10 +425,12 @@ input:hover {
 
 .settings {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 30px;
+    margin: auto;
+    width: 100%;
+    height: auto;
     margin-top: 30px;
 }
 
@@ -531,7 +451,7 @@ input:hover {
     flex-direction: column;
 }
 
-#proxy-select {
+.select {
     width: 200px;
     height: 75px;
     border-radius: 20px;
@@ -546,67 +466,11 @@ input:hover {
     transition: all 0.2s ease-out;
 }
 
-#proxy-select:hover {
+.select:hover {
     box-shadow: var(--accent) 0px 0px 20px;
 }
 
-#trans-select {
-    width: 200px;
-    height: 75px;
-    border-radius: 20px;
-    border: none;
-    outline: none;
-    text-align: center;
-    font-size: 20px;
-    color: var(--primary);
-    font-family: "font";
-    background-color: var(--secondary);
-    cursor: pointer;
-    transition: all 0.2s ease-out;
-}
 
-#trans-select:hover {
-    box-shadow: var(--accent) 0px 0px 20px;
-}
-
-#load-select {
-    width: 250px;
-    height: 75px;
-    border-radius: 20px;
-    border: none;
-    outline: none;
-    text-align: center;
-    font-size: 20px;
-    color: var(--primary);
-    font-family: "font";
-    background-color: var(--secondary);
-    margin-top: 20px;
-    cursor: pointer;
-    transition: all 0.2s ease-out;
-}
-
-#load-select:hover {
-    box-shadow: var(--accent) 0px 0px 20px;
-}
-
-#theme-select {
-    width: 200px;
-    height: 75px;
-    border-radius: 20px;
-    border: none;
-    outline: none;
-    text-align: center;
-    font-size: 20px;
-    color: var(--primary);
-    font-family: "font";
-    background-color: var(--secondary);
-    cursor: pointer;
-    transition: all 0.2s ease-out;
-}
-
-#theme-select:hover {
-    box-shadow: var(--accent) 0px 0px 20px;
-}
 
 .bg {
     display: flex;
@@ -763,140 +627,13 @@ input:hover {
 }
 
 
-.wrapper {
-    position: fixed;
-    margin: auto;
-    bottom: -65vh;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    filter: blur(150px);
-    z-index: -100;
-}
-
-.gradient {
-    position: absolute;
-    border-radius: 100%;
-    opacity: 0.6;
-    mix-blend-mode: screen;
-    animation-iteration-count: infinite;
-    animation-timing-function: cubic-bezier(0.1, 0, 0.9, 1);
-}
-
-
-.gradient-1 {
-    background: var(--accent) none repeat scroll 0% 0% / auto padding-box border-box;
-    width: 700px;
-    height: 700px;
-    animation-duration: 11s;
-    opacity: 0.6;
-    left: 60%;
-    top: 40%;
-    z-index: -101;
-    animation-name: animation-gradient-1;
-}
-
-.gradient-2 {
-    background: var(--accent) none repeat scroll 0% 0% / auto padding-box border-box;
-    width: 600px;
-    height: 600px;
-    animation-duration: 11s;
-    opacity: 0.6;
-    left: 40%;
-    top: 60%;
-    z-index: -101;
-    animation-name: animation-gradient-2;
-}
-
-.gradient-3 {
-    background: var(--accent) none repeat scroll 0% 0% / auto padding-box border-box;
-    width: 500px;
-    height: 500px;
-    animation-duration: 11s;
-    opacity: 0.6;
-    left: 50%;
-    top: 50%;
-    z-index: -101;
-    animation-name: animation-gradient-3;
-}
-
-@keyframes animation-gradient-1 {
-    0% {
-        transform: translateY(-50%) translateX(-50%) rotate(-20deg) translateX(20%);
-    }
-
-    25% {
-        transform: translateY(-50%) translateX(-50%) skew(-15deg, -15deg) rotate(80deg) translateX(30%);
-    }
-
-    50% {
-        transform: translateY(-50%) translateX(-50%) rotate(180deg) translateX(25%);
-    }
-
-    75% {
-        transform: translateY(-50%) translateX(-50%) skew(15deg, 15deg) rotate(240deg) translateX(15%);
-    }
-
-    100% {
-        transform: translateY(-50%) translateX(-50%) rotate(340deg) translateX(20%);
-    }
-}
-
-@keyframes animation-gradient-2 {
-    0% {
-        transform: translateY(-50%) translateX(-50%) rotate(40deg) translateX(-20%);
-    }
-
-    25% {
-        transform: translateY(-50%) translateX(-50%) skew(15deg, 15deg) rotate(110deg) translateX(-5%);
-    }
-
-    50% {
-        transform: translateY(-50%) translateX(-50%) rotate(210deg) translateX(-35%);
-    }
-
-    75% {
-        transform: translateY(-50%) translateX(-50%) skew(-15deg, -15deg) rotate(300deg) translateX(-10%);
-    }
-
-    100% {
-        transform: translateY(-50%) translateX(-50%) rotate(400deg) translateX(-20%);
-    }
-}
-
-@keyframes animation-gradient-3 {
-    0% {
-        transform: translateY(-50%) translateX(-50%) translateX(-15%) translateY(10%);
-    }
-
-    20% {
-        transform: translateY(-50%) translateX(-50%) translateX(20%) translateY(-30%);
-    }
-
-    40% {
-        transform: translateY(-50%) translateX(-50%) translateX(-25%) translateY(-15%);
-    }
-
-    60% {
-        transform: translateY(-50%) translateX(-50%) translateX(30%) translateY(20%);
-    }
-
-    80% {
-        transform: translateY(-50%) translateX(-50%) translateX(5%) translateY(35%);
-    }
-
-    100% {
-        transform: translateY(-50%) translateX(-50%) translateX(-15%) translateY(10%);
-    }
-}
-
 #boltlogo {
     text-decoration: none;
     color: var(--accent);
     font-size: 50px;
     transition: all 0.2s ease-out;
     height: 1px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 #boltlogo:hover {
