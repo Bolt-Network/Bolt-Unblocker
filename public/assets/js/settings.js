@@ -11,56 +11,7 @@ var themeselect = document.getElementById("theme-select");
 var bginput = document.getElementById("bginput");
 var bgset = document.getElementById("bgset");
 var engineSelect = document.getElementById("engine-select");
-
-if (ptab && ttab && etab) {
-  checkTabs();
-  ptab.addEventListener("click", function () {
-    tab = 0;
-    checkTabs();
-  });
-  ttab.addEventListener("click", function () {
-    tab = 1;
-    checkTabs();
-  });
-  etab.addEventListener("click", function () {
-    tab = 2;
-    checkTabs();
-  });
-
-  if (!localStorage.getItem("engine")) {
-    localStorage.setItem("engine", "google");
-  }
-
-  function checkTabs() {
-    proxy.hidden = true;
-    transport.hidden = true;
-    cloaking.hidden = true;
-    cheats.hidden = true;
-    themes.hidden = true;
-    engine.hidden = true;
-    cbg.style.display = "none";
-    if (tab == 0) {
-      ptab.classList.add("active");
-      ttab.classList.remove("active");
-      etab.classList.remove("active");
-      proxy.hidden = false;
-      transport.hidden = false;
-    } else if (tab == 1) {
-      ttab.classList.add("active");
-      ptab.classList.remove("active");
-      etab.classList.remove("active");
-      themes.hidden = false;
-      cbg.style.display = "flex";
-    } else if (tab == 2) {
-      etab.classList.add("active");
-      ptab.classList.remove("active");
-      ttab.classList.remove("active");
-      cheats.hidden = false;
-      cloaking.hidden = false;
-      engine.hidden = false;
-    }
-  }
-}
+var particlesSelect = document.getElementById("p-select");
 
 if (proxySelect) {
   proxySelect.value = localStorage.getItem("proxy") || "uv";
@@ -157,5 +108,13 @@ if (engineSelect) {
   engineSelect.value = localStorage.getItem("engine") || "google";
   engineSelect.addEventListener("change", function () {
     localStorage.setItem("engine", engineSelect.value);
+  });
+}
+
+if (particlesSelect) {
+  particlesSelect.value = localStorage.getItem("particles") || "true";
+  particlesSelect.addEventListener("change", function () {
+    localStorage.setItem("particles", particlesSelect.value);
+    location.reload();
   });
 }

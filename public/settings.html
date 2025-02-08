@@ -112,69 +112,81 @@
   <div class="appTitle">
     <h1 id="appTitle">Settings</h1>
   </div>
-  <div id="settingsnav">
-    <h1 class="sni" id="ptab">Proxy</h1>
-    <h1 class="sni" id="ttab">Themes</h1>
-    <h1 class="sni" id="etab">Extras</h1>
-  </div>
   <div class="settings">
-    <div class="settings-item" id="proxy">
-      <h1 id="proxytitle">Proxy</h1>
-      <select id="proxy-select" class="select">
-        <option value="uv">Ultraviolet</option>
-        <option value="sj">Scramjet</option>
-        <option value="rammerhead">Rammerhead</option>
-      </select>
+    <h1 class="ti">⚡ Performance ⚡</h1>
+    <div class="settings-section" id="performance">
+
+      <div class="settings-item" id="proxy">
+        <h1 id="proxytitle">Proxy</h1>
+        <select id="proxy-select" class="select">
+          <option value="uv">Ultraviolet</option>
+          <option value="sj">Scramjet</option>
+          <option value="rammerhead">Rammerhead</option>
+        </select>
+      </div>
+
+      <div class="settings-item" id="transport">
+        <h1 id="proxytitle">Transport</h1>
+        <select id="trans-select" class="select">
+          <option value="epoxy">Epoxy</option>
+          <option value="libcurl">Libcurl</option>
+        </select>
+      </div>
+
+      <div class="settings-item" id="engine">
+        <h1 id="loadtitle">Search Engine</h1>
+        <select id="engine-select">
+          <option value="google">Google</option>
+          <option value="ddg">DuckDuckGo</option>
+        </select>
+      </div>
+    </div>
+    <h1 class="ti">🎨 Customization 🎨</h1>
+    <div class="settings-section" id="customization">
+      <div class="settings-item" id="themes">
+        <h1 id="proxytitle">Theme</h1>
+        <select id="theme-select" class="select">
+          <option value="default">Default</option>
+          <option value="night">Night</option>
+          <option value="quartz">Quartz</option>
+          <option value="twelve">Twelve</option>
+          <option value="dusk">Dusk</option>
+          <option value="flourishing">Flourishing</option>
+        </select>
+      </div>
+
+      <div class="settings-item" id="particles">
+        <h1 id="proxytitle">Particles</h1>
+        <select id="p-select" class="select">
+          <option value="true">On</option>
+          <option value="false">Off</option>
+        </select>
+      </div>
+      <div class="settings-item" id="cbg">
+        <h1 id="bgtitle">Custom Background</h1>
+        <input type="text" id="bginput" placeholder="Paste Image URL Here">
+        <button id="bgset">Set</button>
+      </div>
     </div>
 
-    <div class="settings-item" id="transport">
-      <h1 id="proxytitle">Transport</h1>
-      <select id="trans-select" class="select">
-        <option value="epoxy">Epoxy</option>
-        <option value="libcurl">Libcurl</option>
-      </select>
+    <h1 class="ti">➕ Extras ➕</h1>
+    <div class="settings-section" id="extras">
+      <div class="settings-item" id="cloaking">
+        <h1 id="proxytitle">Cloaking</h1>
+        <button id="ab">Open in about:blank</button>
+      </div>
+
+      <div class="settings-item" id="cheats">
+        <h1 id="proxytitle">Cheats</h1>
+        <button id="blooket" class="button">Blooket</button>
+        <button id="gimkit" class="button">Gimkit</button>
+      </div>
     </div>
 
-    <div class="settings-item" id="themes">
-      <h1 id="proxytitle">Theme</h1>
-      <select id="theme-select" class="select">
-        <option value="default">Default</option>
-        <option value="night">Night</option>
-        <option value="quartz">Quartz</option>
-        <option value="twelve">Twelve</option>
-        <option value="dusk">Dusk</option>
-        <option value="flourishing">Flourishing</option>
-      </select>
-    </div>
 
-    <div class="settings-item" id="cbg">
-      <h1 id="bgtitle">Custom Background</h1>
-      <input type="text" id="bginput" placeholder="Paste Image URL Here">
-      <button id="bgset">Set</button>
-    </div>
-
-    <div class="settings-item" id="cloaking">
-      <h1 id="proxytitle">Cloaking</h1>
-      <button id="ab">Open in about:blank</button>
-    </div>
-
-    <div class="settings-item" id="cheats">
-      <h1 id="proxytitle">Cheats</h1>
-      <button id="blooket" class="button">Blooket</button>
-      <button id="gimkit" class="button">Gimkit</button>
-    </div>
-    <div class="settings-item" id="engine">
-      <h1 id="loadtitle">Search Engine</h1>
-      <select id="engine-select">
-        <option value="google">Google</option>
-        <option value="ddg">DuckDuckGo</option>
-      </select>
-    </div>
   </div>
 
-  </div>
-
-
+  <div class="space"></div>
 
   <script src="/assets/js/settings.js"></script>
 </body>

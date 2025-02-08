@@ -413,26 +413,20 @@ canvas {
     max-width: 1200px;
     margin: 0 auto;
     margin-top: -40px;
-    translate: 6vh;
 }
 
-#time {
-    color: var(--font);
-    font-size: 30px;
-    margin: auto;
-    margin-right: 21vh;
+.space {
+    height: 100px;
 }
+
 
 .settings {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
+    text-align: center;
     margin: auto;
-    width: 100%;
-    height: auto;
-    margin-top: 30px;
+    margin-left: 7vh;
+    margin-top: -15vh;
 }
+
 
 .settings-item {
     background-color: var(--primary);
@@ -470,7 +464,28 @@ canvas {
     box-shadow: var(--accent) 0px 0px 20px;
 }
 
+.settings-section {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
 
+}
+
+.ti {
+    font-size: 10vh;
+    margin-top: 10px;
+    display: flex;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    color: var(--font);
+    justify-content: center;
+    margin-bottom: 3vh;
+    margin-top: 10vh;
+}
 
 .bg {
     display: flex;
@@ -595,20 +610,6 @@ canvas {
     border-radius: 20px;
     box-shadow: var(--accent) 0px 0px 20px;
     margin-left: 14dvh;
-}
-
-#settingsnav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 530px;
-    margin: auto;
-    border-radius: 30px;
-    margin-top: -70px;
-    background-color: var(--primary);
-    color: var(--secondary);
-    box-shadow: 0 0 30px var(--accent);
-    gap: 60px;
 }
 
 .sni {
