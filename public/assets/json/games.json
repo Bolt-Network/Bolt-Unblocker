@@ -90,9 +90,34 @@
         "url": "https://eaglercraft.dev/clients/Precision/"
     },
     {
+        "name": "The Backrooms",
+        "image": "https://backroomsgame.net/data/image/backrooms.png",
+        "url": "https://backroomsgame.io/game/backrooms/"
+    },
+    {
+        "name": "Blastronaut",
+        "image": "https://styles.redditmedia.com/t5_6q2h1u/styles/communityIcon_vp16242ausk91.png",
+        "url": "https://html-classic.itch.zone/html/2758024/index.html?v=1732313803"
+    },
+    {
         "name": "Defly.io",
         "image": "https://e.snmc.io/lk/o/x/b465d32bfc26221707c8f15707279882/8325627",
         "url": "https://defly.io/"
+    },
+    {
+        "name": "Ten Minutes Till Dawn",
+        "image": "https://cdn2.steamgriddb.com/icon/550730a8ac07ca5a875783e526529bfb/32/256x256.png",
+        "url": "https://jeowebsite.github.io/10-minutes-till-dawn/index.html"
+    },
+    {
+        "name": "Bacon May Die",
+        "image": "https://play-lh.googleusercontent.com/W_dghckKR-MD8Hx5YvCpdx3bYNeqrBdZqnMI02JnP5rVH8VqGaQUzdiMXd2wdJGLeP0",
+        "url": "https://classroom6x.gitlab.io/bacon-may-die/"
+    },
+    {
+        "name": "Cluster Rush",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOK5ZQEU5BYxEKUz1Z9yy6Bqs3UXLE1b5G2m0uPffZGR3R1dNuc5cRhS6_rKPTqmY4LdU&usqp=CAU",
+        "url": "https: //clusterrush.io/game/cluster-rush/"
     },
     {
         "name": "Smash Karts",

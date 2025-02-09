@@ -412,6 +412,7 @@ canvas {
     height: auto;
     max-width: 1200px;
     margin: 0 auto;
+    translate: 6vh;
     margin-top: -40px;
 }
 
