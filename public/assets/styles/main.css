@@ -63,16 +63,48 @@ body {
 
 .title {
     color: var(--accent);
-    margin: auto;
     text-align: center;
-    font-size: 70px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 9vh;
     text-shadow: 0 0 30px var(--accent);
-    height: 200px;
-    margin-top: -20px;
+    height: 120px;
 }
 
 #i {
+    height: fit-content;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     translate: 5vh;
+}
+
+
+#input {
+    width: 55vw;
+    height: 11vh;
+    border-radius: 4vh;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-size: 20px;
+    color: var(--primary);
+    font-family: "font";
+    background-color: var(--secondary);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    margin-inline: auto;
+    margin-top: 6vh;
+}
+
+input:hover {
+    box-shadow: 0 0 20px var(--accent);
+}
+
+#input:focus {
+    box-shadow: 0 0 50px var(--accent);
 }
 
 .appTitle {
@@ -84,30 +116,6 @@ body {
     height: 200px;
     margin-top: -20px;
     margin-left: 7vh;
-}
-
-#input {
-    width: 55%;
-    height: 11vh;
-    border-radius: 20px;
-    border: none;
-    outline: none;
-    text-align: center;
-    font-size: 20px;
-    color: var(--primary);
-    font-family: "font";
-    background-color: var(--secondary);
-    transition: all 0.3s ease-in-out;
-    display: flex;
-    margin-inline: auto;
-}
-
-input:hover {
-    box-shadow: 0 0 20px var(--accent);
-}
-
-#input:focus {
-    box-shadow: 0 0 50px var(--accent);
 }
 
 #frame {
