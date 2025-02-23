@@ -44,7 +44,7 @@ switch (theme) {
                 bg.setAttribute("src", "/assets/imgs/bg/dusk.png");
             }
         }
-        document.documentElement.style.cssText = "    --primary: rgb(0, 0, 0);--secondary: rgb(255, 202, 171); --font: rgb(255, 206, 171); --accent: rgb(255, 113, 62); ";
+        document.documentElement.style.cssText = "    --primary: rgb(0, 0, 0);--secondary:rgb(255,185,132); --font: rgb(255, 178, 139); --accent: rgb(255,185,132); ";
         break;
     case "flourishing":
         if (localStorage.getItem("custombg") == '') {
