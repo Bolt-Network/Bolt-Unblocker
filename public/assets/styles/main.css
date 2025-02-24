@@ -99,6 +99,10 @@ body {
     margin-top: 6vh;
 }
 
+#input::placeholder {
+    color: var(--primary);
+}
+
 input:hover {
     box-shadow: 0 0 20px var(--accent);
 }
