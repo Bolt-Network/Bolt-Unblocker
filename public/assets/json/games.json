@@ -190,6 +190,26 @@
         "url": "https://yorg3.io/"
     },
     {
+        "name": "Idle Dice",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOn17thf-Kro89_CPMKb_BkOu8K1BXPkTCpPCCyrrASWXgEEkDRNWJEALbqR-KzNiOM_A&usqp=CAU",
+        "url": "https://luts91.github.io/idle-dices/"
+    },
+    {
+        "name": "Sprunki",
+        "image": "https://www.contezero.com/user/pages/03.games/06.casual/sprunki/Sprunki.jpg",
+        "url": "https://html-classic.itch.zone/html/11407110/index.html?v=1730332583"
+    },
+    {
+        "name": "Bank Robbery 3",
+        "image": "https://backroomsgame.io/data/image/game/bank-robbery-3.png",
+        "url": "https://st.8games.net/10/igra-ograblenie-banka-3/"
+    },
+    {
+        "name": "Megaspell",
+        "image": "https://avatars.githubusercontent.com/u/86487301?s=200&v=4",
+        "url": "https://html-classic.itch.zone/html/8345366/index.html"
+    },
+    {
         "name": "FNF",
         "image": "https://upload.wikimedia.org/wikipedia/commons/2/22/Friday_Night_Funkin%27_logo.png",
         "url": "https://fnf.kdata1.com/2024/fnf/5201/"
@@ -198,5 +218,10 @@
         "name": "Taming.io",
         "image": "https://taming.io/img/type-loading.png",
         "url": "https://www.taming.io"
+    },
+    {
+        "name": "Griffin Urban (Troll)",
+        "image": "/",
+        "url": ""
     }
 ]
