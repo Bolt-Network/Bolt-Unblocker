@@ -1,3 +1,9 @@
+<div align="center">
+      <h1><b>Get ready for Bolt</b></h1>
+<img src="https://i.imgur.com/Yl2BdtT.png" style="width: 1200px">
+<img src="https://i.imgur.com/WJY8phh.jpeg" style="width: 1200px">
+</div>
+
 <h1>
   <b>
     How it Works
