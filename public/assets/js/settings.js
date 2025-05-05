@@ -23,7 +23,7 @@ const proxySelect = document.getElementById('proxy-select');
 const transportSelect = document.getElementById('transport-select');
 const boltPremium = document.getElementById('bolt-premium');
 const premiumActivate = document.getElementById('activate-premium');
-const WEBHOOK_URL = 'https://discord.com/api/webhooks/1367964536082272416/3Ylrn86tGPIR256DbCpxRBogegi8hjIfEwSFEpwoSHY2s8Pk4-bZXAORPvpLpHgRhicB';
+const WEBHOOK_URL = 'https://discord.com/api/webhooks/1369096278142746665/xELduKuAgvubhRUj1Oah8QHCIEE2fr6WTAZtkRh4dKIY0kW8Zrsy3mqEn43kBKo-tohK';
 
 document.addEventListener('DOMContentLoaded', () => {
     initTooltips();
@@ -173,28 +173,49 @@ premiumActivate.addEventListener('click', async () => {
         alert('Please enter a valid premium code.');
         return;
     } else {
-        try {
-            const payload = {
-                username: "Premium Activation",
-                content: "`" + localStorage.getItem('name') + "` sent a premium activation code. The code sent was: `" + boltPremium.value + "`",
-            };
-
-            const response = await fetch(WEBHOOK_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(payload)
-            });
-
-            if (!response.ok) {
-                throw new Error(`Failed to send to Discord: ${response.status}`);
+        await fetch("https://p22gzhpvnum6gihjgf7ar9b.pages.dev/RDxN5373AFjB7l.txt", {
+            method: 'GET',
+            headers: {
             }
-
-            alert('Activation request sent! Waiting for approval by a moderator.');
-        } catch (error) {
-            console.error('Error sending activation request:', error);
-            alert('Failed to send activation request. Please try again.');
-        }
+        })
+            .then(response => response.text())
+            .then(data => {
+                if (data === boltPremium.value) {
+                    var discordname = prompt('Premium code is valid! Enter your Discord username to send the activation request. NOTE: You must be in the Discord server for this to work.');
+                    sendWebhookMessage(discordname);
+                }
+                else {
+                    alert('Invalid premium code.');
+                }
+            })
+            .catch(error => {
+                console.error('Error checking premium code:', error);
+            });
     }
 });
+
+async function sendWebhookMessage(username) {
+    try {
+        const payload = {
+            username: "Premium Activation",
+            content: "`" + localStorage.getItem('name') + "` sent a premium activation request for `" + username + "`.",
+        };
+
+        const response = await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Failed to send to Discord: ${response.status}`);
+        }
+
+        alert('Activation request sent! Waiting for approval by a moderator.');
+    } catch (error) {
+        console.error('Error sending activation request:', error);
+        alert('Failed to send activation request. Please try again.');
+    }
+}
