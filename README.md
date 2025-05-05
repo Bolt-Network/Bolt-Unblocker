@@ -1,8 +1,20 @@
 <div align="center">
       <h1><b>Get ready for Bolt</b></h1>
 <img src="https://i.imgur.com/Yl2BdtT.png" style="width: 1200px">
-<img src="https://i.imgur.com/WJY8phh.jpeg" style="width: 1200px">
+<img src="https://i.postimg.cc/8c8z0BmC/boltosdemo.png" style="width: 1200px">
 </div>
+
+> [!NOTE]
+> For more links or general support, join
+> our [Discord Server](https://discord.gg/deKc8yB8De).
+
+# Features
+- 2 fast and powerful proxy choices
+- Beautiful OS GUI
+- Powerful site support
+- Flexible cloaking
+- Tons of games (powered by Spark Games!!)
+
 
 <h1>
   <b>
@@ -69,9 +81,10 @@
   ```bash
   pnpm i
   ```
-  <br>
-  then run
   
+  then run
+
+
   ```bash
   pnpm start
   ```
