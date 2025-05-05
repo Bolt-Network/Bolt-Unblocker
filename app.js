@@ -18,22 +18,6 @@ app.use("/baremux/", express.static(baremuxPath));
 
 const server = createServer();
 
-app.get("/lessons", (req, res) => {
-    res.sendFile(join(publicPath, "games.html"));
-});
-
-app.get("/apps", (req, res) => {
-    res.sendFile(join(publicPath, "apps.html"));
-});
-
-app.get("/settings", (req, res) => {
-    res.sendFile(join(publicPath, "settings.html"));
-});
-
-app.get("/browser", (req, res) => {
-    res.sendFile(join(publicPath, "browser.html"));
-});
-
 app.get("/", (req, res) => {
     res.sendFile(join(publicPath, "index.html"));
 });
@@ -61,8 +45,6 @@ if (isNaN(port)) port = 8080;
 server.on("listening", () => {
     const address = server.address();
 
-    // by default we are listening on 0.0.0.0 (every interface)
-    // we just need to list a few
     console.log("Listening on:");
     console.log(`\thttp://localhost:${address.port}`);
     console.log(`\thttp://${hostname()}:${address.port}`);
@@ -72,8 +54,6 @@ server.on("listening", () => {
     );
 
 });
-
-// https://expressjs.com/en/advanced/healthcheck-graceful-shutdown.html
 process.on("SIGINT", shutdown);
 process.on("SIGTERM", shutdown);
 

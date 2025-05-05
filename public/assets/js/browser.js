@@ -1,58 +1,208 @@
-async function init() {
-    try {
-        const connection = new BareMux.BareMuxConnection("/baremux/worker.js");
-        const wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
-        if (localStorage.getItem("transport") == "epoxy") {
-            if (await connection.getTransport() !== "/epoxy/index.mjs") {
-                await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
-                console.log("Using websocket transport. Wisp URL is: " + wispUrl);
+document.addEventListener('DOMContentLoaded', function () {
+    const urlBar = document.getElementById('url-bar');
+    const goButton = document.getElementById('go-button');
+    const refreshButton = document.getElementById('refresh-button');
+    const backButton = document.getElementById('back-button');
+    const forwardButton = document.getElementById('forward-button');
+    const closeButton = document.getElementById('close-button');
+    const tooltip = document.getElementById('tooltip');
+    const tabManager = new TabManager();
+    tabManager.createTab();
+    const sidebarToggle = document.querySelector('.sidebar-toggle');
+    const sidebar = document.querySelector('.tab-sidebar');
+    const browserContainer = document.querySelector('.browser-container');
+
+    window.addEventListener('message', function (event) {
+        if (event.data && event.data.type === 'navigate') {
+            let url = event.data.url;
+
+            if (!url.includes('.') && !url.startsWith('http')) {
+                url = 'https://www.duckduckgo.com/search?q=' + encodeURIComponent(url);
+            } else if (!/^https?:\/\//i.test(url) && !url.startsWith('/')) {
+                url = 'https://' + url;
+            }
+
+            const tab = tabManager.createTab();
+
+            if (urlBar) {
+                urlBar.value = url;
+            }
+
+            tabManager.navigateToUrl(url);
+        }
+    });
+
+    sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('collapsed');
+        browserContainer.classList.toggle('sidebar-collapsed');
+
+        localStorage.setItem('sidebar-collapsed', sidebar.classList.contains('collapsed'));
+
+        const svgPath = sidebarToggle.querySelector('svg path');
+        if (sidebar.classList.contains('collapsed')) {
+            svgPath.setAttribute('d', 'M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z');
+        } else {
+            svgPath.setAttribute('d', 'M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z');
+        }
+    });
+
+    if (localStorage.getItem('sidebar-collapsed') === 'true') {
+        sidebar.classList.add('collapsed');
+        browserContainer.classList.add('sidebar-collapsed');
+        const svgPath = sidebarToggle.querySelector('svg path');
+        svgPath.setAttribute('d', 'M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z');
+    }
+
+    window.dispatchEvent(new Event('resize'));
+
+    function navigateToUrl() {
+        let url = urlBar.value.trim();
+
+        if (!url) return;
+
+        document.querySelector('.browser-container').classList.add('loading');
+
+        if (!url.includes('.') && !url.startsWith('http')) {
+            url = 'https://www.duckduckgo.com/search?q=' + encodeURIComponent(url);
+        } else if (!/^https?:\/\//i.test(url)) {
+            url = 'https://' + url;
+        }
+
+        tabManager.navigateToUrl(url);
+
+    }
+
+    function refreshPage() {
+        const activeTab = tabManager.getActiveTab();
+        if (activeTab && activeTab.iframe) {
+            document.querySelector('.browser-container').classList.add('loading');
+            activeTab.iframe.contentWindow.location.reload();
+        }
+    }
+
+    function goBack() {
+        const activeTab = tabManager.getActiveTab();
+        if (activeTab && activeTab.iframe) {
+            document.querySelector('.browser-container').classList.add('loading');
+            try {
+                activeTab.iframe.contentWindow.history.back();
+            } catch (err) {
+                console.log('Cannot access cross-origin history');
             }
         }
-        else {
-            if (await connection.getTransport() !== "/libcurl/index.mjs") {
-                await connection.setTransport("/libcurl/index.mjs", [{ wisp: wispUrl }]);
-                console.log("Using websocket transport. Wisp URL is: " + wispUrl);
+    }
+
+    function goForward() {
+        const activeTab = tabManager.getActiveTab();
+        if (activeTab && activeTab.iframe) {
+            document.querySelector('.browser-container').classList.add('loading');
+            try {
+                activeTab.iframe.contentWindow.history.forward();
+            } catch (err) {
+                console.log('Cannot access cross-origin history');
             }
         }
-
-    } catch (err) {
-        console.error("An error occurred while setting up baremux:", err);
     }
-    document.getElementById("frame").src = localStorage.getItem("url");
-}
+    // Add this to the DOMContentLoaded event handler in browser.js
+    function setupIframeNavMonitoring() {
+        // Use MutationObserver to detect when iframes are added
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'childList') {
+                    mutation.addedNodes.forEach((node) => {
+                        if (node.tagName === 'IFRAME') {
+                            monitorIframeNavigation(node);
+                        }
+                    });
+                }
+            });
+        });
 
-init().then(() => {
-});
+        observer.observe(document.querySelector('.iframe-container'), { childList: true });
 
-var reload = document.getElementById("reload");
-reload.addEventListener("click", function () {
-    document.getElementById("frame").contentWindow.location.reload();
-});
-
-var oin = document.getElementById("oin");
-oin.addEventListener("click", function () {
-    window.open(document.getElementById("frame").contentWindow.location);
-});
-
-var home = document.getElementById("ghome");
-home.addEventListener("click", function () {
-    window.location.href = "/";
-
-});
-
-var py = document.getElementById("py");
-py.addEventListener("click", function () {
-    if (localStorage.getItem("proxy") == "uv") {
-        localStorage.setItem("currenturl", __uv$config.decodeUrl(document.getElementById("frame").contentWindow.location.href.replace(window.location.origin, "").replace(__uv$config.prefix, "")));
-        localStorage.setItem("url", "/scram/service/" + encodeURIComponent(localStorage.getItem("currenturl")));
+        // Also monitor existing iframes
+        document.querySelectorAll('.iframe-container iframe').forEach(iframe => {
+            monitorIframeNavigation(iframe);
+        });
     }
-    else if (localStorage.getItem("proxy") == "sj") {
-        localStorage.setItem("currenturl", decodeURIComponent(document.getElementById("frame").contentWindow.location.href.replace(window.location.origin, "").substring(15)));
-        localStorage.setItem("url", __uv$config.prefix + __uv$config.encodeUrl(localStorage.getItem("currenturl")));
+
+    function monitorIframeNavigation(iframe) {
+        try {
+            iframe.addEventListener('load', () => {
+                const tabId = iframe.id.replace('frame-', '');
+                const tab = tabManager.tabs.get(tabId);
+
+                if (tab && tabManager.activeTabId === tabId) {
+                    try {
+                        // Try to get the current URL from the iframe
+                        const currentUrl = iframe.contentWindow.location.href;
+                        var setUrl = currentUrl;
+                        tab.originalUrl = currentUrl;
+                        setUrl = setUrl.replace(window.location.origin, '');
+                        if (setUrl.includes('uv')) {
+                            setUrl = setUrl.replace('/uv/service/', '');
+                            setUrl = uvDecodeUrl(setUrl);
+                        }
+                        if (setUrl.includes('scram')) {
+                            setUrl = setUrl.replace('/scram/service/', '');
+                            setUrl = sjDecodeUrl(setUrl);
+                        }
+                        document.getElementById('url-bar').value = setUrl;
+                    } catch (e) {
+                        // CORS might prevent access to location
+                        console.log("Could not access iframe location due to CORS");
+                    }
+                }
+            });
+        } catch (e) {
+            console.error("Error setting up iframe navigation monitoring", e);
+        }
     }
-    localStorage.setItem("proxy", localStorage.getItem("proxy") == "uv" ? "sj" : "uv");
-    alert("Proxy set to " + localStorage.getItem("proxy"));
-    window.location.reload();
+
+    setupIframeNavMonitoring();
+
+    TabManager.prototype.getActiveTab = function () {
+        return this.tabs.get(this.activeTabId);
+    };
+
+    if (goButton) goButton.addEventListener('click', navigateToUrl);
+    if (refreshButton) refreshButton.addEventListener('click', refreshPage);
+    if (backButton) backButton.addEventListener('click', goBack);
+    if (forwardButton) forwardButton.addEventListener('click', goForward);
+    if (closeButton) closeButton.addEventListener('click', closeWindow);
+
+    if (urlBar) {
+        urlBar.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                navigateToUrl();
+            }
+        });
+    }
+
+    setupTooltips();
 
 
+
+    function setupTooltips() {
+        const buttons = document.querySelectorAll('.control-button');
+
+        buttons.forEach(button => {
+            button.addEventListener('mouseenter', function (e) {
+                const title = this.getAttribute('title');
+                if (title && tooltip) {
+                    const rect = this.getBoundingClientRect();
+                    tooltip.textContent = title;
+                    tooltip.style.opacity = '1';
+                    tooltip.style.top = rect.bottom + 8 + 'px';
+                    tooltip.style.left = rect.left + rect.width / 2 - tooltip.offsetWidth / 2 + 'px';
+                }
+            });
+
+            button.addEventListener('mouseleave', function () {
+                if (tooltip) {
+                    tooltip.style.opacity = '0';
+                }
+            });
+        });
+    }
 });

@@ -3,24 +3,22 @@
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  <title>Home</title>
-  <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/classroom/favicon.png" />
+  <title>Bolt Unblocker</title>
+  <link rel="icon" type="image/x-icon" href="/assets/imgs/logos/boltlogo11.ico" />
   <link id="theme" rel="stylesheet" href="/assets/styles/main.css" />
-  <link id="theme" rel="stylesheet" href="/assets/styles/footer.css" />
-  <link id="theme" rel="stylesheet" href="/assets/styles/a.css" />
   <script src="/scram/scramjet.controller.js"></script>
   <script src="/baremux/index.js"></script>
   <script src="/uv/uv.bundle.js"></script>
   <script src="/uv/uv.config.js"></script>
   <link rel="prefetch" href="/scram/scramjet.worker.js" />
   <link rel="prefetch" href="/scram/scramjet.shared.js" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4658606329491518"
-    crossorigin="anonymous"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/loadcloak.js"></script>
+  <script src="/assets/js/auth.js"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BNC20292T8"></script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4658606329491518"
-    crossorigin="anonymous"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
@@ -28,139 +26,155 @@
 
     gtag('config', 'G-BNC20292T8');
   </script>
-
 </head>
 
 <body>
-  <div id="particles-js"></div>
-  <script type="text/javascript" src="/assets/particles/particles.js"></script>
-  <script type="text/javascript" src="/assets/particles/app.js"></script>
+  <div class="custom-tooltip" id="tooltip"></div>
+  <iframe id="background" src="/srcdocs/background_0.html"></iframe>
+  <div id="title">
+    <h2 id="small">Welcome to Bolt,</h2>
+    <h1 id="big"></h1>
+  </div>
+  <div id="buttons">
+    <button id="disc" data-tooltip="Discord">
+      <img src="/assets/imgs/otherlogos/discord.svg" id="dlogo" />
+    </button>
+    <button id="yt" data-tooltip="YouTube">
+      <img src="/assets/imgs/otherlogos/youtube.svg" id="ytlogo" />
+    </button>
+    <button id="tt" data-tooltip="TikTok">
+      <img src="/assets/imgs/otherlogos/tiktok.svg" id="ttlogo" />
+    </button>
+  </div>
+
+
+
+
   <div id="footer">
-    <article id="wrap">
-      <article id="lightings">
-        <section id="one">
-          <section id="two">
-            <section id="three">
-              <section id="four">
-                <section id="five">
-
-                </section>
-              </section>
-            </section>
-          </section>
-        </section>
-      </article>
-    </article>
-  </div>
-  <div class="bg">
-    <img id="bg" src="" alt="">
-  </div>
-  <script src="/assets/js/themes.js"></script>
-  <div class="nav" id="nav">
-    <a id="home" href="/">
-      <h1 id="boltlogo">B</h1>
-    </a>
-
-    <div id="icons">
-      <a id="link" href="/apps">
-        <svg id="appslogo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-          x="0px" y="0px" viewBox="0 0 256 256" enable-background="new 0 0 256 256" xml:space="preserve">
-          <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
-          <g>
-            <g>
-              <path fill="currentcolor"
-                d="M92,118.9H37.3c-15.1,0-27.3-12.3-27.3-27.3V36.9C10,21.8,22.3,9.5,37.3,9.5H92c15.1,0,27.3,12.3,27.3,27.4v54.7C119.3,106.6,107.1,118.9,92,118.9z M92,246.5H37.3c-15.1,0-27.3-12.3-27.3-27.4v-54.7c0-15.1,12.3-27.3,27.3-27.3H92c15.1,0,27.3,12.3,27.3,27.3v54.7C119.3,234.2,107.1,246.5,92,246.5z M218.7,118.9H164c-15.1,0-27.3-12.3-27.3-27.3V36.9c0-15.1,12.3-27.4,27.3-27.4h54.7c15.1,0,27.3,12.3,27.3,27.4v54.7C246,106.6,233.7,118.9,218.7,118.9z M218.7,246.5H164c-15.1,0-27.3-12.3-27.3-27.3v-54.7c0-15.1,12.3-27.3,27.3-27.3h54.7c15.1,0,27.3,12.3,27.3,27.3v54.7C246,234.2,233.7,246.5,218.7,246.5z" />
+    <div id="logos">
+      <svg id="flogo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        width="170.42776" height="319.27237" viewBox="0,0,170.42776,319.27237" data-tooltip="Apps">
+        <g transform="translate(-155.43733,-20.75908)">
+          <g fill="#ffffff" stroke-miterlimit="10">
+            <g stroke="#0091ff" stroke-width="50">
+              <path
+                d="M245.22437,45.74833l0.05174,0.01075c19.53137,4.05763 31.68931,22.59185 27.63168,42.12322l-23.18646,111.60784c-4.05763,19.53137 -22.59185,31.68931 -42.12322,27.63168l-0.05174,-0.01075c-19.53137,-4.05763 -31.68931,-22.59185 -27.63168,-42.12322l23.18646,-111.60784c4.05763,-19.53137 22.59185,-31.68931 42.12322,-27.63168z" />
+              <path
+                d="M272.40189,132.87818l0.05174,0.01075c19.53137,4.05763 31.68931,22.59185 27.63168,42.12322l-23.18646,111.60784c-4.05763,19.53137 -22.59185,31.68931 -42.12322,27.63168l-0.05174,-0.01075c-19.53137,-4.05763 -31.68931,-22.59185 -27.63168,-42.12322l23.18646,-111.60784c4.05763,-19.53137 22.59185,-31.68931 42.12322,-27.63168z" />
+            </g>
+            <g stroke="#61bbff" stroke-width="27">
+              <path
+                d="M245.22437,45.74833l0.05174,0.01075c19.53137,4.05763 31.68931,22.59185 27.63168,42.12322l-23.18646,111.60784c-4.05763,19.53137 -22.59185,31.68931 -42.12322,27.63168l-0.05174,-0.01075c-19.53137,-4.05763 -31.68931,-22.59185 -27.63168,-42.12322l23.18646,-111.60784c4.05763,-19.53137 22.59185,-31.68931 42.12322,-27.63168z" />
+              <path
+                d="M272.40189,132.87818l0.05174,0.01075c19.53137,4.05763 31.68931,22.59185 27.63168,42.12322l-23.18646,111.60784c-4.05763,19.53137 -22.59185,31.68931 -42.12322,27.63168l-0.05174,-0.01075c-19.53137,-4.05763 -31.68931,-22.59185 -27.63168,-42.12322l23.18646,-111.60784c4.05763,-19.53137 22.59185,-31.68931 42.12322,-27.63168z" />
+            </g>
+            <g stroke="none" stroke-width="1">
+              <path
+                d="M245.22437,45.74833l0.05174,0.01075c19.53137,4.05763 31.68931,22.59185 27.63168,42.12322l-23.18646,111.60784c-4.05763,19.53137 -22.59185,31.68931 -42.12322,27.63168l-0.05174,-0.01075c-19.53137,-4.05763 -31.68931,-22.59185 -27.63168,-42.12322l23.18646,-111.60784c4.05763,-19.53137 22.59185,-31.68931 42.12322,-27.63168z" />
+              <path
+                d="M272.40189,132.87818l0.05174,0.01075c19.53137,4.05763 31.68931,22.59185 27.63168,42.12322l-23.18646,111.60784c-4.05763,19.53137 -22.59185,31.68931 -42.12322,27.63168l-0.05174,-0.01075c-19.53137,-4.05763 -31.68931,-22.59185 -27.63168,-42.12322l23.18646,-111.60784c4.05763,-19.53137 22.59185,-31.68931 42.12322,-27.63168z" />
             </g>
           </g>
-        </svg>
-
-      </a>
-
-      <a id="link" href="/lessons">
-        <svg id="gameslogo" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M12.25 10C11.5596 10 11 9.44036 11 8.75C11 8.05964 11.5596 7.5 12.25 7.5C12.9404 7.5 13.5 8.05964 13.5 8.75C13.5 9.44036 12.9404 10 12.25 10Z"
-            fill="currentcolor" />
-          <path
-            d="M14.25 12.5C13.5596 12.5 13 11.9404 13 11.25C13 10.5596 13.5596 10 14.25 10C14.9404 10 15.5 10.5596 15.5 11.25C15.5 11.9404 14.9404 12.5 14.25 12.5Z"
-            fill="currentcolor" />
-          <path fill-rule="evenodd" clip-rule="evenodd"
-            d="M14.5 4H5.5C2.73858 4 0.5 6.23858 0.5 9V11C0.5 13.7614 2.73858 16 5.5 16H14.5C17.2614 16 19.5 13.7614 19.5 11V9C19.5 6.23858 17.2614 4 14.5 4ZM2.5 9C2.5 7.34315 3.84315 6 5.5 6H14.5C16.1569 6 17.5 7.34315 17.5 9V11C17.5 12.6569 16.1569 14 14.5 14H5.5C3.84315 14 2.5 12.6569 2.5 11V9Z"
-            fill="currentcolor" />
-          <path
-            d="M4 11C3.44772 11 3 10.5523 3 10C3 9.44772 3.44772 9 4 9H8C8.55228 9 9 9.44772 9 10C9 10.5523 8.55228 11 8 11H4Z"
-            fill="currentcolor" />
-          <path
-            d="M7 12C7 12.5523 6.55228 13 6 13C5.44772 13 5 12.5523 5 12V8C5 7.44772 5.44772 7 6 7C6.55228 7 7 7.44772 7 8V12Z"
-            fill="currentcolor" />
-        </svg>
-      </a>
-
-
-      <a id="link" href="/settings">
-
-        <svg id="settingslogo" version="1.1" baseProfile="basic" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" xml:space="preserve" fill="currentcolor">
-          <path
-            d="M52.339,28.023C53.299,28.188,54,29.02,54,29.994v4.012c0,0.974-0.701,1.806-1.661,1.971l-3.464,0.596
-            	c-0.395,1.461-0.969,2.846-1.707,4.129l2.026,2.868c0.562,0.795,0.469,1.88-0.219,2.568l-2.837,2.837
-            	c-0.689,0.689-1.773,0.781-2.568,0.219l-2.868-2.025c-1.283,0.738-2.668,1.311-4.129,1.707l-0.596,3.464
-            	C35.812,53.299,34.98,54,34.006,54h-4.012c-0.974,0-1.806-0.701-1.971-1.661l-0.596-3.464c-1.461-0.395-2.846-0.969-4.129-1.707
-            	l-2.868,2.025c-0.795,0.562-1.88,0.469-2.568-0.219l-2.837-2.837c-0.688-0.689-0.781-1.773-0.219-2.568l2.026-2.868
-            	c-0.738-1.283-1.312-2.668-1.707-4.129l-3.464-0.596C10.701,35.812,10,34.98,10,34.006v-4.012c0-0.974,0.701-1.806,1.661-1.971
-            	l3.464-0.596c0.395-1.461,0.969-2.846,1.707-4.129l-2.026-2.868c-0.562-0.795-0.469-1.88,0.219-2.568l2.837-2.837
-            	c0.689-0.688,1.773-0.781,2.568-0.219l2.868,2.026c1.283-0.738,2.668-1.311,4.129-1.707l0.596-3.464
-            	C28.188,10.701,29.02,10,29.994,10h4.012c0.974,0,1.806,0.701,1.971,1.661l0.596,3.464c1.461,0.395,2.846,0.969,4.129,1.707
-            	l2.868-2.026c0.795-0.562,1.88-0.469,2.568,0.219l2.837,2.837c0.688,0.688,0.781,1.773,0.219,2.568l-2.026,2.868
-            	c0.738,1.283,1.312,2.668,1.707,4.129L52.339,28.023z M32,40c4.418,0,8-3.582,8-8s-3.582-8-8-8s-8,3.582-8,8S27.582,40,32,40z" />
-        </svg>
-      </a>
+        </g>
+      </svg>
     </div>
-
-  </div>
-  <div id="i">
-    <div class="title">
-      <h1 id="title">Bolt</h1>
+    <div id="pinned-apps"></div>
+    <div id="time">
+      <h2 id="t"></h2>
     </div>
-    <form id="form" method="post">
-      <input id="input" placeholder="Search the Web Freely..." />
-    </form>
   </div>
-  <div class="sz-link">
-    <a href="https://sz.games" target="_blank">SZ Games</a>
-    <script src="/assets/js/a.js"></script>
+  <div id="content">
+
+  </div>
+  <iframe id="apps" src="/srcdocs/apps.html">
+
+  </iframe>
+
+  <div id="bug-report-notification" data-tooltip="Right-click to close">
+    <div class="notification-content">
+      <span class="bug-icon">🐛</span>
+      <span class="notification-text">Help us improve! Report bugs here</span>
+    </div>
   </div>
 
-  <div id="discord">
-    <div id="discordicon">
-      <div id="dicon">
-        <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-        <svg width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
-          fill="currentcolor">
-          <path
-            d="M18.942 5.556a16.299 16.299 0 0 0-4.126-1.297c-.178.321-.385.754-.529 1.097a15.175 15.175 0 0 0-4.573 0 11.583 11.583 0 0 0-.535-1.097 16.274 16.274 0 0 0-4.129 1.3c-2.611 3.946-3.319 7.794-2.965 11.587a16.494 16.494 0 0 0 5.061 2.593 12.65 12.65 0 0 0 1.084-1.785 10.689 10.689 0 0 1-1.707-.831c.143-.106.283-.217.418-.331 3.291 1.539 6.866 1.539 10.118 0 .137.114.277.225.418.331-.541.326-1.114.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595c.415-4.396-.709-8.209-2.973-11.589zM8.678 14.813c-.988 0-1.798-.922-1.798-2.045s.793-2.047 1.798-2.047 1.815.922 1.798 2.047c.001 1.123-.793 2.045-1.798 2.045zm6.644 0c-.988 0-1.798-.922-1.798-2.045s.793-2.047 1.798-2.047 1.815.922 1.798 2.047c0 1.123-.793 2.045-1.798 2.045z" />
-        </svg>
+  <div id="bug-report-modal" class="hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="header-icon">
+          <span class="bug-emoji">🐛</span>
+        </div>
+        <h3>Report an Issue</h3>
+        <button id="close-modal">×</button>
       </div>
+      <div class="modal-body">
+        <p class="report-intro">Help us improve Bolt by reporting any bugs or issues you encounter.</p>
 
+        <form id="bug-report-form">
+          <div class="form-group">
+            <label for="bug-description">Description:</label>
+            <textarea id="bug-description" placeholder="Please describe what happened and how to reproduce the issue..."
+              required></textarea>
+          </div>
+
+          <div class="form-tabs">
+            <div class="tab-buttons">
+              <button type="button" class="tab-btn active" data-tab="screenshot">Screenshot</button>
+              <button type="button" class="tab-btn" data-tab="details">Details</button>
+            </div>
+
+            <div class="tab-content active" id="screenshot-tab">
+              <div class="upload-container">
+                <label for="bug-image" class="upload-label">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4.86 8.86l-3 3.87L9 13.14 6 17h12l-3.86-5.14z"
+                      fill="#00b7ff" />
+                  </svg>
+                  <span>Drop image here or click to upload</span>
+                </label>
+                <input type="file" id="bug-image" accept="image/*">
+              </div>
+              <div id="image-preview"></div>
+            </div>
+
+            <div class="tab-content" id="details-tab">
+              <div class="form-row">
+                <div class="form-col">
+                  <label for="bug-severity">Severity:</label>
+                  <select id="bug-severity">
+                    <option value="low">Low - Minor inconvenience</option>
+                    <option value="medium" selected>Medium - Function is broken</option>
+                    <option value="high">High - Site is unusable</option>
+                  </select>
+                </div>
+                <div class="form-col">
+                  <label for="bug-page">Where did it happen?</label>
+                  <input type="text" id="bug-page" placeholder="Homepage, app, or URL">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <div class="status-wrapper">
+              <div id="submission-status" class="hidden"></div>
+            </div>
+            <button type="submit" id="submit-bug">Submit Report</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-
-
-  <script src="/assets/js/main.js"></script>
-
-  <script type="speculationrules">
-  {
-   "prerender": [
-     {
-       "source": "list",
-       "urls": ["browser", "lessons", "settings", "apps"]
-     }
-   ]
-  }
-  </script>
-
-  <script type='text/javascript'
-    src='//pl26061790.effectiveratecpm.com/a7/55/f0/a755f05b30d3c908030f37302e2e71ff.js'></script>
+  <script src="/scram/scramjet.controller.js"></script>
+  <script src="/assets/js/ap.js"></script>
+  <script src="/assets/js/time.js"></script>
+  <script src="/assets/js/index.js"></script>
+  <script src="/assets/js/tooltip.js"></script>
+  <script src="/assets/js/bug-reporter.js"></script>
+  <script src="/assets/js/apps.js"></script>
+  <script src="/assets/js/taskbar.js"></script>
+  <script src="/assets/js/window-manager.js"></script>
+  </div>
 </body>
 
 </html>

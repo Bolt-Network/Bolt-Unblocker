@@ -1,6 +1,6 @@
 {
   "name": "bolt-unblocker",
-  "version": "1.6.0",
+  "version": "2.0.0",
   "type": "module",
   "packageManager": "pnpm@9.12.3",
   "engines": {
@@ -20,6 +20,7 @@
     "@mercuryworkshop/wisp-js": "^0.3.3",
     "@titaniumnetwork-dev/ultraviolet": "^3.2.10",
     "express": "^4.21.1",
+    "fastify": "^5.2.2",
     "wisp-server-node": "^1.1.7"
   },
   "devDependencies": {
