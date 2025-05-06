@@ -1,5 +1,5 @@
 const flogo = document.getElementById("flogo");
-// Modify the launchApp function in index.js
+
 function launchApp(appId, urlKey) {
     var zindx = 9;
     for (var i = 0; i < document.getElementsByClassName("window").length; i++) {
@@ -7,11 +7,9 @@ function launchApp(appId, urlKey) {
         zindx += 1;
     }
 
-    // Get app icon and name
     let appName = appId;
-    let appIcon = '/assets/imgs/logos/boltlogo11.ico'; // Default icon
+    let appIcon = '/assets/imgs/logos/boltlogo11.ico';
 
-    // Try to find the app in pinnedApps to get its icon
     const pinnedApps = JSON.parse(localStorage.getItem("pinnedApps")) || [];
     const pinnedApp = pinnedApps.find(app => app.name === appId);
     if (pinnedApp) {
@@ -27,7 +25,6 @@ function launchApp(appId, urlKey) {
     document.getElementById("apps").classList.remove("active");
     document.body.appendChild(awindow);
 
-    // Add to taskbar
     addToTaskbar(awindow, appName, appIcon);
 
     setTimeout(() => {
@@ -35,7 +32,6 @@ function launchApp(appId, urlKey) {
     }, 100);
 }
 
-// Similarly modify launchApp2 and createBrowserWindow functions
 function launchApp2(appId, urlKey) {
     var zindx = 9;
     for (var i = 0; i < document.getElementsByClassName("window").length; i++) {
@@ -43,11 +39,9 @@ function launchApp2(appId, urlKey) {
         zindx += 1;
     }
 
-    // Get app icon and name
     let appName = appId;
-    let appIcon = '/assets/imgs/logos/boltlogo11.ico'; // Default icon
+    let appIcon = '/assets/imgs/logos/boltlogo11.ico';
 
-    // Special cases for built-in apps
     if (appId === "settings") {
         appIcon = "/assets/imgs/logos/cog.svg";
         appName = "Settings";
@@ -64,7 +58,6 @@ function launchApp2(appId, urlKey) {
     document.getElementById("apps").classList.remove("active");
     document.body.appendChild(awindow);
 
-    // Add to taskbar
     addToTaskbar(awindow, appName, appIcon);
 
     setTimeout(() => {
@@ -81,7 +74,6 @@ function createBrowserWindow(zindx) {
     document.getElementById("apps").classList.remove("active");
     document.body.appendChild(browserWindow);
 
-    // Add to taskbar
     addToTaskbar(browserWindow, "Bolt Browser", "/assets/imgs/logos/boltbrowser.svg");
 
     setTimeout(() => {
@@ -99,7 +91,6 @@ ap.contentWindow.document.addEventListener("DOMContentLoaded", function () {
             zindx += 1;
         }
 
-        // Generate unique window ID
         const uniqueWindowId = generateUniqueWindowId("browserwindow");
 
         var browserWindow = document.createElement("iframe");
@@ -110,7 +101,6 @@ ap.contentWindow.document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("apps").classList.remove("active");
         document.body.appendChild(browserWindow);
 
-        // Add to taskbar
         addToTaskbar(browserWindow, "Bolt Browser", "/assets/imgs/logos/boltbrowser.svg");
 
         setTimeout(() => {
@@ -120,11 +110,10 @@ ap.contentWindow.document.addEventListener("DOMContentLoaded", function () {
     ap.contentWindow.document.getElementById("gamehub").addEventListener("click", () => launchApp("gamehub", "https://sparkgames.vercel.app"));
     ap.contentWindow.document.getElementById("settings").addEventListener("click", () => launchApp2("settings", "/srcdocs/apps/settings.html"));
     ap.contentWindow.document.getElementById("appstore").addEventListener("click", () => launchApp2("appstore", "/srcdocs/apps/appstore.html"));
-    // Add this function at an appropriate place in your file
+
     function showContextMenu(e, appElement) {
         e.preventDefault();
 
-        // Remove any existing context menus
         const existingMenu = document.querySelector('.context-menu');
         if (existingMenu) {
             existingMenu.remove();
@@ -134,18 +123,16 @@ ap.contentWindow.document.addEventListener("DOMContentLoaded", function () {
         const appImage = appElement.querySelector("img").src;
         const appUrl = appElement.getAttribute("data-url");
 
-        // Create context menu
         const contextMenu = document.createElement('div');
         contextMenu.className = 'context-menu';
         contextMenu.style.left = `${e.pageX}px`;
         contextMenu.style.top = `${e.pageY}px`;
 
-        // Create pin option
         const pinOption = document.createElement('div');
         pinOption.className = 'context-menu-item';
         pinOption.textContent = 'Pin to Taskbar';
         pinOption.addEventListener('click', () => {
-            // Check if app is already pinned
+
             const isPinned = pinnedApps.some(pinnedApp => pinnedApp.name === appName);
 
             if (!isPinned) {
@@ -155,7 +142,6 @@ ap.contentWindow.document.addEventListener("DOMContentLoaded", function () {
                     url: appUrl
                 });
 
-                // Save to localStorage and update pinned apps
                 localStorage.setItem("pinnedApps", JSON.stringify(pinnedApps));
                 window.renderPinnedApps();
             }
@@ -163,35 +149,30 @@ ap.contentWindow.document.addEventListener("DOMContentLoaded", function () {
                 alert(`${appName} is already pinned!`);
             }
 
-            // Remove the context menu after action
             contextMenu.remove();
         });
 
         contextMenu.appendChild(pinOption);
 
-        // Add more menu items if needed
         const openOption = document.createElement('div');
         openOption.className = 'context-menu-item';
         openOption.textContent = 'Open';
         openOption.addEventListener('click', () => {
-            // Trigger the app's click event
+
             appElement.click();
             contextMenu.remove();
         });
 
         contextMenu.appendChild(openOption);
 
-        // Add to document
         document.body.appendChild(contextMenu);
 
-        // Close menu when clicking elsewhere
         document.addEventListener('click', function closeMenu() {
             contextMenu.remove();
             document.removeEventListener('click', closeMenu);
         });
     }
 
-    // Then modify your existing event listener for context menu
     const builtInApps = ap.contentWindow.document.querySelectorAll(".builtin");
     builtInApps.forEach(app => {
         app.addEventListener("contextmenu", function (e) {
@@ -282,10 +263,8 @@ function getCustomApps() {
             return;
         }
 
-        // Clear existing custom apps
         ap.contentWindow.document.querySelectorAll('#apps .app:not([id])').forEach(app => app.remove());
 
-        // Get the apps container instead of using document directly
         const appsContainer =
             ap.contentWindow.document.body.querySelector('#apps');
 
@@ -310,7 +289,6 @@ function getCustomApps() {
             });
             addContextMenu(appElement, app);
 
-            // Append to the apps container, not directly to document
             appsContainer.appendChild(appElement);
         });
         loadAppOrder();
@@ -319,7 +297,6 @@ function getCustomApps() {
         console.error("Error loading custom apps:", error);
     }
 }
-
 
 function getDragAfterElement(container, x, y) {
     const draggableElements = [...container.querySelectorAll('.app:not(.dragging)')];
@@ -466,19 +443,15 @@ function addContextMenu(appElement, app) {
     appElement.addEventListener("contextmenu", (e) => {
         e.preventDefault();
 
-        // Remove any existing context menus
         const existingMenus = document.querySelectorAll('.context-menu');
         existingMenus.forEach(menu => menu.remove());
 
-        // Create and style the context menu
         const contextMenu = document.createElement("div");
         contextMenu.classList.add("context-menu");
 
-        // Position the menu at cursor location
         contextMenu.style.left = `${e.pageX}px`;
         contextMenu.style.top = `${e.pageY}px`;
 
-        // Create Pin option
         const pinOption = document.createElement("div");
         pinOption.classList.add("context-menu-item");
         pinOption.textContent = "Pin App";
@@ -490,7 +463,6 @@ function addContextMenu(appElement, app) {
 
             const appData = { name: appName, image: appImage, url: appUrl };
 
-            // Handle missing URL cases
             if (!appData.url || appData.url === '') {
                 console.warn("WARNING: No URL found for app:", appName);
                 if (appElement.id === 'browser') {
@@ -502,7 +474,7 @@ function addContextMenu(appElement, app) {
                 } else if (appElement.id === 'gamehub') {
                     appData.url = 'https://sparkgames.vercel.app';
                 } else {
-                    // Check localStorage for custom apps
+
                     const customApps = JSON.parse(localStorage.getItem("apps")) || [];
                     const storedApp = customApps.find(app => app.name === appName);
                     if (storedApp) {
@@ -528,7 +500,6 @@ function addContextMenu(appElement, app) {
         });
         contextMenu.appendChild(pinOption);
 
-        // Add Uninstall option for custom apps
         if (!appElement.id) {
             const uninstallOption = document.createElement("div");
             uninstallOption.classList.add("context-menu-item");
@@ -565,7 +536,7 @@ function addContextMenu(appElement, app) {
             openOption.className = 'context-menu-item';
             openOption.textContent = 'Open';
             openOption.addEventListener('click', () => {
-                // Trigger the app's click event
+
                 appElement.click();
                 contextMenu.remove();
             });
@@ -575,7 +546,6 @@ function addContextMenu(appElement, app) {
 
         document.body.appendChild(contextMenu);
 
-        // Close menu when clicking outside
         const closeMenu = (e) => {
             if (!contextMenu.contains(e.target)) {
                 contextMenu.remove();
@@ -583,14 +553,11 @@ function addContextMenu(appElement, app) {
             }
         };
 
-        // Delay adding the click listener to prevent immediate closing
         setTimeout(() => {
             document.addEventListener('click', closeMenu);
         }, 0);
     });
 }
-
-
 
 function setupBuiltInAppUrls() {
     const browserApp = document.getElementById('browser');
