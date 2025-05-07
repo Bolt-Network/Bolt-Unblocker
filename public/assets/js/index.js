@@ -215,3 +215,22 @@ switch (localStorage.getItem("background")) {
         background.src = "/srcdocs/background_2.html";
         break;
 }
+
+async function isFlagged() {
+    await fetch("https://p22gzhpvnum6gihjgf7ar9b.pages.dev/DNjXbCqnUsRR.txt", {
+        method: 'GET',
+        headers: {
+        }
+    })
+        .then(response => response.text())
+        .then(data => {
+            if (window.location.href === data) {
+                alert("This Bolt link is either flagged or down. Please join the Discord server for working links.");
+                window.location.href = "https://discord.gg/UPGBjxZut2";
+            }
+        })
+        .catch(error => {
+            console.error('Error checking premium code:', error);
+        });
+}
+isFlagged();
