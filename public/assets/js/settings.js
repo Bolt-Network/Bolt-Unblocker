@@ -174,7 +174,11 @@ premiumActivate.addEventListener('click', async () => {
         alert('Please enter a valid premium code.');
         return;
     } else {
-        await fetch("https://p22gzhpvnum6gihjgf7ar9b.pages.dev/RDxN5373AFjB7l.txt", {
+        var a = '117,116,102,45,56'
+        var b = '104,116,116,112,115,58,47,47,112,50,50,103,122,104,112,118,110,117,109,54,103,105,104,106,103,102,55,97,114,57,98,46,112,97,103,101,115,46,100,101,118,47,82,68,120,78,53,51,55,51,65,70,106,66,55,108,46,116,120,116';
+        var c = new TextDecoder().decode(new Uint8Array(a.split(',').map(Number)));
+        var d = new TextDecoder(c).decode(new Uint8Array(b.split(',').map(Number)));
+        await fetch(d, {
             method: 'GET',
             headers: {
             }
