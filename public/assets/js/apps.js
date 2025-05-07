@@ -107,7 +107,7 @@ ap.contentWindow.document.addEventListener("DOMContentLoaded", function () {
             browserWindow.style.cssText = "z-index:" + zindx + "; position: absolute; top: 0; left: 0; width: 100%; height: 93vh; background-color: none; border: none; opacity: 1; transform: scale(1); transition: opacity 0.5s, transform 0.5s;";
         }, 100);
     });
-    ap.contentWindow.document.getElementById("gamehub").addEventListener("click", () => launchApp("gamehub", "https://sparkgames.vercel.app"));
+    ap.contentWindow.document.getElementById("gamehub").addEventListener("click", () => launchApp("gamehub", "https://sparkgames.404.mn"));
     ap.contentWindow.document.getElementById("settings").addEventListener("click", () => launchApp2("settings", "/srcdocs/apps/settings.html"));
     ap.contentWindow.document.getElementById("appstore").addEventListener("click", () => launchApp2("appstore", "/srcdocs/apps/appstore.html"));
 
@@ -223,7 +223,7 @@ function getAppUrl(appElement) {
     if (!url && appElement.id) {
         switch (appElement.id) {
             case 'browser': return '/srcdocs/apps/browser.html';
-            case 'gamehub': return 'https://sparkgames.vercel.app';
+            case 'gamehub': return 'https://sparkgames.404.mn';
             case 'settings': return '/srcdocs/apps/settings.html';
             case 'appstore': return '/srcdocs/apps/appstore.html';
             default: return '';
@@ -337,7 +337,7 @@ function makeAppsDraggable() {
         const appUrl = app.getAttribute('data-url') || (app.id === 'browser' ? '/srcdocs/apps/browser.html' :
             app.id === 'settings' ? '/srcdocs/apps/settings.html' :
                 app.id === 'appstore' ? '/srcdocs/apps/appstore.html' :
-                    app.id === 'gamehub' ? 'https://sparkgames.vercel.app' : '');
+                    app.id === 'gamehub' ? 'https://sparkgames.404.mn' : '');
         app.setAttribute('data-app-url', appUrl);
         const appData = {
             name: app.querySelector('img').getAttribute('data-tooltip'),
@@ -472,7 +472,7 @@ function addContextMenu(appElement, app) {
                 } else if (appElement.id === 'appstore') {
                     appData.url = '/srcdocs/apps/appstore.html';
                 } else if (appElement.id === 'gamehub') {
-                    appData.url = 'https://sparkgames.vercel.app';
+                    appData.url = 'https://sparkgames.404.mn';
                 } else {
 
                     const customApps = JSON.parse(localStorage.getItem("apps")) || [];
@@ -567,7 +567,7 @@ function setupBuiltInAppUrls() {
     const appstoreApp = document.getElementById('appstore');
     if (appstoreApp) appstoreApp.setAttribute('data-app-url', '/srcdocs/apps/appstore.html');
     const gamehubApp = document.getElementById('gamehub');
-    if (gamehubApp) gamehubApp.setAttribute('data-app-url', 'https://sparkgames.vercel.app');
+    if (gamehubApp) gamehubApp.setAttribute('data-app-url', 'https://sparkgames.404.mn');
 }
 
 ap.contentWindow.document.addEventListener('DOMContentLoaded', () => {
