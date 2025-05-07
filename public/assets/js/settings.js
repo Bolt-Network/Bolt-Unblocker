@@ -23,6 +23,7 @@ const proxySelect = document.getElementById('proxy-select');
 const transportSelect = document.getElementById('transport-select');
 const boltPremium = document.getElementById('bolt-premium');
 const premiumActivate = document.getElementById('activate-premium');
+const searchEngineSelect = document.getElementById('search-engine');
 const WEBHOOK_URL = 'https://discord.com/api/webhooks/1369096278142746665/xELduKuAgvubhRUj1Oah8QHCIEE2fr6WTAZtkRh4dKIY0kW8Zrsy3mqEn43kBKo-tohK';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -219,3 +220,8 @@ async function sendWebhookMessage(username) {
         alert('Failed to send activation request. Please try again.');
     }
 }
+
+searchEngineSelect.value = localStorage.getItem('searchEngine') || 'duckduckgo';
+searchEngineSelect.addEventListener('change', () => {
+    localStorage.setItem('searchEngine', searchEngineSelect.value);
+});

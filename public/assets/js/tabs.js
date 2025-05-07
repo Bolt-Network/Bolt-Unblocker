@@ -1,5 +1,5 @@
 class Tab {
-    constructor(url = 'https://www.duckduckgo.com/') {
+    constructor(url = 'https://' + localStorage.getItem('searchEngine') + '.com/') {
         this.id = Math.random().toString(36).substr(2, 9);
         this.originalUrl = url;
         if (localStorage.getItem("proxy") == "uv") {

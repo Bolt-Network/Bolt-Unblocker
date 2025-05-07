@@ -5,11 +5,11 @@ var tt = document.getElementById("tt");
 var pinnedApps = JSON.parse(localStorage.getItem("pinnedApps")) || [];
 var pinned = document.getElementById("pinned-apps");
 const background = document.getElementById("background");
-
+localStorage.setItem("searchEngine", "duckduckgo");
 big.innerText = localStorage.getItem("name") || "User";
 
 disc.addEventListener("click", function () {
-    window.open("https://discord.gg/unblocks", "_blank");
+    window.open("https://discord.gg/UPGBjxZut2", "_blank");
 });
 
 yt.addEventListener("click", function () {

@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let url = event.data.url;
 
             if (!url.includes('.') && !url.startsWith('http')) {
-                url = 'https://www.duckduckgo.com/search?q=' + encodeURIComponent(url);
+                url = 'https://' + localStorage.getItem('searchEngine') + '.com/search?q=' + encodeURIComponent(url);
             } else if (!/^https?:\/\//i.test(url) && !url.startsWith('/')) {
                 url = 'https://' + url;
             }
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.browser-container').classList.add('loading');
 
         if (!url.includes('.') && !url.startsWith('http')) {
-            url = 'https://www.duckduckgo.com/search?q=' + encodeURIComponent(url);
+            url = "https://" + localStorage.getItem("searchEngine") + ".com/search?q=" + encodeURIComponent(url);
         } else if (!/^https?:\/\//i.test(url)) {
             url = 'https://' + url;
         }
