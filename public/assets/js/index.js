@@ -5,6 +5,8 @@ var tt = document.getElementById("tt");
 var pinnedApps = JSON.parse(localStorage.getItem("pinnedApps")) || [];
 var pinned = document.getElementById("pinned-apps");
 const background = document.getElementById("background");
+const searchInput = document.getElementById("search-input");
+const searchButton = document.getElementById("search-button");
 localStorage.setItem("searchEngine", "duckduckgo");
 big.innerText = localStorage.getItem("name") || "User";
 
@@ -19,6 +21,32 @@ tt.addEventListener("click", function () {
     window.open("https://www.tiktok.com/@bolt.network", "_blank");
 });
 
+function performSearch() {
+    const query = searchInput.value.trim();
+    if (query !== "") {
+        const browserWindow = createBrowserWindow(9999);
+        
+        searchButton.classList.add("searching");
+        
+        setTimeout(() => {
+            localStorage.setItem("searchQuery", query);
+            
+            const searchEvent = new CustomEvent("performSearch");
+            document.dispatchEvent(searchEvent);
+            
+            searchInput.value = "";
+            searchButton.classList.remove("searching");
+        }, 300);
+    }
+}
+
+searchButton.addEventListener("click", performSearch);
+searchInput.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        performSearch();
+    }
+});
+
 document.addEventListener("DOMContentLoaded", function () {
     renderPinnedApps();
 });
@@ -28,8 +56,6 @@ function unpinApp(app) {
     localStorage.setItem("pinnedApps", JSON.stringify(pinnedApps));
     renderPinnedApps();
 }
-
-
 
 function launchApp(appId, urlKey) {
     var zindx = 9;
@@ -112,12 +138,8 @@ function renderPinnedApps() {
                 appElement.style.transform = "";
             }, 150);
 
-
-
             if (app.name == "Bolt Browser") {
-
                 createBrowserWindow(zindx);
-
             }
             else if (app.name == "Settings") {
                 launchApp2("settings", "/srcdocs/apps/settings.html");
@@ -180,7 +202,6 @@ function renderPinnedApps() {
     });
 }
 window.renderPinnedApps = renderPinnedApps;
-
 
 function createBrowserWindow(zindx) {
     // Generate unique window ID
