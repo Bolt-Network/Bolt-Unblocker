@@ -10,6 +10,13 @@ const searchButton = document.getElementById("search-button");
 localStorage.setItem("searchEngine", "duckduckgo");
 big.innerText = localStorage.getItem("name") || "User";
 
+if (!localStorage.getItem("background")) {
+    localStorage.setItem("background", "0");
+}
+
+const bgValue = localStorage.getItem("background");
+background.src = `/srcdocs/background_${bgValue}.html`;
+
 disc.addEventListener("click", function () {
     window.open("https://discord.gg/UPGBjxZut2", "_blank");
 });
