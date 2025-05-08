@@ -214,6 +214,9 @@ switch (localStorage.getItem("background")) {
     case "2":
         background.src = "/srcdocs/background_2.html";
         break;
+    case "3":
+        background.src = "/srcdocs/background_3.html";
+        break;
 }
 
 async function isFlagged() {
@@ -234,3 +237,8 @@ async function isFlagged() {
         });
 }
 isFlagged();
+
+if (localStorage.getItem("performanceMode")) {
+    localStorage.setItem('particlesEnabled', false);
+    localStorage.setItem('background', '3');
+}

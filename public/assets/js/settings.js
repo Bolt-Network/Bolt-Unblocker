@@ -24,6 +24,7 @@ const transportSelect = document.getElementById('transport-select');
 const boltPremium = document.getElementById('bolt-premium');
 const premiumActivate = document.getElementById('activate-premium');
 const searchEngineSelect = document.getElementById('search-engine');
+const performaceMode = document.getElementById('activate-upm');
 const WEBHOOK_URL = 'https://discord.com/api/webhooks/1369096278142746665/xELduKuAgvubhRUj1Oah8QHCIEE2fr6WTAZtkRh4dKIY0kW8Zrsy3mqEn43kBKo-tohK';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -228,4 +229,16 @@ async function sendWebhookMessage(username) {
 searchEngineSelect.value = localStorage.getItem('searchEngine') || 'duckduckgo';
 searchEngineSelect.addEventListener('change', () => {
     localStorage.setItem('searchEngine', searchEngineSelect.value);
+});
+
+performaceMode.addEventListener('click', () => {
+    if (localStorage.getItem('performaceMode') === 'true') {
+        localStorage.setItem('performaceMode', 'false');
+        window.top.location.reload();
+    } else {
+        localStorage.setItem('particlesEnabled', false);
+        localStorage.setItem('background', '3');
+        localStorage.setItem('performaceMode', 'true');
+        window.top.location.reload();
+    }
 });
