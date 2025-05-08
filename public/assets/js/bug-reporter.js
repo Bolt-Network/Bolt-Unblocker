@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bugPage = document.getElementById('bug-page');
     const uploadContainer = document.querySelector('.upload-container');
 
-    const WEBHOOK_URL = 'https://discord.com/api/webhooks/1366204585986883696/AYYTD8Sw4O2_fytbGdIlPRXdW49FULBev1ZBLLgLrqfm3iH3B6sb6j_xXIuDPmJ6QuvF';
+    const WEBHOOK_URL = 'https://discord.com/api/webhooks/1369862291813699614/470Vcmn9vdRrUqY_Ekwi7AgzBH6JaXXxVW7rAqXm47OwVUJDdnB1StZ76xe4UC0zmw9R';
 
     if (localStorage.getItem('bug-reporter-notification') === 'false') {
         notificationBox.remove();
