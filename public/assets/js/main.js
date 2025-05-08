@@ -58,3 +58,21 @@ if (!navigator.serviceWorker && !window.location.pathname.includes("srcdocs")) {
 }
 
 init();
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (!localStorage.getItem('appsTooltipShown')) {
+        const appsTooltip = document.createElement('div');
+        appsTooltip.id = 'apps-tooltip';
+        appsTooltip.textContent = 'Click here to open apps menu';
+        document.body.appendChild(appsTooltip);
+
+        setTimeout(() => {
+            appsTooltip.classList.add('visible');
+        }, 1000);
+
+        document.getElementById('flogo').addEventListener('click', () => {
+            appsTooltip.classList.remove('visible');
+            localStorage.setItem('appsTooltipShown', 'true');
+        });
+    }
+});

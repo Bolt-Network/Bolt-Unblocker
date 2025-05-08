@@ -1122,6 +1122,45 @@ input[type="text"]:focus {
     filter: drop-shadow(0 0 8px rgba(0, 145, 255, 0.8));
 }
 
+#apps-tooltip {
+    position: absolute;
+    bottom: 8vh;
+    left: 1.5vh;
+    background: rgba(7, 18, 39, 0.7);
+    color: var(--font);
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-family: "font";
+    font-size: 1.1em;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    pointer-events: none;
+    box-shadow: 0 4px 24px 0 rgba(0, 153, 255, 0.18), 0 2px 8px rgba(0,0,0,0.25);
+    border: 1.5px solid var(--accent);
+    backdrop-filter: blur(8px) saturate(160%);
+    z-index: 1000;
+    text-shadow: 0 1px 8px rgba(0, 153, 255, 0.15);
+}
+
+#apps-tooltip.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#apps-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 24px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid var(--accent);
+    filter: drop-shadow(0 2px 6px rgba(0, 153, 255, 0.18));
+}
+
 .taskbar-separator {
     height: 20px;
     width: 1px;
