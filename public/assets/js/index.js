@@ -47,15 +47,17 @@ function performSearch() {
     }
 }
 
-searchButton.addEventListener("click", performSearch);
-searchInput.addEventListener("keypress", function(e) {
-    if (e.key === "Enter") {
-        performSearch();
-    }
-});
-
 document.addEventListener("DOMContentLoaded", function () {
     renderPinnedApps();
+    
+    if (searchButton && searchInput) {
+        searchButton.addEventListener("click", performSearch);
+        searchInput.addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                performSearch();
+            }
+        });
+    }
 });
 
 function unpinApp(app) {
