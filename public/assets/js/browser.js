@@ -12,6 +12,32 @@ document.addEventListener('DOMContentLoaded', function () {
     const sidebar = document.querySelector('.tab-sidebar');
     const browserContainer = document.querySelector('.browser-container');
 
+    const searchQuery = localStorage.getItem("searchQuery");
+    if (searchQuery) {
+        localStorage.removeItem("searchQuery");
+        
+        if (urlBar) {
+            urlBar.value = searchQuery;
+        }
+        
+        setTimeout(() => {
+            navigateToUrl();
+        }, 300);
+    }
+
+    document.addEventListener("performSearch", function() {
+        const searchQuery = localStorage.getItem("searchQuery");
+        if (searchQuery) {
+            localStorage.removeItem("searchQuery");
+            
+            if (urlBar) {
+                urlBar.value = searchQuery;
+            }
+            
+            navigateToUrl();
+        }
+    });
+
     window.addEventListener('message', function (event) {
         if (event.data && event.data.type === 'navigate') {
             let url = event.data.url;

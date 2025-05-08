@@ -35,20 +35,17 @@
     <h2 id="small">Welcome to Bolt,</h2>
     <h1 id="big"></h1>
   </div>
-  <div id="buttons">
-    <button id="disc" data-tooltip="Discord">
-      <img src="/assets/imgs/otherlogos/discord.svg" id="dlogo" />
-    </button>
-    <button id="yt" data-tooltip="YouTube">
-      <img src="/assets/imgs/otherlogos/youtube.svg" id="ytlogo" />
-    </button>
-    <button id="tt" data-tooltip="TikTok">
-      <img src="/assets/imgs/otherlogos/tiktok.svg" id="ttlogo" />
-    </button>
+  <div id="search-container">
+    <div id="search-bar">
+      <input type="text" id="search-input" placeholder="Search the web..." spellcheck="false" autocomplete="off">
+      <button id="search-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+          <path d="M12 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
   </div>
-
-
-
 
   <div id="footer">
     <div id="logos">
@@ -79,13 +76,22 @@
       </svg>
     </div>
     <div id="pinned-apps"></div>
-    <div id="time">
-      <h2 id="t"></h2>
+    <div id="footer-social">
+      <button id="disc" data-tooltip="Discord">
+        <img src="/assets/imgs/otherlogos/discord.svg" id="dlogo" />
+      </button>
+      <button id="yt" data-tooltip="YouTube">
+        <img src="/assets/imgs/otherlogos/youtube.svg" id="ytlogo" />
+      </button>
+      <button id="tt" data-tooltip="TikTok">
+        <img src="/assets/imgs/otherlogos/tiktok.svg" id="ttlogo" />
+      </button>
     </div>
   </div>
   <div id="content">
 
   </div>
+  
   <iframe id="apps" src="/srcdocs/apps.html">
 
   </iframe>

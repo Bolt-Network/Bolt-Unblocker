@@ -57,7 +57,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 10vh;
+    top: 13vh;
 }
 
 #small {
@@ -115,42 +115,63 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-#logos {
+#footer-social {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 7vh;
+    right: 1vw;
     height: 7vh;
-    text-align: center;
-    font-size: 1.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+#disc,
+#yt,
+#tt {
     margin: 0;
+    width: 4vh;
+    height: 4vh;
     align-items: center;
     justify-content: center;
     display: flex;
-}
-
-#flogo {
-    margin: 0;
-    padding: 5px;
-    max-width: 5.5vh;
-    max-height: 5.5vh;
-    rotate: 10deg;
-    transition: 0.2s ease-in-out;
     cursor: pointer;
-    z-index: 1000;
-    filter: drop-shadow(0 0 5px rgba(0, 145, 255, 0.5));
+    transition: 0.2s ease-in-out;
+    border: none;
+    border-radius: 12px;
+    background-color: rgba(12, 30, 50, 0.7);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-#flogo:hover {
-    rotate: -10deg;
-    max-width: 6vh;
-    max-height: 6vh;
-    filter: drop-shadow(0 0 8px rgba(0, 145, 255, 0.8));
+#dlogo,
+#ytlogo,
+#ttlogo {
+    max-width: 2.5vh;
+    max-height: 2.5vh;
+    transition: 0.2s ease-in-out;
+    opacity: 0.85;
+}
+
+#disc:hover,
+#yt:hover,
+#tt:hover {
+    box-shadow: 0 0 12px var(--accent);
+    transform: translateY(-5px);
+    background-color: rgba(15, 35, 60, 0.9);
+}
+
+#disc:hover #dlogo,
+#yt:hover #ytlogo,
+#tt:hover #ttlogo {
+    opacity: 1;
 }
 
 #time {
-    position: absolute;
-    right: 1vw;
+    display: none;
+}
+
+#t {
+    display: none;
 }
 
 .custom-tooltip {
@@ -199,40 +220,147 @@ body {
     justify-content: center;
 }
 
-#disc,
-#yt,
-#tt {
-    margin: 0;
-    width: 5vw;
-    height: 5vw;
+#search-container {
+    position: absolute;
+    top: 33vh;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#search-bar {
+    width: 50%;
+    max-width: 600px;
+    min-width: 300px;
+    height: 5.5vh;
+    background-color: rgba(12, 30, 50, 0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
     display: flex;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
+    align-items: center;
+    padding: 0 0.8vw 0 1.5vw;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(97, 187, 255, 0.15) inset;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+}
+
+#search-bar:focus-within {
+    box-shadow: 0 10px 30px rgba(0, 153, 255, 0.35), 0 0 0 2px rgba(97, 187, 255, 0.4) inset;
+    transform: translateY(-2px) scale(1.01);
+    background-color: rgba(15, 35, 60, 0.85);
+}
+
+#search-bar:focus-within .search-icon {
+    stroke: rgba(255, 255, 255, 0.8);
+}
+
+.search-icon {
+    margin-right: 8px;
+    transition: all 0.3s ease;
+}
+
+#search-input {
+    flex-grow: 1;
+    height: 100%;
     border: none;
-    border-radius: 100vh;
-    background-color: var(--primary);
+    background: none;
+    color: var(--font);
+    font-family: "font";
+    font-size: 1.8vh;
+    padding: 0 1vw 0 0.8vw;
+    outline: none;
+    letter-spacing: 0.02em;
 }
 
-#dlogo,
-#ytlogo,
-#ttlogo {
-    max-width: 3vw;
-    max-height: 3vw;
-    transition: 0.2s ease-in-out;
+#search-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+    opacity: 1;
+    font-weight: 300;
+    transition: color 0.2s ease;
 }
 
-#disc:hover,
-#yt:hover,
-#tt:hover {
-    box-shadow: 0 .5vh 10px var(--accent);
-    transform: translate(0, -0.5vh);
+#search-input:focus::placeholder {
+    color: rgba(255, 255, 255, 0.6);
 }
 
-#yt,
-#tt {
-    margin-left: 1vw;
+#search-input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+#search-button {
+    min-width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, #0091ff 0%, #00b7ff 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    margin-left: 8px;
+    box-shadow: 0 2px 8px rgba(0, 145, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+#search-button:hover {
+    background: linear-gradient(135deg, #00a2ff 0%, #00ccff 100%);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 145, 255, 0.5);
+}
+
+#search-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 1px 5px rgba(0, 145, 255, 0.4);
+}
+
+#search-button.searching {
+    pointer-events: none;
+}
+
+#search-button.searching::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.3) 50%, 
+        rgba(255, 255, 255, 0) 100%);
+    animation: searchAnimation 1.5s infinite;
+}
+
+@keyframes searchAnimation {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+#search-button svg {
+    width: 20px;
+    height: 20px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+#social-links {
+    position: fixed;
+    left: 1.5vw;
+    top: 1.5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 500;
 }
 
 #pinned-apps {
@@ -253,54 +381,68 @@ body {
 }
 
 #pinned-app {
-    width: 35px;
-    height: 35px;
-    border-radius: 12px;
-    margin: 0 5px;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+    margin: 0 6px;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    background-color: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     overflow: hidden;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 #pinned-app:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 145, 255, 0.2);
+    transform: translateY(-7px);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 7px 14px rgba(0, 145, 255, 0.25);
 }
 
 .app-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
-    object-fit: cover;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    object-fit: contain;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    transition: transform 0.2s ease;
+    padding: 2px;
+}
+
+#pinned-app:hover .app-icon {
+    transform: scale(1.1);
 }
 
 #pinned-app::after {
     content: attr(data-tooltip);
     position: absolute;
-    bottom: -30px;
+    bottom: -35px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.85);
     color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
+    padding: 6px 10px;
+    border-radius: 6px;
     font-size: 12px;
+    font-weight: 500;
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s ease, bottom 0.2s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #pinned-app:hover::after {
     opacity: 1;
-    bottom: -25px;
+    bottom: -30px;
 }
 
 .context-menu {
@@ -821,139 +963,51 @@ input[type="text"]:focus {
     align-items: center;
     height: 100%;
     margin-left: 7vh;
-
     overflow-x: auto;
     max-width: 30%;
-
     scrollbar-width: none;
-
-    position: absolute;
-    left: 0;
-    bottom: 0;
-}
-
-#open-apps::-webkit-scrollbar {
-    display: none;
-
-}
-
-.taskbar-item {
-    width: 35px;
-    height: 35px;
-    border-radius: 12px;
-    margin: 0 5px;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    background-color: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    overflow: hidden;
-}
-
-.taskbar-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 145, 255, 0.2);
-}
-
-.taskbar-item.active {
-    background-color: rgba(0, 145, 255, 0.2);
-    border-color: rgba(0, 145, 255, 0.4);
-    box-shadow: 0 0 8px rgba(0, 145, 255, 0.3);
-}
-
-.taskbar-item.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, #0091ff, #00b7ff);
-}
-
-.taskbar-icon {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    border-radius: 6px;
-}
-
-.taskbar-item::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease, bottom 0.2s ease;
-}
-
-.taskbar-item:hover::after {
-    opacity: 1;
-    bottom: -25px;
-}
-
-#open-apps {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    margin-left: 7vh;
-
-    overflow-x: auto;
-    max-width: 30%;
-
-    scrollbar-width: none;
-
     position: absolute;
     left: 0;
     bottom: 0;
     z-index: 1001;
-
     pointer-events: auto;
-
 }
 
 #open-apps::-webkit-scrollbar {
     display: none;
-
 }
 
 .taskbar-item {
-    width: 35px;
-    height: 35px;
-    border-radius: 12px;
-    margin: 0 5px;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+    margin: 0 6px;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    background-color: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     overflow: hidden;
     pointer-events: auto;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .taskbar-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 145, 255, 0.2);
+    transform: translateY(-7px);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 7px 14px rgba(0, 145, 255, 0.25);
 }
 
 .taskbar-item.active {
-    background-color: rgba(0, 145, 255, 0.2);
-    border-color: rgba(0, 145, 255, 0.4);
-    box-shadow: 0 0 8px rgba(0, 145, 255, 0.3);
+    background-color: rgba(0, 145, 255, 0.25);
+    border-color: rgba(0, 145, 255, 0.5);
+    box-shadow: 0 0 12px rgba(0, 145, 255, 0.4);
 }
 
 .taskbar-item.active::after {
@@ -962,8 +1016,18 @@ input[type="text"]:focus {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, #0091ff, #00b7ff);
+    height: 4px;
+    background: linear-gradient(90deg, #0091ff, #00c3ff);
+    animation: glowPulse 2s infinite alternate;
+}
+
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 2px rgba(0, 145, 255, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 6px rgba(0, 145, 255, 0.8);
+    }
 }
 
 .taskbar-icon {
@@ -972,29 +1036,89 @@ input[type="text"]:focus {
     object-fit: contain;
     border-radius: 6px;
     pointer-events: none;
+    transition: transform 0.2s ease;
+    padding: 2px;
+}
 
+.taskbar-item:hover .taskbar-icon {
+    transform: scale(1.1);
 }
 
 .taskbar-item::after {
     content: attr(data-tooltip);
     position: absolute;
-    bottom: -30px;
+    bottom: -35px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.85);
     color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
+    padding: 6px 10px;
+    border-radius: 6px;
     font-size: 12px;
+    font-weight: 500;
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s ease, bottom 0.2s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .taskbar-item:hover::after {
     opacity: 1;
-    bottom: -25px;
+    bottom: -30px;
+}
+
+@keyframes taskbar-bounce {
+    0% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-12px);
+    }
+    70% {
+        transform: translateY(-6px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.taskbar-item.bounce {
+    animation: taskbar-bounce 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#logos {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 7vh;
+    height: 7vh;
+    text-align: center;
+    font-size: 1.5vh;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+#flogo {
+    margin: 0;
+    padding: 5px;
+    max-width: 5.5vh;
+    max-height: 5.5vh;
+    rotate: 10deg;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+    z-index: 1000;
+    filter: drop-shadow(0 0 5px rgba(0, 145, 255, 0.5));
+}
+
+#flogo:hover {
+    rotate: -10deg;
+    max-width: 6vh;
+    max-height: 6vh;
+    filter: drop-shadow(0 0 8px rgba(0, 145, 255, 0.8));
 }
 
 .taskbar-separator {
@@ -1009,7 +1133,6 @@ input[type="text"]:focus {
         opacity: 1;
         transform: scale(1) translate(0, 0);
     }
-
     100% {
         opacity: 0;
         transform: scale(0.2) translate(0, 300px);
@@ -1021,7 +1144,6 @@ input[type="text"]:focus {
         opacity: 0;
         transform: scale(0.2) translate(0, 300px);
     }
-
     100% {
         opacity: 1;
         transform: scale(1) translate(0, 0);
@@ -1037,26 +1159,4 @@ input[type="text"]:focus {
 .window.maximizing {
     animation: maximize-window 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     transform-origin: bottom center;
-}
-
-@keyframes taskbar-bounce {
-    0% {
-        transform: translateY(0);
-    }
-
-    40% {
-        transform: translateY(-10px);
-    }
-
-    70% {
-        transform: translateY(-5px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-}
-
-.taskbar-item.bounce {
-    animation: taskbar-bounce 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
