@@ -1,59 +1,165 @@
 :root {
     --primary: #0a1520;
-    --secondary: rgb(255, 255, 255);
-    --font: rgb(255, 255, 255);
-    --accent: rgb(0, 153, 255);
-    overflow-x: hidden;
+    --secondary: #f8f9fa;
+    --accent: #0099ff;
+    --text-primary: #ffffff;
+    --text-secondary: #d1d5db;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 @font-face {
     font-family: "font";
-    /*a name to be used later*/
-    src: url("../fonts/font.otf");
-    /*URL to font*/
+    src: url("/assets/fonts/font.otf");
 }
 
 body {
-    background-color: var(--primary);
-    color: var(--font);
-    font-family: 'font';
+    background: linear-gradient(135deg, var(--primary), #1a2a3a);
+    font-family: 'font', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero {
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+    z-index: 1;
+}
+
+.hero-content {
+    animation: fadeIn 1s ease-out;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    background: linear-gradient(135deg, var(--accent), #00ccff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: slideUp 0.8s ease-out;
+}
+
+.hero-subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    animation: slideUp 0.8s ease-out 0.2s backwards;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: slideUp 0.8s ease-out 0.4s backwards;
+}
+
+.words-container {
+    position: relative;
+    height: 1.5em;
+    overflow: hidden;
+}
+
+.word {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.5s ease;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.word.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.word.previous {
+    opacity: 0;
+    transform: translateY(-100%);
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 2.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--accent), #00ccff);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: slideUp 0.8s ease-out 0.2s backwards;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 153, 255, 0.3);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+}
+
+.arrow-icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover .arrow-icon {
+    transform: translateX(4px);
 }
 
 .stars {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: -1;
+    z-index: 0;
 }
 
-.star {
-    position: absolute;
-    width: 0.29vh;
-    height: .29vh;
-    background: white;
-    border-radius: 50%;
-    animation: twinkle 4.5s ease-in-out infinite;
-    opacity: 0;
-    transform: scale(0);
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-
-
-@keyframes twinkle {
-    0% {
+@keyframes slideUp {
+    from {
         opacity: 0;
-        transform: scale(0);
+        transform: translateY(20px);
     }
-
-    50% {
-        opacity: 0.8;
-        transform: scale(1);
-    }
-
-    100% {
-        opacity: 0;
-        transform: scale(0);
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -76,39 +182,6 @@ body {
     margin-right: 0.6vw;
     line-height: .72vh;
     /* Match the height of words container */
-}
-
-.words-container {
-    position: relative;
-    height: 11.52vh;
-    overflow: hidden;
-    width: 27.3vw;
-    display: inline-flex;
-    align-items: center;
-}
-
-.word {
-    margin-left: 0.4vw;
-    position: absolute;
-    color: var(--accent);
-    /*text-shadow: 0 0 .72vh var(--accent);*/
-    opacity: 0;
-    transform: translateY(7.76vh);
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    text-align: left;
-    width: 100%;
-    line-height: .72vh;
-    /* Match the height of static text */
-}
-
-.word.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.word.previous {
-    opacity: 0;
-    transform: translateY(-5.76vh);
 }
 
 #iframe {
