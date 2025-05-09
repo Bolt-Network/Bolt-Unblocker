@@ -6,15 +6,40 @@ import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 import { join } from "node:path";
 import { hostname } from "node:os";
 import { server as wisp } from "@mercuryworkshop/wisp-js/server";
+import compression from "compression";
+import helmet from "helmet";
 
 const __dirname = process.cwd();
 const app = express();
 
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'", "'unsafe-inline'"],
+            styleSrc: ["'self'", "'unsafe-inline'"],
+            imgSrc: ["'self'", "data:", "https:"],
+            connectSrc: ["'self'", "wss:", "ws:"]
+        }
+    },
+    crossOriginEmbedderPolicy: false,
+    crossOriginOpenerPolicy: false
+}));
+
+app.use(compression());
+
 const publicPath = join(__dirname, "public");
-app.use(express.static(publicPath));
-app.use("/epoxy/", express.static(epoxyPath));
-app.use("/libcurl/", express.static(libcurlPath));
-app.use("/baremux/", express.static(baremuxPath));
+
+const staticOptions = {
+    maxAge: '1d',
+    etag: true,
+    lastModified: true
+};
+
+app.use(express.static(publicPath, staticOptions));
+app.use("/epoxy/", express.static(epoxyPath, staticOptions));
+app.use("/libcurl/", express.static(libcurlPath, staticOptions));
+app.use("/baremux/", express.static(baremuxPath, staticOptions));
 
 const server = createServer();
 
