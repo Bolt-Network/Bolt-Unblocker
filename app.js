@@ -12,6 +12,10 @@ import helmet from "helmet";
 const __dirname = process.cwd();
 const app = express();
 
+wisp.options.dns_method = "resolve";
+wisp.options.dns_servers = ["94.140.14.14", "94.140.15.15", "1.1.1.3", "1.0.0.3"];
+wisp.options.dns_result_order = "ipv4first";
+
 app.use(helmet({
     contentSecurityPolicy: {
         directives: {
