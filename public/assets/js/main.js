@@ -70,9 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
             appsTooltip.classList.add('visible');
         }, 1000);
 
-        document.getElementById('flogo').addEventListener('click', () => {
-            appsTooltip.classList.remove('visible');
-            localStorage.setItem('appsTooltipShown', 'true');
-        });
+        const flogoElement = document.getElementById('flogo');
+        if (flogoElement) {
+            flogoElement.addEventListener('click', () => {
+                appsTooltip.classList.remove('visible');
+                localStorage.setItem('appsTooltipShown', 'true');
+            });
+        }
     }
 });
