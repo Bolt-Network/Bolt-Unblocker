@@ -26,19 +26,20 @@ async function init() {
         console.error("An error occurred while setting up baremux:", err);
     }
 
-
-
     if (!localStorage.getItem("proxy")) {
         localStorage.setItem("proxy", "uv");
     }
 
     try {
-        await navigator.serviceWorker.register("/sw.js");
-        console.log("Registering service worker...");
+        if ('serviceWorker' in navigator) {
+            const registration = await navigator.serviceWorker.register("/sw.js");
+            console.log("Service worker registered successfully:", registration.scope);
+        }
     } catch (err) {
-        throw new Error(err)
+        console.error("Service worker registration failed:", err);
     }
 }
+
 const scramjet = new ScramjetController({
     prefix: "/scram/service/",
     files: {
@@ -49,17 +50,19 @@ const scramjet = new ScramjetController({
         sync: "/scram/scramjet.sync.js"
     }
 });
+
 window.sj = scramjet;
 scramjet.init();
-if (!navigator.serviceWorker && !window.location.pathname.includes("srcdocs")) {
-    navigator.serviceWorker.register("sw.js").then(() => {
-        console.log("Scramjet service worker registered.");
-    });
-}
 
 init();
 
-document.addEventListener('DOMContentLoaded', () => {
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+    initializeApp();
+}
+
+function initializeApp() {
     if (!localStorage.getItem('appsTooltipShown')) {
         const appsTooltip = document.createElement('div');
         appsTooltip.id = 'apps-tooltip';
@@ -78,4 +81,4 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
-});
+}
