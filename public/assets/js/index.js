@@ -6,7 +6,6 @@ var pinnedApps = JSON.parse(localStorage.getItem("pinnedApps")) || [];
 var pinned = document.getElementById("pinned-apps");
 const background = document.getElementById("background");
 const searchInput = document.getElementById("search-input");
-const searchButton = document.getElementById("search-button");
 localStorage.setItem("searchEngine", "duckduckgo");
 big.innerText = localStorage.getItem("name") || "User";
 
@@ -32,27 +31,23 @@ function performSearch() {
     const query = searchInput.value.trim();
     if (query !== "") {
         const browserWindow = createBrowserWindow(9999);
-        
-        searchButton.classList.add("searching");
-        
+
         setTimeout(() => {
             localStorage.setItem("searchQuery", query);
-            
+
             const searchEvent = new CustomEvent("performSearch");
             document.dispatchEvent(searchEvent);
-            
+
             searchInput.value = "";
-            searchButton.classList.remove("searching");
         }, 300);
     }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
     renderPinnedApps();
-    
-    if (searchButton && searchInput) {
-        searchButton.addEventListener("click", performSearch);
-        searchInput.addEventListener("keypress", function(e) {
+
+    if (searchInput) {
+        searchInput.addEventListener("keypress", function (e) {
             if (e.key === "Enter") {
                 performSearch();
             }

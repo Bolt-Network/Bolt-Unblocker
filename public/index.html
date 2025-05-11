@@ -12,11 +12,10 @@
   <script src="/baremux/index.js"></script>
   <script src="/uv/uv.bundle.js"></script>
   <script src="/uv/uv.config.js"></script>
-  <link rel="prefetch" href="/scram/scramjet.worker.js" />
-  <link rel="prefetch" href="/scram/scramjet.shared.js" />
+  <link rel="preload" href="/scram/scramjet.worker.js" as="script" crossorigin="anonymous" />
+  <link rel="preload" href="/scram/scramjet.shared.js" as="script" crossorigin="anonymous" />
   <script src="/assets/js/main.js"></script>
   <script src="/assets/js/loadcloak.js"></script>
-  <script src="/assets/js/auth.js"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BNC20292T8"></script>
   <script>
@@ -38,11 +37,11 @@
   <div id="search-container">
     <div id="search-bar">
       <input type="text" id="search-input" placeholder="Search the web..." spellcheck="false" autocomplete="off">
-      <button id="search-button">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="currentColor"/>
-        </svg>
-      </button>
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+          fill="currentColor" />
+      </svg>
     </div>
   </div>
 
@@ -91,7 +90,7 @@
   <div id="content">
 
   </div>
-  
+
   <iframe id="apps" src="/srcdocs/apps.html">
 
   </iframe>
@@ -180,7 +179,9 @@
   <script src="/assets/js/apps.js"></script>
   <script src="/assets/js/taskbar.js"></script>
   <script src="/assets/js/window-manager.js"></script>
-  </div>
+  <script src="/assets/js/auth.js"></script>
+  <script type='text/javascript'
+    src='//pl26605217.profitableratecpm.com/9a/a1/e7/9aa1e73d0caebe8da0973fa2f16fb7c0.js'></script>
 </body>
 
 </html>

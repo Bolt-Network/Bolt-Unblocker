@@ -15,25 +15,25 @@ document.addEventListener('DOMContentLoaded', function () {
     const searchQuery = localStorage.getItem("searchQuery");
     if (searchQuery) {
         localStorage.removeItem("searchQuery");
-        
+
         if (urlBar) {
             urlBar.value = searchQuery;
         }
-        
+
         setTimeout(() => {
             navigateToUrl();
         }, 300);
     }
 
-    document.addEventListener("performSearch", function() {
+    document.addEventListener("performSearch", function () {
         const searchQuery = localStorage.getItem("searchQuery");
         if (searchQuery) {
             localStorage.removeItem("searchQuery");
-            
+
             if (urlBar) {
                 urlBar.value = searchQuery;
             }
-            
+
             navigateToUrl();
         }
     });
