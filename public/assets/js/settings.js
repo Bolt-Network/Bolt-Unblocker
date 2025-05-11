@@ -189,6 +189,7 @@ premiumActivate.addEventListener('click', async () => {
                 if (data === boltPremium.value) {
                     var discordname = prompt('Premium code is valid! Enter your Discord username to send the activation request. NOTE: You must be in the Discord server for this to work.');
                     sendWebhookMessage(discordname);
+                    localStorage.setItem('a', 'false');
                 }
                 else {
                     alert('Invalid premium code.');
