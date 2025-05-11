@@ -1,17 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     if (!localStorage.getItem('name') || localStorage.getItem('name') === '') {
         try {
-            var result = confirm("Do you want to enable ultra-performance mode? (HIGHLY RECOMMENDED FOR LOW-END DEVICES)");
-            if (result) {
-                localStorage.setItem('particlesEnabled', false);
-                localStorage.setItem('background', '3');
-                localStorage.setItem('performaceMode', 'true');
-                window.top.location.reload();
+            if (localStorage.getItem('que') === 'false' || localStorage.getItem('que') === null) {
+                var result = confirm("Do you want to enable ultra-performance mode? (HIGHLY RECOMMENDED FOR LOW-END DEVICES)");
+                if (result) {
+                    localStorage.setItem('particlesEnabled', false);
+                    localStorage.setItem('background', '3');
+                    localStorage.setItem('performaceMode', 'true');
+                    localStorage.setItem('que', 'true');
+                    window.top.location.reload();
+                }
+                else {
+                    localStorage.setItem('particlesEnabled', true);
+                    localStorage.setItem('que', 'true');
+                }
             }
-            else {
-                localStorage.setItem('particlesEnabled', true);
-            }
-
 
             const overlay = document.createElement('div');
             overlay.className = 'onboarding-overlay';
