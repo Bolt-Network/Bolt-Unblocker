@@ -1,7 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
     if (!localStorage.getItem('name') || localStorage.getItem('name') === '') {
         try {
-            localStorage.setItem('particlesEnabled', true);
+            var result = confirm("Do you want to enable ultra-performance mode? (HIGHLY RECOMMENDED FOR LOW-END DEVICES)");
+            if (result) {
+                localStorage.setItem('particlesEnabled', false);
+                localStorage.setItem('background', '3');
+                localStorage.setItem('performaceMode', 'true');
+                window.top.location.reload();
+            }
+            else {
+                localStorage.setItem('particlesEnabled', true);
+            }
+
 
             const overlay = document.createElement('div');
             overlay.className = 'onboarding-overlay';
