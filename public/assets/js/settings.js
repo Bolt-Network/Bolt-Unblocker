@@ -190,6 +190,7 @@ premiumActivate.addEventListener('click', async () => {
                     var discordname = prompt('Premium code is valid! Enter your Discord username to send the activation request. NOTE: You must be in the Discord server for this to work.');
                     sendWebhookMessage(discordname);
                     localStorage.setItem('a', 'false');
+                    window.top.location.reload();
                 }
                 else {
                     alert('Invalid premium code.');
