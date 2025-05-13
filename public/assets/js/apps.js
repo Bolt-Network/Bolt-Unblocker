@@ -107,10 +107,55 @@ ap.contentWindow.document.addEventListener("DOMContentLoaded", function () {
             browserWindow.style.cssText = "z-index:" + zindx + "; position: absolute; top: 0; left: 0; width: 100%; height: 93vh; background-color: none; border: none; opacity: 1; transform: scale(1); transition: opacity 0.5s, transform 0.5s;";
         }, 100);
     });
+    ap.contentWindow.document.getElementById("browser").addEventListener("hold", () => pinBuiltIn(ap.contentWindow.document.getElementById("browser")));
     ap.contentWindow.document.getElementById("gamehub").addEventListener("click", () => launchApp("gamehub", "https://sparkgames.404.mn"));
+    ap.contentWindow.document.getElementById("gamehub").addEventListener("hold", () => pinBuiltIn(ap.contentWindow.document.getElementById("gamehub")));
     ap.contentWindow.document.getElementById("settings").addEventListener("click", () => launchApp2("settings", "/srcdocs/apps/settings.html"));
+    ap.contentWindow.document.getElementById("settings").addEventListener("hold", () => pinBuiltIn(ap.contentWindow.document.getElementById("settings")));
     ap.contentWindow.document.getElementById("appstore").addEventListener("click", () => launchApp2("appstore", "/srcdocs/apps/appstore.html"));
+    ap.contentWindow.document.getElementById("appstore").addEventListener("hold", () => pinBuiltIn(ap.contentWindow.document.getElementById("appstore")));
+    function pinBuiltIn(appElement) {
+        const appUrl = getAppUrl(appElement);
+        const imgElement = appElement.querySelector('img');
+        const appName = imgElement.getAttribute('data-tooltip') || imgElement.getAttribute('alt');
+        const appImage = imgElement.getAttribute('src');
 
+        const appData = { name: appName, image: appImage, url: appUrl };
+
+        if (!appData.url || appData.url === '') {
+            console.warn("WARNING: No URL found for app:", appName);
+            if (appElement.id === 'browser') {
+                appData.url = '/srcdocs/apps/browser.html';
+            } else if (appElement.id === 'settings') {
+                appData.url = '/srcdocs/apps/settings.html';
+            } else if (appElement.id === 'appstore') {
+                appData.url = '/srcdocs/apps/appstore.html';
+            } else if (appElement.id === 'gamehub') {
+                appData.url = 'https://sparkgames.404.mn';
+            } else {
+
+                const customApps = JSON.parse(localStorage.getItem("apps")) || [];
+                const storedApp = customApps.find(app => app.name === appName);
+                if (storedApp) {
+                    appData.url = storedApp.url;
+                }
+            }
+        }
+
+        const pinnedApps = JSON.parse(localStorage.getItem("pinnedApps")) || [];
+        const isAlreadyPinned = pinnedApps.some(pinnedApp =>
+            pinnedApp.name === appData.name && pinnedApp.url === appData.url
+        );
+
+        if (isAlreadyPinned) {
+            alert(`${appName} is already pinned!`);
+        } else {
+            pinnedApps.push(appData);
+            localStorage.setItem("pinnedApps", JSON.stringify(pinnedApps));
+            alert(`${appName} has been pinned! Reload the page for changes to take effect.`);
+        }
+
+    }
     function showContextMenu(e, appElement) {
         e.preventDefault();
 
@@ -175,6 +220,7 @@ ap.contentWindow.document.addEventListener("DOMContentLoaded", function () {
 
     const builtInApps = ap.contentWindow.document.querySelectorAll(".builtin");
     builtInApps.forEach(app => {
+        enableHoldEvent(app);
         app.addEventListener("contextmenu", function (e) {
             showContextMenu(e, this);
         });
@@ -274,6 +320,7 @@ function getCustomApps() {
             appElement.setAttribute('data-app-name', app.name);
             appElement.setAttribute('data-app-url', app.url);
             appElement.setAttribute('data-tooltip', app.name);
+            enableHoldEvent(appElement);
             appElement.innerHTML = `
                 <img src="${app.image}" alt="${app.name}" class="applogo">
                 <span class="app-name">${app.name}</span>
@@ -287,6 +334,47 @@ function getCustomApps() {
                 launchApp(app.name, app.url);
                 document.getElementById("apps").classList.remove("active");
             });
+            appElement.addEventListener("hold", () => {
+                const appUrl = getAppUrl(appElement);
+                const imgElement = appElement.querySelector('img');
+                const appName = imgElement.getAttribute('data-tooltip') || imgElement.getAttribute('alt');
+                const appImage = imgElement.getAttribute('src');
+
+                const appData = { name: appName, image: appImage, url: appUrl };
+
+                if (!appData.url || appData.url === '') {
+                    console.warn("WARNING: No URL found for app:", appName);
+                    if (appElement.id === 'browser') {
+                        appData.url = '/srcdocs/apps/browser.html';
+                    } else if (appElement.id === 'settings') {
+                        appData.url = '/srcdocs/apps/settings.html';
+                    } else if (appElement.id === 'appstore') {
+                        appData.url = '/srcdocs/apps/appstore.html';
+                    } else if (appElement.id === 'gamehub') {
+                        appData.url = 'https://sparkgames.404.mn';
+                    } else {
+
+                        const customApps = JSON.parse(localStorage.getItem("apps")) || [];
+                        const storedApp = customApps.find(app => app.name === appName);
+                        if (storedApp) {
+                            appData.url = storedApp.url;
+                        }
+                    }
+                }
+
+                const pinnedApps = JSON.parse(localStorage.getItem("pinnedApps")) || [];
+                const isAlreadyPinned = pinnedApps.some(pinnedApp =>
+                    pinnedApp.name === appData.name && pinnedApp.url === appData.url
+                );
+
+                if (isAlreadyPinned) {
+                    alert(`${appName} is already pinned!`);
+                } else {
+                    pinnedApps.push(appData);
+                    localStorage.setItem("pinnedApps", JSON.stringify(pinnedApps));
+                    alert(`${appName} has been pinned! Reload the page for changes to take effect.`);
+                }
+            });
             addContextMenu(appElement, app);
 
             appsContainer.appendChild(appElement);
@@ -297,6 +385,80 @@ function getCustomApps() {
         console.error("Error loading custom apps:", error);
     }
 }
+
+
+
+function enableHoldEvent(element, duration = 500) {
+    let timer;
+
+    element.addEventListener('mousedown', function (e) {
+        timer = setTimeout(() => {
+            const holdEvent = new CustomEvent('hold', {
+                bubbles: true,
+                cancelable: true,
+                detail: { originalEvent: e }
+            });
+            element.dispatchEvent(holdEvent);
+        }, duration);
+    });
+
+    element.addEventListener('mouseup', () => clearTimeout(timer));
+    element.addEventListener('mouseleave', () => clearTimeout(timer));
+    element.addEventListener('mousemove', () => clearTimeout(timer));
+
+    // For touch devices
+    element.addEventListener('touchstart', function (e) {
+        timer = setTimeout(() => {
+            const holdEvent = new CustomEvent('hold', {
+                bubbles: true,
+                cancelable: true,
+                detail: { originalEvent: e }
+            });
+            element.dispatchEvent(holdEvent);
+        }, duration);
+    });
+
+    element.addEventListener('touchend', () => clearTimeout(timer));
+    element.addEventListener('touchmove', () => clearTimeout(timer));
+}
+
+
+function enableHoldEvent(element, duration = 800) {
+    let timer;
+
+    element.addEventListener('mousedown', function (e) {
+        timer = setTimeout(() => {
+            // Create and dispatch a custom "hold" event
+            const holdEvent = new CustomEvent('hold', {
+                bubbles: true,
+                cancelable: true,
+                detail: { originalEvent: e }
+            });
+            element.dispatchEvent(holdEvent);
+        }, duration);
+    });
+
+    // Clear the timer if the mouse is released or moved
+    element.addEventListener('mouseup', () => clearTimeout(timer));
+    element.addEventListener('mouseleave', () => clearTimeout(timer));
+    element.addEventListener('mousemove', () => clearTimeout(timer));
+
+    // For touch devices
+    element.addEventListener('touchstart', function (e) {
+        timer = setTimeout(() => {
+            const holdEvent = new CustomEvent('hold', {
+                bubbles: true,
+                cancelable: true,
+                detail: { originalEvent: e }
+            });
+            element.dispatchEvent(holdEvent);
+        }, duration);
+    });
+
+    element.addEventListener('touchend', () => clearTimeout(timer));
+    element.addEventListener('touchmove', () => clearTimeout(timer));
+}
+
 
 function getDragAfterElement(container, x, y) {
     const draggableElements = [...container.querySelectorAll('.app:not(.dragging)')];
