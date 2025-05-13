@@ -278,3 +278,10 @@ if (localStorage.getItem("performanceMode")) {
     localStorage.setItem('particlesEnabled', false);
     localStorage.setItem('background', '3');
 }
+
+function isMobileUserAgent() {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent)) {
+        alert('📱 Mobile device detected! Please use a desktop browser for the best experience. ❗IMPORTANT TIP❗ Press and hold apps to pin them.');
+    }
+}
+isMobileUserAgent();
