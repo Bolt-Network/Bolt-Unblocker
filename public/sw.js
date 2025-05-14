@@ -49,11 +49,12 @@ self.addEventListener('message', ({ data }) => {
 });
 
 async function handleRequest(event) {
-    const cachedResponse = await caches.match(event.request);
-    if (cachedResponse) {
-        return cachedResponse;
-    }
-
+    /*     const cachedResponse = await caches.match(event.request);
+        if (cachedResponse) {
+            console.log('Cached response:', cachedResponse);
+            return cachedResponse;
+        }
+     */
     if (uv.route(event)) {
         return await uv.fetch(event);
     }
