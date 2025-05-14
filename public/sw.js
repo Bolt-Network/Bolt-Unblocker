@@ -60,7 +60,7 @@ async function handleRequest(event) {
 
     await scramjet.loadConfig();
     if (scramjet.route(event)) {
-        return await scramjet.fetch(event);
+        return scramjet.fetch(event);
     }
 
     try {

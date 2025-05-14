@@ -5,20 +5,20 @@ async function init() {
         if (localStorage.getItem("transport") == "epoxy") {
             if (await connection.getTransport() !== "/epoxy/index.mjs") {
                 await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
-                console.log("Using websocket transport. Wisp URL is: " + wispUrl);
+                console.log("Using Epoxy transport. Wisp URL is: " + wispUrl);
             }
         }
         else if (localStorage.getItem("transport") == "libcurl") {
             if (await connection.getTransport() !== "/libcurl/index.mjs") {
                 await connection.setTransport("/libcurl/index.mjs", [{ wisp: wispUrl }]);
-                console.log("Using websocket transport. Wisp URL is: " + wispUrl);
+                console.log("Using Libcurl transport. Wisp URL is: " + wispUrl);
             }
         }
         else {
             localStorage.setItem("transport", "epoxy");
             if (await connection.getTransport() !== "/epoxy/index.mjs") {
                 await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
-                console.log("Using websocket transport. Wisp URL is: " + wispUrl);
+                console.log("Using Epoxy transport. Wisp URL is: " + wispUrl);
             }
         }
 
