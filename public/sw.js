@@ -66,10 +66,6 @@ async function handleRequest(event) {
 
     try {
         const response = await fetch(event.request);
-        if (response.ok && event.request.method === 'GET') {
-            const cache = await caches.open(CACHE_NAME);
-            cache.put(event.request, response.clone());
-        }
         return response;
     } catch (error) {
         const offlineResponse = await caches.match('/offline.html');
