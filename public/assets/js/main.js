@@ -47,7 +47,14 @@ const scramjet = new ScramjetController({
         client: "/scram/scramjet.client.js",
         shared: "/scram/scramjet.shared.js",
         sync: "/scram/scramjet.sync.js"
-    }
+    },
+    flags: {
+        serviceworkers: false,
+        syncxhr: false,
+        scramitize: false,
+        sourcemaps: true,
+        strictRewrites: true,
+    },
 });
 window.sj = scramjet;
 scramjet.init();
