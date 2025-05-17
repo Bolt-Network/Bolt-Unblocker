@@ -251,9 +251,14 @@ adsDisable.addEventListener('click', () => {
         localStorage.setItem('a', 'false');
         alert('Ads have been disabled. I guess you don`t want to support Bolt. Meanie.');
         window.top.location.reload();
-    } else {
+    } else if (localStorage.getItem('a') === 'false') {
         localStorage.setItem('a', 'true');
         alert('Ads have been re-enabled. Thanks for supporting Bolt! 💖');
+        window.top.location.reload();
+    }
+    else {
+        localStorage.setItem('a', 'false');
+        alert('Ads have been disabled. I guess you don`t want to support Bolt. Meanie.');
         window.top.location.reload();
     }
 });
