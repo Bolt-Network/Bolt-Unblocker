@@ -25,10 +25,11 @@ async function init() {
     } catch (err) {
         console.error("An error occurred while setting up baremux:", err);
     }
+}
 
-    if (!localStorage.getItem("proxy")) {
-        localStorage.setItem("proxy", "uv");
-    }
+
+if (!localStorage.getItem("proxy")) {
+    localStorage.setItem("proxy", "uv");
 }
 
 const scramjet = new ScramjetController({
@@ -41,11 +42,15 @@ const scramjet = new ScramjetController({
         sync: "/scram/scramjet.sync.js"
     },
     flags: {
-        serviceworkers: false,
-        syncxhr: false,
-        scramitize: false,
-        sourcemaps: true,
-        strictRewrites: true,
+        "serviceworkers": false,
+        "syncxhr": false,
+        "naiiveRewriter": false,
+        "strictRewrites": false,
+        "rewriterLogs": false,
+        "captureErrors": false,
+        "cleanErrors": false,
+        "scramitize": false,
+        "sourcemaps": false
     },
 });
 window.sj = scramjet;
