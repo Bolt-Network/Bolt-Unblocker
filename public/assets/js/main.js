@@ -26,19 +26,11 @@ async function init() {
         console.error("An error occurred while setting up baremux:", err);
     }
 
-
-
     if (!localStorage.getItem("proxy")) {
         localStorage.setItem("proxy", "uv");
     }
-
-    try {
-        await navigator.serviceWorker.register("/sw.js");
-        console.log("Registering service worker...");
-    } catch (err) {
-        throw new Error(err)
-    }
 }
+
 const scramjet = new ScramjetController({
     prefix: "/scram/service/",
     files: {
@@ -58,28 +50,18 @@ const scramjet = new ScramjetController({
 });
 window.sj = scramjet;
 scramjet.init();
-if (!navigator.serviceWorker && !window.location.pathname.includes("srcdocs")) {
-    navigator.serviceWorker.register("sw.js").then(() => {
-        console.log("Scramjet service worker registered.");
+
+if (navigator.serviceWorker) {
+    navigator.serviceWorker.getRegistrations().then(registrations => {
+        if (registrations.length === 0) {
+            try {
+                navigator.serviceWorker.register("sw.js").then(() => {
+                    console.log("Service worker registered.");
+                });
+            } catch (err) {
+                console.error("An error occurred while registering service worker:", err);
+            }
+        }
     });
 }
-
 init();
-
-document.addEventListener('DOMContentLoaded', () => {
-    if (!localStorage.getItem('appsTooltipShown')) {
-        const appsTooltip = document.createElement('div');
-        appsTooltip.id = 'apps-tooltip';
-        appsTooltip.textContent = 'Click here to open apps menu';
-        document.body.appendChild(appsTooltip);
-
-        setTimeout(() => {
-            appsTooltip.classList.add('visible');
-        }, 1000);
-
-        document.getElementById('flogo').addEventListener('click', () => {
-            appsTooltip.classList.remove('visible');
-            localStorage.setItem('appsTooltipShown', 'true');
-        });
-    }
-});
