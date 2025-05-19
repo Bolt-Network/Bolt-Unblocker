@@ -108,7 +108,7 @@ ap.contentWindow.document.addEventListener("DOMContentLoaded", function () {
         }, 100);
     });
     ap.contentWindow.document.getElementById("browser").addEventListener("hold", () => pinBuiltIn(ap.contentWindow.document.getElementById("browser")));
-    ap.contentWindow.document.getElementById("gamehub").addEventListener("click", () => launchApp("gamehub", "https://sparkgames.404.mn"));
+    ap.contentWindow.document.getElementById("gamehub").addEventListener("click", () => launchApp("gamehub", "https://sparkgames.xyz"));
     ap.contentWindow.document.getElementById("gamehub").addEventListener("hold", () => pinBuiltIn(ap.contentWindow.document.getElementById("gamehub")));
     ap.contentWindow.document.getElementById("settings").addEventListener("click", () => launchApp2("settings", "/srcdocs/apps/settings.html"));
     ap.contentWindow.document.getElementById("settings").addEventListener("hold", () => pinBuiltIn(ap.contentWindow.document.getElementById("settings")));
@@ -131,7 +131,7 @@ ap.contentWindow.document.addEventListener("DOMContentLoaded", function () {
             } else if (appElement.id === 'appstore') {
                 appData.url = '/srcdocs/apps/appstore.html';
             } else if (appElement.id === 'gamehub') {
-                appData.url = 'https://sparkgames.404.mn';
+                appData.url = 'https://sparkgames.xyz';
             } else {
 
                 const customApps = JSON.parse(localStorage.getItem("apps")) || [];
@@ -269,7 +269,7 @@ function getAppUrl(appElement) {
     if (!url && appElement.id) {
         switch (appElement.id) {
             case 'browser': return '/srcdocs/apps/browser.html';
-            case 'gamehub': return 'https://sparkgames.404.mn';
+            case 'gamehub': return 'https://sparkgames.xyz';
             case 'settings': return '/srcdocs/apps/settings.html';
             case 'appstore': return '/srcdocs/apps/appstore.html';
             default: return '';
@@ -351,7 +351,7 @@ function getCustomApps() {
                     } else if (appElement.id === 'appstore') {
                         appData.url = '/srcdocs/apps/appstore.html';
                     } else if (appElement.id === 'gamehub') {
-                        appData.url = 'https://sparkgames.404.mn';
+                        appData.url = 'https://sparkgames.xyz';
                     } else {
 
                         const customApps = JSON.parse(localStorage.getItem("apps")) || [];
@@ -499,7 +499,7 @@ function makeAppsDraggable() {
         const appUrl = app.getAttribute('data-url') || (app.id === 'browser' ? '/srcdocs/apps/browser.html' :
             app.id === 'settings' ? '/srcdocs/apps/settings.html' :
                 app.id === 'appstore' ? '/srcdocs/apps/appstore.html' :
-                    app.id === 'gamehub' ? 'https://sparkgames.404.mn' : '');
+                    app.id === 'gamehub' ? 'https://sparkgames.xyz' : '');
         app.setAttribute('data-app-url', appUrl);
         const appData = {
             name: app.querySelector('img').getAttribute('data-tooltip'),
@@ -634,7 +634,7 @@ function addContextMenu(appElement, app) {
                 } else if (appElement.id === 'appstore') {
                     appData.url = '/srcdocs/apps/appstore.html';
                 } else if (appElement.id === 'gamehub') {
-                    appData.url = 'https://sparkgames.404.mn';
+                    appData.url = 'https://sparkgames.xyz';
                 } else {
 
                     const customApps = JSON.parse(localStorage.getItem("apps")) || [];
@@ -729,7 +729,7 @@ function setupBuiltInAppUrls() {
     const appstoreApp = document.getElementById('appstore');
     if (appstoreApp) appstoreApp.setAttribute('data-app-url', '/srcdocs/apps/appstore.html');
     const gamehubApp = document.getElementById('gamehub');
-    if (gamehubApp) gamehubApp.setAttribute('data-app-url', 'https://sparkgames.404.mn');
+    if (gamehubApp) gamehubApp.setAttribute('data-app-url', 'https://sparkgames.xyz');
 }
 
 ap.contentWindow.document.addEventListener('DOMContentLoaded', () => {
