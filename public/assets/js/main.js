@@ -45,12 +45,12 @@ const scramjet = new ScramjetController({
         "serviceworkers": false,
         "syncxhr": false,
         "naiiveRewriter": false,
-        "strictRewrites": false,
+        "strictRewrites": true,
         "rewriterLogs": false,
         "captureErrors": false,
         "cleanErrors": false,
         "scramitize": false,
-        "sourcemaps": false
+        "sourcemaps": true
     },
 });
 window.sj = scramjet;
