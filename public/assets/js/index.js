@@ -6,8 +6,11 @@ var pinnedApps = JSON.parse(localStorage.getItem("pinnedApps")) || [];
 var pinned = document.getElementById("pinned-apps");
 const background = document.getElementById("background");
 const searchInput = document.getElementById("search-input");
-localStorage.setItem("searchEngine", "duckduckgo");
+
 big.innerText = localStorage.getItem("name") || "User";
+if (!localStorage.getItem("searchEngine")) {
+    localStorage.setItem("searchEngine", "duckduckgo");
+}
 
 if (!window.location.href.includes("localhost:8080")) {
     if (localStorage.getItem("a") === "true" || localStorage.getItem("a") === null) {
