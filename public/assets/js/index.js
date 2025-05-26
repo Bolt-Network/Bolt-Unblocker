@@ -12,13 +12,17 @@ if (!localStorage.getItem("searchEngine")) {
     localStorage.setItem("searchEngine", "duckduckgo");
 }
 
-if (!window.location.href.includes("localhost:8080")) {
+if (window.location.href.includes("localhost:8080")) {
     if (localStorage.getItem("a") === "true" || localStorage.getItem("a") === null) {
         const a = document.createElement("script");
         a.src = '//pl26605217.profitableratecpm.com/9a/a1/e7/9aa1e73d0caebe8da0973fa2f16fb7c0.js';
         a.type = "text/javascript";
         a.id = "script";
         document.body.appendChild(a);
+        const b = document.createElement("div");
+        b.classList.add("sz-link");
+        b.innerHTML = '<a href="https://sz.games" target="_blank">SZ Games</a><script src="https://partner.senty.com.au/partner-3b3f1808.js"></script>'
+        document.body.appendChild(b);
     }
 }
 
