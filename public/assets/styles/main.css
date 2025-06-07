@@ -193,18 +193,18 @@ body {
 
 #apps {
     position: absolute;
-    bottom: -100vh;
+    bottom: 7vh;
     left: 0;
     width: 100vw;
-    height: 93vh;
+    height: 0vh;
     border: none;
     z-index: 1000000000000;
-    transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
 }
 
 #apps.active {
-    bottom: 7vh;
+    height: 93vh;
 }
 
 #buttons {

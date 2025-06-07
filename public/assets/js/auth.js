@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     if (!localStorage.getItem('name') || localStorage.getItem('name') === '') {
+        localStorage.setItem('new', 'true');
         try {
             if (localStorage.getItem('que') === 'false' || localStorage.getItem('que') === null) {
                 var result = confirm("Do you want to enable ultra-performance mode? (HIGHLY RECOMMENDED FOR LOW-END DEVICES)");

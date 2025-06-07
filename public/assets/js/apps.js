@@ -1,5 +1,49 @@
 const flogo = document.getElementById("flogo");
 
+
+function pinBuiltInNew(appElement) {
+    const appUrl = getAppUrl(appElement);
+    const imgElement = appElement.querySelector('img');
+    const appName = imgElement.getAttribute('data-tooltip') || imgElement.getAttribute('alt');
+    const appImage = imgElement.getAttribute('src');
+
+    const appData = { name: appName, image: appImage, url: appUrl };
+
+    if (!appData.url || appData.url === '') {
+        console.warn("WARNING: No URL found for app:", appName);
+        if (appElement.id === 'browser') {
+            appData.url = '/srcdocs/apps/browser.html';
+        } else if (appElement.id === 'settings') {
+            appData.url = '/srcdocs/apps/settings.html';
+        } else if (appElement.id === 'appstore') {
+            appData.url = '/srcdocs/apps/appstore.html';
+        } else if (appElement.id === 'gamehub') {
+            appData.url = 'https://sparkgames.xyz';
+        } else {
+
+            const customApps = JSON.parse(localStorage.getItem("apps")) || [];
+            const storedApp = customApps.find(app => app.name === appName);
+            if (storedApp) {
+                appData.url = storedApp.url;
+            }
+        }
+    }
+
+    const pinnedApps = JSON.parse(localStorage.getItem("pinnedApps")) || [];
+    const isAlreadyPinned = pinnedApps.some(pinnedApp =>
+        pinnedApp.name === appData.name && pinnedApp.url === appData.url
+    );
+
+    if (isAlreadyPinned) {
+        console.warn(`${appName} is already pinned!`);
+    } else {
+        pinnedApps.push(appData);
+        localStorage.setItem("pinnedApps", JSON.stringify(pinnedApps));
+        window.location.reload();
+    }
+
+}
+
 function launchApp(appId, urlKey) {
     var zindx = 9;
     for (var i = 0; i < document.getElementsByClassName("window").length; i++) {
@@ -84,6 +128,15 @@ function createBrowserWindow(zindx) {
 }
 
 ap.contentWindow.document.addEventListener("DOMContentLoaded", function () {
+    if (localStorage.getItem("new") === "true") {
+        pinBuiltInNew(ap.contentWindow.document.getElementById("browser"));
+        pinBuiltInNew(ap.contentWindow.document.getElementById("gamehub"));
+        pinBuiltInNew(ap.contentWindow.document.getElementById("settings"));
+        pinBuiltInNew(ap.contentWindow.document.getElementById("appstore"));
+        localStorage.setItem("new", "false");
+    }
+
+
     ap.contentWindow.document.getElementById("browser").addEventListener("click", () => {
         var zindx = 9;
         for (var i = 0; i < document.getElementsByClassName("window").length; i++) {
