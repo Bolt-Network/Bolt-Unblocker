@@ -8,7 +8,7 @@
     --control-hover: rgba(0, 153, 255, 0.3);
     --control-active: rgba(0, 153, 255, 0.5);
     --control-radius: 12px;
-    --url-bar-bg: rgba(0, 20, 36, 0.7);
+    --url-bar-bg: rgba(0, 23, 36, 0.7);
     --icon-color: var(--accent);
     --backdrop-blur: 10px;
     --transition-speed: 0.3s;
