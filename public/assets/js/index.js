@@ -11,7 +11,8 @@ big.innerText = localStorage.getItem("name") || "User";
 if (!localStorage.getItem("searchEngine")) {
     localStorage.setItem("searchEngine", "duckduckgo");
 }
-
+      localStorage.setItem('particlesEnabled', false);
+                    localStorage.setItem('background', '3');
 if (!window.location.href.includes("localhost:8080")) {
     if (localStorage.getItem("a") === "true" || localStorage.getItem("a") === null) {
         const a = document.createElement("script");
