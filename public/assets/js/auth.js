@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     localStorage.setItem('que', 'true');
                 }
             }
-
+      localStorage.setItem('particlesEnabled', false);
+                    localStorage.setItem('background', '3');
             const overlay = document.createElement('div');
             overlay.className = 'onboarding-overlay';
             overlay.innerHTML = `
