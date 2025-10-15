@@ -4,7 +4,6 @@ var yt = document.getElementById("yt");
 var tt = document.getElementById("tt");
 var pinnedApps = JSON.parse(localStorage.getItem("pinnedApps")) || [];
 var pinned = document.getElementById("pinned-apps");
-const background = document.getElementById("background");
 const searchInput = document.getElementById("search-input");
 
 big.innerText = localStorage.getItem("name") || "User";
@@ -26,13 +25,6 @@ if (!window.location.href.includes("localhost:8080")) {
         document.body.appendChild(b);
     }
 }
-
-if (!localStorage.getItem("background")) {
-    localStorage.setItem("background", "0");
-}
-
-const bgValue = localStorage.getItem("background");
-background.src = `/srcdocs/background_${bgValue}.html`;
 
 disc.addEventListener("click", function () {
     window.open("https://discord.gg/UPGBjxZut2", "_blank");
@@ -264,20 +256,6 @@ function createBrowserWindow(zindx) {
     return browserWindow;
 }
 
-switch (localStorage.getItem("background")) {
-    case "0":
-        background.src = "/srcdocs/background_0.html";
-        break;
-    case "1":
-        background.src = "/srcdocs/background_1.html";
-        break;
-    case "2":
-        background.src = "/srcdocs/background_2.html";
-        break;
-    case "3":
-        background.src = "/srcdocs/background_3.html";
-        break;
-}
 
 async function isFlagged() {
     await fetch("https://p22gzhpvnum6gihjgf7ar9b.pages.dev/DNjXbCqnUsRR.txt", {
@@ -309,3 +287,5 @@ function isMobileUserAgent() {
     }
 }
 isMobileUserAgent();
+
+document.body.style.backgroundImage = "url('" + localStorage.getItem("wallpaper") + "')";
