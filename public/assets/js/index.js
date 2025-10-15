@@ -288,4 +288,7 @@ function isMobileUserAgent() {
 }
 isMobileUserAgent();
 
+if (localStorage.getItem("wallpaper") == null) {
+    localStorage.setItem('wallpaper', "/assets/imgs/wallpapers/wallpaper.jpg");
+}
 document.body.style.backgroundImage = "url('" + localStorage.getItem("wallpaper") + "')";
