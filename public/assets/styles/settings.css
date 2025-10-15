@@ -614,7 +614,8 @@ input:checked+.toggle-slider:before {
 
 #username,
 #uvdecoder,
-#sjdecoder,
+#uvdecoder,
+#add-wallpaper-url,
 #bolt-premium {
     margin-right: 10px;
 }

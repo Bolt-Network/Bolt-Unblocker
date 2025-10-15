@@ -26,15 +26,29 @@ const premiumActivate = document.getElementById('activate-premium');
 const searchEngineSelect = document.getElementById('search-engine');
 const performaceMode = document.getElementById('activate-upm');
 const adsDisable = document.getElementById('disable-ads');
+const addWallpaper = document.getElementById('add-wallpaper-btn');
+const addWallpaperURL = document.getElementById('add-wallpaper-url');
 const WEBHOOK_URL = 'https://discord.com/api/webhooks/1369096278142746665/xELduKuAgvubhRUj1Oah8QHCIEE2fr6WTAZtkRh4dKIY0kW8Zrsy3mqEn43kBKo-tohK';
 
 document.addEventListener('DOMContentLoaded', () => {
     initTooltips();
+    if (localStorage.getItem("wallpaper") == "/assets/imgs/wallpapers/wallpaper.jpg") {
+        backgroundSelect.value = "0";
+    }
+    else if (localStorage.getItem("wallpaper") == "/assets/imgs/wallpapers/wallpaper1.jpg") {
+        backgroundSelect.value = "1";
+    }
+    else if (localStorage.getItem("wallpaper") == "/assets/imgs/wallpapers/wallpaper2.jpg") {
+        backgroundSelect.value = "2";
+    }
+    else {
+        backgroundSelect.text = "Custom";
+    }
+
+    particlesToggle.checked = localStorage.getItem('particlesEnabled');
 });
 
 closeButton.addEventListener('click', closeWindow);
-
-
 navItems.forEach(item => {
     item.addEventListener('click', () => {
         navItems.forEach(navItem => navItem.classList.remove('active'));
@@ -65,14 +79,24 @@ function initTooltips() {
     });
 }
 
-particlesToggle.checked = localStorage.getItem('particlesEnabled') === 'true';
+// particlesToggle.checked = localStorage.getItem('particlesEnabled') === 'true';
 particlesToggle.addEventListener('change', () => {
     localStorage.setItem('particlesEnabled', particlesToggle.checked);
     window.top.location.reload();
 });
 backgroundSelect.value = localStorage.getItem('background') || '0';
 backgroundSelect.addEventListener('change', () => {
-    localStorage.setItem('background', backgroundSelect.value);
+    if (backgroundSelect.value == "0") {
+        localStorage.setItem('wallpaper', "/assets/imgs/wallpapers/wallpaper.jpg");
+    } else if (backgroundSelect.value == "1") {
+        localStorage.setItem('wallpaper', "/assets/imgs/wallpapers/wallpaper1.jpg");
+    } else if (backgroundSelect.value == "2") {
+        localStorage.setItem('wallpaper', "/assets/imgs/wallpapers/wallpaper2.jpg");
+    }
+    window.top.location.reload();
+});
+addWallpaper.addEventListener('click', () => {
+    localStorage.setItem('wallpaper', addWallpaperURL.value);
     window.top.location.reload();
 });
 classroom.addEventListener('click', () => {
@@ -240,7 +264,7 @@ performaceMode.addEventListener('click', () => {
         window.top.location.reload();
     } else {
         localStorage.setItem('particlesEnabled', false);
-        localStorage.setItem('background', '3');
+        localStorage.setItem('wallpaper', '/assets/imgs/wallpapers/wallpaper.jpg');
         localStorage.setItem('performaceMode', 'true');
         window.top.location.reload();
     }
