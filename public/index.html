@@ -29,6 +29,12 @@
 </head>
 
 <body>
+  <script>
+    if (localStorage.getItem('proxy') != 'sj') {
+      localStorage.setItem('proxy', 'sj');
+    }
+
+  </script>
   <div class="custom-tooltip" id="tooltip"></div>
   <div id="title">
     <h3 id="small">Welcome to Bolt,</h2>
