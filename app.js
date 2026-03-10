@@ -12,19 +12,17 @@ const publicPath = join(__dirname, "dist");
 
 const fastify = Fastify({
     logger: true,
-    serverFactory: (handler) => {
-        const server = createServer((req, res) => {
-            res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
-            res.setHeader("Cross-Origin-Embedder-Policy", "credentialless");
-            handler(req, res);
-        });
+});
 
-        server.on("upgrade", (req, socket, head) => {
-            wisp.routeRequest(req, socket, head);
-        });
+fastify.addHook("onSend", async (request, reply, payload) => {
+    reply.header("Cross-Origin-Opener-Policy", "same-origin");
+    reply.header("Cross-Origin-Embedder-Policy", "credentialless");
+    reply.header("Cross-Origin-Resource-Policy", "cross-origin");
+    return payload;
+});
 
-        return server;
-    }
+fastify.server.on("upgrade", (req, socket, head) => {
+    wisp.routeRequest(req, socket, head);
 });
 
 
