@@ -1,0 +1,62 @@
+---
+import Layout from "../Layouts/Layout.astro";
+---
+
+<Layout title="New Tab" proxy={false}>
+    <main id="new-tab-page">
+        <div id="new-tab-top">
+            <h1>Bolt</h1>
+            <div id="new-tab-searchbar">
+                <form method="POST" id="new-tab-form">
+                    <button type="submit">
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M21 21L15.0001 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                    </button>
+                    <input type="text" name="q" placeholder="Search" />
+                </form>
+            </div>
+            <div id="shortcuts">
+                <div class="shortcut-add">
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M12 5V19M19 12H5"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                    <p>Add</p>
+                </div>
+            </div>
+            <div id="shortcut-add-modal">
+                <div id="shortcut-add-modal-content">
+                    <h1>Add Shortcut</h1>
+                    <form method="POST" id="shortcut-add-form">
+                        <input type="text" name="name" placeholder="Name" />
+                        <input type="text" name="url" placeholder="URL" />
+                        <button type="submit">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../scripts/newtab.ts"></script>
+</Layout>

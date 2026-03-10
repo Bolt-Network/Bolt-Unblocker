@@ -1,0 +1,580 @@
+#browser {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    padding: .7%;
+    box-sizing: border-box;
+}
+
+#tabs-section {
+    width: 100%;
+    height: 5%;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.37) transparent;
+    gap: .5%;
+    box-sizing: border-box;
+    align-items: center;
+    padding: .2% .5%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+.tab {
+    width: 15%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(255, 255, 255, 0.089);
+    border-radius: .3vw;
+
+    padding: 0% .5%;
+    box-sizing: border-box;
+    align-items: center;
+    transition: all .2s ease-in-out;
+    outline: 1px solid rgba(255, 255, 255, 0.37);
+    color: white;
+    cursor: grab;
+    position: relative;
+}
+
+.tab:active {
+    cursor: grabbing;
+}
+
+.tab.dragging {
+    opacity: 0.4;
+    cursor: grabbing;
+    transform: scale(0.95);
+}
+
+.tab.drag-over-left::before,
+.tab.drag-over-right::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg,
+            rgba(99, 179, 237, 0.8) 0%,
+            rgba(99, 179, 237, 1) 50%,
+            rgba(99, 179, 237, 0.8) 100%);
+    box-shadow: 0 0 10px rgba(99, 179, 237, 0.8);
+    animation: pulse-glow 1s ease-in-out infinite;
+    z-index: 10;
+}
+
+.tab.drag-over-left::before {
+    left: -2px;
+}
+
+.tab.drag-over-right::after {
+    right: -2px;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        box-shadow: 0 0 10px rgba(99, 179, 237, 0.6);
+    }
+
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 20px rgba(99, 179, 237, 1);
+    }
+}
+
+.tab.active {
+    background-color: rgba(255, 255, 255, 0.322);
+    outline: 1px solid rgba(255, 255, 255, 0.548);
+    transition: all .2s ease-in-out;
+}
+
+#new-tab {
+    width: 1.5%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    background: none;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all .2s ease;
+}
+
+#new-tab svg {
+    transition: all .2s ease;
+}
+
+#new-tab:hover {
+    filter: drop-shadow(0 0 5px rgb(255, 255, 255));
+
+}
+
+#new-tab:hover svg {
+    transform: scale(1.2);
+}
+
+.tab p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: 'medium', sans-serif;
+}
+
+#new-tab-button {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    padding: 20%;
+}
+
+.close-tab-button {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    flex-direction: row;
+    background: none;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    cursor: pointer;
+    filter: drop-shadow(0 0 5px rgb(255, 255, 255));
+}
+
+.close-tab-button svg {
+    transition: all .2s ease;
+}
+
+.close-tab-button:hover svg {
+    color: rgba(255, 0, 0, 0.562);
+    filter: drop-shadow(0 0 5px rgb(255, 0, 0));
+    transform: scale(1.2);
+}
+
+#nav-section {
+    width: 100%;
+    height: 5%;
+    display: flex;
+    flex-direction: row;
+
+    gap: .5%;
+    box-sizing: border-box;
+    align-items: center;
+    padding: .2% .5%;
+}
+
+#nav-controls {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 3%;
+    padding: 0% .1%;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.nav-button {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    background: none;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 6%;
+    color: white;
+    transition: all .2s ease;
+}
+
+.nav-button svg {
+    transition: all .2s ease;
+}
+
+.nav-button:hover svg {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 5px rgb(255, 255, 255));
+}
+
+#address-bar {
+    width: 93%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: .5%;
+    box-sizing: border-box;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.11);
+    outline: 1px solid rgba(255, 255, 255, 0.37);
+    border-radius: .5vw;
+    font-family: 'medium', sans-serif;
+    color: rgba(255, 255, 255, 0.705);
+}
+
+#address-input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    transition: all .14s ease;
+}
+
+#address-input:focus {
+    color: white;
+}
+
+#web-section {
+    width: 100%;
+    height: 90%;
+    display: flex;
+
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    padding: .2% .5%;
+
+}
+
+#web-section iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: none;
+    border-radius: .5vw;
+}
+
+#web-section iframe.active {
+    display: block;
+}
+
+#new-tab-page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.199);
+    font-family: 'medium', sans-serif;
+    padding: 5%;
+}
+
+#new-tab-top {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    border-radius: .5vw;
+    font-family: 'bold', sans-serif;
+    padding: 5%;
+}
+
+#new-tab-top h1 {
+    font-size: 6rem;
+    background-image: linear-gradient(45deg, rgba(96, 170, 255, 0.651), rgba(112, 139, 255, 0.158));
+    text-shadow: 0 0 10px rgba(131, 216, 255, 0.651);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: #333;
+    color: transparent;
+}
+
+#new-tab-searchbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    background-color: #ffffff17;
+    width: 50%;
+    height: 9%;
+    min-height: 50px;
+    border-radius: 50vw;
+    padding: 0% 2%;
+    outline: 1.3px solid #ffffff86;
+    transition: all 0.3s ease;
+    margin-bottom: 2%;
+}
+
+#new-tab-searchbar form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+}
+
+#new-tab-searchbar input {
+    width: 100%;
+    height: 100%;
+    border-radius: 50vw;
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    font-size: 1.5rem;
+    font-family: medium;
+    color: #fff;
+}
+
+#new-tab-searchbar button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #ffffff88;
+    transition: all 0.3s ease;
+}
+
+#new-tab-searchbar button:hover {
+    color: rgb(255, 255, 255);
+}
+
+#new-tab-searchbar:focus-within {
+    box-shadow: 0 3px 5px #2fc1ff59;
+    outline: 1.3px solid #92ddff86;
+    transform: translateY(-2px);
+}
+
+#shortcuts {
+    width: 52%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    place-items: center;
+    gap: 1vw;
+}
+
+.shortcut,
+.shortcut-add {
+    width: 4.5vw;
+    height: 4.5vw;
+    aspect-ratio: 1/1;
+    background-color: #ffffff17;
+    outline: 1.3px solid #ffffff86;
+    border-radius: .5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5%;
+    cursor: pointer;
+    transition: all .2s ease;
+    position: relative;
+}
+
+.shortcut:hover {
+    transform: translateY(-3%);
+    outline: 1.3px solid #92ddff86;
+    box-shadow: 0 5px 15px rgba(146, 221, 255, 0.2);
+}
+
+.shortcut-add:hover {
+    transform: translateY(-3%);
+    outline: 1.3px solid #92ddff86;
+}
+
+.shortcut img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15%;
+}
+
+.shortcut p,
+.shortcut-add p {
+    font-size: 1rem;
+    font-family: 'medium', sans-serif;
+    color: #fff;
+    text-shadow: 0 0 2px rgb(255, 255, 255);
+    position: absolute;
+    opacity: 0;
+    bottom: 2%;
+    transition: all .2s ease;
+}
+
+.shortcut:hover p,
+.shortcut-add:hover p {
+    opacity: 1;
+    bottom: 6%;
+}
+
+.delete-shortcut {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 24px;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: none;
+    outline: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.2s ease;
+    color: white;
+    z-index: 10;
+}
+
+.shortcut:hover .delete-shortcut {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.delete-shortcut:hover {
+    background: rgba(255, 50, 50, 0.8);
+    outline: 1px solid rgba(255, 100, 100, 0.8);
+    box-shadow: 0 0 15px rgba(255, 50, 50, 0.5);
+    transform: scale(1.1);
+}
+
+.delete-shortcut:active {
+    transform: scale(0.95);
+}
+
+.shortcut-add svg {
+    color: #fff;
+    transition: all .2s ease;
+}
+
+.shortcut-add:hover svg {
+    color: #92ddff;
+    transform: scale(1.2);
+}
+
+/* Modal Styles */
+#shortcut-add-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+#shortcut-add-modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#shortcut-add-modal-content {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 1.5vw;
+    outline: 1.5px solid rgba(255, 255, 255, 0.3);
+    padding: 3rem;
+    min-width: 400px;
+    max-width: 500px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(146, 221, 255, 0.1);
+    transform: scale(0.9) translateY(-20px);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#shortcut-add-modal.active #shortcut-add-modal-content {
+    transform: scale(1) translateY(0);
+}
+
+#shortcut-add-modal-content h1 {
+    font-size: 2rem;
+    font-family: 'bold', sans-serif;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(146, 221, 255, 0.5);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+#shortcut-add-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#shortcut-add-form input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    outline: 1.3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0.8vw;
+    font-size: 1.1rem;
+    font-family: 'medium', sans-serif;
+    color: #fff;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+#shortcut-add-form input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#shortcut-add-form input:focus {
+    outline: 1.5px solid rgba(146, 221, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 20px rgba(146, 221, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+#shortcut-add-form button {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, rgba(146, 221, 255, 0.3), rgba(96, 170, 255, 0.3));
+    border: none;
+    outline: 1.3px solid rgba(146, 221, 255, 0.6);
+    border-radius: 0.8vw;
+    font-size: 1.1rem;
+    font-family: 'bold', sans-serif;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 10px rgba(146, 221, 255, 0.5);
+}
+
+#shortcut-add-form button:hover {
+    background: linear-gradient(135deg, rgba(146, 221, 255, 0.4), rgba(96, 170, 255, 0.4));
+    outline: 1.5px solid rgba(146, 221, 255, 0.9);
+    box-shadow: 0 0 30px rgba(146, 221, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+#shortcut-add-form button:active {
+    transform: translateY(0);
+}

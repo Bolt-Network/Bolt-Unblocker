@@ -1,0 +1,248 @@
+---
+/**
+ * Ultra-performance ambient background
+ * Uses static CSS gradients with optional subtle animations
+ * Near-zero CPU/GPU load
+ */
+interface Props {
+    /** Enable subtle pulse animation (default: false for max performance) */
+    animated?: boolean;
+    /** Theme index: 0 (Cool/Blue), 1 (Warm/Red), 2 (Dark), 3 (Rainbow) */
+    theme?: 0 | 1 | 2 | 3;
+}
+
+const { animated = false, theme = 0 } = Astro.props;
+---
+
+<div
+    id="ultra-ambient-background"
+    data-animated={animated.toString()}
+    data-theme={theme}
+    aria-hidden="true"
+>
+    <div class="gradient-layer layer-1"></div>
+    <div class="gradient-layer layer-2"></div>
+    <div class="gradient-layer layer-3"></div>
+    <div class="vignette"></div>
+</div>
+
+<style>
+    #ultra-ambient-background {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        background: #000000;
+        overflow: hidden;
+        pointer-events: none;
+
+        /* Theme variables - Cool/Blue (default) */
+        --color-1: rgba(10, 30, 80, 0.4);
+        --color-2: rgba(20, 50, 120, 0.3);
+        --color-3: rgba(30, 70, 160, 0.2);
+        --color-4: rgba(40, 90, 180, 0.15);
+        --accent-1: rgba(60, 120, 220, 0.1);
+        --accent-2: rgba(80, 150, 255, 0.08);
+    }
+
+    /* Theme 1: Warm/Red */
+    #ultra-ambient-background[data-theme="1"] {
+        --color-1: rgba(80, 20, 20, 0.4);
+        --color-2: rgba(120, 30, 30, 0.3);
+        --color-3: rgba(160, 40, 40, 0.2);
+        --color-4: rgba(180, 50, 50, 0.15);
+        --accent-1: rgba(220, 80, 80, 0.1);
+        --accent-2: rgba(255, 120, 120, 0.08);
+    }
+
+    /* Theme 2: Dark/Purple */
+    #ultra-ambient-background[data-theme="2"] {
+        --color-1: rgba(20, 10, 40, 0.4);
+        --color-2: rgba(40, 15, 60, 0.3);
+        --color-3: rgba(60, 20, 90, 0.2);
+        --color-4: rgba(80, 25, 110, 0.15);
+        --accent-1: rgba(120, 40, 180, 0.1);
+        --accent-2: rgba(150, 70, 220, 0.08);
+    }
+
+    /* Theme 3: Rainbow/Pastel */
+    #ultra-ambient-background[data-theme="3"] {
+        --color-1: rgba(255, 180, 220, 0.15);
+        --color-2: rgba(255, 200, 150, 0.12);
+        --color-3: rgba(200, 230, 255, 0.12);
+        --color-4: rgba(180, 255, 220, 0.1);
+        --accent-1: rgba(220, 200, 255, 0.08);
+        --accent-2: rgba(255, 220, 200, 0.08);
+    }
+
+    .gradient-layer {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        mix-blend-mode: screen;
+        opacity: 1;
+        /* Prevent any GPU acceleration that might cause load */
+        will-change: auto;
+    }
+
+    /* Large radial gradient - top right */
+    .layer-1 {
+        background: radial-gradient(
+            ellipse 1200px 800px at 75% 25%,
+            var(--color-1) 0%,
+            var(--color-2) 30%,
+            transparent 70%
+        );
+    }
+
+    /* Medium radial gradient - bottom left */
+    .layer-2 {
+        background: radial-gradient(
+            ellipse 1000px 700px at 20% 80%,
+            var(--color-3) 0%,
+            var(--color-4) 35%,
+            transparent 75%
+        );
+    }
+
+    /* Accent highlights - center */
+    .layer-3 {
+        background:
+            radial-gradient(
+                circle 600px at 50% 50%,
+                var(--accent-1) 0%,
+                transparent 60%
+            ),
+            radial-gradient(
+                ellipse 800px 500px at 60% 40%,
+                var(--accent-2) 0%,
+                transparent 65%
+            );
+    }
+
+    /* Optional subtle pulse animation - extremely lightweight */
+    #ultra-ambient-background[data-animated="true"] .layer-1 {
+        animation: pulse-1 25s ease-in-out infinite;
+    }
+
+    #ultra-ambient-background[data-animated="true"] .layer-2 {
+        animation: pulse-2 30s ease-in-out infinite;
+    }
+
+    #ultra-ambient-background[data-animated="true"] .layer-3 {
+        animation: pulse-3 35s ease-in-out infinite;
+    }
+
+    @keyframes pulse-1 {
+        0%,
+        100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.7;
+        }
+    }
+
+    @keyframes pulse-2 {
+        0%,
+        100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.8;
+        }
+    }
+
+    @keyframes pulse-3 {
+        0%,
+        100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.6;
+        }
+    }
+
+    /* Dark vignette for depth */
+    .vignette {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            ellipse 100vmax 80vmax at 50% 50%,
+            transparent 40%,
+            rgba(0, 0, 0, 0.3) 75%,
+            rgba(0, 0, 0, 0.7) 100%
+        );
+    }
+
+    /* Disable animations if user prefers reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+        #ultra-ambient-background[data-animated="true"] .gradient-layer {
+            animation: none !important;
+        }
+    }
+
+    /* Optimize for mobile/lower-end devices */
+    @media (max-width: 768px) {
+        .layer-1 {
+            background: radial-gradient(
+                ellipse 800px 600px at 75% 25%,
+                var(--color-1) 0%,
+                var(--color-2) 35%,
+                transparent 75%
+            );
+        }
+
+        .layer-2 {
+            background: radial-gradient(
+                ellipse 700px 500px at 20% 80%,
+                var(--color-3) 0%,
+                var(--color-4) 40%,
+                transparent 80%
+            );
+        }
+
+        .layer-3 {
+            /* Simplify on mobile */
+            background: radial-gradient(
+                circle 500px at 50% 50%,
+                var(--accent-1) 0%,
+                transparent 70%
+            );
+        }
+    }
+</style>
+
+<script>
+    // Minimal script to read theme from settings
+    // This only runs once on page load
+    function initAmbientBackground() {
+        const container = document.getElementById("ultra-ambient-background");
+        if (!container) return;
+
+        try {
+            const raw = localStorage.getItem("bolt-settings");
+            if (raw) {
+                const settings = JSON.parse(raw);
+
+                // Apply theme from settings
+                if (settings.theme !== undefined) {
+                    container.setAttribute("data-theme", settings.theme);
+                }
+
+                // Optionally enable subtle animation if user wants it
+                // (disabled by default for max performance)
+                if (settings.ambientAnimated === true) {
+                    container.setAttribute("data-animated", "true");
+                }
+            }
+        } catch (e) {
+            // Silently fail if localStorage unavailable
+        }
+    }
+
+    // Run once on load
+    initAmbientBackground();
+</script>
