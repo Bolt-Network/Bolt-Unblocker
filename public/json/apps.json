@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Browser",
+        "icon": "/img/icons/browser.webp",
+        "url": "/browser"
+    },
+    {
+        "name": "Game Hub",
+        "icon": "/img/icons/game-hub.webp",
+        "url": "/games"
+    },
+    {
+        "name": "AI Chat",
+        "icon": "/img/icons/ai.webp",
+        "url": "/ai"
+    },
+    {
+        "name": "Settings",
+        "icon": "/img/icons/settings.webp",
+        "url": "/settings"
+    }
+]

@@ -1,0 +1,73 @@
+---
+import Layout from "../Layouts/Layout.astro";
+import Background from "../components/background.astro";
+import BoltIcon from "../components/boltIcon.astro";
+import time from "../scripts/time.ts";
+---
+
+<Layout title="Home" proxy={false}>
+	<main>
+		<Background />
+
+		<div id="content">
+			<div id="top-wrapper">
+				<div id="top">
+					<h1 id="main-title">Bolt</h1>
+					<h2 id="greeting"></h2>
+					<h3 id="time">{time}</h3>
+				</div>
+				<div id="bottom">
+					<div id="searchbar">
+						<form id="search-form" method="POST">
+							<button type="submit">
+								<svg
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										d="M21 21L15.0001 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"></path>
+								</svg>
+							</button>
+							<input type="text" name="q" placeholder="Search" />
+						</form>
+					</div>
+				</div>
+			</div>
+			<div id="bottom-wrapper">
+				<div id="apps-tooltip" class="tooltip hidden">
+					<div class="tooltip-content">
+						<p>Click to show apps</p>
+						<div class="tooltip-buttons">
+							<button id="tooltip-ok">OK</button>
+							<button id="tooltip-no-show"
+								>Don't show again</button
+							>
+						</div>
+					</div>
+					<div class="tooltip-arrow"></div>
+				</div>
+				<div id="app-menu"><div id="apps-grid"></div></div>
+				<div id="taskbar">
+					<div id="taskbar-left">
+						<div id="app-menu-button"><BoltIcon /></div>
+					</div>
+					<div id="taskbar-right"></div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<script src="../scripts/time.ts"></script>
+	<script src="../scripts/index.ts"></script>
+	<script src="../scripts/global.ts"></script>
+	<script src="../scripts/app-menu.ts"></script>
+	<script src="../scripts/taskbar.ts"></script>
+	<script src="../scripts/tooltip.ts"></script>
+	<script src="../scripts/discord.ts"></script>
+</Layout>

@@ -1,0 +1,683 @@
+#top h1 {
+    font-size: 4.5rem;
+    color: #fff;
+    font-family: bold;
+    line-height: 1;
+}
+
+#top h2 {
+    font-size: 1.7rem;
+    color: #ffffffa9;
+    font-family: bold;
+    margin-bottom: 3%;
+}
+
+#top h3 {
+    font-size: 1.5rem;
+    color: #ffffff73;
+    font-family: bold;
+}
+
+#top-wrapper {
+    width: 100%;
+    height: 94%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+#content {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    flex-direction: column;
+}
+
+#top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+#bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 1%;
+    padding: 10px;
+    width: 29vw;
+}
+
+#searchbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    background-color: #ffffff15;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    border-radius: 10px;
+    padding: 2%;
+    outline: 1.3px solid #ffffff86;
+    transition: all 0.3s ease;
+}
+
+#searchbar form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+}
+
+#searchbar input {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    font-size: 1.5rem;
+    font-family: medium;
+    color: #fff;
+}
+
+#searchbar button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #ffffff88;
+    transition: all 0.3s ease;
+}
+
+#searchbar button:hover {
+    color: rgb(255, 255, 255);
+}
+
+#searchbar:focus-within {
+    box-shadow: 0 8px 15px #ffffff86;
+    outline: 1.3px solid #ffffff86;
+    transform: translateY(-2px);
+}
+
+#bottom-wrapper {
+    width: 100%;
+    height: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#taskbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    background-color: #ffffff28;
+    backdrop-filter: blur(10px);
+    width: auto;
+    max-width: 100%;
+    padding: 0 .5vw;
+    height: 100%;
+    border-radius: 100vh;
+    outline: 1.3px solid #ffffff86;
+    box-sizing: border-box;
+    gap: 2rem;
+    z-index: 10000;
+    transition: all 0.2s ease;
+}
+
+#app-menu-button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    height: 100%;
+    padding: 20%;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app-menu-button:hover #bolt-square-1 {
+    animation: shift2 0.3s ease-in-out forwards;
+}
+
+#app-menu-button:hover #bolt-square-2 {
+    animation: shift1 0.3s ease-in-out forwards;
+}
+
+
+@keyframes shift2 {
+    0% {
+        transform: translateX(0%);
+    }
+
+    50% {
+        transform: translateX(50%) translateY(0%);
+    }
+
+    100% {
+        transform: translateX(50%) translateY(50%);
+    }
+}
+
+@keyframes shift1 {
+    0% {
+        transform: translateX(0%);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(0%);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(-50%);
+    }
+}
+
+#app-menu-button:hover {
+    transform: scale(1.2);
+}
+
+#taskbar-left,
+#taskbar-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    width: auto;
+    height: 100%;
+    transition: all 0.2s ease;
+}
+
+#taskbar-left:empty,
+#taskbar-right:empty {
+    display: none;
+}
+
+#taskbar-left svg {
+    color: #ffffff69;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+
+#taskbar-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    max-width: 100%;
+    gap: .4rem;
+    height: 100%;
+    padding: 8% 0%;
+
+}
+
+.taskbar-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.taskbar-item.active {
+
+    filter: drop-shadow(0 0 5px #87c9ff93);
+    transform: translateY(-2px);
+}
+
+.taskbar-item:hover {
+    color: rgb(171, 217, 255);
+    filter: drop-shadow(0 0 5px #ffffff93);
+    transform: translateY(-2px);
+}
+
+.taskbar-item img {
+    height: 100%;
+    min-height: 3vh;
+    width: auto;
+
+}
+
+.taskbar-item.removed {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.taskbar-item.dragging {
+    cursor: grabbing;
+    transform: scale(0.9);
+    opacity: 0.4;
+    filter: grayscale(0.5);
+}
+
+.taskbar-item.drag-over-left {
+    padding-left: 20px;
+    position: relative;
+}
+
+.taskbar-item.drag-over-left::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 20%;
+    bottom: 20%;
+    width: 3px;
+    background: #87c9ff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #87c9ff;
+}
+
+.taskbar-item.drag-over-right {
+    padding-right: 20px;
+    position: relative;
+}
+
+.taskbar-item.drag-over-right::after {
+    content: '';
+    position: absolute;
+    right: 8px;
+    top: 20%;
+    bottom: 20%;
+    width: 3px;
+    background: #87c9ff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #87c9ff;
+}
+
+.context-menu {
+    position: fixed;
+    z-index: 10001;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 6px;
+    min-width: 160px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    animation: context-menu-fade-in 0.15s ease-out;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+@keyframes context-menu-fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.context-menu-item {
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.context-menu-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.context-menu-item.danger:hover {
+    background: rgba(255, 59, 48, 0.2);
+    color: #ff453a;
+}
+
+#app-menu {
+    position: absolute;
+    bottom: 27%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 30vw;
+    height: 37vh;
+    background-color: rgba(255, 255, 255, 0.171);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    outline: 1.3px solid #ffffff86;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 1%;
+    animation: app-menu-fade-out 0.2s ease-out forwards;
+    display: none;
+    opacity: 0;
+    z-index: 1000000;
+
+}
+
+
+#app-menu.active {
+    display: flex;
+    opacity: 1;
+    animation: app-menu-fade-in 0.2s ease-out forwards;
+}
+
+@keyframes app-menu-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes app-menu-fade-out {
+    from {
+        opacity: 1;
+        display: flex;
+    }
+
+    to {
+        opacity: 0;
+        display: none;
+    }
+}
+
+
+#apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    padding: 1%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #ffffff86 #ffffff15;
+    border-radius: 1vw;
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 10px;
+    outline: none;
+    aspect-ratio: 1 / 1;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 0cqmin;
+}
+
+.app:hover {
+    transform: translateY(-2px);
+}
+
+.app img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.app p {
+    font-size: 1.1rem;
+    font-family: medium;
+    color: #ffffff;
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    right: 0;
+    margin: 0;
+    text-shadow: 0 0 10px #ffffff;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+.app:hover p {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* Tooltip Styles */
+#apps-tooltip {
+    margin-bottom: .5%;
+
+    position: fixed;
+    z-index: 1000000;
+    pointer-events: auto;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#apps-tooltip.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px) scale(0.95);
+}
+
+.tooltip-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 14px 18px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    min-width: 200px;
+    text-align: center;
+}
+
+.tooltip-content p {
+    margin: 0 0 12px 0;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+}
+
+.tooltip-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.tooltip-buttons button {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: #fff;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    flex: 1;
+    font-weight: 500;
+}
+
+.tooltip-buttons button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+#tooltip-ok {
+    background: rgba(135, 201, 255, 0.15);
+    border-color: rgba(135, 201, 255, 0.25);
+    color: #87c9ff;
+}
+
+#tooltip-ok:hover {
+    background: rgba(135, 201, 255, 0.25);
+    color: #fff;
+}
+
+.tooltip-arrow {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid rgba(255, 255, 255, 0.1);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    backdrop-filter: blur(20px);
+}
+
+/* Discord Notification Styles */
+.discord-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 10000000;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    max-width: 320px;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.discord-notification.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-20px) scale(0.9);
+}
+
+.discord-notification .close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.discord-notification .close-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.notification-content h4 {
+    margin: 0 0 8px 0;
+    color: #fff;
+    font-size: 1.25rem;
+    font-family: bold;
+    letter-spacing: -0.01em;
+}
+
+.notification-content p {
+    margin: 0 0 20px 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-family: medium;
+}
+
+.notification-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.notify-btn {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: medium;
+    text-align: center;
+}
+
+.notify-btn.primary {
+    background: #5865F2; /* Discord Blurple */
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+}
+
+.notify-btn.primary:hover {
+    background: #4752c4;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
+}
+
+.notify-btn.secondary {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.notify-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.notify-btn.tertiary {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+    padding: 4px;
+    margin-top: 4px;
+}
+
+.notify-btn.tertiary:hover {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: underline;
+}

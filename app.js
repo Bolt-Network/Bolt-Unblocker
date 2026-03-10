@@ -1,6 +1,5 @@
 import Fastify from "fastify";
 import fastifyStatic from "@fastify/static";
-import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { libcurlPath } from "@mercuryworkshop/libcurl-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 import { join } from "node:path";
@@ -9,14 +8,14 @@ import { server as wisp } from "@mercuryworkshop/wisp-js/server";
 import { createServer } from "node:http";
 
 const __dirname = process.cwd();
-const publicPath = join(__dirname, "public");
+const publicPath = join(__dirname, "dist");
 
 const fastify = Fastify({
     logger: true,
     serverFactory: (handler) => {
         const server = createServer((req, res) => {
             res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
-            res.setHeader("Cross-Origin-Embedder-Policy", "anonymous");
+            res.setHeader("Cross-Origin-Embedder-Policy", "credentialless");
             handler(req, res);
         });
 
@@ -34,12 +33,6 @@ await fastify.register(fastifyStatic, {
     prefix: "/"
 });
 
-
-await fastify.register(fastifyStatic, {
-    root: epoxyPath,
-    prefix: "/epoxy/",
-    decorateReply: false
-});
 
 fastify.addContentTypeParser('application/javascript', { parseAs: 'string' }, (req, body, done) => {
     done(null, body);
@@ -69,7 +62,7 @@ fastify.get("/", (request, reply) => {
 
 
 fastify.setNotFoundHandler((request, reply) => {
-    return reply.sendFile("index.html");
+    return reply.send("404 Not Found");
 });
 
 

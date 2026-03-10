@@ -1,0 +1,512 @@
+---
+interface Props {
+  /** Animation speed (default: 0.2) */
+  speed?: number;
+  /** Blob count: "normal" | "low" | "eco" (default: "eco") */
+  quality?: "normal" | "low" | "eco";
+  /** Palette index: 0 (Blue/Cool) or 1 (Red/Warm) (default: 0) */
+  theme?: 0 | 1 | 2 | 3;
+
+  useFromSettings?: boolean;
+}
+
+const {
+  speed = 0.2,
+  quality = "eco",
+  theme = 0,
+  useFromSettings = true,
+} = Astro.props;
+---
+
+<div
+  id="ambient-background"
+  data-speed={speed}
+  data-quality={quality}
+  data-theme={theme}
+  data-use-from-settings={useFromSettings.toString()}
+>
+  <svg id="scene" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <!-- Optimized blur for glow -->
+      <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="40"></feGaussianBlur>
+      </filter>
+
+      <!-- Softer blur for luminescence -->
+      <filter id="softBlur" x="-100%" y="-100%" width="300%" height="300%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="25"></feGaussianBlur>
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="1.3"></feFuncA>
+        </feComponentTransfer>
+      </filter>
+
+      <!-- Inner glow for glass effect -->
+      <filter id="innerGlow" x="-30%" y="-30%" width="160%" height="160%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="6"></feGaussianBlur>
+      </filter>
+    </defs>
+    <g id="blobs"></g>
+  </svg>
+
+  <div class="vignette"></div>
+</div>
+
+<style>
+  :root {
+    --bg: #000000;
+  }
+
+  #ambient-background {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: var(--bg);
+    overflow: hidden;
+    pointer-events: none;
+
+    /* Theme 0 (Cool/Blue) */
+    --glow-1: rgba(10, 20, 60, 0.8);
+    --glow-2: rgba(5, 10, 30, 1);
+  }
+
+  #ambient-background[data-theme="1"] {
+    /* Theme 1 (Warm/Red) */
+    --glow-1: rgba(92, 16, 16, 0.8);
+    --glow-2: rgba(60, 10, 10, 1);
+  }
+
+  #ambient-background[data-theme="2"] {
+    /* Theme 2 (Dark) */
+    --glow-1: rgba(10, 20, 60, 0.8);
+    --glow-2: rgba(5, 10, 30, 1);
+  }
+
+  #ambient-background[data-theme="3"] {
+    /* Theme 3 (Rainbow) */
+    --glow-1: rgba(255, 255, 255, 0.144);
+    --glow-2: rgba(163, 127, 72, 0.226);
+  }
+
+  #scene {
+    width: 100%;
+    height: 100%;
+    display: block;
+    /* GPU-accelerated background gradient */
+    background:
+      radial-gradient(
+        ellipse 1400px 900px at 65% 40%,
+        var(--glow-1) 0%,
+        var(--glow-2) 40%,
+        rgba(0, 0, 0, 0.95) 80%
+      ),
+      #000000;
+  }
+
+  :global(.blob) {
+    /* Simpler blend mode */
+    mix-blend-mode: screen;
+    /* GPU acceleration hint */
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  .vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse 110vmax 85vmax at 50% 50%,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.5) 85%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(.blob animate),
+    :global(.blob animateTransform) {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  class AmbientBackground {
+    SPEED = 0.2;
+    QUALITY = "eco";
+    THEME_INDEX = 0;
+    USE_SETTINGS = true;
+    container;
+    svg;
+    layer;
+    PRESETS;
+    PALETTES;
+    TAU;
+
+    constructor() {
+      this.container = document.getElementById("ambient-background");
+      if (!this.container) return;
+
+      // Check for ultra performance before doing anything heavy
+      const raw = localStorage.getItem("bolt-settings");
+      if (raw) {
+        const settings = JSON.parse(raw);
+        if (settings.ultraPerformance) {
+          this.container.style.display = "none";
+          return;
+        }
+      }
+
+      this.svg = this.container.querySelector("#scene");
+      this.layer = this.container.querySelector("#blobs");
+
+      this.SPEED = parseFloat(this.container.dataset.speed || "0.2");
+      this.QUALITY = this.container.dataset.quality || "eco";
+      this.THEME_INDEX = parseInt(this.container.dataset.theme || "0");
+      this.USE_SETTINGS = this.container.dataset.useFromSettings === "true";
+
+      if (this.USE_SETTINGS) {
+        this.loadSettings();
+      }
+
+      // Drastically reduced complexity
+      this.PRESETS = {
+        high: {
+          count: 6,
+          points: 10,
+          baseDur: 30,
+          rMin: 250,
+          rMax: 550,
+          wobble: 0.7,
+          frames: 8,
+          minOverlap: 0.45,
+        },
+        normal: {
+          count: 4,
+          points: 8,
+          baseDur: 35,
+          rMin: 300,
+          rMax: 600,
+          wobble: 0.6,
+          frames: 6,
+          minOverlap: 0.5,
+        },
+        eco: {
+          count: 2,
+          points: 5,
+          baseDur: 45,
+          rMin: 400,
+          rMax: 500,
+          wobble: 0.2,
+          frames: 4,
+          minOverlap: 0.6,
+        },
+      };
+      this.PRESETS.low = this.PRESETS.eco;
+
+      // Enhanced palettes for glass effect
+      this.PALETTES = [
+        [
+          ["#0a1f5c", "#1a3faa", "#2d6eef", "#5ac8ff"], // Deep blue to cyan
+          ["#051a4a", "#0f2d88", "#2359dd", "#4db8ff"], // Navy to bright blue
+          ["#0a2850", "#155080", "#1f9ec0", "#70e8e8"], // Blue-cyan with highlights
+        ],
+        [
+          ["#5c1010", "#aa2020", "#ff4040", "#ffa0a0"], // Deep red to pink
+          ["#661100", "#cc3300", "#ff6633", "#ffcc99"], // Red-orange gradient
+          ["#4d1f0d", "#a04218", "#ff782b", "#ffd575"], // Warm amber glow
+        ],
+        [
+          ["#020924", "#0f0a26", "#170d45", "#170d45"], // Dark Blue
+          ["#5902e6", "#5902e6", "#5902e6", "#26183d"], // Glowing Purple
+          ["#000e29", "#000e29", "#000e29", "#000e29"], // Dark Blue
+        ],
+        [
+          ["#ffabd8", "#ff94b9", "#ffaa6e", "#ffc4c4"], // Deep red to pink
+          ["#ffdf8f", "#ffbe8f", "#ff99b4", "#ff9999"], // Red-orange gradient
+          ["#99c7ff", "#99e7ff", "#99ffdd", "#99ffc3"], // Warm amber glow
+        ],
+      ];
+
+      this.TAU = Math.PI * 2;
+      this.setup = this.setup.bind(this);
+
+      this.init();
+    }
+
+    loadSettings() {
+      try {
+        const raw = localStorage.getItem("bolt-settings");
+        if (raw) {
+          const settings = JSON.parse(raw);
+          if (settings.backgroundDetailLevel) {
+            this.QUALITY = settings.backgroundDetailLevel;
+          }
+          if (settings.theme) {
+            this.THEME_INDEX = parseInt(settings.theme);
+            this.container.setAttribute("data-theme", this.THEME_INDEX);
+          }
+        }
+      } catch (e) {
+        // Silently fail if localStorage is not available (e.g. SSR or incognito)
+      }
+    }
+
+    rand(a, b) {
+      return a + Math.random() * (b - a);
+    }
+
+    // Simplified wobble - fewer calculations
+    wobble(theta, t, seed) {
+      const a = Math.sin(theta + t + seed);
+      const b = Math.sin(theta * 2 - t * 0.5 + seed * 0.5);
+      return (a + 0.5 * b) / 1.5;
+    }
+
+    // Simpler path generation with fewer control points
+    closedSplinePath(points) {
+      const n = points.length;
+      let d = `M ${points[0].x.toFixed(1)} ${points[0].y.toFixed(1)} `;
+
+      for (let i = 0; i < n; i++) {
+        const p1 = points[i];
+        const p2 = points[(i + 1) % n];
+        const p0 = points[(i - 1 + n) % n];
+
+        const c1x = p1.x + (p2.x - p0.x) / 6;
+        const c1y = p1.y + (p2.y - p0.y) / 6;
+        const c2x = p2.x - (points[(i + 2) % n].x - p1.x) / 6;
+        const c2y = p2.y - (points[(i + 2) % n].y - p1.y) / 6;
+
+        d += `C ${c1x.toFixed(1)} ${c1y.toFixed(1)}, ${c2x.toFixed(1)} ${c2y.toFixed(1)}, ${p2.x.toFixed(1)} ${p2.y.toFixed(1)} `;
+      }
+      return d + "Z";
+    }
+
+    makeShape(cx, cy, r, pts, amp, phase, seed) {
+      const arr = [];
+      for (let i = 0; i < pts; i++) {
+        const th = (i / pts) * this.TAU;
+        const n = this.wobble(th, phase, seed);
+        const rad = r + amp * n;
+        arr.push({
+          x: cx + Math.cos(th) * rad,
+          y: cy + Math.sin(th) * rad,
+        });
+      }
+      return this.closedSplinePath(arr);
+    }
+
+    // Optimized gradient with glass effect
+    createGradient(svg, id, colors) {
+      const grad = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "radialGradient",
+      );
+      grad.setAttribute("id", id);
+      grad.setAttribute("cx", "0.4");
+      grad.setAttribute("cy", "0.3");
+      grad.setAttribute("r", "0.75");
+
+      // 4 stops for glass gradient
+      const stops = [
+        { off: "0%", col: colors[0], a: 1.0 },
+        { off: "35%", col: colors[1], a: 0.9 },
+        { off: "70%", col: colors[2], a: 0.75 },
+        { off: "100%", col: colors[3], a: 0.5 },
+      ];
+
+      stops.forEach((s) => {
+        const stop = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "stop",
+        );
+        stop.setAttribute("offset", s.off);
+        stop.setAttribute("stop-color", s.col);
+        stop.setAttribute("stop-opacity", s.a);
+        grad.appendChild(stop);
+      });
+
+      svg.querySelector("defs").appendChild(grad);
+      return grad;
+    }
+
+    mkLinearAnim(attr, values, dur, keyTimes) {
+      const a = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "animate",
+      );
+      a.setAttribute("attributeName", attr);
+      a.setAttribute("values", values.join(";"));
+      a.setAttribute("dur", `${dur}s`);
+      a.setAttribute("repeatCount", "indefinite");
+      a.setAttribute("calcMode", "linear"); // Linear is faster than spline
+      if (keyTimes) a.setAttribute("keyTimes", keyTimes);
+      return a;
+    }
+
+    pickSpawnPosition(W, H, r, existing, minOverlapRatio) {
+      const candidate = () => {
+        const zone = Math.random();
+        if (zone < 0.33)
+          return { x: this.rand(0, 0.2) * W, y: this.rand(0.2, 0.8) * H };
+        if (zone < 0.66)
+          return { x: this.rand(0.8, 1) * W, y: this.rand(0.2, 0.8) * H };
+        return { x: this.rand(0.3, 0.7) * W, y: this.rand(0.3, 0.7) * H };
+      };
+
+      const maxTries = 50; // Fewer tries
+      for (let k = 0; k < maxTries; k++) {
+        const c = candidate();
+        let ok = true;
+        for (const e of existing) {
+          const dx = c.x - e.x,
+            dy = c.y - e.y;
+          const dist = Math.hypot(dx, dy);
+          const minDist = (r + e.r) * minOverlapRatio;
+          if (dist < minDist) {
+            ok = false;
+            break;
+          }
+        }
+        if (ok) return c;
+      }
+      return candidate();
+    }
+
+    createBlob(index, W, H, P) {
+      const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      g.setAttribute("class", "blob");
+
+      const themePalettes = this.PALETTES[this.THEME_INDEX] || this.PALETTES[0];
+      const palette = themePalettes[index % themePalettes.length];
+
+      const r = this.rand(P.rMin, P.rMax);
+      const pts = P.points;
+      const amp = r * P.wobble;
+      const seed = Math.random() * 100;
+
+      return { node: g, palette, r, pts, amp, seed };
+    }
+
+    finalizeBlob(blob, idx, cxBase, cyBase, W, H, P) {
+      const { node: g, palette, r, pts, amp, seed } = blob;
+
+      // Smaller orbital motion
+      const dx = this.rand(30, 60);
+      const dy = this.rand(20, 45);
+
+      const frames = P.frames;
+      const dVals = [];
+      const keyTimes = Array.from({ length: frames + 1 }, (_, i) =>
+        (i / frames).toFixed(2),
+      ).join(";");
+      const gradId = `g${idx}`;
+
+      this.createGradient(this.svg, gradId, palette);
+
+      // Pre-calculate all paths
+      for (let i = 0; i < frames; i++) {
+        const t = i / frames;
+        const ang = t * this.TAU;
+        const cx = cxBase + Math.cos(ang) * dx;
+        const cy = cyBase + Math.sin(ang) * dy;
+        const wobPhase = t * this.TAU;
+        dVals.push(this.makeShape(cx, cy, r, pts, amp, wobPhase, seed));
+      }
+      dVals.push(dVals[0]);
+
+      const dur = P.baseDur / this.SPEED;
+
+      // 4 OPTIMIZED LAYERS FOR GLASS EFFECT
+
+      // 1. Luminescent outer glow (soft blur)
+      const luminescence = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "path",
+      );
+      luminescence.setAttribute("fill", `url(#${gradId})`);
+      luminescence.setAttribute("opacity", "0.7");
+      luminescence.setAttribute("d", dVals[0]);
+      luminescence.setAttribute("filter", "url(#softBlur)");
+      luminescence.appendChild(this.mkLinearAnim("d", dVals, dur, keyTimes));
+
+      // 2. Main body with enhanced opacity
+      const body = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "path",
+      );
+      body.setAttribute("fill", `url(#${gradId})`);
+      body.setAttribute("opacity", "0.85");
+      body.setAttribute("d", dVals[0]);
+      body.appendChild(this.mkLinearAnim("d", dVals, dur, keyTimes));
+
+      // 3. Glass inner highlight (using brightest color)
+      const innerHighlight = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "path",
+      );
+      innerHighlight.setAttribute("fill", palette[3]);
+      innerHighlight.setAttribute("opacity", "0.3");
+      innerHighlight.setAttribute("d", dVals[0]);
+      innerHighlight.setAttribute("filter", "url(#innerGlow)");
+      innerHighlight.appendChild(this.mkLinearAnim("d", dVals, dur, keyTimes));
+
+      // 4. Clean glass outline
+      const outline = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "path",
+      );
+      outline.setAttribute("fill", "none");
+      outline.setAttribute("stroke", palette[3]);
+      outline.setAttribute("stroke-linejoin", "round");
+      outline.setAttribute("opacity", "0.25");
+      outline.setAttribute("stroke-width", Math.max(1.5, r * 0.012));
+      outline.setAttribute("d", dVals[0]);
+      outline.appendChild(this.mkLinearAnim("d", dVals, dur, keyTimes));
+
+      g.appendChild(luminescence);
+      g.appendChild(body);
+      g.appendChild(innerHighlight);
+      g.appendChild(outline);
+      this.layer.appendChild(g);
+    }
+
+    setup() {
+      const W = this.svg.clientWidth;
+      const H = this.svg.clientHeight;
+      this.svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+      this.layer.innerHTML = "";
+
+      const P = this.PRESETS[this.QUALITY] || this.PRESETS.eco;
+      const blobs = Array.from({ length: P.count }, (_, i) =>
+        this.createBlob(i, W, H, P),
+      );
+      const placed = [];
+
+      for (let i = 0; i < blobs.length; i++) {
+        const b = blobs[i];
+        const spawn = this.pickSpawnPosition(W, H, b.r, placed, P.minOverlap);
+        placed.push({ x: spawn.x, y: spawn.y, r: b.r });
+      }
+
+      for (let i = 0; i < blobs.length; i++) {
+        this.finalizeBlob(blobs[i], i, placed[i].x, placed[i].y, W, H, P);
+      }
+    }
+
+    init() {
+      // Debounced resize handler
+      let resizeTimer;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(this.setup, 250);
+      });
+      this.setup();
+    }
+  }
+
+  new AmbientBackground();
+</script>

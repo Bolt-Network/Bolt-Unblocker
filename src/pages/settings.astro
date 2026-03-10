@@ -1,0 +1,327 @@
+---
+import Layout from "../Layouts/Layout.astro";
+---
+
+<Layout title="Settings">
+    <main id="settings-page">
+        <!-- Header -->
+        <header id="settings-header">
+            <div id="settings-header-glow"></div>
+            <h1 id="settings-title">Settings</h1>
+            <p id="settings-subtitle">Customize your Bolt experience</p>
+        </header>
+
+        <!-- Settings Sections Container -->
+        <div id="settings-container">
+            <!-- Performance Section -->
+            <section class="settings-section" data-section="performance">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M13 2L3 14H12L11 22L21 10H12L13 2Z"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                    <div class="section-title-group">
+                        <h2 class="section-title">Performance</h2>
+                        <p class="section-description">
+                            Optimize speed and resource usage
+                        </p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <span class="setting-label">Ultra Performance</span>
+                            <span class="setting-hint"
+                                >Enable ultra performance mode</span
+                            >
+                        </div>
+                        <label class="toggle">
+                            <input type="checkbox" id="ultra-performance" />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <span class="setting-label"
+                                >Background Detail Level</span
+                            >
+                            <span class="setting-hint"
+                                >Set the level of detail for backgrounds</span
+                            >
+                        </div>
+                        <select
+                            id="background-detail-level"
+                            class="setting-select"
+                        >
+                            <option value="eco" selected>Eco</option>
+                            <option value="normal">Normal</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Personalization Section -->
+            <section class="settings-section" data-section="personalization">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z"
+                                stroke="currentColor"
+                                stroke-width="2"></path>
+                            <path
+                                d="M7.5 12.5L10.5 15.5L16.5 9.5"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                    <div class="section-title-group">
+                        <h2 class="section-title">Personalization</h2>
+                        <p class="section-description">
+                            Make Bolt feel like yours
+                        </p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <span class="setting-label">Theme</span>
+                            <span class="setting-hint"
+                                >Choose your visual theme</span
+                            >
+                        </div>
+                        <select id="theme-select" class="setting-select">
+                            <option value="0" selected>Default Blue</option>
+                            <option value="1">Lava</option>
+                            <option value="2">Midnight</option>
+                            <option value="3">Aurora</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <span class="setting-label">Show Greeting</span>
+                            <span class="setting-hint"
+                                >Display a greeting message on the home page</span
+                            >
+                        </div>
+                        <label class="toggle">
+                            <input type="checkbox" id="show-greeting" checked />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cloaking Section -->
+            <section class="settings-section" data-section="cloaking">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                    <div class="section-title-group">
+                        <h2 class="section-title">Cloaking</h2>
+                        <p class="section-description">
+                            Disguise your browsing activity
+                        </p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <span class="setting-label">Tab Cloaking</span>
+                            <span class="setting-hint"
+                                >Change the tab title and icon to look like
+                                another site</span
+                            >
+                        </div>
+                        <label class="toggle">
+                            <input type="checkbox" id="tab-cloak" />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item cloak-sub" id="cloak-title-row">
+                        <div class="setting-info">
+                            <span class="setting-label">Custom Tab Title</span>
+                            <span class="setting-hint"
+                                >Title shown in the browser tab</span
+                            >
+                        </div>
+                        <select id="cloak-title" class="setting-select">
+                            <option value="google" selected>Google</option>
+                            <option value="google-classroom"
+                                >Google Classroom</option
+                            >
+                            <option value="clever">Clever</option>
+                            <option value="khan-academy">Khan Academy</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <span class="setting-label">Panic Key</span>
+                            <span class="setting-hint"
+                                >Press this key to instantly redirect to a safe
+                                page</span
+                            >
+                        </div>
+                        <div class="setting-input-group">
+                            <input
+                                type="text"
+                                id="panic-key"
+                                class="setting-input setting-input-small"
+                                placeholder="e.g. ~"
+                                maxlength="1"
+                            />
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <span class="setting-label">Panic URL</span>
+                            <span class="setting-hint"
+                                >URL to redirect to when panic key is pressed</span
+                            >
+                        </div>
+                        <div class="setting-input-group">
+                            <input
+                                type="text"
+                                id="panic-url"
+                                class="setting-input"
+                                placeholder="https://classroom.google.com"
+                            />
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <span class="setting-label"
+                                >Open in about:blank</span
+                            >
+                            <span class="setting-hint"
+                                >Cloak in about:blank to keep this link safe</span
+                            >
+                        </div>
+                        <div class="setting-input-group">
+                            <button id="open-blank" class="setting-button"
+                                >Open in about:blank</button
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <span class="setting-label">Auto Cloak</span>
+                        <span class="setting-hint"
+                            >Cloak Bolt when opened in an about:blank tab to
+                            keep the link safe</span
+                        >
+                    </div>
+                    <label class="toggle">
+                        <input type="checkbox" id="auto-cloak" checked />
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- Search Section -->
+            <section class="settings-section" data-section="search">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M21 21L16.65 16.65M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                    <div class="section-title-group">
+                        <h2 class="section-title">Search</h2>
+                        <p class="section-description">
+                            Configure your search preferences
+                        </p>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <span class="setting-label"
+                                >Default Search Engine</span
+                            >
+                            <span class="setting-hint"
+                                >Engine used for address bar searches</span
+                            >
+                        </div>
+                        <select id="search-engine" class="setting-select">
+                            <option value="google" selected>Google</option>
+                            <option value="bing">Bing</option>
+                            <option value="duckduckgo">DuckDuckGo</option>
+                            <option value="brave">Brave Search</option>
+                            <option value="yahoo">Yahoo</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Save Toast -->
+        <div id="save-toast" class="save-toast">
+            <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M20 6L9 17L4 12"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+            </svg>
+            <span>Settings saved, refresh to see changes</span>
+        </div>
+
+        <script src="../scripts/settings.ts"></script>
+    </main>
+</Layout>

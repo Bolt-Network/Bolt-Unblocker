@@ -1,0 +1,83 @@
+---
+import "../styles/global.css";
+export interface Props {
+    title: string;
+    proxy?: boolean;
+}
+const { title, proxy = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" style="scroll-behavior: smooth; overflow-x: hidden;">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/img/bolt.ico" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        {
+            proxy && (
+                <>
+                    <script is:inline src="/baremux/index.js" />
+                    <script is:inline src="/learn/scramjet.all.js" />
+                    <script src="../scripts/proxy.ts" />
+                </>
+            )
+        }
+
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-QKPZDPQGCR"
+        ></script>
+        <script lang="js">
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-QKPZDPQGCR");
+        </script>
+    </head>
+
+    <body>
+        <slot />
+
+        <div id="discord-notification" class="discord-notification hidden">
+            <button id="discord-close" class="close-btn">
+                <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M18 6L6 18M6 6L18 18"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                </svg>
+            </button>
+            <div class="notification-content">
+                <h4 id="discord-heading">Join the Discord!</h4>
+                <p id="discord-subtext">
+                    Get tons of links, ask questions, and meet the community!
+                </p>
+                <div class="notification-buttons">
+                    <button id="discord-copy" class="notify-btn secondary"
+                        >Copy join link</button
+                    >
+                    <button id="discord-join" class="notify-btn primary"
+                        >Join</button
+                    >
+                    <button id="discord-no-show" class="notify-btn tertiary"
+                        >Do not show again</button
+                    >
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

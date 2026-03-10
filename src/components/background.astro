@@ -1,0 +1,52 @@
+---
+import BlobBackground from "./blobBackground.astro";
+import AmbientBackground from "./ambientBackground.astro";
+---
+
+<div id="background-wrapper">
+    <div id="blob-background"><BlobBackground /></div>
+    <div id="ultra-background-wrapper"><AmbientBackground /></div>
+</div>
+
+<script>
+    function applyPerformanceSettings() {
+        const settingsRaw = localStorage.getItem("bolt-settings");
+        if (settingsRaw) {
+            const settings = JSON.parse(settingsRaw);
+
+            if (settings.ultraPerformance) {
+                document.body.classList.add("ultra-performance");
+            } else {
+                document.body.classList.remove("ultra-performance");
+            }
+        }
+    }
+
+    // Run on load
+    applyPerformanceSettings();
+
+    // Listen for storage changes from settings page
+    window.addEventListener("storage", (e) => {
+        if (e.key === "bolt-settings") {
+            applyPerformanceSettings();
+        }
+    });
+</script>
+
+<style>
+    :global(.ultra-performance) {
+        background-color: #000000 !important;
+    }
+    :global(.ultra-performance) #blob-background {
+        display: none !important;
+    }
+    #ultra-background-wrapper {
+        display: none;
+    }
+    :global(.ultra-performance) #ultra-background-wrapper {
+        display: block !important;
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+    }
+</style>

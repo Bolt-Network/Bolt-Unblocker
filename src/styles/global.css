@@ -1,0 +1,19 @@
+@import "./all/index.css";
+@import "./all/windows.css";
+@import "./all/browser.css";
+@import "./all/games.css";
+@import "./all/play.css";
+@import "./all/settings.css";
+@import "./all/ai.css";
+@import "./all/music.css";
+@import "tailwindcss";
+
+@font-face {
+    font-family: "bold";
+    src: url("./fonts/bold.otf");
+}
+
+@font-face {
+    font-family: "medium";
+    src: url("./fonts/medium.otf");
+}

@@ -1,0 +1,534 @@
+---
+import Layout from "../Layouts/Layout.astro";
+import Background from "../components/background.astro";
+---
+
+<Layout title="Music Player">
+    <Background />
+    <main id="music-page">
+        <!-- Ambient glows -->
+        <div id="music-glow-1"></div>
+        <div id="music-glow-2"></div>
+
+        <!-- ── Sidebar ── -->
+        <aside id="music-sidebar" class="music-glass">
+            <div id="music-sidebar-header">
+                <div id="music-logo">
+                    <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M9 18V6.35537C9 5.87383 9 5.63306 9.0876 5.43778C9.16482 5.26565 9.28917 5.11887 9.44627 5.0144C9.62449 4.89588 9.86198 4.8563 10.337 4.77714L19.137 3.31047C19.7779 3.20364 20.0984 3.15023 20.3482 3.243C20.5674 3.32441 20.7511 3.48005 20.8674 3.68286C21 3.91398 21 4.23889 21 4.8887V16M9 18C9 19.6568 7.65685 21 6 21C4.34315 21 3 19.6568 3 18C3 16.3431 4.34315 15 6 15C7.65685 15 9 16.3431 9 18ZM21 16C21 17.6568 19.6569 19 18 19C16.3431 19 15 17.6568 15 16C15 14.3431 16.3431 13 18 13C19.6569 13 21 14.3431 21 16Z"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                    <span>Bolt Music</span>
+                </div>
+                <button
+                    id="music-upload-sidebar"
+                    title="Upload music"
+                    aria-label="Upload music"
+                >
+                    <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M12 4V20M4 12H20"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+                <input
+                    id="music-file-input-global"
+                    type="file"
+                    accept="audio/*"
+                    multiple
+                    style="display:none"
+                />
+            </div>
+
+            <!-- Search -->
+            <div id="music-search-wrap">
+                <div id="music-search-box">
+                    <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <circle
+                            cx="11"
+                            cy="11"
+                            r="7"
+                            stroke="currentColor"
+                            stroke-width="2"></circle>
+                        <path
+                            d="M16.5 16.5L21 21"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"></path>
+                    </svg>
+                    <input
+                        id="music-search"
+                        type="text"
+                        placeholder="Search songs, artists…"
+                        autocomplete="off"
+                        spellcheck="false"
+                    />
+                    <button id="music-search-clear" aria-label="Clear search">
+                        <svg
+                            width="12"
+                            height="12"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M18 6L6 18M6 6L18 18"
+                                stroke="currentColor"
+                                stroke-width="2.2"
+                                stroke-linecap="round"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Library nav -->
+            <nav id="music-nav">
+                <button class="music-nav-item active" data-view="library">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <rect
+                            x="3"
+                            y="3"
+                            width="7"
+                            height="7"
+                            rx="1.5"
+                            stroke="currentColor"
+                            stroke-width="1.8"></rect>
+                        <rect
+                            x="14"
+                            y="3"
+                            width="7"
+                            height="7"
+                            rx="1.5"
+                            stroke="currentColor"
+                            stroke-width="1.8"></rect>
+                        <rect
+                            x="3"
+                            y="14"
+                            width="7"
+                            height="7"
+                            rx="1.5"
+                            stroke="currentColor"
+                            stroke-width="1.8"></rect>
+                        <rect
+                            x="14"
+                            y="14"
+                            width="7"
+                            height="7"
+                            rx="1.5"
+                            stroke="currentColor"
+                            stroke-width="1.8"></rect>
+                    </svg>
+                    Library
+                </button>
+                <button class="music-nav-item" data-view="queue">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M3 6H21M3 12H15M3 18H12"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"></path>
+                    </svg>
+                    Queue
+                </button>
+                <button class="music-nav-item" data-view="favorites">
+                    <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M11.9932 5.13581C9.9938 2.7984 6.65975 2.16964 4.15469 4.31001C1.64964 6.45038 1.29697 10.029 3.2642 12.5604C4.89982 14.6651 9.84977 19.1041 11.4721 20.5408C11.6536 20.7016 11.7444 20.7819 11.8502 20.8135C11.9426 20.8411 12.0437 20.8411 12.1361 20.8135C12.2419 20.7819 12.3327 20.7016 12.5142 20.5408C14.1365 19.1041 19.0865 14.6651 20.7221 12.5604C22.6893 10.029 22.3797 6.42787 19.8316 4.31001C17.2835 2.19216 13.9925 2.7984 11.9932 5.13581Z"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                    Favorites
+                </button>
+            </nav>
+
+            <!-- Track list -->
+            <div id="music-tracklist-wrap">
+                <div id="music-tracklist">
+                    <!-- Injected by music.ts -->
+                </div>
+                <div id="music-no-results" class="hidden">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                        <circle
+                            cx="11"
+                            cy="11"
+                            r="7"
+                            stroke="currentColor"
+                            stroke-width="1.8"></circle>
+                        <path
+                            d="M16.5 16.5L21 21"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"></path>
+                    </svg>
+                    <span>No results found</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ── Main area ── -->
+        <section id="music-main">
+            <!-- Now Playing hero -->
+            <div id="music-hero" class="music-glass">
+                <!-- Album art -->
+                <div id="now-art-wrap">
+                    <div id="now-art">
+                        <div id="now-art-placeholder">
+                            <svg
+                                width="36"
+                                height="36"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                            >
+                                <circle
+                                    cx="9"
+                                    cy="18"
+                                    r="3"
+                                    stroke="currentColor"
+                                    stroke-width="1.6"></circle>
+                                <circle
+                                    cx="19"
+                                    cy="15"
+                                    r="3"
+                                    stroke="currentColor"
+                                    stroke-width="1.6"></circle>
+                                <path
+                                    d="M12 18V7L22 4V15"
+                                    stroke="currentColor"
+                                    stroke-width="1.6"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                        <img
+                            id="now-art-img"
+                            src=""
+                            alt="Album art"
+                            class="hidden"
+                        />
+                    </div>
+                    <!-- Vinyl ring -->
+                    <div id="now-art-ring"></div>
+                </div>
+
+                <!-- Track info & controls -->
+                <div id="music-info-controls">
+                    <div id="now-track-info">
+                        <div id="now-badges">
+                            <span id="now-provider-badge">
+                                <svg
+                                    width="10"
+                                    height="10"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M9 18V6.35537C9 5.87383 9 5.63306 9.0876 5.43778C9.16482 5.26565 9.28917 5.11887 9.44627 5.0144C9.62449 4.89588 9.86198 4.8563 10.337 4.77714L19.137 3.31047C19.7779 3.20364 20.0984 3.15023 20.3482 3.243C20.5674 3.32441 20.7511 3.48005 20.8674 3.68286C21 3.91398 21 4.23889 21 4.8887V16M9 18C9 19.6568 7.65685 21 6 21C4.34315 21 3 19.6568 3 18C3 16.3431 4.34315 15 6 15C7.65685 15 9 16.3431 9 18ZM21 16C21 17.6568 19.6569 19 18 19C16.3431 19 15 17.6568 15 16C15 14.3431 16.3431 13 18 13C19.6569 13 21 14.3431 21 16Z"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </svg>
+                                Local
+                            </span>
+                        </div>
+                        <h1 id="now-title">Nothing Playing</h1>
+                        <p id="now-artist">Select a track to begin</p>
+                    </div>
+
+                    <!-- Seek bar -->
+                    <div id="seek-wrap">
+                        <span id="seek-current">0:00</span>
+                        <div id="seek-track">
+                            <div id="seek-fill"></div>
+                            <div id="seek-thumb"></div>
+                        </div>
+                        <span id="seek-duration">0:00</span>
+                    </div>
+
+                    <!-- Controls -->
+                    <div id="music-controls">
+                        <button
+                            id="btn-shuffle"
+                            class="ctrl-btn ctrl-sm"
+                            aria-label="Shuffle"
+                            title="Shuffle"
+                        >
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M18 15L21 18M21 18L18 21M21 18H18.5689C17.6297 18 17.1601 18 16.7338 17.8705C16.3564 17.7559 16.0054 17.5681 15.7007 17.3176C15.3565 17.0348 15.096 16.644 14.575 15.8626L14.3333 15.5M18 3L21 6M21 6L18 9M21 6H18.5689C17.6297 6 17.1601 6 16.7338 6.12945C16.3564 6.24406 16.0054 6.43194 15.7007 6.68236C15.3565 6.96523 15.096 7.35597 14.575 8.13744L9.42496 15.8626C8.90398 16.644 8.64349 17.0348 8.29933 17.3176C7.99464 17.5681 7.64357 17.7559 7.2662 17.8705C6.83994 18 6.37033 18 5.43112 18H3M3 6H5.43112C6.37033 6 6.83994 6 7.2662 6.12945C7.64357 6.24406 7.99464 6.43194 8.29933 6.68236C8.64349 6.96523 8.90398 7.35597 9.42496 8.13744L9.66667 8.5"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                            </svg>
+                        </button>
+                        <button
+                            id="btn-prev"
+                            class="ctrl-btn ctrl-md"
+                            aria-label="Previous"
+                            title="Previous"
+                        >
+                            <svg
+                                width="22"
+                                height="22"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                            >
+                                <path
+                                    d="M19 5L9 12L19 19V5Z"
+                                    fill="currentColor"></path>
+                                <line
+                                    x1="5"
+                                    y1="5"
+                                    x2="5"
+                                    y2="19"
+                                    stroke="currentColor"
+                                    stroke-width="2.2"
+                                    stroke-linecap="round"></line>
+                            </svg>
+                        </button>
+                        <button
+                            id="btn-play"
+                            class="ctrl-btn ctrl-lg"
+                            aria-label="Play / Pause"
+                        >
+                            <svg
+                                id="icon-play"
+                                width="26"
+                                height="26"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                            >
+                                <path
+                                    d="M6 4.5L20 12L6 19.5V4.5Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                            <svg
+                                id="icon-pause"
+                                width="26"
+                                height="26"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                class="hidden"
+                            >
+                                <rect
+                                    x="5"
+                                    y="4"
+                                    width="4"
+                                    height="16"
+                                    rx="1.5"
+                                    fill="currentColor"></rect>
+                                <rect
+                                    x="15"
+                                    y="4"
+                                    width="4"
+                                    height="16"
+                                    rx="1.5"
+                                    fill="currentColor"></rect>
+                            </svg>
+                        </button>
+                        <button
+                            id="btn-next"
+                            class="ctrl-btn ctrl-md"
+                            aria-label="Next"
+                            title="Next"
+                        >
+                            <svg
+                                width="22"
+                                height="22"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                            >
+                                <path d="M5 5L15 12L5 19V5Z" fill="currentColor"
+                                ></path>
+                                <line
+                                    x1="19"
+                                    y1="5"
+                                    x2="19"
+                                    y2="19"
+                                    stroke="currentColor"
+                                    stroke-width="2.2"
+                                    stroke-linecap="round"></line>
+                            </svg>
+                        </button>
+                        <button
+                            id="btn-repeat"
+                            class="ctrl-btn ctrl-sm"
+                            aria-label="Repeat"
+                            title="Repeat"
+                        >
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M17 2L21 6M21 6L17 10M21 6H7.8C6.11984 6 5.27976 6 4.63803 6.32698C4.07354 6.6146 3.6146 7.07354 3.32698 7.63803C3 8.27976 3 9.11984 3 10.8V11M3 18H16.2C17.8802 18 18.7202 18 19.362 17.673C19.9265 17.3854 20.3854 16.9265 20.673 16.362C21 15.7202 21 14.8802 21 13.2V13M3 18L7 22M3 18L7 14"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Volume -->
+                    <div id="volume-wrap">
+                        <button
+                            id="btn-mute"
+                            class="ctrl-btn ctrl-sm"
+                            aria-label="Mute"
+                        >
+                            <svg
+                                id="icon-vol"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                            >
+                                <path
+                                    d="M11 5L6 9H2V15H6L11 19V5Z"
+                                    fill="currentColor"></path>
+                                <path
+                                    d="M19.07 4.93C20.96 6.82 22 9.34 22 12C22 14.66 20.96 17.18 19.07 19.07M15.54 8.46C16.48 9.4 17 10.67 17 12C17 13.33 16.48 14.6 15.54 15.54"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"></path>
+                            </svg>
+                            <svg
+                                id="icon-mute"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                class="hidden"
+                            >
+                                <path
+                                    d="M11 5L6 9H2V15H6L11 19V5Z"
+                                    fill="currentColor"></path>
+                                <path
+                                    d="M23 9L17 15M17 9L23 15"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"></path>
+                            </svg>
+                        </button>
+                        <div id="vol-track">
+                            <div id="vol-fill"></div>
+                            <div id="vol-thumb"></div>
+                        </div>
+                        <span id="vol-label">80%</span>
+
+                        <!-- Favorite -->
+                        <button
+                            id="btn-fav"
+                            class="ctrl-btn ctrl-sm"
+                            aria-label="Favorite"
+                            title="Add to favorites"
+                            style="margin-left: auto;"
+                        >
+                            <svg
+                                id="icon-fav-empty"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                            >
+                                <path
+                                    d="M12 21C12 21 3 15 3 8.5C3 5.5 5.5 3 8.5 3C10.24 3 11.91 3.81 13 5.08C14.09 3.81 15.76 3 17.5 3C20.5 3 23 5.5 23 8.5C23 15 14 21 12 21Z"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linejoin="round"></path>
+                            </svg>
+                            <svg
+                                id="icon-fav-filled"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                class="hidden"
+                            >
+                                <path
+                                    d="M12 21C12 21 3 15 3 8.5C3 5.5 5.5 3 8.5 3C10.24 3 11.91 3.81 13 5.08C14.09 3.81 15.76 3 17.5 3C20.5 3 23 5.5 23 8.5C23 15 14 21 12 21Z"
+                                    fill="rgba(255,80,120,0.9)"
+                                    stroke="rgba(255,80,120,0.9)"
+                                    stroke-width="1.8"
+                                    stroke-linejoin="round"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Queue / Upcoming panel -->
+            <div id="music-queue-panel" class="music-glass">
+                <div id="queue-header">
+                    <span id="queue-title">Up Next</span>
+                    <span id="queue-count">0 tracks</span>
+                </div>
+                <div id="queue-list">
+                    <!-- Injected by music.ts -->
+                </div>
+                <div id="queue-empty" class="hidden">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M3 6H21M3 12H15M3 18H12"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"></path>
+                    </svg>
+                    <span>Queue is empty</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hidden audio element -->
+        <audio id="music-audio"></audio>
+    </main>
+
+    <script src="../scripts/music.ts"></script>
+</Layout>
