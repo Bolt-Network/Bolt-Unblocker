@@ -71,20 +71,6 @@
         "controls": "Coming Soon"
     },
     {
-        "name": "5 Nights at Epstein's",
-        "image": "/cdn/imgs/epstien.webp",
-        "url": "/cdn/pc/epstien",
-        "tags": [],
-        "categories": [
-            "PC Games",
-            "Action",
-            "Adventure",
-            "Horror"
-        ],
-        "description": "Thanks to gn-math.github.io for the web port <3",
-        "controls": "Coming Soon"
-    },
-    {
         "name": "Bank Robbery",
         "image": "/cdn/imgs/bank-robbery.webp",
         "url": "/cdn/pc/bank-robbery",
