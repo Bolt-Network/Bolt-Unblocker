@@ -71,8 +71,8 @@ export default class WindowManager {
     /**
      * Open a window
      */
-    openWindow(url: string, title: string, icon: string, startMaximized: boolean = false): void {
-        new Window({ url, title, icon, startMaximized });
+    openWindow(url: string, title: string, icon: string, startMaximized: boolean = false, credentialless: boolean = false): void {
+        new Window({ url, title, icon, startMaximized, credentialless });
     }
 
     /**
