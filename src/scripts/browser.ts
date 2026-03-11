@@ -67,7 +67,7 @@ class Tab {
 
         if (!this.iframe) {
             this.iframe = document.createElement('iframe');
-            this.iframe.setAttribute('credentialless', 'true');
+
             this.iframe.src = this.getResolvedUrl();
         } else {
 
