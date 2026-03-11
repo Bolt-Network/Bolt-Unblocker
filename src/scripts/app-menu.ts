@@ -25,7 +25,7 @@ async function loadApps() {
             <p>${app.name}</p>
         `;
         appElement.addEventListener("click", () => {
-            WindowManager.getInstance().openWindow(app.url, app.name, app.icon);
+            WindowManager.getInstance().openWindow(app.url, app.name, app.icon, false, (app.credentialless || false));
         });
         appsGrid.appendChild(appElement);
     });

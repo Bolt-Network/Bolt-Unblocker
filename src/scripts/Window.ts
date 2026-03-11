@@ -7,6 +7,7 @@ export interface WindowOptions {
     startMaximized?: boolean;
     width?: number;
     height?: number;
+    credentialless?: boolean;
 }
 
 export default class AppWindow {
@@ -102,7 +103,7 @@ export default class AppWindow {
             </div>
             <div class="window-content">
                 <div class="iframe-overlay" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5;"></div>
-                 <iframe src="${options.url}" title="${options.title}"></iframe>
+                 <iframe src="${options.url}" title="${options.title}" ${options.credentialless ? 'credentialless="true"' : ''}></iframe>
             </div>
             <!-- Resize Handles -->
             <div class="window-resize-handle n" data-resize="n"></div>
