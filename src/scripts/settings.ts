@@ -28,7 +28,7 @@ interface BoltSettings {
 const STORAGE_KEY = 'bolt-settings';
 
 const defaults: BoltSettings = {
-    ultraPerformance: false,
+    ultraPerformance: true,
     backgroundDetailLevel: 'eco',
 
     theme: '0',

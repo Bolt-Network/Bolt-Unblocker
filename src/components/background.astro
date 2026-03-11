@@ -31,6 +31,10 @@ import AmbientBackground from "./ambientBackground.astro";
             applyPerformanceSettings();
         }
     });
+
+    if (!localStorage.getItem("bolt-settings")) {
+        document.body.classList.add("ultra-performance");
+    }
 </script>
 
 <style>
