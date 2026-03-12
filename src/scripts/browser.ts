@@ -165,6 +165,45 @@ class TabManager {
         });
     }
 
+    private popupTimeout: any = null;
+
+
+    private showErrorPopup() {
+        let popup = document.getElementById('error-popup');
+        if (!popup) {
+            popup = document.createElement('div');
+            popup.id = 'error-popup';
+            popup.innerHTML = `
+                <div class="error-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                </div>
+                <span>Error detected, please reload the page</span>
+            `;
+            document.body.appendChild(popup);
+        }
+
+        if (this.popupTimeout) {
+            clearTimeout(this.popupTimeout);
+        }
+
+        // Trigger animation
+        setTimeout(() => {
+            popup?.classList.add('active');
+        }, 10);
+
+        // Hide after some time
+        this.popupTimeout = setTimeout(() => {
+            popup?.classList.remove('active');
+            this.popupTimeout = null;
+        }, 6000);
+    }
+
+
+
     /**
      * Updates the URL of the currently active tab.
      */
@@ -421,7 +460,7 @@ class TabManager {
                     this.renderTabs();
                 }
                 if (newTitle === "Scramjet" || newTitle === "404: Not Found") {
-                    iframe.contentWindow?.location.reload();
+                    this.showErrorPopup();
                 }
 
                 if (addressInput) {

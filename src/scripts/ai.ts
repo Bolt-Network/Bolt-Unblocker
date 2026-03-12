@@ -307,8 +307,8 @@ async function sendMessage(): Promise<void> {
             headers: {
                 "Authorization": `Bearer ${apiKey}`,
                 "Content-Type": "application/json",
-                "HTTP-Referer": window.location.origin, // Optional, for OpenRouter rankings
-                "X-Title": "Bolt AI" // Optional, for OpenRouter rankings
+                "HTTP-Referer": window.location.origin,
+                "X-Title": "Bolt AI"
             },
             body: JSON.stringify({
                 model: "arcee-ai/trinity-large-preview:free",
@@ -408,7 +408,7 @@ document.querySelectorAll<HTMLButtonElement>(".chip").forEach(chip => {
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
 
-function init(): void {
+function initAI(): void {
     loadSessions();
 
     if (sessions.length > 0) {
@@ -423,4 +423,4 @@ function init(): void {
     chatInput.focus();
 }
 
-init();
+initAI();
