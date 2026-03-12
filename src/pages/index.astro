@@ -17,8 +17,8 @@ import time from "../scripts/time.ts";
 						setTimeout(function () {
 							var container = document.getElementById("terra-1");
 							if (!container) return;
-							window.atOptions = {
-								key: "69b10d3b9c8111006883499edda2a660",
+							atOptions = {
+								key: "0b4f29943f8825bf9a2e81a67765af8b",
 								format: "iframe",
 								height: 90,
 								width: 728,
@@ -26,11 +26,32 @@ import time from "../scripts/time.ts";
 							};
 							var s = document.createElement("script");
 							s.src =
-								"https://cutleryneighbouringpurpose.com/69b10d3b9c8111006883499edda2a660/invoke.js";
+								"https://thieflamppost.com/0b4f29943f8825bf9a2e81a67765af8b/invoke.js";
 							container.appendChild(s);
 						}, 4000);
 					})();
 				</script>
+			</div>
+
+			<div id="ad-popup" class="hidden">
+				<button id="ad-popup-close" aria-label="Close advertisement"
+					><svg
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M17 7L7 17M7 7L17 17"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"></path>
+					</svg></button
+				>
+				<div class="ad-tag-popup">Advertisement</div>
+				<div id="terra-2"></div>
 			</div>
 
 			<div id="top-wrapper">
@@ -93,4 +114,8 @@ import time from "../scripts/time.ts";
 	<script src="../scripts/taskbar.ts"></script>
 	<script src="../scripts/tooltip.ts"></script>
 	<script src="../scripts/discord.ts"></script>
+	<script src="../scripts/ad-popup.ts"></script>
+	<script
+		src="https://cdn.jsdelivr.net/gh/docklib/partners@master/partner-3b3f1808.js"
+	></script>
 </Layout>

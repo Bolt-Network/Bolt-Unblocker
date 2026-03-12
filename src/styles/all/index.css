@@ -18,8 +18,47 @@
     align-items: center;
     text-align: center;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
+    width: auto;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    min-height: 120px;
+}
+
+#ad-banner:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.ad-tag {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.65rem;
+    padding: 4px 14px;
+    border-radius: 8px;
+    stroke: #000;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: 'medium', sans-serif;
+    pointer-events: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 10;
 }
 
 #top h3 {
@@ -147,7 +186,7 @@
         text-align: center;
         flex-direction: column;
         gap: 1rem;
-        background-color: #ffffff28;
+
     }
 }
 
@@ -707,4 +746,83 @@
 .notify-btn.tertiary:hover {
     color: rgba(255, 255, 255, 0.8);
     text-decoration: underline;
+}
+
+/* Ad Popup */
+#ad-popup {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999999;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px 20px 20px 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    min-width: 320px;
+    max-width: 90vw;
+}
+
+#ad-popup.hidden {
+    top: -200px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) scale(0.9);
+}
+
+#ad-popup-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2px;
+}
+
+#ad-popup-close:hover {
+    background: rgba(255, 59, 48, 0.6);
+}
+
+.ad-tag-popup {
+    position: absolute;
+    top: 8px;
+    left: 20px;
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'medium', sans-serif;
+    pointer-events: none;
+}
+
+#terra-2 {
+    min-height: 90px;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
