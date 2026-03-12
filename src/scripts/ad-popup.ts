@@ -10,10 +10,10 @@ function initAdPopup() {
 
     function loadAd() {
         if (adLoaded) return;
-        
+
         // Social Bar Ad logic
         const atOptions = {
-            key: "0b4f29943f8825bf9a2e81a67765af8b",
+            key: "69b10d3b9c8111006883499edda2a660",
             format: "iframe",
             height: 90,
             width: 728,
@@ -22,7 +22,7 @@ function initAdPopup() {
         (window as any).atOptions = atOptions;
 
         const s = document.createElement("script");
-        s.src = "https://thieflamppost.com/0b4f29943f8825bf9a2e81a67765af8b/invoke.js";
+        s.src = "https://cutleryneighbouringpurpose.com/69b10d3b9c8111006883499edda2a660/invoke.js";
         container?.appendChild(s);
         adLoaded = true;
     }
