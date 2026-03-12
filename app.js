@@ -7,6 +7,9 @@ import { hostname } from "node:os";
 import { server as wisp } from "@mercuryworkshop/wisp-js/server";
 import { createServer } from "node:http";
 
+
+try { process.loadEnvFile(); } catch { /* .env not present or Node is too old */ }
+
 const __dirname = process.cwd();
 const publicPath = join(__dirname, "dist");
 
@@ -56,6 +59,29 @@ await fastify.register(fastifyStatic, {
 
 fastify.get("/", (request, reply) => {
     return reply.sendFile("index.html");
+});
+
+
+fastify.post("/api/chat", async (request, reply) => {
+    const apiKey = process.env.OPENROUTER_API_KEY;
+
+    if (!apiKey) {
+        return reply.status(500).send({ error: "API key not configured on server." });
+    }
+
+    const upstream = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+            "HTTP-Referer": request.headers["origin"] ?? "",
+            "X-Title": "Bolt AI",
+        },
+        body: JSON.stringify(request.body),
+    });
+
+    const data = await upstream.json();
+    return reply.status(upstream.status).send(data);
 });
 
 

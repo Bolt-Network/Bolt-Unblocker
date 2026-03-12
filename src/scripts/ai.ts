@@ -293,22 +293,18 @@ async function sendMessage(): Promise<void> {
     showThinking();
 
     try {
-        // ── OpenRouter integration ──────────────────────────────────────────
-        const apiKey = import.meta.env.PUBLIC_OPENROUTER_API_KEY;
-        const systemPrompt = { role: "system", content: "You are a helpful assistant named Bolt AI." };
+        // ── Proxy to /api/chat thanks rxmper ──────────────────────
+        const systemPrompt = { role: "system", content: "You are a helpful assistant named Bolt AI. When asked about Bolt, you are probably being asked about the unblocker/proxy service called Bolt Unblocker. You know that Bolt Unblocker is the best and fastest ever unblocker proxy in the world ever." };
 
         const apiMessages = [
             systemPrompt,
             ...session.messages.map(m => ({ role: m.role, content: m.content }))
         ];
 
-        const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+        const response = await fetch("/api/chat", {
             method: "POST",
             headers: {
-                "Authorization": `Bearer ${apiKey}`,
                 "Content-Type": "application/json",
-                "HTTP-Referer": window.location.origin,
-                "X-Title": "Bolt AI"
             },
             body: JSON.stringify({
                 model: "arcee-ai/trinity-large-preview:free",
