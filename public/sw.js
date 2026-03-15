@@ -15,12 +15,19 @@ async function handleRequest(event) {
     if (scramjet.route(event)) {
         return await scramjet.fetch(event);
     }
-
     return fetch(event.request);
 }
 
 self.addEventListener("fetch", (event) => {
     event.respondWith(handleRequest(event));
+});
+
+self.addEventListener('install', event => {
+    event.waitUntil(self.skipWaiting());
+});
+
+self.addEventListener('activate', event => {
+    event.waitUntil(self.clients.claim());
 });
 
 let playgroundData;
@@ -36,23 +43,15 @@ scramjet.addEventListener("request", (e) => {
         const origin = playgroundData.origin;
         if (e.url.href === origin + "/") {
             headers["content-type"] = "text/html";
-            e.response = new Response(playgroundData.html, {
-                headers,
-            });
+            e.response = new Response(playgroundData.html, { headers });
         } else if (e.url.href === origin + "/style.css") {
             headers["content-type"] = "text/css";
-            e.response = new Response(playgroundData.css, {
-                headers,
-            });
+            e.response = new Response(playgroundData.css, { headers });
         } else if (e.url.href === origin + "/script.js") {
             headers["content-type"] = "application/javascript";
-            e.response = new Response(playgroundData.js, {
-                headers,
-            });
+            e.response = new Response(playgroundData.js, { headers });
         } else {
-            e.response = new Response("empty response", {
-                headers,
-            });
+            e.response = new Response("empty response", { headers });
         }
         e.response.rawHeaders = headers;
         e.response.rawResponse = {
