@@ -5,6 +5,7 @@ interface BoltSettings {
     // Performance
     ultraPerformance: boolean;
     backgroundDetailLevel: string;
+    proxyEngine: string;
 
     // Personalization
     theme: string;
@@ -30,6 +31,7 @@ const STORAGE_KEY = 'bolt-settings';
 const defaults: BoltSettings = {
     ultraPerformance: true,
     backgroundDetailLevel: 'eco',
+    proxyEngine: 'scramjet',
 
     theme: '0',
     customBg: '',
@@ -89,6 +91,7 @@ function init(): void {
     // --- Bind values ---
     // Performance
     const backgroundDetailLevel = getSelect('background-detail-level');
+    const proxyEngine = getSelect('proxy-engine');
     const ultraPerformance = getCheckbox('ultra-performance');
     // Personalization
     const themeSelect = getSelect('theme-select');
@@ -110,6 +113,7 @@ function init(): void {
 
     // Apply loaded values
     if (backgroundDetailLevel) backgroundDetailLevel.value = settings.backgroundDetailLevel;
+    if (proxyEngine) proxyEngine.value = settings.proxyEngine;
     if (ultraPerformance) ultraPerformance.checked = settings.ultraPerformance;
     if (themeSelect) themeSelect.value = settings.theme;
     if (customBg) customBg.value = settings.customBg;
@@ -141,6 +145,7 @@ function init(): void {
         return {
             ultraPerformance: ultraPerformance?.checked ?? defaults.ultraPerformance,
             backgroundDetailLevel: backgroundDetailLevel?.value ?? defaults.backgroundDetailLevel,
+            proxyEngine: proxyEngine?.value ?? defaults.proxyEngine,
             theme: themeSelect?.value ?? defaults.theme,
             customBg: customBg?.value ?? defaults.customBg,
             tabStyle: tabStyle?.value ?? defaults.tabStyle,
@@ -166,7 +171,7 @@ function init(): void {
 
     // Attach listeners to all controls
     const checkboxes = [showGreeting, tabCloak, searchSuggestions, searchNewTab, ultraPerformance, autoCloak];
-    const selects = [backgroundDetailLevel, themeSelect, tabStyle, searchEngine];
+    const selects = [backgroundDetailLevel, proxyEngine, themeSelect, tabStyle, searchEngine];
     const inputs = [customBg, cloakTitle, panicKey, panicUrl, customSearchUrl];
 
     checkboxes.forEach((el) => {
@@ -177,7 +182,17 @@ function init(): void {
     });
 
     selects.forEach((el) => {
-        el?.addEventListener('change', debouncedSave);
+        el?.addEventListener('change', () => {
+            if (saveTimeout) clearTimeout(saveTimeout);
+            saveSettings(collect());
+            if (el === proxyEngine) {
+                if (window.top) {
+                    window.top.location.reload();
+                } else {
+                    window.location.reload();
+                }
+            }
+        });
     });
 
     inputs.forEach((el) => {

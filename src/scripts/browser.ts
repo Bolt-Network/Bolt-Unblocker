@@ -1,4 +1,4 @@
-import scramjet from "./proxy";
+import proxy, { swReady } from "./proxy";
 const urlParams = new URLSearchParams(window.location.search);
 const settings = JSON.parse(localStorage.getItem('bolt-settings') || '{}');
 const url = urlParams.get('url');
@@ -135,13 +135,13 @@ class TabManager {
                     finalUrl = destinationUrl;
                 } else if (addressInput.value.startsWith('https://') || addressInput.value.startsWith('http://')) {
                     destinationUrl = addressInput.value;
-                    finalUrl = scramjet.encodeUrl(destinationUrl);
+                    finalUrl = proxy.encodeUrl(destinationUrl);
                 } else if (addressInput.value.includes('.') && !addressInput.value.includes(' ')) {
                     destinationUrl = 'https://' + addressInput.value;
-                    finalUrl = scramjet.encodeUrl(destinationUrl);
+                    finalUrl = proxy.encodeUrl(destinationUrl);
                 } else {
                     destinationUrl = searchEngineUrl + addressInput.value;
-                    finalUrl = scramjet.encodeUrl(destinationUrl);
+                    finalUrl = proxy.encodeUrl(destinationUrl);
                 }
 
                 this.updateActiveTabUrl(finalUrl);
@@ -443,8 +443,8 @@ class TabManager {
             if (tab.isActive) {
                 const addressInput = document.getElementById('address-input') as HTMLInputElement;
                 if (addressInput) {
-                    if (tab.url.includes("/$/")) {
-                        addressInput.value = decodeURIComponent(tab.url.split("/$/")[1]);
+                    if (proxy.isProxiedUrl(tab.url)) {
+                        addressInput.value = proxy.decodeProxiedUrl(tab.url);
                     } else {
                         addressInput.value = tab.url;
                     }
@@ -459,16 +459,16 @@ class TabManager {
                     tab.title = newTitle;
                     this.renderTabs();
                 }
-                if (newTitle === "Scramjet" || newTitle === "404: Not Found") {
+                if (newTitle === "Scramjet" || newTitle === "Ultraviolet" || newTitle === "404: Not Found") {
                     this.showErrorPopup();
                 }
 
                 if (addressInput) {
                     const currentHref = iframe.contentWindow?.location.href || '';
 
-                    if (tab.url.includes("/$/")) {
-                        addressInput.value = decodeURIComponent(currentHref.split("/$/")[1] || currentHref);
-                    } else if (currentHref.startsWith(window.location.origin) && !currentHref.includes('/$/')) {
+                    if (proxy.isProxiedUrl(tab.url)) {
+                        addressInput.value = proxy.decodeProxiedUrl(currentHref);
+                    } else if (currentHref.startsWith(window.location.origin) && !proxy.isProxiedUrl(currentHref)) {
                         const path = new URL(currentHref).pathname.slice(1);
                         addressInput.value = 'bolt://' + path;
                     } else {
@@ -500,8 +500,10 @@ newTabBtn?.addEventListener('click', () => {
 });
 
 // 3. Add a starting tab
-const initialDestination = url ? (url.startsWith('bolt://') ? url : scramjet.encodeUrl(url)) : ('bolt://newtab');
-myBrowser.addTab('Loading...', initialDestination);
+swReady.then(() => {
+    const initialDestination = url ? (url.startsWith('bolt://') ? url : proxy.encodeUrl(url)) : ('bolt://newtab');
+    myBrowser.addTab('Loading...', initialDestination);
+});
 
 //4. Global Functions
 function navigateTo(url: string) {
@@ -518,7 +520,7 @@ function navigateTo(url: string) {
         newUrl = searchEngineUrl + url;
     }
 
-    myBrowser.updateActiveTabUrl(scramjet.encodeUrl(newUrl));
+    myBrowser.updateActiveTabUrl(proxy.encodeUrl(newUrl));
 }
 
 function openNewTab() {
