@@ -12,7 +12,6 @@ importScripts(self.__uv$config.sw || "/math/uv.sw.js");
 importScripts("/learn/scramjet.all.js");
 
 const uv = new UVServiceWorker(self.__uv$config);
-const { ScramjetServiceWorker } = $scramjetLoadWorker();
 const scramjet = new ScramjetServiceWorker();
 
 
