@@ -1,4 +1,71 @@
 import proxy, { swReady } from "./proxy";
+
+// --- Site Alert Logic ---
+let siteAlerts: any[] = [];
+let shownAlerts: Set<string> = new Set();
+
+async function loadSiteAlerts() {
+    try {
+        const response = await fetch('/json/site-alerts.json');
+        if (!response.ok) throw new Error("Failed to fetch site-alerts.json");
+        siteAlerts = await response.json();
+    } catch (err) {
+        console.error('Failed to load site alerts:', err);
+    }
+}
+
+loadSiteAlerts();
+
+function checkForSiteAlerts(url: string) {
+    if (!url || url === 'about:blank' || url.startsWith('bolt://') || siteAlerts.length === 0) return;
+
+    for (const entry of siteAlerts) {
+        const entrySite = entry.site ? entry.site.toLowerCase() : '';
+        const lowerUrl = url.toLowerCase();
+        
+        const matchesSite = entrySite && lowerUrl.includes(entrySite);
+        const matchesKeyword = entry.keywords && entry.keywords.some((kw: string) => lowerUrl.includes(kw.toLowerCase()));
+
+        if (matchesSite || matchesKeyword) {
+            const alertId = entry.site || (entry.keywords && entry.keywords[0]) || 'generic-alert';
+            if (!shownAlerts.has(alertId)) {
+                shownAlerts.add(alertId);
+
+                const notifyFn = (window.top as any)?.notify || (window as any).notify;
+                if (notifyFn) {
+                    notifyFn({
+                        title: "Site Alert",
+                        desc: entry.alert,
+                        img: "/img/warning.png",
+                        lifespan: 12,
+                        important: true,
+                        buttons: entry.button ? [
+                            {
+                                label: entry.button,
+                                primary: true,
+                                onClick: () => {
+                                    if (entry.buttonAction) {
+                                        try {
+                                            if (window.top) {
+                                                // Execute in top context to access Window class etc.
+                                                (window.top as any).eval(entry.buttonAction);
+                                            } else {
+                                                new Function(entry.buttonAction)();
+                                            }
+                                        } catch (e) {
+                                            console.error("Failed to execute alert action:", e);
+                                        }
+                                    }
+                                }
+                            }
+                        ] : []
+                    });
+                }
+            }
+        }
+    }
+}
+
 const urlParams = new URLSearchParams(window.location.search);
 const settings = JSON.parse(localStorage.getItem('bolt-settings') || '{}');
 const url = urlParams.get('url');
@@ -465,15 +532,18 @@ class TabManager {
 
                 if (addressInput) {
                     const currentHref = iframe.contentWindow?.location.href || '';
+                    let displayUrl = '';
 
                     if (proxy.isProxiedUrl(tab.url)) {
-                        addressInput.value = proxy.decodeProxiedUrl(currentHref);
+                        displayUrl = proxy.decodeProxiedUrl(currentHref);
                     } else if (currentHref.startsWith(window.location.origin) && !proxy.isProxiedUrl(currentHref)) {
                         const path = new URL(currentHref).pathname.slice(1);
-                        addressInput.value = 'bolt://' + path;
+                        displayUrl = 'bolt://' + path;
                     } else {
-                        addressInput.value = currentHref;
+                        displayUrl = currentHref;
                     }
+                    addressInput.value = displayUrl;
+                    checkForSiteAlerts(displayUrl);
                 }
             }
 
