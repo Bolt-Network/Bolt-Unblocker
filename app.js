@@ -84,6 +84,21 @@ fastify.post("/api/chat", async (request, reply) => {
     return reply.status(upstream.status).send(data);
 });
 
+fastify.post("/api/deep-reset", async (request, reply) => {
+    const cookieNames = ["session", "auth-token", "refresh-token"];
+
+    for (const name of cookieNames) {
+        reply.header(
+            "Set-Cookie",
+            `${name}=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 UTC; HttpOnly; SameSite=Lax`
+        );
+    }
+
+    reply.header("Clear-Site-Data", '"cache", "cookies", "storage"');
+
+    return reply.status(200).send({ ok: true });
+});
+
 
 fastify.setNotFoundHandler((request, reply) => {
     return reply.send("404 Not Found");
