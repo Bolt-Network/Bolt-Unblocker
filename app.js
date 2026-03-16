@@ -84,7 +84,7 @@ fastify.post("/api/chat", async (request, reply) => {
     return reply.status(upstream.status).send(data);
 });
 
-fastify.post("/api/deep-reset", async (request, reply) => {
+fastify.post("/api/deepreset", async (request, reply) => {
     const cookieNames = ["session", "auth-token", "refresh-token"];
 
     for (const name of cookieNames) {
