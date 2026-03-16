@@ -137,17 +137,18 @@ class Tab {
 
             this.iframe.src = this.getResolvedUrl();
         } else {
-
             try {
-                const currentSrc = this.iframe.src;
+                // Check current location to avoid redundant reloads
+                const currentActualUrl = this.iframe.contentWindow?.location.href;
                 const targetUrl = this.url === 'about:blank' ? 'about:blank' : new URL(this.getResolvedUrl(), window.location.href).href;
 
-
-                if (currentSrc !== targetUrl) {
+                // Sync the iframe src if it doesn't match the target
+                // and the iframe isn't already at that URL.
+                if (currentActualUrl !== targetUrl && this.iframe.src !== targetUrl) {
                     this.iframe.src = this.getResolvedUrl();
                 }
             } catch (err) {
-                // Fallback for invalid URLs
+                // Fallback for cross-origin or invalid URLs (though proxy usually keeps it same-origin)
                 if (this.iframe.src !== this.getResolvedUrl()) {
                     this.iframe.src = this.getResolvedUrl();
                 }
@@ -228,7 +229,15 @@ class TabManager {
 
         document.getElementById('reload-button')?.addEventListener('click', () => {
             const activeTab = this.tabs.find(t => t.id === this.activeTabId);
-            if (activeTab?.iframe) activeTab.iframe.src = activeTab.iframe.src;
+            if (activeTab?.iframe) {
+                try {
+                    // Try to reload the content window directly to preserve current URL
+                    activeTab.iframe.contentWindow?.location.reload();
+                } catch (e) {
+                    // Fallback to resetting src
+                    activeTab.iframe.src = activeTab.iframe.src;
+                }
+            }
         });
     }
 
@@ -521,26 +530,38 @@ class TabManager {
 
             iframe.onload = () => {
                 const addressInput = document.getElementById('address-input') as HTMLInputElement;
+
+                // Sync the tab's internal URL with the actual iframe location
+                try {
+                    const currentHref = iframe.contentWindow?.location.href;
+                    if (currentHref && currentHref !== 'about:blank') {
+                        if (currentHref.startsWith(window.location.origin) && !proxy.isProxiedUrl(currentHref)) {
+                            const path = new URL(currentHref).pathname.slice(1);
+                            tab.url = 'bolt://' + (path || 'newtab');
+                        } else {
+                            tab.url = currentHref;
+                        }
+                    }
+                } catch (e) {
+                    // Ignore cross-origin errors (proxy usually handles this)
+                }
+
                 const newTitle = iframe.contentWindow?.document.title;
                 if (newTitle && tab.title !== newTitle) {
                     tab.title = newTitle;
                     this.renderTabs();
                 }
+
                 if (newTitle === "Scramjet" || newTitle === "Ultraviolet" || newTitle === "404: Not Found" || newTitle === "Error") {
                     this.showErrorPopup();
                 }
 
-                if (addressInput) {
-                    const currentHref = iframe.contentWindow?.location.href || '';
+                if (addressInput && tab.isActive) {
                     let displayUrl = '';
-
                     if (proxy.isProxiedUrl(tab.url)) {
-                        displayUrl = proxy.decodeProxiedUrl(currentHref);
-                    } else if (currentHref.startsWith(window.location.origin) && !proxy.isProxiedUrl(currentHref)) {
-                        const path = new URL(currentHref).pathname.slice(1);
-                        displayUrl = 'bolt://' + path;
+                        displayUrl = proxy.decodeProxiedUrl(tab.url);
                     } else {
-                        displayUrl = currentHref;
+                        displayUrl = tab.url;
                     }
                     addressInput.value = displayUrl;
                     checkForSiteAlerts(displayUrl);

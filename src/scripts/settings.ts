@@ -236,6 +236,7 @@ deepClean?.addEventListener('click', () => {
 });
 
 export async function deepReset(): Promise<void> {
+    console.log("Resetting Bolt...");
     try {
         await fetch('/api/deepreset', { method: 'POST' });
         // Clear-Site-Data header handles almost everything automatically.
