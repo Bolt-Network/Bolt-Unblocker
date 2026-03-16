@@ -18,13 +18,13 @@ const scramjet = new ScramjetServiceWorker();
 
 async function handleRequest(event) {
     try {
-      await scramjet.loadConfig().catch(err => console.error("Scramjet Config Load Failed", err));
+        await scramjet.loadConfig().catch(err => console.error("Scramjet Config Load Failed", err));
 
         if (uv.route(event)) {
             return await uv.fetch(event);
         }
 
-      
+
         if (scramjet.route(event)) {
             return await scramjet.fetch(event);
         }
@@ -32,7 +32,7 @@ async function handleRequest(event) {
         console.error("Proxy Error:", error);
     }
 
-   
+
     return fetch(event.request);
 }
 
