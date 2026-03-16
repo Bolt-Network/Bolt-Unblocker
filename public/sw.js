@@ -8,10 +8,11 @@ if (navigator.userAgent.includes("Firefox")) {
 
 importScripts("/math/uv.bundle.js");
 importScripts("/math/uv.config.js");
-importScripts(self.__uv$config.sw || "/math/uv.sw.js");
+importScripts("/math/uv.sw.js");
 importScripts("/learn/scramjet.all.js");
 
 const uv = new UVServiceWorker(self.__uv$config);
+const { ScramjetServiceWorker } = $scramjetLoadWorker();
 const scramjet = new ScramjetServiceWorker();
 
 
@@ -39,14 +40,6 @@ async function handleRequest(event) {
 
 self.addEventListener("fetch", (event) => {
     event.respondWith(handleRequest(event));
-});
-
-self.addEventListener('install', event => {
-    event.waitUntil(self.skipWaiting());
-});
-
-self.addEventListener('activate', event => {
-    event.waitUntil(self.clients.claim());
 });
 
 let playgroundData;
