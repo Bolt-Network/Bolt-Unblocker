@@ -5,13 +5,25 @@ if (navigator.userAgent.includes("Firefox")) {
     });
 }
 
+
+importScripts("/math/uv.bundle.js");
+importScripts("/math/uv.config.js");
+importScripts(self.__uv$config.sw || "/math/uv.sw.js");
 importScripts("/learn/scramjet.all.js");
 
+const uv = new UVServiceWorker(self.__uv$config);
 const { ScramjetServiceWorker } = $scramjetLoadWorker();
 const scramjet = new ScramjetServiceWorker();
 
+
 async function handleRequest(event) {
     await scramjet.loadConfig();
+    // Ultraviolet Routing
+    if (uv.route(event)) {
+        return await uv.fetch(event);
+    }
+
+    // Scramjet Routing
     if (scramjet.route(event)) {
         return await scramjet.fetch(event);
     }

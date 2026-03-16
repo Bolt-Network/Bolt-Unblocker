@@ -76,20 +76,31 @@ import Layout from "../Layouts/Layout.astro";
                     </div>
                     <div class="setting-item">
                         <div class="setting-info">
-                            <span class="setting-label"
-                                >Proxy Engine</span
-                            >
+                            <span class="setting-label">Proxy Engine</span>
                             <span class="setting-hint"
                                 >Choose which proxy backend to use for browsing</span
                             >
                         </div>
-                        <select
-                            id="proxy-engine"
-                            class="setting-select"
-                        >
+                        <select id="proxy-engine" class="setting-select">
                             <option value="scramjet" selected>Scramjet</option>
                             <option value="ultraviolet">Ultraviolet</option>
                         </select>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <span class="setting-label"
+                                >Update & Deep Clean</span
+                            >
+                            <span class="setting-hint"
+                                >Factory reset Bolt to update or fix issues
+                                [RESETS ALL DATA]</span
+                            >
+                        </div>
+                        <div class="setting-input-group">
+                            <button id="deep-clean" class="setting-button"
+                                >Deep Clean & Update</button
+                            >
+                        </div>
                     </div>
                 </div>
             </section>
@@ -313,9 +324,11 @@ import Layout from "../Layouts/Layout.astro";
                             >
                         </div>
                         <select id="search-engine" class="setting-select">
-                            <option value="google" selected>Google</option>
+                            <option value="google">Google</option>
                             <option value="bing">Bing</option>
-                            <option value="duckduckgo">DuckDuckGo</option>
+                            <option value="duckduckgo" selected
+                                >DuckDuckGo</option
+                            >
                             <option value="brave">Brave Search</option>
                             <option value="yahoo">Yahoo</option>
                         </select>

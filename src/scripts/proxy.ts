@@ -3,6 +3,9 @@ import { BareMuxConnection } from '@mercuryworkshop/bare-mux';
 // temp: change default to lib
 const wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
 const bareUrl = (location.protocol === "https:" ? "https" : "http") + "://" + location.host + "/bare/";
+
+
+
 var transport = "/libcurl/index.mjs";
 const { ScramjetController } = typeof $scramjetLoadController !== 'undefined' ? $scramjetLoadController() : {
     ScramjetController: class {
@@ -36,11 +39,7 @@ const scramjet = new ScramjetController({
 if (scramjet.init) scramjet.init();
 export const swReady = new Promise<void>((resolve) => {
     if ('serviceWorker' in navigator) {
-        const settings = JSON.parse(localStorage.getItem('bolt-settings') || '{}');
-        const engine = settings.proxyEngine || 'scramjet';
-        const swPath = engine === 'ultraviolet' ? '/uv-sw.js' : '/sw.js';
-
-        navigator.serviceWorker.register(swPath).then(() => {
+        navigator.serviceWorker.register('/sw.js').then(() => {
             if (navigator.serviceWorker.controller) {
                 resolve();
             } else {

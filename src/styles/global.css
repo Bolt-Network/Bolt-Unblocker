@@ -6,6 +6,7 @@
 @import "./all/settings.css";
 @import "./all/ai.css";
 @import "./all/music.css";
+@import "./all/notifications.css";
 @import "tailwindcss";
 
 @font-face {
