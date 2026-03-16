@@ -85,19 +85,19 @@ if (!localStorage.getItem(firstVisitKey)) {
     localStorage.setItem("current-version", latestVersion);
     localStorage.setItem(firstVisitKey, "true");
 
-    /*  const debugWindow = new Window({
-         url: "/browser",
-         title: "Debug Browser",
-         icon: "/img/icons/browser.webp",
-         startMaximized: false,
-         width: 300,
-         height: 200
-     });
- 
-     // Close it almost instantly
-     setTimeout(() => {
-         debugWindow.destroy();
-     }, 300); */
+    const debugWindow = new Window({
+        url: "/browser",
+        title: "Debug Browser",
+        icon: "/img/icons/browser.webp",
+        startMaximized: false,
+        width: 300,
+        height: 200
+    });
+
+    // Close it almost instantly
+    setTimeout(() => {
+        debugWindow.destroy();
+    }, 300);
 }
 
 
