@@ -22,7 +22,7 @@ function checkForSiteAlerts(url: string) {
     for (const entry of siteAlerts) {
         const entrySite = entry.site ? entry.site.toLowerCase() : '';
         const lowerUrl = url.toLowerCase();
-        
+
         const matchesSite = entrySite && lowerUrl.includes(entrySite);
         const matchesKeyword = entry.keywords && entry.keywords.some((kw: string) => lowerUrl.includes(kw.toLowerCase()));
 
@@ -526,7 +526,7 @@ class TabManager {
                     tab.title = newTitle;
                     this.renderTabs();
                 }
-                if (newTitle === "Scramjet" || newTitle === "Ultraviolet" || newTitle === "404: Not Found") {
+                if (newTitle === "Scramjet" || newTitle === "Ultraviolet" || newTitle === "404: Not Found" || newTitle === "Error") {
                     this.showErrorPopup();
                 }
 
