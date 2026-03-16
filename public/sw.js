@@ -17,18 +17,26 @@ const scramjet = new ScramjetServiceWorker();
 
 
 async function handleRequest(event) {
-    await scramjet.loadConfig();
-    // Ultraviolet Routing
-    if (uv.route(event)) {
-        return await uv.fetch(event);
+    try {
+    
+        if (uv.route(event)) {
+            return await uv.fetch(event);
+        }
+
+        await scramjet.loadConfig().catch(err => console.error("Scramjet Config Load Failed", err));
+
+        if (scramjet.route(event)) {
+            return await scramjet.fetch(event);
+        }
+    } catch (error) {
+        console.error("Proxy Error:", error);
     }
 
-    // Scramjet Routing
-    if (scramjet.route(event)) {
-        return await scramjet.fetch(event);
-    }
+   
     return fetch(event.request);
 }
+
+
 
 self.addEventListener("fetch", (event) => {
     event.respondWith(handleRequest(event));
