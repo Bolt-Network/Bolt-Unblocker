@@ -8,6 +8,7 @@ export interface WindowOptions {
     width?: number;
     height?: number;
     credentialless?: boolean;
+    backgroundWindow?: boolean;
 }
 
 export default class AppWindow {
@@ -26,6 +27,7 @@ export default class AppWindow {
     private dragOffset = { x: 0, y: 0 };
     private currentPos = { x: 0, y: 0 };
     private currentSize = { width: 0, height: 0 };
+    private backgroundWindow = false;
 
     constructor(options: WindowOptions) {
         // Get WindowManager singleton
@@ -34,14 +36,19 @@ export default class AppWindow {
         // Generate unique ID
         this.id = this.manager.generateWindowId();
 
-        // Store title
+        // Store title and icon
         this.title = options.title;
-
-        // Store icon
         this.icon = options.icon || "";
 
+        // Store background status
+        this.backgroundWindow = options.backgroundWindow || false;
+
         // Get initial z-index
-        this.zIndex = this.manager.getNextZIndex();
+        if (this.backgroundWindow) {
+            this.zIndex = -10000;
+        } else {
+            this.zIndex = this.manager.getNextZIndex();
+        }
 
         // Create the window DOM
         this.create(options);
@@ -49,8 +56,10 @@ export default class AppWindow {
         // Register with WindowManager
         this.manager.addWindow(this);
 
-        // Focus the window on creation
-        this.focus();
+        // Focus the window on creation if it's not a background window
+        if (!this.backgroundWindow) {
+            this.focus();
+        }
     }
 
     private create(options: WindowOptions) {
@@ -384,7 +393,8 @@ export default class AppWindow {
      * Set z-index and bring window to front (internal method)
      */
     public bringToFront(): void {
-        if (!this.element) return;
+        if (!this.element || this.backgroundWindow) return;
+
 
         this.zIndex = this.manager.getNextZIndex();
         this.element.style.zIndex = String(this.zIndex);

@@ -91,13 +91,14 @@ if (!localStorage.getItem(firstVisitKey)) {
         icon: "/img/icons/browser.webp",
         startMaximized: false,
         width: 300,
-        height: 200
+        height: 200,
+        backgroundWindow: true
     });
 
-    // Close it almost instantly
+    // Close it but give it a second to load
     setTimeout(() => {
         debugWindow.destroy();
-    }, 300);
+    }, 1000);
 }
 
 
