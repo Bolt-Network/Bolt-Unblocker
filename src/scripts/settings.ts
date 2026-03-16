@@ -255,5 +255,5 @@ export async function deepReset(): Promise<void> {
         important: false,
         sound: true,
     });
-    setTimeout(() => window.top!.location.reload(), 1500);
+    // setTimeout(() => window.top!.location.reload(), 1500);
 }
