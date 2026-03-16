@@ -8,38 +8,38 @@ if (navigator.userAgent.includes("Firefox")) {
 
 importScripts("/math/uv.bundle.js");
 importScripts("/math/uv.config.js");
-importScripts(self.__uv$config.sw || "/math/uv.sw.js");
+importScripts("/math/uv.sw.js");
 importScripts("/learn/scramjet.all.js");
 
-const uv = new UVServiceWorker(self.__uv$config);
 const { ScramjetServiceWorker } = $scramjetLoadWorker();
+const uv = new UVServiceWorker(self.__uv$config);
 const scramjet = new ScramjetServiceWorker();
 
 
 async function handleRequest(event) {
-    await scramjet.loadConfig();
-    // Ultraviolet Routing
-    if (uv.route(event)) {
-        return await uv.fetch(event);
+    try {
+      await scramjet.loadConfig().catch(err => console.error("Scramjet Config Load Failed", err));
+
+        if (uv.route(event)) {
+            return await uv.fetch(event);
+        }
+
+      
+        if (scramjet.route(event)) {
+            return await scramjet.fetch(event);
+        }
+    } catch (error) {
+        console.error("Proxy Error:", error);
     }
 
-    // Scramjet Routing
-    if (scramjet.route(event)) {
-        return await scramjet.fetch(event);
-    }
+   
     return fetch(event.request);
 }
 
+
+
 self.addEventListener("fetch", (event) => {
     event.respondWith(handleRequest(event));
-});
-
-self.addEventListener('install', event => {
-    event.waitUntil(self.skipWaiting());
-});
-
-self.addEventListener('activate', event => {
-    event.waitUntil(self.clients.claim());
 });
 
 let playgroundData;
