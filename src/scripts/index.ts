@@ -1,6 +1,8 @@
 
 import Window from "./Window";
 import WindowManager from "./WindowManager";
+import { notify } from "./notifications";
+import { deepReset } from "./settings";
 
 // Initialize WindowManager singleton (windows self-register)
 const windowManager = WindowManager.getInstance();
@@ -77,20 +79,59 @@ if (!settings.showGreeting) {
 }
 // First visit debug window logic
 const firstVisitKey = "bolt-first-visit";
+const latestVersion = await fetch("/misc/updateKey.txt").then((res) => res.text());
 if (!localStorage.getItem(firstVisitKey)) {
+
+    localStorage.setItem("current-version", latestVersion);
     localStorage.setItem(firstVisitKey, "true");
 
-    const debugWindow = new Window({
-        url: "/browser",
-        title: "Debug Browser",
-        icon: "/img/icons/browser.webp",
-        startMaximized: false,
-        width: 300,
-        height: 200
-    });
+    /*  const debugWindow = new Window({
+         url: "/browser",
+         title: "Debug Browser",
+         icon: "/img/icons/browser.webp",
+         startMaximized: false,
+         width: 300,
+         height: 200
+     });
+ 
+     // Close it almost instantly
+     setTimeout(() => {
+         debugWindow.destroy();
+     }, 300); */
+}
 
-    // Close it almost instantly
-    setTimeout(() => {
-        debugWindow.destroy();
-    }, 300);
+
+if (typeof window !== 'undefined') {
+    if (localStorage.getItem("current-version") !== latestVersion) {
+        notify({
+            title: "Update Available",
+            desc: "Bolt needs an update! Some features may be broken until updated. Open settings to update.",
+            img: "/img/warning.png",
+            lifespan: 6,
+            important: false,
+            sound: true,
+            buttons: [
+                {
+                    label: "Open Settings",
+                    onClick: () => {
+                        new Window({
+                            url: "/settings",
+                            title: "Settings",
+                            icon: "/img/icons/settings.webp",
+                            startMaximized: false,
+                            width: 800,
+                            height: 600
+                        });
+                    }
+                },
+                {
+                    label: "Update Now",
+                    primary: true,
+                    onClick: () => {
+                        deepReset();
+                    }
+                }
+            ]
+        });
+    }
 }

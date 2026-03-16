@@ -1,5 +1,6 @@
 // Settings Page Logic
 // Handles loading, saving, and interactive behavior for all settings
+import { notify } from "./notifications";
 
 interface BoltSettings {
     // Performance
@@ -42,7 +43,7 @@ const defaults: BoltSettings = {
     panicKey: '',
     panicUrl: '',
     autoCloak: false,
-    searchEngine: 'google',
+    searchEngine: 'duckduckgo',
     searchSuggestions: true,
     searchNewTab: false,
     customSearchUrl: '',
@@ -208,6 +209,8 @@ if (document.readyState === 'loading') {
 }
 
 const openBlank = document.getElementById('open-blank');
+const deepClean = document.getElementById('deep-clean');
+
 openBlank?.addEventListener('click', () => {
     const cloaked = window.open('about:blank', '_blank');
     if (cloaked) {
@@ -224,3 +227,33 @@ openBlank?.addEventListener('click', () => {
         if (window.top) window.top.location.href = 'https://www.clever.com/';
     }
 });
+
+deepClean?.addEventListener('click', () => {
+    let confirmClear = confirm('Are you sure you want to deep clean and reset Bolt? This will reset all settings and data, and update Bolt to the latest version.');
+    if (confirmClear) {
+        deepReset();
+    }
+});
+
+export async function deepReset(): Promise<void> {
+    try {
+        await fetch('/api/deepreset', { method: 'POST' });
+        // Clear-Site-Data header handles almost everything automatically.
+        // Only need this as a fallback for browsers that don't support it:
+        localStorage.clear();
+        sessionStorage.clear();
+    } catch (e) {
+        console.error('Reset failed:', e);
+    }
+
+    await new Promise(r => setTimeout(r, 300));
+    window.top!.notify({
+        title: "Successfully Reset",
+        desc: "Bolt has been reset to its default settings. Reloading to apply changes...",
+        img: "/img/icons/settings.webp",
+        lifespan: 6,
+        important: false,
+        sound: true,
+    });
+    setTimeout(() => window.top!.location.reload(), 1500);
+}

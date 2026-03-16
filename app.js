@@ -5,7 +5,7 @@ import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 import { join } from "node:path";
 import { hostname } from "node:os";
 import { server as wisp } from "@mercuryworkshop/wisp-js/server";
-import { createServer } from "node:http";
+
 
 
 try { process.loadEnvFile(); } catch { /* .env not present or Node is too old */ }
