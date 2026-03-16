@@ -1,0 +1,15 @@
+[
+    {
+        "site": "https://veck.io",
+        "keywords": [
+            "veck",
+            "vecc",
+            "vecc.io",
+            "veck.io",
+            "veck io"
+        ],
+        "alert": "This site or game (veck.io) requires the ULTRAVIOLET proxy engine to load properly. Please change your proxy engine in the settings.",
+        "button": "Open Settings",
+        "buttonAction": "new Window({ url: \"/settings\", title: \"Settings\", icon: \"/img/icons/settings.webp\", startMaximized: false, width: 800, height: 600 });"
+    }
+]
