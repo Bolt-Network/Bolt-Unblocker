@@ -166,7 +166,7 @@ function renderGames(games: any[]) {
         if (card.getAttribute('data-link')?.includes('https://')) {
             card.addEventListener('click', () => {
                 const Win = (window.top as any).Window || Window;
-                new Win({ url: String("/browser?url=" + card.getAttribute('data-link')?.split('?url=/cdn/html/')[1]), title: "Browser" });
+                new Win({ url: String("/siterunner?url=" + card.getAttribute('data-link')?.split('?url=/cdn/html/')[1]), title: "Browser" });
             });
             return;
         }

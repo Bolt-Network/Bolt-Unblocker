@@ -294,6 +294,61 @@ function setupSearch(): void {
     });
 }
 
+function setupCustomAppModal(): void {
+    const addBtn = document.getElementById("as-add-custom");
+    const modalOverlay = document.getElementById("as-modal-overlay");
+    const closeBtn = document.getElementById("as-modal-close");
+    const installBtn = document.getElementById("as-install-custom");
+
+    const nameInput = document.getElementById("as-custom-name") as HTMLInputElement;
+    const urlInput = document.getElementById("as-custom-url") as HTMLInputElement;
+    const iconInput = document.getElementById("as-custom-icon") as HTMLInputElement;
+
+    const toggleModal = (show: boolean) => {
+        modalOverlay?.classList.toggle("hidden", !show);
+        if (show) {
+            nameInput.value = "";
+            urlInput.value = "";
+            iconInput.value = "";
+            nameInput.focus();
+        }
+    };
+
+    addBtn?.addEventListener("click", () => toggleModal(true));
+    closeBtn?.addEventListener("click", () => toggleModal(false));
+    modalOverlay?.addEventListener("click", (e) => {
+        if (e.target === modalOverlay) toggleModal(false);
+    });
+
+    installBtn?.addEventListener("click", () => {
+        const name = nameInput.value.trim();
+        let url = urlInput.value.trim();
+        let icon = iconInput.value.trim();
+
+        if (!name || !url) {
+            showToast("Please fill out Name and URL!");
+            return;
+        }
+
+        // Simple URL validation/prefixing
+        if (!url.startsWith("http")) {
+            url = "https://" + url;
+        }
+
+        if (!icon) {
+            icon = getFaviconUrl(url);
+        }
+
+        const customApp: StoreApp = { name, url, icon };
+        downloadApp(customApp);
+        
+        showToast(`${name} installed!`);
+        toggleModal(false);
+        renderGrid(allApps);
+        buildCarousel(carouselApps.filter(a => a.featured) || allApps.slice(0, 4));
+    });
+}
+
 async function init(): Promise<void> {
     try {
         const res = await fetch("/json/appstore.json");
@@ -316,6 +371,7 @@ async function init(): Promise<void> {
 
         renderGrid(apps);
         setupSearch();
+        setupCustomAppModal();
 
         window.addEventListener("message", (event) => {
             if (event.data?.type === "executeContextMenuAction") {

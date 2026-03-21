@@ -19,12 +19,19 @@ import Layout from "../Layouts/Layout.astro";
                     <p id="as-subtitle">Discover & download your favourite apps</p>
                 </div>
             </div>
-            <div id="as-search-wrap">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M21 21L15.0001 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <input id="as-search" type="text" placeholder="Search apps…" autocomplete="off"/>
+            <div id="as-header-right">
+                <button id="as-add-custom" aria-label="Add custom app">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div id="as-search-wrap">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 21L15.0001 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <input id="as-search" type="text" placeholder="Search apps…" autocomplete="off"/>
+                </div>
             </div>
         </header>
 
@@ -54,6 +61,37 @@ import Layout from "../Layouts/Layout.astro";
             <h2 class="as-section-label">All Apps</h2>
             <div id="as-grid"></div>
         </section>
+
+        <!-- ── Custom App Modal ── -->
+        <div id="as-modal-overlay" class="hidden">
+            <div id="as-modal">
+                <div id="as-modal-header">
+                    <h2 id="as-modal-title">Create Custom App</h2>
+                    <button id="as-modal-close" aria-label="Close modal">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div id="as-modal-body">
+                    <div class="as-form-group">
+                        <label for="as-custom-name">App Name</label>
+                        <input type="text" id="as-custom-name" placeholder="e.g. My Website" autocomplete="off"/>
+                    </div>
+                    <div class="as-form-group">
+                        <label for="as-custom-url">App URL</label>
+                        <input type="text" id="as-custom-url" placeholder="https://example.com" autocomplete="off"/>
+                    </div>
+                    <div class="as-form-group">
+                        <label for="as-custom-icon">App Icon URL (Optional)</label>
+                        <input type="text" id="as-custom-icon" placeholder="https://example.com/icon.png" autocomplete="off"/>
+                    </div>
+                </div>
+                <div id="as-modal-footer">
+                    <button id="as-install-custom" class="as-btn-primary">Install App</button>
+                </div>
+            </div>
+        </div>
 
         <!-- ── Toast ── -->
         <div id="as-toast"></div>
