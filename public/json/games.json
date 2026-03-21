@@ -1310,7 +1310,16 @@
     {
         "name": "Bloons TD 4",
         "image": "/cdn/imgs/bloons_td_4.webp",
-        "url": "btd4",
+        "url": "Bloons TD 4",
+        "tags": [],
+        "categories": [],
+        "description": "Coming Soon",
+        "controls": "Coming Soon"
+    },
+    {
+        "name": "Bloons TD 5",
+        "image": "/cdn/imgs/bloons_td_5.webp",
+        "url": "Bloons TD 5",
         "tags": [],
         "categories": [],
         "description": "Coming Soon",
