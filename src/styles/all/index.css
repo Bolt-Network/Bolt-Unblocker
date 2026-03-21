@@ -175,20 +175,6 @@
 
 }
 
-@media only screen and (max-width: 1800px) {
-
-    #bottom-wrapper {
-        width: 100%;
-        height: 8%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        flex-direction: column;
-        gap: 1rem;
-
-    }
-}
 
 #taskbar {
     display: flex;
@@ -392,6 +378,7 @@
     display: flex;
     flex-direction: column;
     gap: 2px;
+    z-index: 1000000000;
 }
 
 @keyframes context-menu-fade-in {
@@ -440,8 +427,8 @@
     outline: 1.3px solid #ffffff86;
     transition: all 0.3s ease;
     display: flex;
-    justify-content: center;
-    align-items: center;
+
+    align-items: flex-start;
     text-align: center;
     flex-direction: column;
     padding: 1%;
@@ -487,7 +474,6 @@
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     gap: 1rem;
     width: 100%;
-    height: 100%;
     padding: 1%;
     overflow-y: auto;
     scrollbar-width: thin;
@@ -825,4 +811,44 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media only screen and (max-width: 1800px) {
+
+    #bottom-wrapper {
+        width: 100%;
+        height: 8%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        gap: 1rem;
+
+    }
+
+    #app-menu {
+        position: absolute;
+        bottom: 29%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        width: 30vw;
+        height: 37vh;
+
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        outline: 1.3px solid #ffffff86;
+        transition: all 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        padding: 1%;
+        animation: app-menu-fade-out 0.2s ease-out forwards;
+        display: none;
+        opacity: 0;
+        z-index: 1000000;
+
+    }
 }

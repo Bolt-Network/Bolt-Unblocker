@@ -104,9 +104,7 @@ export default class AppWindow {
                 </div>
                 <div class="window-header-right">
                     <div class="window-header-right-buttons">
-                        <div class="window-header-right-button-close"></div>
-                        <div class="window-header-right-button-minimize"></div>
-                        <div class="window-header-right-button-maximize"></div>
+                        <div class="window-header-right-button-reload" title="Reload Content"></div>
                     </div>
                 </div>
             </div>
@@ -131,7 +129,7 @@ export default class AppWindow {
         this.element = win;
 
         // Add button functionality with stopPropagation to prevent dragging
-        const buttons = win.querySelectorAll('.window-header-left-button-close, .window-header-left-button-minimize, .window-header-left-button-maximize, .window-header-right-button-close, .window-header-right-button-minimize, .window-header-right-button-maximize');
+        const buttons = win.querySelectorAll('.window-header-left-button-close, .window-header-left-button-minimize, .window-header-left-button-maximize, .window-header-right-button-reload');
 
         buttons.forEach(btn => {
             btn.addEventListener('mousedown', (e) => e.stopPropagation());
@@ -140,12 +138,6 @@ export default class AppWindow {
 
         const closeBtn = win.querySelector('.window-header-left-button-close');
         closeBtn?.addEventListener('click', (e) => {
-            e.stopPropagation();
-            this.destroy();
-        });
-
-        const closeBtnRight = win.querySelector('.window-header-right-button-close');
-        closeBtnRight?.addEventListener('click', (e) => {
             e.stopPropagation();
             this.destroy();
         });
@@ -160,6 +152,12 @@ export default class AppWindow {
         minimizeBtn?.addEventListener('click', (e) => {
             e.stopPropagation();
             this.manager.minimizeWindow(this);
+        });
+
+        const reloadBtn = win.querySelector('.window-header-right-button-reload');
+        reloadBtn?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.reload();
         });
 
         // Add drag functionality
@@ -424,6 +422,28 @@ export default class AppWindow {
 
         // Clear reference
         this.element = null;
+    }
+
+    /**
+     * Reload the window's content
+     */
+    public reload(): void {
+        const iframe = this.element?.querySelector('iframe');
+        if (iframe) {
+            // Re-assign src to force a full reload of the initial URL or current state
+            // If cross-origin, location.reload() might fail, so re-assigning src is safer
+            try {
+                // Try to use location.reload if possible (better for preserving state if same-origin)
+                if (iframe.contentWindow) {
+                    iframe.contentWindow.location.reload();
+                } else {
+                    iframe.src = iframe.src;
+                }
+            } catch (e) {
+                // Fallback for cross-origin
+                iframe.src = iframe.src;
+            }
+        }
     }
 
     /**

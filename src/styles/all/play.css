@@ -56,7 +56,7 @@
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    min-height: 60px;
+    height: 40px;
     z-index: 10;
     transition: all 0.3s ease;
 }
@@ -75,9 +75,9 @@
 }
 
 #game-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
     object-fit: cover;
     outline: 1.5px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -92,7 +92,7 @@
 
 #game-title {
     font-family: bold, sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #fff;
     margin: 0;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5),
@@ -114,8 +114,8 @@
 }
 
 #ptoolbar-buttons button {
-    width: 44px;
-    height: 44px;
+    width: 30px;
+    height: 30px;
     border-radius: 10px;
     border: none;
     background-color: rgba(255, 255, 255, 0.1);
@@ -197,6 +197,7 @@
     border: none;
     background-color: rgba(0, 0, 0, 0.5);
     position: relative;
+    height: 100%;
 }
 
 /* Loading State */
