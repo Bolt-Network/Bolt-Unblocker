@@ -1,0 +1,83 @@
+[
+    {
+        "name": "Bible",
+        "icon": "/img/appstore/bible.webp",
+        "url": "https://www.bible.com/bible/59/GEN.1.ESV",
+        "featured": true
+    },
+    {
+        "name": "Google",
+        "icon": "",
+        "url": "https://google.com"
+    },
+    {
+        "name": "Youtube",
+        "featured": true,
+        "icon": "",
+        "url": "https://youtube.com"
+    },
+    {
+        "name": "Spotify",
+        "icon": "",
+        "url": "https://spotify.com"
+    },
+    {
+        "name": "Netflix",
+        "icon": "",
+        "url": "https://netflix.com"
+    },
+    {
+        "name": "Tiktok",
+        "featured": true,
+        "icon": "",
+        "url": "https://tiktok.com"
+    },
+    {
+        "name": "Instagram",
+        "featured": true,
+        "icon": "",
+        "url": "https://instagram.com"
+    },
+    {
+        "name": "Facebook",
+        "icon": "",
+        "url": "https://facebook.com"
+    },
+    {
+        "name": "Reddit",
+        "icon": "",
+        "url": "https://reddit.com"
+    },
+    {
+        "name": "Discord",
+        "icon": "",
+        "featured": true,
+        "url": "https://discord.com"
+    },
+    {
+        "name": "Github",
+        "icon": "",
+        "url": "https://github.com"
+    },
+    {
+        "name": "Linkedin",
+        "icon": "",
+        "url": "https://linkedin.com"
+    },
+    {
+        "name": "Whatsapp",
+        "icon": "",
+        "url": "https://whatsapp.com"
+    },
+    {
+        "name": "Telegram",
+        "icon": "",
+        "url": "https://web.telegram.org/"
+    },
+    {
+        "name": "X",
+        "icon": "",
+        "featured": true,
+        "url": "https://x.com"
+    }
+]

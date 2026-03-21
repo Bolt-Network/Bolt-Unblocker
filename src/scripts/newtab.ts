@@ -1,3 +1,5 @@
+import { normalizeUrl, getFaviconUrl } from "./utils";
+
 // Types
 interface Shortcut {
     id: string;
@@ -43,25 +45,6 @@ function saveShortcuts(shortcuts: Shortcut[]): void {
     localStorage.setItem(SHORTCUTS_KEY, JSON.stringify(shortcuts));
 }
 
-function normalizeUrl(url: string): string {
-    // Add https:// if no protocol is specified
-    if (!url.match(/^https?:\/\//i)) {
-        return `https://${url}`;
-    }
-    return url;
-}
-
-function getFaviconUrl(url: string): string {
-    try {
-        const normalizedUrl = normalizeUrl(url);
-        const urlObj = new URL(normalizedUrl);
-        // Use Google's favicon service for reliable favicon fetching
-        return `https://www.google.com/s2/favicons?domain=${urlObj.hostname}&sz=128`;
-    } catch (e) {
-        // Fallback to a default icon if URL is invalid
-        return 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>';
-    }
-}
 
 function createShortcutElement(shortcut: Shortcut): HTMLElement {
     const div = document.createElement("div");

@@ -180,3 +180,26 @@
 .iframe-overlay {
     background: transparent;
 }
+
+.window-header-right-button-reload {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M23 4v6h-6'%3E%3C/path%3E%3Cpath d='M20.49 15a9 9 0 1 1-2.12-9.36L23 10'%3E%3C/path%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 5px;
+}
+
+.window-header-right-button-reload:hover {
+    opacity: 1;
+    transform: rotate(30deg);
+}
+
+.window-header-right-button-reload:active {
+    transform: rotate(180deg);
+    transition: transform 0.2s ease;
+}
