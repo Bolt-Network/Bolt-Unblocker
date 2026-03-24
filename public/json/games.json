@@ -18,18 +18,6 @@
         ]
     },
     {
-        "name": "Gorilla Tag",
-        "image": "/cdn/imgs/gorilla-tag.png",
-        "url": "/cdn/games/gorilla-tag",
-        "tags": [],
-        "categories": [
-            "Action",
-            "Adventure"
-        ],
-        "description": "By Another Axiom Inc, Boolonx  (https://boolonx.com/gtag/?utm_source=gn-math.dev&utm_medium=referral&utm_campaign=gn-math.dev)",
-        "controls": "Coming Soon"
-    },
-    {
         "name": "Fortnite",
         "image": "/cdn/imgs/fortnite.webp",
         "url": "https://play.geforcenow.com/games?game-id=46bfab06-d864-465d-9e56-2d9e45cdee0a&lang=en_US&asset-id=01_030de162-3b58-4108-9499-43c825c5cf4c",
@@ -44,7 +32,7 @@
     },
     {
         "name": "ULTRAKILL",
-        "image": "/cdn/imgs/ultrakill-2.png",
+        "image": "/cdn/imgs/ultrakill-2.webp",
         "url": "/cdn/games/ultrakill-2",
         "tags": [],
         "categories": [
@@ -56,7 +44,7 @@
     },
     {
         "name": "Hollow Knight",
-        "image": "/cdn/imgs/hollow-knight.png",
+        "image": "/cdn/imgs/hollow-knight.webp",
         "url": "/cdn/games/hollow-knight",
         "tags": [],
         "categories": [
@@ -68,7 +56,7 @@
     },
     {
         "name": "Rainbow Obby",
-        "image": "/cdn/imgs/rainbow-obby.png",
+        "image": "/cdn/imgs/rainbow-obby.webp",
         "url": "/cdn/games/rainbow-obby",
         "tags": [],
         "categories": [
@@ -80,7 +68,7 @@
     },
     {
         "name": "Bank Robbery 3",
-        "image": "/cdn/imgs/bank-robbery-3.png",
+        "image": "/cdn/imgs/bank-robbery-3.webp",
         "url": "/cdn/games/bank-robbery-3",
         "tags": [],
         "categories": [
@@ -92,7 +80,7 @@
     },
     {
         "name": "Terraria",
-        "image": "/cdn/imgs/terraria.png",
+        "image": "/cdn/imgs/terraria.webp",
         "url": "/cdn/games/terraria",
         "tags": [],
         "categories": [
@@ -117,7 +105,7 @@
     },
     {
         "name": "Cuphead",
-        "image": "/cdn/imgs/cuphead.png",
+        "image": "/cdn/imgs/cuphead.webp",
         "url": "/cdn/games/cuphead",
         "tags": [],
         "categories": [
@@ -129,7 +117,7 @@
     },
     {
         "name": "People Playground",
-        "image": "/cdn/imgs/people-playground.png",
+        "image": "/cdn/imgs/people-playground.webp",
         "url": "/cdn/games/people-playground",
         "tags": [],
         "categories": [
@@ -141,7 +129,7 @@
     },
     {
         "name": "Pizza Tower: Scoutdigo",
-        "image": "/cdn/imgs/pizza-tower-scoutdigo.png",
+        "image": "/cdn/imgs/pizza-tower-scoutdigo.webp",
         "url": "/cdn/games/pizza-tower-scoutdigo",
         "tags": [],
         "categories": [
@@ -153,7 +141,7 @@
     },
     {
         "name": "BLOODMONEY!",
-        "image": "/cdn/imgs/bloodmoney-2.png",
+        "image": "/cdn/imgs/bloodmoney-2.webp",
         "url": "/cdn/games/bloodmoney-2",
         "tags": [],
         "categories": [
@@ -165,7 +153,7 @@
     },
     {
         "name": "Jelly Drift",
-        "image": "/cdn/imgs/jelly-drift.png",
+        "image": "/cdn/imgs/jelly-drift.webp",
         "url": "/cdn/games/jelly-drift",
         "tags": [],
         "categories": [
@@ -177,7 +165,7 @@
     },
     {
         "name": "Karlson",
-        "image": "/cdn/imgs/karlson.png",
+        "image": "/cdn/imgs/karlson.webp",
         "url": "/cdn/games/karlson",
         "tags": [],
         "categories": [
@@ -189,7 +177,7 @@
     },
     {
         "name": "R.E.P.O",
-        "image": "/cdn/imgs/r-e-p-o-2.png",
+        "image": "/cdn/imgs/r-e-p-o-2.webp",
         "url": "/cdn/games/r-e-p-o-2",
         "tags": [],
         "categories": [
@@ -201,7 +189,7 @@
     },
     {
         "name": "Bad Parenting 1",
-        "image": "/cdn/imgs/bad-parenting-1.png",
+        "image": "/cdn/imgs/bad-parenting-1.webp",
         "url": "/cdn/games/bad-parenting-1",
         "tags": [],
         "categories": [
@@ -213,7 +201,7 @@
     },
     {
         "name": "FNF Vs. Sonic.EXE 3.0/4.0",
-        "image": "/cdn/imgs/fnf-vs-sonic-exe-3-0-4-0.png",
+        "image": "/cdn/imgs/fnf-vs-sonic-exe-3-0-4-0.webp",
         "url": "/cdn/games/fnf-vs-sonic-exe-3-0-4-0",
         "tags": [],
         "categories": [
@@ -225,7 +213,7 @@
     },
     {
         "name": "Tattletail",
-        "image": "/cdn/imgs/tattletail.png",
+        "image": "/cdn/imgs/tattletail.webp",
         "url": "/cdn/games/tattletail",
         "tags": [],
         "categories": [
@@ -237,7 +225,7 @@
     },
     {
         "name": "Schoolboy Runaway",
-        "image": "/cdn/imgs/schoolboy-runaway.png",
+        "image": "/cdn/imgs/schoolboy-runaway.webp",
         "url": "/cdn/games/schoolboy-runaway",
         "tags": [],
         "categories": [
@@ -249,7 +237,7 @@
     },
     {
         "name": "Slender: The 8 Pages",
-        "image": "/cdn/imgs/slender-the-8-pages-2.png",
+        "image": "/cdn/imgs/slender-the-8-pages-2.webp",
         "url": "/cdn/games/slender-the-8-pages-2",
         "tags": [],
         "categories": [
@@ -261,7 +249,7 @@
     },
     {
         "name": "Minecraft Pocket Edition",
-        "image": "/cdn/imgs/minecraft-pocket-edition.png",
+        "image": "/cdn/imgs/minecraft-pocket-edition.webp",
         "url": "/cdn/games/minecraft-pocket-edition",
         "tags": [],
         "categories": [
@@ -273,7 +261,7 @@
     },
     {
         "name": "Undertale Yellow",
-        "image": "/cdn/imgs/undertale-yellow-2.png",
+        "image": "/cdn/imgs/undertale-yellow-2.webp",
         "url": "/cdn/games/undertale-yellow-2",
         "tags": [],
         "categories": [
@@ -285,7 +273,7 @@
     },
     {
         "name": "Growden.io",
-        "image": "/cdn/imgs/growden-io.png",
+        "image": "/cdn/imgs/growden-io.webp",
         "url": "/cdn/games/growden-io",
         "tags": [],
         "categories": [
@@ -297,7 +285,7 @@
     },
     {
         "name": "Speed Stars",
-        "image": "/cdn/imgs/speed-stars.png",
+        "image": "/cdn/imgs/speed-stars.webp",
         "url": "/cdn/games/speed-stars",
         "tags": [],
         "categories": [
@@ -309,7 +297,7 @@
     },
     {
         "name": "Amanda the Adventurer",
-        "image": "/cdn/imgs/amanda-the-adventurer-2.png",
+        "image": "/cdn/imgs/amanda-the-adventurer-2.webp",
         "url": "/cdn/games/amanda-the-adventurer-2",
         "tags": [],
         "categories": [
@@ -321,7 +309,7 @@
     },
     {
         "name": "Getting Over It with Bennett Foddy",
-        "image": "/cdn/imgs/getting-over-it-with-bennett-foddy.png",
+        "image": "/cdn/imgs/getting-over-it-with-bennett-foddy.webp",
         "url": "/cdn/games/getting-over-it-with-bennett-foddy",
         "tags": [],
         "categories": [
@@ -333,7 +321,7 @@
     },
     {
         "name": "Baldi's Basics Classic Remastered",
-        "image": "/cdn/imgs/baldis-basics-classic-remastered.png",
+        "image": "/cdn/imgs/baldis-basics-classic-remastered.webp",
         "url": "/cdn/games/baldis-basics-classic-remastered",
         "tags": [],
         "categories": [
@@ -345,7 +333,7 @@
     },
     {
         "name": "Buckshot Roulette",
-        "image": "/cdn/imgs/buckshot-roulette.png",
+        "image": "/cdn/imgs/buckshot-roulette.webp",
         "url": "/cdn/games/buckshot-roulette",
         "tags": [],
         "categories": [
@@ -357,7 +345,7 @@
     },
     {
         "name": "Bendy and the Ink Machine",
-        "image": "/cdn/imgs/bendy-and-the-ink-machine.png",
+        "image": "/cdn/imgs/bendy-and-the-ink-machine.webp",
         "url": "/cdn/games/bendy-and-the-ink-machine",
         "tags": [],
         "categories": [
@@ -369,7 +357,7 @@
     },
     {
         "name": "That's Not My Neighbor",
-        "image": "/cdn/imgs/thats-not-my-neighbor.png",
+        "image": "/cdn/imgs/thats-not-my-neighbor.webp",
         "url": "/cdn/games/thats-not-my-neighbor",
         "tags": [],
         "categories": [
@@ -381,7 +369,7 @@
     },
     {
         "name": "10 Minutes Till Dawn",
-        "image": "/cdn/imgs/10-minutes-till-dawn.png",
+        "image": "/cdn/imgs/10-minutes-till-dawn.webp",
         "url": "/cdn/games/10-minutes-till-dawn",
         "tags": [],
         "categories": [
@@ -393,7 +381,7 @@
     },
     {
         "name": "BlockPost",
-        "image": "/cdn/imgs/blockpost-2.png",
+        "image": "/cdn/imgs/blockpost-2.webp",
         "url": "/cdn/games/blockpost-2",
         "tags": [],
         "categories": [
@@ -405,7 +393,7 @@
     },
     {
         "name": "BuildNow.gg",
-        "image": "/cdn/imgs/buildnow-gg-2.png",
+        "image": "/cdn/imgs/buildnow-gg-2.webp",
         "url": "/cdn/games/buildnow-gg-2",
         "tags": [],
         "categories": [
@@ -417,7 +405,7 @@
     },
     {
         "name": "Layers Roll",
-        "image": "/cdn/imgs/layers-roll.png",
+        "image": "/cdn/imgs/layers-roll.webp",
         "url": "/cdn/games/layers-roll",
         "tags": [],
         "categories": [
@@ -438,7 +426,7 @@
     },
     {
         "name": "Boom Slingers: Reboom",
-        "image": "/cdn/imgs/boom-slingers-reboom-2.png",
+        "image": "/cdn/imgs/boom-slingers-reboom-2.webp",
         "url": "/cdn/games/boom-slingers-reboom-2",
         "tags": [],
         "categories": [
@@ -450,7 +438,7 @@
     },
     {
         "name": "BitGun.io",
-        "image": "/cdn/imgs/bitgun-io.png",
+        "image": "/cdn/imgs/bitgun-io.webp",
         "url": "/cdn/games/bitgun-io",
         "tags": [],
         "categories": [
@@ -462,7 +450,7 @@
     },
     {
         "name": "Count Masters: Stickman Games",
-        "image": "/cdn/imgs/count-masters-stickman-games.png",
+        "image": "/cdn/imgs/count-masters-stickman-games.webp",
         "url": "/cdn/games/count-masters-stickman-games",
         "tags": [],
         "categories": [
@@ -474,7 +462,7 @@
     },
     {
         "name": "2048 Merge Run",
-        "image": "/cdn/imgs/2048-merge-run.png",
+        "image": "/cdn/imgs/2048-merge-run.webp",
         "url": "/cdn/games/2048-merge-run",
         "tags": [],
         "categories": [
@@ -499,7 +487,7 @@
     },
     {
         "name": "Sky Riders",
-        "image": "/cdn/imgs/sky-riders.png",
+        "image": "/cdn/imgs/sky-riders.webp",
         "url": "/cdn/games/sky-riders",
         "tags": [],
         "categories": [
@@ -511,7 +499,7 @@
     },
     {
         "name": "Shovel 3D",
-        "image": "/cdn/imgs/shovel-3d.png",
+        "image": "/cdn/imgs/shovel-3d.webp",
         "url": "/cdn/games/shovel-3d",
         "tags": [],
         "categories": [
@@ -523,7 +511,7 @@
     },
     {
         "name": "Pottery Master",
-        "image": "/cdn/imgs/pottery-master.png",
+        "image": "/cdn/imgs/pottery-master.webp",
         "url": "/cdn/games/pottery-master",
         "tags": [],
         "categories": [
@@ -535,7 +523,7 @@
     },
     {
         "name": "Steal Brainrot Online",
-        "image": "/cdn/imgs/steal-brainrot-online.png",
+        "image": "/cdn/imgs/steal-brainrot-online.webp",
         "url": "/cdn/games/steal-brainrot-online",
         "tags": [],
         "categories": [
@@ -547,7 +535,7 @@
     },
     {
         "name": "Stickman and Guns",
-        "image": "/cdn/imgs/stickman-and-guns.png",
+        "image": "/cdn/imgs/stickman-and-guns.webp",
         "url": "/cdn/games/stickman-and-guns",
         "tags": [],
         "categories": [
@@ -559,7 +547,7 @@
     },
     {
         "name": "Fortzone Battle Royale",
-        "image": "/cdn/imgs/fortzone-battle-royale.png",
+        "image": "/cdn/imgs/fortzone-battle-royale.webp",
         "url": "/cdn/games/fortzone-battle-royale",
         "tags": [],
         "categories": [
@@ -589,7 +577,7 @@
     },
     {
         "name": "Tunnel Rush",
-        "image": "/cdn/imgs/tunnel-rush.png",
+        "image": "/cdn/imgs/tunnel-rush.webp",
         "url": "/cdn/games/tunnel-rush",
         "tags": [],
         "categories": [
@@ -601,7 +589,7 @@
     },
     {
         "name": "Retro Bowl College",
-        "image": "/cdn/imgs/retro-bowl-college.png",
+        "image": "/cdn/imgs/retro-bowl-college.webp",
         "url": "/cdn/games/retro-bowl-college",
         "tags": [],
         "categories": [
@@ -613,7 +601,7 @@
     },
     {
         "name": "OvO 3 Dimensions",
-        "image": "/cdn/imgs/ovo-3-dimensions.png",
+        "image": "/cdn/imgs/ovo-3-dimensions.webp",
         "url": "/cdn/games/ovo-3-dimensions",
         "tags": [],
         "categories": [
@@ -643,7 +631,7 @@
     },
     {
         "name": "Time Shooter 3: SWAT",
-        "image": "/cdn/imgs/time-shooter-3-swat.png",
+        "image": "/cdn/imgs/time-shooter-3-swat.webp",
         "url": "/cdn/games/time-shooter-3-swat",
         "tags": [],
         "categories": [
@@ -655,7 +643,7 @@
     },
     {
         "name": "FISH",
-        "image": "/cdn/imgs/fish.png",
+        "image": "/cdn/imgs/fish.webp",
         "url": "/cdn/games/fish",
         "tags": [],
         "categories": [
@@ -676,7 +664,7 @@
     },
     {
         "name": "Spiral Roll",
-        "image": "/cdn/imgs/spiral-roll.png",
+        "image": "/cdn/imgs/spiral-roll.webp",
         "url": "/cdn/games/spiral-roll",
         "tags": [],
         "categories": [
@@ -688,7 +676,7 @@
     },
     {
         "name": "Ragdoll Archers",
-        "image": "/cdn/imgs/ragdoll-archers.png",
+        "image": "/cdn/imgs/ragdoll-archers.webp",
         "url": "/cdn/games/ragdoll-archers",
         "tags": [],
         "categories": [
@@ -700,7 +688,7 @@
     },
     {
         "name": "Snow Rider 3D",
-        "image": "/cdn/imgs/snow-rider-3d.png",
+        "image": "/cdn/imgs/snow-rider-3d.webp",
         "url": "/cdn/games/snow-rider-3d",
         "tags": [],
         "categories": [
@@ -712,7 +700,7 @@
     },
     {
         "name": "Blocky Snakes",
-        "image": "/cdn/imgs/blocky-snakes.png",
+        "image": "/cdn/imgs/blocky-snakes.webp",
         "url": "/cdn/games/blocky-snakes",
         "tags": [],
         "categories": [
@@ -742,7 +730,7 @@
     },
     {
         "name": "Vex 3 XMAS",
-        "image": "/cdn/imgs/vex-3-xmas.png",
+        "image": "/cdn/imgs/vex-3-xmas.webp",
         "url": "/cdn/games/vex-3-xmas",
         "tags": [],
         "categories": [
@@ -754,7 +742,7 @@
     },
     {
         "name": "Vex 4",
-        "image": "/cdn/imgs/vex-4.png",
+        "image": "/cdn/imgs/vex-4.webp",
         "url": "/cdn/games/vex-4",
         "tags": [],
         "categories": [
@@ -766,7 +754,7 @@
     },
     {
         "name": "Vex 5",
-        "image": "/cdn/imgs/vex-5.png",
+        "image": "/cdn/imgs/vex-5.webp",
         "url": "/cdn/games/vex-5",
         "tags": [],
         "categories": [
@@ -778,7 +766,7 @@
     },
     {
         "name": "Vex 6",
-        "image": "/cdn/imgs/vex-6.png",
+        "image": "/cdn/imgs/vex-6.webp",
         "url": "/cdn/games/vex-6",
         "tags": [],
         "categories": [
@@ -790,7 +778,7 @@
     },
     {
         "name": "Vex 7",
-        "image": "/cdn/imgs/vex-7.png",
+        "image": "/cdn/imgs/vex-7.webp",
         "url": "/cdn/games/vex-7",
         "tags": [],
         "categories": [
@@ -802,7 +790,7 @@
     },
     {
         "name": "Waterworks!",
-        "image": "/cdn/imgs/waterworks-2.png",
+        "image": "/cdn/imgs/waterworks-2.webp",
         "url": "/cdn/games/waterworks-2",
         "tags": [],
         "categories": [
@@ -833,7 +821,7 @@
     },
     {
         "name": "Minecraft Indev",
-        "image": "/cdn/imgs/minecraft-indev.png",
+        "image": "/cdn/imgs/minecraft-indev.webp",
         "url": "/cdn/games/minecraft-indev",
         "tags": [],
         "categories": [
@@ -854,7 +842,7 @@
     },
     {
         "name": "Crossy Road",
-        "image": "/cdn/imgs/crossy-road.png",
+        "image": "/cdn/imgs/crossy-road.webp",
         "url": "/cdn/games/crossy-road",
         "tags": [],
         "categories": [
@@ -903,7 +891,7 @@
     },
     {
         "name": "Cluster Rush",
-        "image": "/cdn/imgs/cluster-rush.png",
+        "image": "/cdn/imgs/cluster-rush.webp",
         "url": "/cdn/games/cluster-rush",
         "tags": [],
         "categories": [
@@ -924,7 +912,7 @@
     },
     {
         "name": "Man Runner 2048",
-        "image": "/cdn/imgs/man-runner-2048.png",
+        "image": "/cdn/imgs/man-runner-2048.webp",
         "url": "/cdn/games/man-runner-2048",
         "tags": [],
         "categories": [
@@ -936,7 +924,7 @@
     },
     {
         "name": "Achievement Unlocked 3",
-        "image": "/cdn/imgs/achievement-unlocked-3.png",
+        "image": "/cdn/imgs/achievement-unlocked-3.webp",
         "url": "/cdn/games/achievement-unlocked-3",
         "tags": [],
         "categories": [
@@ -976,7 +964,7 @@
     },
     {
         "name": "Alien Hominid",
-        "image": "/cdn/imgs/alien-hominid.png",
+        "image": "/cdn/imgs/alien-hominid.webp",
         "url": "/cdn/games/alien-hominid",
         "tags": [],
         "categories": [
@@ -988,7 +976,7 @@
     },
     {
         "name": "Angry Birds Showdown",
-        "image": "/cdn/imgs/angry-birds-showdown.png",
+        "image": "/cdn/imgs/angry-birds-showdown.webp",
         "url": "/cdn/games/angry-birds-showdown",
         "tags": [],
         "categories": [
@@ -1063,7 +1051,7 @@
     },
     {
         "name": "Awesome Tanks 2",
-        "image": "/cdn/imgs/awesome-tanks-2.png",
+        "image": "/cdn/imgs/awesome-tanks-2.webp",
         "url": "/cdn/games/awesome-tanks-2",
         "tags": [],
         "categories": [
@@ -1093,7 +1081,7 @@
     },
     {
         "name": "Backrooms",
-        "image": "/cdn/imgs/backrooms.png",
+        "image": "/cdn/imgs/backrooms.webp",
         "url": "/cdn/games/backrooms",
         "tags": [],
         "categories": [
@@ -1105,7 +1093,7 @@
     },
     {
         "name": "Bad Ice Cream 2",
-        "image": "/cdn/imgs/bad-ice-cream-2.png",
+        "image": "/cdn/imgs/bad-ice-cream-2.webp",
         "url": "/cdn/games/bad-ice-cream-2",
         "tags": [],
         "categories": [
@@ -1126,7 +1114,7 @@
     },
     {
         "name": "Bad Ice Cream 3",
-        "image": "/cdn/imgs/bad-ice-cream-3.png",
+        "image": "/cdn/imgs/bad-ice-cream-3.webp",
         "url": "/cdn/games/bad-ice-cream-3",
         "tags": [],
         "categories": [
@@ -1138,7 +1126,7 @@
     },
     {
         "name": "Baldi's Basics Plus",
-        "image": "/cdn/imgs/baldis-basics-plus.png",
+        "image": "/cdn/imgs/baldis-basics-plus.webp",
         "url": "/cdn/games/baldis-basics-plus",
         "tags": [],
         "categories": [
@@ -1150,7 +1138,7 @@
     },
     {
         "name": "Basket Bros",
-        "image": "/cdn/imgs/basket-bros.png",
+        "image": "/cdn/imgs/basket-bros.webp",
         "url": "/cdn/games/basket-bros",
         "tags": [],
         "categories": [
@@ -1162,7 +1150,7 @@
     },
     {
         "name": "Basketball Frvr",
-        "image": "/cdn/imgs/basketball-frvr.png",
+        "image": "/cdn/imgs/basketball-frvr.webp",
         "url": "/cdn/games/basketball-frvr",
         "tags": [],
         "categories": [
@@ -1183,7 +1171,7 @@
     },
     {
         "name": "Basketball Stars",
-        "image": "/cdn/imgs/basketball-stars.png",
+        "image": "/cdn/imgs/basketball-stars.webp",
         "url": "/cdn/games/basketball-stars",
         "tags": [],
         "categories": [
@@ -1213,7 +1201,7 @@
     },
     {
         "name": "Binding of Issac: Wrath of the Lamb",
-        "image": "/cdn/imgs/binding-of-issac-wrath-of-the-lamb.png",
+        "image": "/cdn/imgs/binding-of-issac-wrath-of-the-lamb.webp",
         "url": "/cdn/games/binding-of-issac-wrath-of-the-lamb",
         "tags": [],
         "categories": [
@@ -1225,7 +1213,7 @@
     },
     {
         "name": "BitLife",
-        "image": "/cdn/imgs/bitlife-2.png",
+        "image": "/cdn/imgs/bitlife-2.webp",
         "url": "/cdn/games/bitlife-2",
         "tags": [],
         "categories": [
@@ -1255,7 +1243,7 @@
     },
     {
         "name": "Bloons TD 3",
-        "image": "/cdn/imgs/bloons-td-3.png",
+        "image": "/cdn/imgs/bloons-td-3.webp",
         "url": "/cdn/games/bloons-td-3",
         "tags": [],
         "categories": [
@@ -1276,7 +1264,7 @@
     },
     {
         "name": "Bloxorz",
-        "image": "/cdn/imgs/bloxorz.png",
+        "image": "/cdn/imgs/bloxorz.webp",
         "url": "/cdn/games/bloxorz",
         "tags": [],
         "categories": [
@@ -1333,7 +1321,7 @@
     },
     {
         "name": "Breaklock",
-        "image": "/cdn/imgs/breaklock.png",
+        "image": "/cdn/imgs/breaklock.webp",
         "url": "/cdn/games/breaklock",
         "tags": [],
         "categories": [
@@ -1345,7 +1333,7 @@
     },
     {
         "name": "Idle Breakout",
-        "image": "/cdn/imgs/idle-breakout.png",
+        "image": "/cdn/imgs/idle-breakout.webp",
         "url": "/cdn/games/idle-breakout",
         "tags": [],
         "categories": [
@@ -1357,7 +1345,7 @@
     },
     {
         "name": "Bloons TD 4",
-        "image": "/cdn/imgs/bloons-td-4.png",
+        "image": "/cdn/imgs/bloons-td-4.webp",
         "url": "/cdn/games/bloons-td-4",
         "tags": [],
         "categories": [
@@ -1369,7 +1357,7 @@
     },
     {
         "name": "Bloons TD 5",
-        "image": "/cdn/imgs/bloons-td-5.png",
+        "image": "/cdn/imgs/bloons-td-5.webp",
         "url": "/cdn/games/bloons-td-5",
         "tags": [],
         "categories": [
@@ -1381,7 +1369,7 @@
     },
     {
         "name": "Big Tower Tiny Square 2",
-        "image": "/cdn/imgs/big-tower-tiny-square-2.png",
+        "image": "/cdn/imgs/big-tower-tiny-square-2.webp",
         "url": "/cdn/games/big-tower-tiny-square-2",
         "tags": [],
         "categories": [
@@ -1393,7 +1381,7 @@
     },
     {
         "name": "Cannon Basketball 2",
-        "image": "/cdn/imgs/cannon-basketball-2.png",
+        "image": "/cdn/imgs/cannon-basketball-2.webp",
         "url": "/cdn/games/cannon-basketball-2",
         "tags": [],
         "categories": [
@@ -1432,7 +1420,7 @@
     },
     {
         "name": "Cell Machine",
-        "image": "/cdn/imgs/cell-machine.png",
+        "image": "/cdn/imgs/cell-machine.webp",
         "url": "/cdn/games/cell-machine",
         "tags": [],
         "categories": [
@@ -1453,7 +1441,7 @@
     },
     {
         "name": "Chess Classic",
-        "image": "/cdn/imgs/chess-classic.png",
+        "image": "/cdn/imgs/chess-classic.webp",
         "url": "/cdn/games/chess-classic",
         "tags": [],
         "categories": [
@@ -1492,7 +1480,7 @@
     },
     {
         "name": "CircloO 2",
-        "image": "/cdn/imgs/circloo-2.png",
+        "image": "/cdn/imgs/circloo-2.webp",
         "url": "/cdn/games/circloo-2",
         "tags": [],
         "categories": [
@@ -1522,7 +1510,7 @@
     },
     {
         "name": "Cookie Clicker",
-        "image": "/cdn/imgs/cookie-clicker.png",
+        "image": "/cdn/imgs/cookie-clicker.webp",
         "url": "/cdn/games/cookie-clicker",
         "tags": [],
         "categories": [
@@ -1534,7 +1522,7 @@
     },
     {
         "name": "Red Ball 4 Vol. 3",
-        "image": "/cdn/imgs/red-ball-4-vol-3.png",
+        "image": "/cdn/imgs/red-ball-4-vol-3.webp",
         "url": "/cdn/games/red-ball-4-vol-3",
         "tags": [],
         "categories": [
@@ -1546,7 +1534,7 @@
     },
     {
         "name": "Cubefield",
-        "image": "/cdn/imgs/cubefield.png",
+        "image": "/cdn/imgs/cubefield.webp",
         "url": "/cdn/games/cubefield",
         "tags": [],
         "categories": [
@@ -1567,7 +1555,7 @@
     },
     {
         "name": "Cut the Rope: Time Travel",
-        "image": "/cdn/imgs/cut-the-rope-time-travel.png",
+        "image": "/cdn/imgs/cut-the-rope-time-travel.webp",
         "url": "/cdn/games/cut-the-rope-time-travel",
         "tags": [],
         "categories": [
@@ -1579,7 +1567,7 @@
     },
     {
         "name": "Dan The Man",
-        "image": "/cdn/imgs/dan-the-man.png",
+        "image": "/cdn/imgs/dan-the-man.webp",
         "url": "/cdn/games/dan-the-man",
         "tags": [],
         "categories": [
@@ -1600,7 +1588,7 @@
     },
     {
         "name": "Death Run 3D",
-        "image": "/cdn/imgs/death-run-3d.png",
+        "image": "/cdn/imgs/death-run-3d.webp",
         "url": "/cdn/games/death-run-3d",
         "tags": [],
         "categories": [
@@ -1648,7 +1636,7 @@
     },
     {
         "name": "Doge Miner",
-        "image": "/cdn/imgs/doge-miner.png",
+        "image": "/cdn/imgs/doge-miner.webp",
         "url": "/cdn/games/doge-miner",
         "tags": [],
         "categories": [
@@ -1696,7 +1684,7 @@
     },
     {
         "name": "Doodle Jump",
-        "image": "/cdn/imgs/doodle-jump.png",
+        "image": "/cdn/imgs/doodle-jump.webp",
         "url": "/cdn/games/doodle-jump",
         "tags": [],
         "categories": [
@@ -1726,7 +1714,7 @@
     },
     {
         "name": "Dragon vs Bricks",
-        "image": "/cdn/imgs/dragon-vs-bricks-2.png",
+        "image": "/cdn/imgs/dragon-vs-bricks-2.webp",
         "url": "/cdn/games/dragon-vs-bricks-2",
         "tags": [],
         "categories": [
@@ -1738,7 +1726,7 @@
     },
     {
         "name": "Draw the Hill",
-        "image": "/cdn/imgs/draw-the-hill-2.png",
+        "image": "/cdn/imgs/draw-the-hill-2.webp",
         "url": "/cdn/games/draw-the-hill-2",
         "tags": [],
         "categories": [
@@ -1760,7 +1748,7 @@
     },
     {
         "name": "Duck Life 8",
-        "image": "/cdn/imgs/duck-life-8.png",
+        "image": "/cdn/imgs/duck-life-8.webp",
         "url": "/cdn/games/duck-life-8",
         "tags": [],
         "categories": [
@@ -1772,7 +1760,7 @@
     },
     {
         "name": "Duck Life 3",
-        "image": "/cdn/imgs/duck-life-3.png",
+        "image": "/cdn/imgs/duck-life-3.webp",
         "url": "/cdn/games/duck-life-3",
         "tags": [],
         "categories": [
@@ -1802,7 +1790,7 @@
     },
     {
         "name": "Duck Life 4",
-        "image": "/cdn/imgs/duck-life-4.png",
+        "image": "/cdn/imgs/duck-life-4.webp",
         "url": "/cdn/games/duck-life-4",
         "tags": [],
         "categories": [
@@ -1859,7 +1847,7 @@
     },
     {
         "name": "Emulator.JS",
-        "image": "/cdn/imgs/emulator-js-2.png",
+        "image": "/cdn/imgs/emulator-js-2.webp",
         "url": "/cdn/games/emulator-js-2",
         "tags": [],
         "categories": [
@@ -1889,7 +1877,7 @@
     },
     {
         "name": "Evil Glitch",
-        "image": "/cdn/imgs/evil-glitch.png",
+        "image": "/cdn/imgs/evil-glitch.webp",
         "url": "/cdn/games/evil-glitch",
         "tags": [],
         "categories": [
@@ -1946,7 +1934,7 @@
     },
     {
         "name": "Fancy Pants Adventure 4 Part 2",
-        "image": "/cdn/imgs/fancy-pants-adventure-4-part-2.png",
+        "image": "/cdn/imgs/fancy-pants-adventure-4-part-2.webp",
         "url": "/cdn/games/fancy-pants-adventure-4-part-2",
         "tags": [],
         "categories": [
@@ -1958,7 +1946,7 @@
     },
     {
         "name": "Fireboy and Watergirl 3",
-        "image": "/cdn/imgs/fireboy-and-watergirl-3.png",
+        "image": "/cdn/imgs/fireboy-and-watergirl-3.webp",
         "url": "/cdn/games/fireboy-and-watergirl-3",
         "tags": [],
         "categories": [
@@ -1979,7 +1967,7 @@
     },
     {
         "name": "Off",
-        "image": "/cdn/imgs/off.png",
+        "image": "/cdn/imgs/off.webp",
         "url": "/cdn/games/off",
         "tags": [],
         "categories": [
@@ -2001,7 +1989,7 @@
     },
     {
         "name": "Flappy Bird",
-        "image": "/cdn/imgs/flappy-bird.png",
+        "image": "/cdn/imgs/flappy-bird.webp",
         "url": "/cdn/games/flappy-bird",
         "tags": [],
         "categories": [
@@ -2022,7 +2010,7 @@
     },
     {
         "name": "Tetris",
-        "image": "/cdn/imgs/tetris.png",
+        "image": "/cdn/imgs/tetris.webp",
         "url": "/cdn/games/tetris",
         "tags": [],
         "categories": [
@@ -2052,7 +2040,7 @@
     },
     {
         "name": "Friday Night Funkin vs Zardy",
-        "image": "/cdn/imgs/friday-night-funkin-vs-zardy.png",
+        "image": "/cdn/imgs/friday-night-funkin-vs-zardy.webp",
         "url": "/cdn/games/friday-night-funkin-vs-zardy",
         "tags": [],
         "categories": [
@@ -2082,7 +2070,7 @@
     },
     {
         "name": "Fruit Ninja",
-        "image": "/cdn/imgs/fruit-ninja.png",
+        "image": "/cdn/imgs/fruit-ninja.webp",
         "url": "/cdn/games/fruit-ninja",
         "tags": [],
         "categories": [
@@ -2103,7 +2091,7 @@
     },
     {
         "name": "game inside a game inside a game inside a game inside a game inside a game",
-        "image": "/cdn/imgs/game-inside-a-game-inside-a-game-inside-a-game-inside-a-game-inside-a-game.png",
+        "image": "/cdn/imgs/game-inside-a-game-inside-a-game-inside-a-game-inside-a-game-inside-a-game.webp",
         "url": "/cdn/games/game-inside-a-game-inside-a-game-inside-a-game-inside-a-game-inside-a-game",
         "tags": [],
         "categories": [
@@ -2151,7 +2139,7 @@
     },
     {
         "name": "Getaway Shootout",
-        "image": "/cdn/imgs/getaway-shootout.png",
+        "image": "/cdn/imgs/getaway-shootout.webp",
         "url": "/cdn/games/getaway-shootout",
         "tags": [],
         "categories": [
@@ -2308,7 +2296,7 @@
     },
     {
         "name": "Gunspin",
-        "image": "/cdn/imgs/gunspin.png",
+        "image": "/cdn/imgs/gunspin.webp",
         "url": "/cdn/games/gunspin",
         "tags": [],
         "categories": [
@@ -2338,7 +2326,7 @@
     },
     {
         "name": "Happy Wheels",
-        "image": "/cdn/imgs/happy-wheels.png",
+        "image": "/cdn/imgs/happy-wheels.webp",
         "url": "/cdn/games/happy-wheels",
         "tags": [],
         "categories": [
@@ -2404,7 +2392,7 @@
     },
     {
         "name": "House of Hazards",
-        "image": "/cdn/imgs/house-of-hazards-2.png",
+        "image": "/cdn/imgs/house-of-hazards-2.webp",
         "url": "/cdn/games/house-of-hazards-2",
         "tags": [],
         "categories": [
@@ -2443,7 +2431,7 @@
     },
     {
         "name": "The Impossible Quiz",
-        "image": "/cdn/imgs/the-impossible-quiz.png",
+        "image": "/cdn/imgs/the-impossible-quiz.webp",
         "url": "/cdn/games/the-impossible-quiz",
         "tags": [],
         "categories": [
@@ -2473,7 +2461,7 @@
     },
     {
         "name": "Jetpack Joyride",
-        "image": "/cdn/imgs/jetpack-joyride.png",
+        "image": "/cdn/imgs/jetpack-joyride.webp",
         "url": "/cdn/games/jetpack-joyride",
         "tags": [],
         "categories": [
@@ -2503,7 +2491,7 @@
     },
     {
         "name": "JustFall.lol",
-        "image": "/cdn/imgs/justfall-lol.png",
+        "image": "/cdn/imgs/justfall-lol.webp",
         "url": "/cdn/games/justfall-lol",
         "tags": [],
         "categories": [
@@ -2569,7 +2557,7 @@
     },
     {
         "name": "Learn to Fly Idle",
-        "image": "/cdn/imgs/learn-to-fly-idle.png",
+        "image": "/cdn/imgs/learn-to-fly-idle.webp",
         "url": "/cdn/games/learn-to-fly-idle",
         "tags": [],
         "categories": [
@@ -2590,7 +2578,7 @@
     },
     {
         "name": "Line Rider",
-        "image": "/cdn/imgs/line-rider.png",
+        "image": "/cdn/imgs/line-rider.webp",
         "url": "/cdn/games/line-rider",
         "tags": [],
         "categories": [
@@ -2611,7 +2599,7 @@
     },
     {
         "name": "Madalin Stunt Cars 2",
-        "image": "/cdn/imgs/madalin-stunt-cars-2.png",
+        "image": "/cdn/imgs/madalin-stunt-cars-2.webp",
         "url": "/cdn/games/madalin-stunt-cars-2",
         "tags": [],
         "categories": [
@@ -2623,7 +2611,7 @@
     },
     {
         "name": "Madalin Stunt Cars 3",
-        "image": "/cdn/imgs/madalin-stunt-cars-3.png",
+        "image": "/cdn/imgs/madalin-stunt-cars-3.webp",
         "url": "/cdn/games/madalin-stunt-cars-3",
         "tags": [],
         "categories": [
@@ -2635,7 +2623,7 @@
     },
     {
         "name": "Super Mario Bros. Remastered",
-        "image": "/cdn/imgs/super-mario-bros-remastered.png",
+        "image": "/cdn/imgs/super-mario-bros-remastered.webp",
         "url": "/cdn/games/super-mario-bros-remastered",
         "tags": [],
         "categories": [
@@ -2665,7 +2653,7 @@
     },
     {
         "name": "Meatboy",
-        "image": "/cdn/imgs/meatboy.png",
+        "image": "/cdn/imgs/meatboy.webp",
         "url": "/cdn/games/meatboy",
         "tags": [],
         "categories": [
@@ -2686,7 +2674,7 @@
     },
     {
         "name": "Minecraft 1.5.2",
-        "image": "/cdn/imgs/minecraft-1-5-2.png",
+        "image": "/cdn/imgs/minecraft-1-5-2.webp",
         "url": "/cdn/games/minecraft-1-5-2",
         "tags": [],
         "categories": [
@@ -2709,7 +2697,7 @@
     },
     {
         "name": "Minesweeper Mania",
-        "image": "/cdn/imgs/minesweeper-mania.png",
+        "image": "/cdn/imgs/minesweeper-mania.webp",
         "url": "/cdn/games/minesweeper-mania",
         "tags": [],
         "categories": [
@@ -2748,7 +2736,7 @@
     },
     {
         "name": "Moto X3M 2",
-        "image": "/cdn/imgs/moto-x3m-2.png",
+        "image": "/cdn/imgs/moto-x3m-2.webp",
         "url": "/cdn/games/moto-x3m-2",
         "tags": [],
         "categories": [
@@ -2760,7 +2748,7 @@
     },
     {
         "name": "Moto X3M Pool Party",
-        "image": "/cdn/imgs/moto-x3m-pool-party.png",
+        "image": "/cdn/imgs/moto-x3m-pool-party.webp",
         "url": "/cdn/games/moto-x3m-pool-party",
         "tags": [],
         "categories": [
@@ -2772,7 +2760,7 @@
     },
     {
         "name": "Moto X3M 3",
-        "image": "/cdn/imgs/moto-x3m-3.png",
+        "image": "/cdn/imgs/moto-x3m-3.webp",
         "url": "/cdn/games/moto-x3m-3",
         "tags": [],
         "categories": [
@@ -2793,7 +2781,7 @@
     },
     {
         "name": "Moto X3M Spooky",
-        "image": "/cdn/imgs/moto-x3m-spooky.png",
+        "image": "/cdn/imgs/moto-x3m-spooky.webp",
         "url": "/cdn/games/moto-x3m-spooky",
         "tags": [],
         "categories": [
@@ -2805,7 +2793,7 @@
     },
     {
         "name": "Moto X3M Winter",
-        "image": "/cdn/imgs/moto-x3m-winter.png",
+        "image": "/cdn/imgs/moto-x3m-winter.webp",
         "url": "/cdn/games/moto-x3m-winter",
         "tags": [],
         "categories": [
@@ -2826,7 +2814,7 @@
     },
     {
         "name": "n-gon",
-        "image": "/cdn/imgs/n-gon-2.png",
+        "image": "/cdn/imgs/n-gon-2.webp",
         "url": "/cdn/games/n-gon-2",
         "tags": [],
         "categories": [
@@ -2838,7 +2826,7 @@
     },
     {
         "name": "Ninja vs EvilCorp",
-        "image": "/cdn/imgs/ninja-vs-evilcorp.png",
+        "image": "/cdn/imgs/ninja-vs-evilcorp.webp",
         "url": "/cdn/games/ninja-vs-evilcorp",
         "tags": [],
         "categories": [
@@ -2887,7 +2875,7 @@
     },
     {
         "name": "Run 2",
-        "image": "/cdn/imgs/run-2.png",
+        "image": "/cdn/imgs/run-2.webp",
         "url": "/cdn/games/run-2",
         "tags": [],
         "categories": [
@@ -2899,7 +2887,7 @@
     },
     {
         "name": "osu!",
-        "image": "/cdn/imgs/osu-2.png",
+        "image": "/cdn/imgs/osu-2.webp",
         "url": "/cdn/games/osu-2",
         "tags": [],
         "categories": [
@@ -2929,7 +2917,7 @@
     },
     {
         "name": "Pac-Man Superfast",
-        "image": "/cdn/imgs/pac-man-superfast.png",
+        "image": "/cdn/imgs/pac-man-superfast.webp",
         "url": "/cdn/games/pac-man-superfast",
         "tags": [],
         "categories": [
@@ -2968,7 +2956,7 @@
     },
     {
         "name": "Papa's Pizeria",
-        "image": "/cdn/imgs/papas-pizeria.png",
+        "image": "/cdn/imgs/papas-pizeria.webp",
         "url": "/cdn/games/papas-pizeria",
         "tags": [],
         "categories": [
@@ -2980,7 +2968,7 @@
     },
     {
         "name": "Paper.io 2",
-        "image": "/cdn/imgs/paper-io-2.png",
+        "image": "/cdn/imgs/paper-io-2.webp",
         "url": "/cdn/games/paper-io-2",
         "tags": [],
         "categories": [
@@ -2992,7 +2980,7 @@
     },
     {
         "name": "Papery Planes",
-        "image": "/cdn/imgs/papery-planes.png",
+        "image": "/cdn/imgs/papery-planes.webp",
         "url": "/cdn/games/papery-planes",
         "tags": [],
         "categories": [
@@ -3049,7 +3037,7 @@
     },
     {
         "name": "Five Nights at Freddy's: Pizza Simulator",
-        "image": "/cdn/imgs/five-nights-at-freddys-pizza-simulator.png",
+        "image": "/cdn/imgs/five-nights-at-freddys-pizza-simulator.webp",
         "url": "/cdn/games/five-nights-at-freddys-pizza-simulator",
         "tags": [],
         "categories": [
@@ -3097,7 +3085,7 @@
     },
     {
         "name": "Protektor",
-        "image": "/cdn/imgs/protektor.png",
+        "image": "/cdn/imgs/protektor.webp",
         "url": "/cdn/games/protektor",
         "tags": [],
         "categories": [
@@ -3163,7 +3151,7 @@
     },
     {
         "name": "Bridge Race",
-        "image": "/cdn/imgs/bridge-race.png",
+        "image": "/cdn/imgs/bridge-race.webp",
         "url": "/cdn/games/bridge-race",
         "tags": [],
         "categories": [
@@ -3229,7 +3217,7 @@
     },
     {
         "name": "Rolly Vortex",
-        "image": "/cdn/imgs/rolly-vortex.png",
+        "image": "/cdn/imgs/rolly-vortex.webp",
         "url": "/cdn/games/rolly-vortex",
         "tags": [],
         "categories": [
@@ -3241,7 +3229,7 @@
     },
     {
         "name": "Rooftop Snipers 2",
-        "image": "/cdn/imgs/rooftop-snipers-2.png",
+        "image": "/cdn/imgs/rooftop-snipers-2.webp",
         "url": "/cdn/games/rooftop-snipers-2",
         "tags": [],
         "categories": [
@@ -3253,7 +3241,7 @@
     },
     {
         "name": "Cool Cars Run 3D",
-        "image": "/cdn/imgs/cool-cars-run-3d.png",
+        "image": "/cdn/imgs/cool-cars-run-3d.webp",
         "url": "/cdn/games/cool-cars-run-3d",
         "tags": [],
         "categories": [
@@ -3275,7 +3263,7 @@
     },
     {
         "name": "Sandboxels",
-        "image": "/cdn/imgs/sandboxels.png",
+        "image": "/cdn/imgs/sandboxels.webp",
         "url": "/cdn/games/sandboxels",
         "tags": [],
         "categories": [
@@ -3415,7 +3403,7 @@
     },
     {
         "name": "Slope 2",
-        "image": "/cdn/imgs/slope-2.png",
+        "image": "/cdn/imgs/slope-2.webp",
         "url": "/cdn/games/slope-2",
         "tags": [],
         "categories": [
@@ -3454,7 +3442,7 @@
     },
     {
         "name": "Super Mario 64",
-        "image": "/cdn/imgs/super-mario-64.png",
+        "image": "/cdn/imgs/super-mario-64.webp",
         "url": "/cdn/games/super-mario-64",
         "tags": [],
         "categories": [
@@ -3466,7 +3454,7 @@
     },
     {
         "name": "Smash Karts",
-        "image": "/cdn/imgs/smash-karts.png",
+        "image": "/cdn/imgs/smash-karts.webp",
         "url": "/cdn/games/smash-karts",
         "tags": [],
         "categories": [
@@ -3496,7 +3484,7 @@
     },
     {
         "name": "Snowbattle.io",
-        "image": "/cdn/imgs/snowbattle-io.png",
+        "image": "/cdn/imgs/snowbattle-io.webp",
         "url": "/cdn/games/snowbattle-io",
         "tags": [],
         "categories": [
@@ -3526,7 +3514,7 @@
     },
     {
         "name": "Sonic the Hedgehog 2: Community's Cut",
-        "image": "/cdn/imgs/sonic-the-hedgehog-2-communitys-cut.png",
+        "image": "/cdn/imgs/sonic-the-hedgehog-2-communitys-cut.webp",
         "url": "/cdn/games/sonic-the-hedgehog-2-communitys-cut",
         "tags": [],
         "categories": [
@@ -3538,7 +3526,7 @@
     },
     {
         "name": "Sort the Court",
-        "image": "/cdn/imgs/sort-the-court-2.png",
+        "image": "/cdn/imgs/sort-the-court-2.webp",
         "url": "/cdn/games/sort-the-court-2",
         "tags": [],
         "categories": [
@@ -3550,7 +3538,7 @@
     },
     {
         "name": "Soundboard",
-        "image": "/cdn/imgs/soundboard.png",
+        "image": "/cdn/imgs/soundboard.webp",
         "url": "/cdn/games/soundboard",
         "tags": [],
         "categories": [
@@ -3589,7 +3577,7 @@
     },
     {
         "name": "Spelunky Classic HD",
-        "image": "/cdn/imgs/spelunky-classic-hd.png",
+        "image": "/cdn/imgs/spelunky-classic-hd.webp",
         "url": "/cdn/games/spelunky-classic-hd",
         "tags": [],
         "categories": [
@@ -3601,7 +3589,7 @@
     },
     {
         "name": "Super Smash Flash",
-        "image": "/cdn/imgs/super-smash-flash.png",
+        "image": "/cdn/imgs/super-smash-flash.webp",
         "url": "/cdn/games/super-smash-flash",
         "tags": [],
         "categories": [
@@ -3613,7 +3601,7 @@
     },
     {
         "name": "Stacky Dash",
-        "image": "/cdn/imgs/stacky-dash.png",
+        "image": "/cdn/imgs/stacky-dash.webp",
         "url": "/cdn/games/stacky-dash",
         "tags": [],
         "categories": [
@@ -3634,7 +3622,7 @@
     },
     {
         "name": "Station 141",
-        "image": "/cdn/imgs/station-141.png",
+        "image": "/cdn/imgs/station-141.webp",
         "url": "/cdn/games/station-141",
         "tags": [],
         "categories": [
@@ -3664,7 +3652,7 @@
     },
     {
         "name": "Stickman Hook",
-        "image": "/cdn/imgs/stickman-hook.png",
+        "image": "/cdn/imgs/stickman-hook.webp",
         "url": "/cdn/games/stickman-hook",
         "tags": [],
         "categories": [
@@ -3676,7 +3664,7 @@
     },
     {
         "name": "Stickman Boost",
-        "image": "/cdn/imgs/stickman-boost.png",
+        "image": "/cdn/imgs/stickman-boost.webp",
         "url": "/cdn/games/stickman-boost",
         "tags": [],
         "categories": [
@@ -3725,7 +3713,7 @@
     },
     {
         "name": "Stick War: Legacy",
-        "image": "/cdn/imgs/stick-war-legacy.png",
+        "image": "/cdn/imgs/stick-war-legacy.webp",
         "url": "/cdn/games/stick-war-legacy",
         "tags": [],
         "categories": [
@@ -3791,7 +3779,7 @@
     },
     {
         "name": "Burrito Bison: Launcha Libre",
-        "image": "/cdn/imgs/burrito-bison-launcha-libre.png",
+        "image": "/cdn/imgs/burrito-bison-launcha-libre.webp",
         "url": "/cdn/games/burrito-bison-launcha-libre",
         "tags": [],
         "categories": [
@@ -3812,7 +3800,7 @@
     },
     {
         "name": "Superhot",
-        "image": "/cdn/imgs/superhot.png",
+        "image": "/cdn/imgs/superhot.webp",
         "url": "/cdn/games/superhot",
         "tags": [],
         "categories": [
@@ -3880,7 +3868,7 @@
     },
     {
         "name": "Tanuki Sunset",
-        "image": "/cdn/imgs/tanuki-sunset.png",
+        "image": "/cdn/imgs/tanuki-sunset.webp",
         "url": "/cdn/games/tanuki-sunset",
         "tags": [],
         "categories": [
@@ -3892,7 +3880,7 @@
     },
     {
         "name": "Temple Run 2",
-        "image": "/cdn/imgs/temple-run-2.png",
+        "image": "/cdn/imgs/temple-run-2.webp",
         "url": "/cdn/games/temple-run-2",
         "tags": [],
         "categories": [
@@ -3913,7 +3901,7 @@
     },
     {
         "name": "Final Earth 2",
-        "image": "/cdn/imgs/final-earth-2.png",
+        "image": "/cdn/imgs/final-earth-2.webp",
         "url": "/cdn/games/final-earth-2",
         "tags": [],
         "categories": [
@@ -3988,7 +3976,7 @@
     },
     {
         "name": "This Is The Only Level 2",
-        "image": "/cdn/imgs/this-is-the-only-level-2.png",
+        "image": "/cdn/imgs/this-is-the-only-level-2.webp",
         "url": "/cdn/games/this-is-the-only-level-2",
         "tags": [],
         "categories": [
@@ -4027,7 +4015,7 @@
     },
     {
         "name": "Toss The Turtle",
-        "image": "/cdn/imgs/toss-the-turtle.png",
+        "image": "/cdn/imgs/toss-the-turtle.webp",
         "url": "/cdn/games/toss-the-turtle",
         "tags": [],
         "categories": [
@@ -4076,7 +4064,7 @@
     },
     {
         "name": "Tube Jumpers",
-        "image": "/cdn/imgs/tube-jumpers.png",
+        "image": "/cdn/imgs/tube-jumpers.webp",
         "url": "/cdn/games/tube-jumpers",
         "tags": [],
         "categories": [
@@ -4115,7 +4103,7 @@
     },
     {
         "name": "Makeover Run",
-        "image": "/cdn/imgs/makeover-run.png",
+        "image": "/cdn/imgs/makeover-run.webp",
         "url": "/cdn/games/makeover-run",
         "tags": [],
         "categories": [
@@ -4136,7 +4124,7 @@
     },
     {
         "name": "Wordle",
-        "image": "/cdn/imgs/wordle.png",
+        "image": "/cdn/imgs/wordle.webp",
         "url": "/cdn/games/wordle",
         "tags": [],
         "categories": [
@@ -4148,7 +4136,7 @@
     },
     {
         "name": "The World's Hardest Game 4",
-        "image": "/cdn/imgs/the-worlds-hardest-game-4.png",
+        "image": "/cdn/imgs/the-worlds-hardest-game-4.webp",
         "url": "/cdn/games/the-worlds-hardest-game-4",
         "tags": [],
         "categories": [
@@ -4205,7 +4193,7 @@
     },
     {
         "name": "Bowmasters",
-        "image": "/cdn/imgs/bowmasters.png",
+        "image": "/cdn/imgs/bowmasters.webp",
         "url": "/cdn/games/bowmasters",
         "tags": [],
         "categories": [
@@ -4217,7 +4205,7 @@
     },
     {
         "name": "Gladihoppers",
-        "image": "/cdn/imgs/gladihoppers.png",
+        "image": "/cdn/imgs/gladihoppers.webp",
         "url": "/cdn/games/gladihoppers",
         "tags": [],
         "categories": [
@@ -4229,7 +4217,7 @@
     },
     {
         "name": "Ice Dodo",
-        "image": "/cdn/imgs/ice-dodo.png",
+        "image": "/cdn/imgs/ice-dodo.webp",
         "url": "/cdn/games/ice-dodo",
         "tags": [],
         "categories": [
@@ -4241,7 +4229,7 @@
     },
     {
         "name": "Block Blast",
-        "image": "/cdn/imgs/block-blast.png",
+        "image": "/cdn/imgs/block-blast.webp",
         "url": "/cdn/games/block-blast",
         "tags": [],
         "categories": [
@@ -4253,7 +4241,7 @@
     },
     {
         "name": "Sprunki",
-        "image": "/cdn/imgs/sprunki.png",
+        "image": "/cdn/imgs/sprunki.webp",
         "url": "/cdn/games/sprunki",
         "tags": [],
         "categories": [
@@ -4265,7 +4253,7 @@
     },
     {
         "name": "Attack Hole",
-        "image": "/cdn/imgs/attack-hole.png",
+        "image": "/cdn/imgs/attack-hole.webp",
         "url": "/cdn/games/attack-hole",
         "tags": [],
         "categories": [
@@ -4277,7 +4265,7 @@
     },
     {
         "name": "Color Water Sort 3D",
-        "image": "/cdn/imgs/color-water-sort-3d.png",
+        "image": "/cdn/imgs/color-water-sort-3d.webp",
         "url": "/cdn/games/color-water-sort-3d",
         "tags": [],
         "categories": [
@@ -4289,7 +4277,7 @@
     },
     {
         "name": "Hide N Seek",
-        "image": "/cdn/imgs/hide-n-seek.png",
+        "image": "/cdn/imgs/hide-n-seek.webp",
         "url": "/cdn/games/hide-n-seek",
         "tags": [],
         "categories": [
@@ -4301,7 +4289,7 @@
     },
     {
         "name": "Magic Tiles 3",
-        "image": "/cdn/imgs/magic-tiles-3.png",
+        "image": "/cdn/imgs/magic-tiles-3.webp",
         "url": "/cdn/games/magic-tiles-3",
         "tags": [],
         "categories": [
@@ -4313,7 +4301,7 @@
     },
     {
         "name": "Supreme Duelist",
-        "image": "/cdn/imgs/supreme-duelist.png",
+        "image": "/cdn/imgs/supreme-duelist.webp",
         "url": "/cdn/games/supreme-duelist",
         "tags": [],
         "categories": [
@@ -4325,7 +4313,7 @@
     },
     {
         "name": "Turbo Stars",
-        "image": "/cdn/imgs/turbo-stars.png",
+        "image": "/cdn/imgs/turbo-stars.webp",
         "url": "/cdn/games/turbo-stars",
         "tags": [],
         "categories": [
@@ -4337,7 +4325,7 @@
     },
     {
         "name": "Mob Control HTML5",
-        "image": "/cdn/imgs/mob-control-html5.png",
+        "image": "/cdn/imgs/mob-control-html5.webp",
         "url": "/cdn/games/mob-control-html5",
         "tags": [],
         "categories": [
@@ -4349,7 +4337,7 @@
     },
     {
         "name": "Pou",
-        "image": "/cdn/imgs/pou.png",
+        "image": "/cdn/imgs/pou.webp",
         "url": "/cdn/games/pou",
         "tags": [],
         "categories": [
@@ -4361,7 +4349,7 @@
     },
     {
         "name": "Basket Battle",
-        "image": "/cdn/imgs/basket-battle.png",
+        "image": "/cdn/imgs/basket-battle.webp",
         "url": "/cdn/games/basket-battle",
         "tags": [],
         "categories": [
@@ -4373,7 +4361,7 @@
     },
     {
         "name": "Maze Speedrun",
-        "image": "/cdn/imgs/maze-speedrun.png",
+        "image": "/cdn/imgs/maze-speedrun.webp",
         "url": "/cdn/games/maze-speedrun",
         "tags": [],
         "categories": [
@@ -4385,7 +4373,7 @@
     },
     {
         "name": "Geometry Dash Lite (REMAKE)",
-        "image": "/cdn/imgs/geometry-dash-lite-remake.png",
+        "image": "/cdn/imgs/geometry-dash-lite-remake.webp",
         "url": "/cdn/games/geometry-dash-lite-remake",
         "tags": [],
         "categories": [
@@ -4397,7 +4385,7 @@
     },
     {
         "name": "Bazooka Boy",
-        "image": "/cdn/imgs/bazooka-boy.png",
+        "image": "/cdn/imgs/bazooka-boy.webp",
         "url": "/cdn/games/bazooka-boy",
         "tags": [],
         "categories": [
@@ -4409,7 +4397,7 @@
     },
     {
         "name": "Bottle Jump 3D",
-        "image": "/cdn/imgs/bottle-jump-3d.png",
+        "image": "/cdn/imgs/bottle-jump-3d.webp",
         "url": "/cdn/games/bottle-jump-3d",
         "tags": [],
         "categories": [
@@ -4421,7 +4409,7 @@
     },
     {
         "name": "Color Match",
-        "image": "/cdn/imgs/color-match.png",
+        "image": "/cdn/imgs/color-match.webp",
         "url": "/cdn/games/color-match",
         "tags": [],
         "categories": [
@@ -4433,7 +4421,7 @@
     },
     {
         "name": "Dig Deep",
-        "image": "/cdn/imgs/dig-deep.png",
+        "image": "/cdn/imgs/dig-deep.webp",
         "url": "/cdn/games/dig-deep",
         "tags": [],
         "categories": [
@@ -4445,7 +4433,7 @@
     },
     {
         "name": "Monster Tracks",
-        "image": "/cdn/imgs/monster-tracks.png",
+        "image": "/cdn/imgs/monster-tracks.webp",
         "url": "/cdn/games/monster-tracks",
         "tags": [],
         "categories": [
@@ -4457,7 +4445,7 @@
     },
     {
         "name": "Gobble",
-        "image": "/cdn/imgs/gobble.png",
+        "image": "/cdn/imgs/gobble.webp",
         "url": "/cdn/games/gobble",
         "tags": [],
         "categories": [
@@ -4469,7 +4457,7 @@
     },
     {
         "name": "Five Nights at Freddy's: Ultimate Custom Night",
-        "image": "/cdn/imgs/five-nights-at-freddys-ultimate-custom-night.png",
+        "image": "/cdn/imgs/five-nights-at-freddys-ultimate-custom-night.webp",
         "url": "/cdn/games/five-nights-at-freddys-ultimate-custom-night",
         "tags": [],
         "categories": [
@@ -4481,7 +4469,7 @@
     },
     {
         "name": "Road of Fury",
-        "image": "/cdn/imgs/road-of-fury.png",
+        "image": "/cdn/imgs/road-of-fury.webp",
         "url": "/cdn/games/road-of-fury",
         "tags": [],
         "categories": [
@@ -4493,7 +4481,7 @@
     },
     {
         "name": "Driven Wild",
-        "image": "/cdn/imgs/driven-wild.png",
+        "image": "/cdn/imgs/driven-wild.webp",
         "url": "/cdn/games/driven-wild",
         "tags": [],
         "categories": [
@@ -4505,7 +4493,7 @@
     },
     {
         "name": "Ragdoll Hit",
-        "image": "/cdn/imgs/ragdoll-hit.png",
+        "image": "/cdn/imgs/ragdoll-hit.webp",
         "url": "/cdn/games/ragdoll-hit",
         "tags": [],
         "categories": [
@@ -4517,7 +4505,7 @@
     },
     {
         "name": "Vex 1",
-        "image": "/cdn/imgs/vex-1.png",
+        "image": "/cdn/imgs/vex-1.webp",
         "url": "/cdn/games/vex-1",
         "tags": [],
         "categories": [
@@ -4529,7 +4517,7 @@
     },
     {
         "name": "Vex 2",
-        "image": "/cdn/imgs/vex-2.png",
+        "image": "/cdn/imgs/vex-2.webp",
         "url": "/cdn/games/vex-2",
         "tags": [],
         "categories": [
@@ -4541,7 +4529,7 @@
     },
     {
         "name": "Vex 8",
-        "image": "/cdn/imgs/vex-8.png",
+        "image": "/cdn/imgs/vex-8.webp",
         "url": "/cdn/games/vex-8",
         "tags": [],
         "categories": [
@@ -4553,7 +4541,7 @@
     },
     {
         "name": "Vex Challenges",
-        "image": "/cdn/imgs/vex-challenges.png",
+        "image": "/cdn/imgs/vex-challenges.webp",
         "url": "/cdn/games/vex-challenges",
         "tags": [],
         "categories": [
@@ -4565,7 +4553,7 @@
     },
     {
         "name": "Vex X3M 2",
-        "image": "/cdn/imgs/vex-x3m-2.png",
+        "image": "/cdn/imgs/vex-x3m-2.webp",
         "url": "/cdn/games/vex-x3m-2",
         "tags": [],
         "categories": [
@@ -4577,7 +4565,7 @@
     },
     {
         "name": "1v1.LoL",
-        "image": "/cdn/imgs/1v1-lol.png",
+        "image": "/cdn/imgs/1v1-lol.webp",
         "url": "/cdn/games/1v1-lol",
         "tags": [],
         "categories": [
@@ -4589,7 +4577,7 @@
     },
     {
         "name": "Basket Random",
-        "image": "/cdn/imgs/basket-random.png",
+        "image": "/cdn/imgs/basket-random.webp",
         "url": "/cdn/games/basket-random",
         "tags": [],
         "categories": [
@@ -4601,7 +4589,7 @@
     },
     {
         "name": "Bob The Robber 2",
-        "image": "/cdn/imgs/bob-the-robber-2.png",
+        "image": "/cdn/imgs/bob-the-robber-2.webp",
         "url": "/cdn/games/bob-the-robber-2",
         "tags": [],
         "categories": [
@@ -4613,7 +4601,7 @@
     },
     {
         "name": "Boxing Random",
-        "image": "/cdn/imgs/boxing-random.png",
+        "image": "/cdn/imgs/boxing-random.webp",
         "url": "/cdn/games/boxing-random",
         "tags": [],
         "categories": [
@@ -4625,7 +4613,7 @@
     },
     {
         "name": "Draw Climber",
-        "image": "/cdn/imgs/draw-climber.png",
+        "image": "/cdn/imgs/draw-climber.webp",
         "url": "/cdn/games/draw-climber",
         "tags": [],
         "categories": [
@@ -4637,7 +4625,7 @@
     },
     {
         "name": "Granny 3",
-        "image": "/cdn/imgs/granny-3.png",
+        "image": "/cdn/imgs/granny-3.webp",
         "url": "/cdn/games/granny-3",
         "tags": [],
         "categories": [
@@ -4649,7 +4637,7 @@
     },
     {
         "name": "Highway Racer 2 REMASTERED",
-        "image": "/cdn/imgs/highway-racer-2-remastered.png",
+        "image": "/cdn/imgs/highway-racer-2-remastered.webp",
         "url": "/cdn/games/highway-racer-2-remastered",
         "tags": [],
         "categories": [
@@ -4661,7 +4649,7 @@
     },
     {
         "name": "Johnny Trigger",
-        "image": "/cdn/imgs/johnny-trigger.png",
+        "image": "/cdn/imgs/johnny-trigger.webp",
         "url": "/cdn/games/johnny-trigger",
         "tags": [],
         "categories": [
@@ -4673,7 +4661,7 @@
     },
     {
         "name": "Journey Downhill",
-        "image": "/cdn/imgs/journey-downhill.png",
+        "image": "/cdn/imgs/journey-downhill.webp",
         "url": "/cdn/games/journey-downhill",
         "tags": [],
         "categories": [
@@ -4685,7 +4673,7 @@
     },
     {
         "name": "Tomb Of The Mask",
-        "image": "/cdn/imgs/tomb-of-the-mask.png",
+        "image": "/cdn/imgs/tomb-of-the-mask.webp",
         "url": "/cdn/games/tomb-of-the-mask",
         "tags": [],
         "categories": [
@@ -4697,7 +4685,7 @@
     },
     {
         "name": "Ruffle",
-        "image": "/cdn/imgs/ruffle.png",
+        "image": "/cdn/imgs/ruffle.webp",
         "url": "/cdn/games/ruffle",
         "tags": [],
         "categories": [
@@ -4709,7 +4697,7 @@
     },
     {
         "name": "8 Ball Pool",
-        "image": "/cdn/imgs/8-ball-pool.png",
+        "image": "/cdn/imgs/8-ball-pool.webp",
         "url": "/cdn/games/8-ball-pool",
         "tags": [],
         "categories": [
@@ -4721,7 +4709,7 @@
     },
     {
         "name": "Offroad Mountain Bike",
-        "image": "/cdn/imgs/offroad-mountain-bike.png",
+        "image": "/cdn/imgs/offroad-mountain-bike.webp",
         "url": "/cdn/games/offroad-mountain-bike",
         "tags": [],
         "categories": [
@@ -4733,7 +4721,7 @@
     },
     {
         "name": "Space Waves",
-        "image": "/cdn/imgs/space-waves.png",
+        "image": "/cdn/imgs/space-waves.webp",
         "url": "/cdn/games/space-waves",
         "tags": [],
         "categories": [
@@ -4745,7 +4733,7 @@
     },
     {
         "name": "Solar Smash",
-        "image": "/cdn/imgs/solar-smash.png",
+        "image": "/cdn/imgs/solar-smash.webp",
         "url": "/cdn/games/solar-smash",
         "tags": [],
         "categories": [
@@ -4757,7 +4745,7 @@
     },
     {
         "name": "Brawl Guys.io",
-        "image": "/cdn/imgs/brawl-guys-io.png",
+        "image": "/cdn/imgs/brawl-guys-io.webp",
         "url": "/cdn/games/brawl-guys-io",
         "tags": [],
         "categories": [
@@ -4769,7 +4757,7 @@
     },
     {
         "name": "Survival Race",
-        "image": "/cdn/imgs/survival-race.png",
+        "image": "/cdn/imgs/survival-race.webp",
         "url": "/cdn/games/survival-race",
         "tags": [],
         "categories": [
@@ -4781,7 +4769,7 @@
     },
     {
         "name": "Poly Track",
-        "image": "/cdn/imgs/poly-track.png",
+        "image": "/cdn/imgs/poly-track.webp",
         "url": "/cdn/games/poly-track",
         "tags": [],
         "categories": [
@@ -4793,7 +4781,7 @@
     },
     {
         "name": "Fashion Battle",
-        "image": "/cdn/imgs/fashion-battle.png",
+        "image": "/cdn/imgs/fashion-battle.webp",
         "url": "/cdn/games/fashion-battle",
         "tags": [],
         "categories": [
@@ -4805,7 +4793,7 @@
     },
     {
         "name": "Slice it All",
-        "image": "/cdn/imgs/slice-it-all.png",
+        "image": "/cdn/imgs/slice-it-all.webp",
         "url": "/cdn/games/slice-it-all",
         "tags": [],
         "categories": [
@@ -4817,7 +4805,7 @@
     },
     {
         "name": "8 Ball Classic",
-        "image": "/cdn/imgs/8-ball-classic.png",
+        "image": "/cdn/imgs/8-ball-classic.webp",
         "url": "/cdn/games/8-ball-classic",
         "tags": [],
         "categories": [
@@ -4829,7 +4817,7 @@
     },
     {
         "name": "Archery World Tour",
-        "image": "/cdn/imgs/archery-world-tour.png",
+        "image": "/cdn/imgs/archery-world-tour.webp",
         "url": "/cdn/games/archery-world-tour",
         "tags": [],
         "categories": [
@@ -4841,7 +4829,7 @@
     },
     {
         "name": "Ball Blast",
-        "image": "/cdn/imgs/ball-blast.png",
+        "image": "/cdn/imgs/ball-blast.webp",
         "url": "/cdn/games/ball-blast",
         "tags": [],
         "categories": [
@@ -4853,7 +4841,7 @@
     },
     {
         "name": "Cannon Balls 3D",
-        "image": "/cdn/imgs/cannon-balls-3d.png",
+        "image": "/cdn/imgs/cannon-balls-3d.webp",
         "url": "/cdn/games/cannon-balls-3d",
         "tags": [],
         "categories": [
@@ -4865,7 +4853,7 @@
     },
     {
         "name": "Draw the Line",
-        "image": "/cdn/imgs/draw-the-line.png",
+        "image": "/cdn/imgs/draw-the-line.webp",
         "url": "/cdn/games/draw-the-line",
         "tags": [],
         "categories": [
@@ -4877,7 +4865,7 @@
     },
     {
         "name": "Flappy Dunk",
-        "image": "/cdn/imgs/flappy-dunk.png",
+        "image": "/cdn/imgs/flappy-dunk.webp",
         "url": "/cdn/games/flappy-dunk",
         "tags": [],
         "categories": [
@@ -4889,7 +4877,7 @@
     },
     {
         "name": "Fork n Sausage",
-        "image": "/cdn/imgs/fork-n-sausage.png",
+        "image": "/cdn/imgs/fork-n-sausage.webp",
         "url": "/cdn/games/fork-n-sausage",
         "tags": [],
         "categories": [
@@ -4901,7 +4889,7 @@
     },
     {
         "name": "Guess Their Answer",
-        "image": "/cdn/imgs/guess-their-answer.png",
+        "image": "/cdn/imgs/guess-their-answer.webp",
         "url": "/cdn/games/guess-their-answer",
         "tags": [],
         "categories": [
@@ -4913,7 +4901,7 @@
     },
     {
         "name": "Harvest.io",
-        "image": "/cdn/imgs/harvest-io.png",
+        "image": "/cdn/imgs/harvest-io.webp",
         "url": "/cdn/games/harvest-io",
         "tags": [],
         "categories": [
@@ -4925,7 +4913,7 @@
     },
     {
         "name": "Hill Climb Racing Lite",
-        "image": "/cdn/imgs/hill-climb-racing-lite.png",
+        "image": "/cdn/imgs/hill-climb-racing-lite.webp",
         "url": "/cdn/games/hill-climb-racing-lite",
         "tags": [],
         "categories": [
@@ -4937,7 +4925,7 @@
     },
     {
         "name": "Parking Rush",
-        "image": "/cdn/imgs/parking-rush.png",
+        "image": "/cdn/imgs/parking-rush.webp",
         "url": "/cdn/games/parking-rush",
         "tags": [],
         "categories": [
@@ -4949,7 +4937,7 @@
     },
     {
         "name": "Race Master 3D",
-        "image": "/cdn/imgs/race-master-3d.png",
+        "image": "/cdn/imgs/race-master-3d.webp",
         "url": "/cdn/games/race-master-3d",
         "tags": [],
         "categories": [
@@ -4961,7 +4949,7 @@
     },
     {
         "name": "Tower Crash 3D",
-        "image": "/cdn/imgs/tower-crash-3d.png",
+        "image": "/cdn/imgs/tower-crash-3d.webp",
         "url": "/cdn/games/tower-crash-3d",
         "tags": [],
         "categories": [
@@ -4973,7 +4961,7 @@
     },
     {
         "name": "Trivia Crack",
-        "image": "/cdn/imgs/trivia-crack.png",
+        "image": "/cdn/imgs/trivia-crack.webp",
         "url": "/cdn/games/trivia-crack",
         "tags": [],
         "categories": [
@@ -4985,7 +4973,7 @@
     },
     {
         "name": "Crazy Cattle 3D",
-        "image": "/cdn/imgs/crazy-cattle-3d.png",
+        "image": "/cdn/imgs/crazy-cattle-3d.webp",
         "url": "/cdn/games/crazy-cattle-3d",
         "tags": [],
         "categories": [
@@ -4997,7 +4985,7 @@
     },
     {
         "name": "Cheese Chompers 3D",
-        "image": "/cdn/imgs/cheese-chompers-3d.png",
+        "image": "/cdn/imgs/cheese-chompers-3d.webp",
         "url": "/cdn/games/cheese-chompers-3d",
         "tags": [],
         "categories": [
@@ -5009,7 +4997,7 @@
     },
     {
         "name": "Blade Ball",
-        "image": "/cdn/imgs/blade-ball.png",
+        "image": "/cdn/imgs/blade-ball.webp",
         "url": "/cdn/games/blade-ball",
         "tags": [],
         "categories": [
@@ -5021,7 +5009,7 @@
     },
     {
         "name": "Candy Crush",
-        "image": "/cdn/imgs/candy-crush.png",
+        "image": "/cdn/imgs/candy-crush.webp",
         "url": "/cdn/games/candy-crush",
         "tags": [],
         "categories": [
@@ -5033,7 +5021,7 @@
     },
     {
         "name": "Melon Playground",
-        "image": "/cdn/imgs/melon-playground.png",
+        "image": "/cdn/imgs/melon-playground.webp",
         "url": "/cdn/games/melon-playground",
         "tags": [],
         "categories": [
@@ -5045,7 +5033,7 @@
     },
     {
         "name": "Drift Hunters",
-        "image": "/cdn/imgs/drift-hunters.png",
+        "image": "/cdn/imgs/drift-hunters.webp",
         "url": "/cdn/games/drift-hunters",
         "tags": [],
         "categories": [
@@ -5057,7 +5045,7 @@
     },
     {
         "name": "World Box",
-        "image": "/cdn/imgs/world-box.png",
+        "image": "/cdn/imgs/world-box.webp",
         "url": "/cdn/games/world-box",
         "tags": [],
         "categories": [
@@ -5069,7 +5057,7 @@
     },
     {
         "name": "Run 1",
-        "image": "/cdn/imgs/run-1.png",
+        "image": "/cdn/imgs/run-1.webp",
         "url": "/cdn/games/run-1",
         "tags": [],
         "categories": [
@@ -5081,7 +5069,7 @@
     },
     {
         "name": "Swords and Souls",
-        "image": "/cdn/imgs/swords-and-souls.png",
+        "image": "/cdn/imgs/swords-and-souls.webp",
         "url": "/cdn/games/swords-and-souls",
         "tags": [],
         "categories": [
@@ -5093,7 +5081,7 @@
     },
     {
         "name": "Papers, Please",
-        "image": "/cdn/imgs/papers-please.png",
+        "image": "/cdn/imgs/papers-please.webp",
         "url": "/cdn/games/papers-please",
         "tags": [],
         "categories": [
@@ -5105,7 +5093,7 @@
     },
     {
         "name": "Do NOT Take This Cat Home",
-        "image": "/cdn/imgs/do-not-take-this-cat-home.png",
+        "image": "/cdn/imgs/do-not-take-this-cat-home.webp",
         "url": "/cdn/games/do-not-take-this-cat-home",
         "tags": [],
         "categories": [
@@ -5117,7 +5105,7 @@
     },
     {
         "name": "Elastic Man",
-        "image": "/cdn/imgs/elastic-man.png",
+        "image": "/cdn/imgs/elastic-man.webp",
         "url": "/cdn/games/elastic-man",
         "tags": [],
         "categories": [
@@ -5129,7 +5117,7 @@
     },
     {
         "name": "Carrom Clash",
-        "image": "/cdn/imgs/carrom-clash.png",
+        "image": "/cdn/imgs/carrom-clash.webp",
         "url": "/cdn/games/carrom-clash",
         "tags": [],
         "categories": [
@@ -5141,7 +5129,7 @@
     },
     {
         "name": "Doom 3",
-        "image": "/cdn/imgs/doom-3.png",
+        "image": "/cdn/imgs/doom-3.webp",
         "url": "/cdn/games/doom-3",
         "tags": [],
         "categories": [
@@ -5153,7 +5141,7 @@
     },
     {
         "name": "Five Nights at Winston's",
-        "image": "/cdn/imgs/five-nights-at-winstons.png",
+        "image": "/cdn/imgs/five-nights-at-winstons.webp",
         "url": "/cdn/games/five-nights-at-winstons",
         "tags": [],
         "categories": [
@@ -5165,7 +5153,7 @@
     },
     {
         "name": "Cut the Rope: Holiday Gift",
-        "image": "/cdn/imgs/cut-the-rope-holiday-gift.png",
+        "image": "/cdn/imgs/cut-the-rope-holiday-gift.webp",
         "url": "/cdn/games/cut-the-rope-holiday-gift",
         "tags": [],
         "categories": [
@@ -5177,7 +5165,7 @@
     },
     {
         "name": "Hotline Miami",
-        "image": "/cdn/imgs/hotline-miami.png",
+        "image": "/cdn/imgs/hotline-miami.webp",
         "url": "/cdn/games/hotline-miami",
         "tags": [],
         "categories": [
@@ -5189,7 +5177,7 @@
     },
     {
         "name": "Papa's Bakeria",
-        "image": "/cdn/imgs/papas-bakeria.png",
+        "image": "/cdn/imgs/papas-bakeria.webp",
         "url": "/cdn/games/papas-bakeria",
         "tags": [],
         "categories": [
@@ -5201,7 +5189,7 @@
     },
     {
         "name": "Papa's Burgeria",
-        "image": "/cdn/imgs/papas-burgeria.png",
+        "image": "/cdn/imgs/papas-burgeria.webp",
         "url": "/cdn/games/papas-burgeria",
         "tags": [],
         "categories": [
@@ -5213,7 +5201,7 @@
     },
     {
         "name": "Papa's Cheeseria",
-        "image": "/cdn/imgs/papas-cheeseria.png",
+        "image": "/cdn/imgs/papas-cheeseria.webp",
         "url": "/cdn/games/papas-cheeseria",
         "tags": [],
         "categories": [
@@ -5225,7 +5213,7 @@
     },
     {
         "name": "Papa's Cupcakeria",
-        "image": "/cdn/imgs/papas-cupcakeria.png",
+        "image": "/cdn/imgs/papas-cupcakeria.webp",
         "url": "/cdn/games/papas-cupcakeria",
         "tags": [],
         "categories": [
@@ -5237,7 +5225,7 @@
     },
     {
         "name": "Papa's Donuteria",
-        "image": "/cdn/imgs/papas-donuteria.png",
+        "image": "/cdn/imgs/papas-donuteria.webp",
         "url": "/cdn/games/papas-donuteria",
         "tags": [],
         "categories": [
@@ -5249,7 +5237,7 @@
     },
     {
         "name": "Papa's Freezeria",
-        "image": "/cdn/imgs/papas-freezeria.png",
+        "image": "/cdn/imgs/papas-freezeria.webp",
         "url": "/cdn/games/papas-freezeria",
         "tags": [],
         "categories": [
@@ -5261,7 +5249,7 @@
     },
     {
         "name": "Papa's Hot Doggeria",
-        "image": "/cdn/imgs/papas-hot-doggeria.png",
+        "image": "/cdn/imgs/papas-hot-doggeria.webp",
         "url": "/cdn/games/papas-hot-doggeria",
         "tags": [],
         "categories": [
@@ -5273,7 +5261,7 @@
     },
     {
         "name": "Papa's Pancakeria",
-        "image": "/cdn/imgs/papas-pancakeria.png",
+        "image": "/cdn/imgs/papas-pancakeria.webp",
         "url": "/cdn/games/papas-pancakeria",
         "tags": [],
         "categories": [
@@ -5285,7 +5273,7 @@
     },
     {
         "name": "Papa's Pastaria",
-        "image": "/cdn/imgs/papas-pastaria.png",
+        "image": "/cdn/imgs/papas-pastaria.webp",
         "url": "/cdn/games/papas-pastaria",
         "tags": [],
         "categories": [
@@ -5297,7 +5285,7 @@
     },
     {
         "name": "Papa's Scooperia",
-        "image": "/cdn/imgs/papas-scooperia.png",
+        "image": "/cdn/imgs/papas-scooperia.webp",
         "url": "/cdn/games/papas-scooperia",
         "tags": [],
         "categories": [
@@ -5309,7 +5297,7 @@
     },
     {
         "name": "Papa's Sushiria",
-        "image": "/cdn/imgs/papas-sushiria.png",
+        "image": "/cdn/imgs/papas-sushiria.webp",
         "url": "/cdn/games/papas-sushiria",
         "tags": [],
         "categories": [
@@ -5321,7 +5309,7 @@
     },
     {
         "name": "Papa's Taco Mia",
-        "image": "/cdn/imgs/papas-taco-mia.png",
+        "image": "/cdn/imgs/papas-taco-mia.webp",
         "url": "/cdn/games/papas-taco-mia",
         "tags": [],
         "categories": [
@@ -5333,7 +5321,7 @@
     },
     {
         "name": "Papa's Wingeria",
-        "image": "/cdn/imgs/papas-wingeria.png",
+        "image": "/cdn/imgs/papas-wingeria.webp",
         "url": "/cdn/games/papas-wingeria",
         "tags": [],
         "categories": [
@@ -5345,7 +5333,7 @@
     },
     {
         "name": "Plants vs. Zombies 2 Gardenless",
-        "image": "/cdn/imgs/plants-vs-zombies-2-gardenless.png",
+        "image": "/cdn/imgs/plants-vs-zombies-2-gardenless.webp",
         "url": "/cdn/games/plants-vs-zombies-2-gardenless",
         "tags": [],
         "categories": [
@@ -5357,7 +5345,7 @@
     },
     {
         "name": "Wheely 8",
-        "image": "/cdn/imgs/wheely-8.png",
+        "image": "/cdn/imgs/wheely-8.webp",
         "url": "/cdn/games/wheely-8",
         "tags": [],
         "categories": [
@@ -5369,7 +5357,7 @@
     },
     {
         "name": "Chat Bot AI (A.I GPT)",
-        "image": "/cdn/imgs/chat-bot-ai-a-i-gpt.png",
+        "image": "/cdn/imgs/chat-bot-ai-a-i-gpt.webp",
         "url": "/cdn/games/chat-bot-ai-a-i-gpt",
         "tags": [],
         "categories": [
@@ -5381,7 +5369,7 @@
     },
     {
         "name": "Crazy Chicken 3D",
-        "image": "/cdn/imgs/crazy-chicken-3d.png",
+        "image": "/cdn/imgs/crazy-chicken-3d.webp",
         "url": "/cdn/games/crazy-chicken-3d",
         "tags": [],
         "categories": [
@@ -5393,7 +5381,7 @@
     },
     {
         "name": "Crazy Kitty 3D",
-        "image": "/cdn/imgs/crazy-kitty-3d.png",
+        "image": "/cdn/imgs/crazy-kitty-3d.webp",
         "url": "/cdn/games/crazy-kitty-3d",
         "tags": [],
         "categories": [
@@ -5405,7 +5393,7 @@
     },
     {
         "name": "Google Baseball",
-        "image": "/cdn/imgs/google-baseball.png",
+        "image": "/cdn/imgs/google-baseball.webp",
         "url": "/cdn/games/google-baseball",
         "tags": [],
         "categories": [
@@ -5417,7 +5405,7 @@
     },
     {
         "name": "A Bite at Freddy's",
-        "image": "/cdn/imgs/a-bite-at-freddys.png",
+        "image": "/cdn/imgs/a-bite-at-freddys.webp",
         "url": "/cdn/games/a-bite-at-freddys",
         "tags": [],
         "categories": [
@@ -5429,7 +5417,7 @@
     },
     {
         "name": "Class of '09",
-        "image": "/cdn/imgs/class-of-09.png",
+        "image": "/cdn/imgs/class-of-09.webp",
         "url": "/cdn/games/class-of-09",
         "tags": [],
         "categories": [
@@ -5441,7 +5429,7 @@
     },
     {
         "name": "Half Life: Opposing Force",
-        "image": "/cdn/imgs/half-life-opposing-force.png",
+        "image": "/cdn/imgs/half-life-opposing-force.webp",
         "url": "/cdn/games/half-life-opposing-force",
         "tags": [],
         "categories": [
@@ -5453,7 +5441,7 @@
     },
     {
         "name": "Quake III Arena",
-        "image": "/cdn/imgs/quake-iii-arena.png",
+        "image": "/cdn/imgs/quake-iii-arena.webp",
         "url": "/cdn/games/quake-iii-arena",
         "tags": [],
         "categories": [
@@ -5465,7 +5453,7 @@
     },
     {
         "name": "Escape Road City 2",
-        "image": "/cdn/imgs/escape-road-city-2.png",
+        "image": "/cdn/imgs/escape-road-city-2.webp",
         "url": "/cdn/games/escape-road-city-2",
         "tags": [],
         "categories": [
@@ -5477,7 +5465,7 @@
     },
     {
         "name": "Bacon May Die",
-        "image": "/cdn/imgs/bacon-may-die.png",
+        "image": "/cdn/imgs/bacon-may-die.webp",
         "url": "/cdn/games/bacon-may-die",
         "tags": [],
         "categories": [
@@ -5489,7 +5477,7 @@
     },
     {
         "name": "Drift Boss",
-        "image": "/cdn/imgs/drift-boss.png",
+        "image": "/cdn/imgs/drift-boss.webp",
         "url": "/cdn/games/drift-boss",
         "tags": [],
         "categories": [
@@ -5501,7 +5489,7 @@
     },
     {
         "name": "Pixel Gun Survival",
-        "image": "/cdn/imgs/pixel-gun-survival.png",
+        "image": "/cdn/imgs/pixel-gun-survival.webp",
         "url": "/cdn/games/pixel-gun-survival",
         "tags": [],
         "categories": [
@@ -5513,7 +5501,7 @@
     },
     {
         "name": "War The Knights",
-        "image": "/cdn/imgs/war-the-knights.png",
+        "image": "/cdn/imgs/war-the-knights.webp",
         "url": "/cdn/games/war-the-knights",
         "tags": [],
         "categories": [
@@ -5525,7 +5513,7 @@
     },
     {
         "name": "Endoparasitic 2",
-        "image": "/cdn/imgs/endoparasitic-2.png",
+        "image": "/cdn/imgs/endoparasitic-2.webp",
         "url": "/cdn/games/endoparasitic-2",
         "tags": [],
         "categories": [
@@ -5537,7 +5525,7 @@
     },
     {
         "name": "Riddle School 5",
-        "image": "/cdn/imgs/riddle-school-5.png",
+        "image": "/cdn/imgs/riddle-school-5.webp",
         "url": "/cdn/games/riddle-school-5",
         "tags": [],
         "categories": [
@@ -5549,7 +5537,7 @@
     },
     {
         "name": "Riddle Transfer 2",
-        "image": "/cdn/imgs/riddle-transfer-2.png",
+        "image": "/cdn/imgs/riddle-transfer-2.webp",
         "url": "/cdn/games/riddle-transfer-2",
         "tags": [],
         "categories": [
@@ -5561,7 +5549,7 @@
     },
     {
         "name": "Idle Dice",
-        "image": "/cdn/imgs/idle-dice.png",
+        "image": "/cdn/imgs/idle-dice.webp",
         "url": "/cdn/games/idle-dice",
         "tags": [],
         "categories": [
@@ -5573,7 +5561,7 @@
     },
     {
         "name": "12 Mini Battles",
-        "image": "/cdn/imgs/12-mini-battles.png",
+        "image": "/cdn/imgs/12-mini-battles.webp",
         "url": "/cdn/games/12-mini-battles",
         "tags": [],
         "categories": [
@@ -5585,7 +5573,7 @@
     },
     {
         "name": "Minecraft Alpha 1.2.6",
-        "image": "/cdn/imgs/minecraft-alpha-1-2-6.png",
+        "image": "/cdn/imgs/minecraft-alpha-1-2-6.webp",
         "url": "/cdn/games/minecraft-alpha-1-2-6",
         "tags": [],
         "categories": [
@@ -5597,7 +5585,7 @@
     },
     {
         "name": "Minecraft Beta 1.7.3",
-        "image": "/cdn/imgs/minecraft-beta-1-7-3.png",
+        "image": "/cdn/imgs/minecraft-beta-1-7-3.webp",
         "url": "/cdn/games/minecraft-beta-1-7-3",
         "tags": [],
         "categories": [
@@ -5609,7 +5597,7 @@
     },
     {
         "name": "Little Runmo",
-        "image": "/cdn/imgs/little-runmo.png",
+        "image": "/cdn/imgs/little-runmo.webp",
         "url": "/cdn/games/little-runmo",
         "tags": [],
         "categories": [
@@ -5621,7 +5609,7 @@
     },
     {
         "name": "Territorial.io",
-        "image": "/cdn/imgs/territorial-io.png",
+        "image": "/cdn/imgs/territorial-io.webp",
         "url": "/cdn/games/territorial-io",
         "tags": [],
         "categories": [
@@ -5633,7 +5621,7 @@
     },
     {
         "name": "Shipo.io",
-        "image": "/cdn/imgs/shipo-io.png",
+        "image": "/cdn/imgs/shipo-io.webp",
         "url": "/cdn/games/shipo-io",
         "tags": [],
         "categories": [
@@ -5645,7 +5633,7 @@
     },
     {
         "name": "Nazi Zombies: Portable",
-        "image": "/cdn/imgs/nazi-zombies-portable.png",
+        "image": "/cdn/imgs/nazi-zombies-portable.webp",
         "url": "/cdn/games/nazi-zombies-portable",
         "tags": [],
         "categories": [
@@ -5657,7 +5645,7 @@
     },
     {
         "name": "Dreadhead Parkour",
-        "image": "/cdn/imgs/dreadhead-parkour.png",
+        "image": "/cdn/imgs/dreadhead-parkour.webp",
         "url": "/cdn/games/dreadhead-parkour",
         "tags": [],
         "categories": [
@@ -5669,7 +5657,7 @@
     },
     {
         "name": "Sandtris",
-        "image": "/cdn/imgs/sandtris.png",
+        "image": "/cdn/imgs/sandtris.webp",
         "url": "/cdn/games/sandtris",
         "tags": [],
         "categories": [
@@ -5681,7 +5669,7 @@
     },
     {
         "name": "BlackJack",
-        "image": "/cdn/imgs/blackjack.png",
+        "image": "/cdn/imgs/blackjack.webp",
         "url": "/cdn/games/blackjack",
         "tags": [],
         "categories": [
@@ -5693,7 +5681,7 @@
     },
     {
         "name": "Jelly Mario",
-        "image": "/cdn/imgs/jelly-mario.png",
+        "image": "/cdn/imgs/jelly-mario.webp",
         "url": "/cdn/games/jelly-mario",
         "tags": [],
         "categories": [
@@ -5705,7 +5693,7 @@
     },
     {
         "name": "Angry Birds Chrome",
-        "image": "/cdn/imgs/angry-birds-chrome.png",
+        "image": "/cdn/imgs/angry-birds-chrome.webp",
         "url": "/cdn/games/angry-birds-chrome",
         "tags": [],
         "categories": [
@@ -5717,7 +5705,7 @@
     },
     {
         "name": "sandspiel",
-        "image": "/cdn/imgs/sandspiel.png",
+        "image": "/cdn/imgs/sandspiel.webp",
         "url": "/cdn/games/sandspiel",
         "tags": [],
         "categories": [
@@ -5729,7 +5717,7 @@
     },
     {
         "name": "Side Effects",
-        "image": "/cdn/imgs/side-effects.png",
+        "image": "/cdn/imgs/side-effects.webp",
         "url": "/cdn/games/side-effects",
         "tags": [],
         "categories": [
@@ -5741,7 +5729,7 @@
     },
     {
         "name": "Build a Queen",
-        "image": "/cdn/imgs/build-a-queen.png",
+        "image": "/cdn/imgs/build-a-queen.webp",
         "url": "/cdn/games/build-a-queen",
         "tags": [],
         "categories": [
@@ -5753,7 +5741,7 @@
     },
     {
         "name": "3D Bowling",
-        "image": "/cdn/imgs/3d-bowling.png",
+        "image": "/cdn/imgs/3d-bowling.webp",
         "url": "/cdn/games/3d-bowling",
         "tags": [],
         "categories": [
@@ -5765,7 +5753,7 @@
     },
     {
         "name": "Room Sort",
-        "image": "/cdn/imgs/room-sort.png",
+        "image": "/cdn/imgs/room-sort.webp",
         "url": "/cdn/games/room-sort",
         "tags": [],
         "categories": [
@@ -5777,7 +5765,7 @@
     },
     {
         "name": "Sushi Roll",
-        "image": "/cdn/imgs/sushi-roll.png",
+        "image": "/cdn/imgs/sushi-roll.webp",
         "url": "/cdn/games/sushi-roll",
         "tags": [],
         "categories": [
@@ -5789,7 +5777,7 @@
     },
     {
         "name": "Find the Alien",
-        "image": "/cdn/imgs/find-the-alien.png",
+        "image": "/cdn/imgs/find-the-alien.webp",
         "url": "/cdn/games/find-the-alien",
         "tags": [],
         "categories": [
@@ -5801,7 +5789,7 @@
     },
     {
         "name": "Kitchen Bazar",
-        "image": "/cdn/imgs/kitchen-bazar.png",
+        "image": "/cdn/imgs/kitchen-bazar.webp",
         "url": "/cdn/games/kitchen-bazar",
         "tags": [],
         "categories": [
@@ -5813,7 +5801,7 @@
     },
     {
         "name": "Super Monkey Ball 1&2",
-        "image": "/cdn/imgs/super-monkey-ball-1-2.png",
+        "image": "/cdn/imgs/super-monkey-ball-1-2.webp",
         "url": "/cdn/games/super-monkey-ball-1-2",
         "tags": [],
         "categories": [
@@ -5825,7 +5813,7 @@
     },
     {
         "name": "Slime.io",
-        "image": "/cdn/imgs/slime-io.png",
+        "image": "/cdn/imgs/slime-io.webp",
         "url": "/cdn/games/slime-io",
         "tags": [],
         "categories": [
@@ -5837,7 +5825,7 @@
     },
     {
         "name": "Om Nom Run",
-        "image": "/cdn/imgs/om-nom-run.png",
+        "image": "/cdn/imgs/om-nom-run.webp",
         "url": "/cdn/games/om-nom-run",
         "tags": [],
         "categories": [
@@ -5849,7 +5837,7 @@
     },
     {
         "name": "BitPlanes",
-        "image": "/cdn/imgs/bitplanes.png",
+        "image": "/cdn/imgs/bitplanes.webp",
         "url": "/cdn/games/bitplanes",
         "tags": [],
         "categories": [
@@ -5861,7 +5849,7 @@
     },
     {
         "name": "Crazy Cars",
-        "image": "/cdn/imgs/crazy-cars.png",
+        "image": "/cdn/imgs/crazy-cars.webp",
         "url": "/cdn/games/crazy-cars",
         "tags": [],
         "categories": [
@@ -5873,7 +5861,7 @@
     },
     {
         "name": "Raft Wars 2",
-        "image": "/cdn/imgs/raft-wars-2.png",
+        "image": "/cdn/imgs/raft-wars-2.webp",
         "url": "/cdn/games/raft-wars-2",
         "tags": [],
         "categories": [
@@ -5885,7 +5873,7 @@
     },
     {
         "name": "SpiderDoll",
-        "image": "/cdn/imgs/spiderdoll.png",
+        "image": "/cdn/imgs/spiderdoll.webp",
         "url": "/cdn/games/spiderdoll",
         "tags": [],
         "categories": [
@@ -5897,7 +5885,7 @@
     },
     {
         "name": "They Are Coming",
-        "image": "/cdn/imgs/they-are-coming.png",
+        "image": "/cdn/imgs/they-are-coming.webp",
         "url": "/cdn/games/they-are-coming",
         "tags": [],
         "categories": [
@@ -5909,7 +5897,7 @@
     },
     {
         "name": "Happy Sheepies",
-        "image": "/cdn/imgs/happy-sheepies.png",
+        "image": "/cdn/imgs/happy-sheepies.webp",
         "url": "/cdn/games/happy-sheepies",
         "tags": [],
         "categories": [
@@ -5921,7 +5909,7 @@
     },
     {
         "name": "DON'T YOU LECTURE ME",
-        "image": "/cdn/imgs/dont-you-lecture-me.png",
+        "image": "/cdn/imgs/dont-you-lecture-me.webp",
         "url": "/cdn/games/dont-you-lecture-me",
         "tags": [],
         "categories": [
@@ -5933,7 +5921,7 @@
     },
     {
         "name": "Blumgi Rocket",
-        "image": "/cdn/imgs/blumgi-rocket.png",
+        "image": "/cdn/imgs/blumgi-rocket.webp",
         "url": "/cdn/games/blumgi-rocket",
         "tags": [],
         "categories": [
@@ -5945,7 +5933,7 @@
     },
     {
         "name": "Adventure Capatalist",
-        "image": "/cdn/imgs/adventure-capatalist.png",
+        "image": "/cdn/imgs/adventure-capatalist.webp",
         "url": "/cdn/games/adventure-capatalist",
         "tags": [],
         "categories": [
@@ -5957,7 +5945,7 @@
     },
     {
         "name": "Dadish 3D",
-        "image": "/cdn/imgs/dadish-3d.png",
+        "image": "/cdn/imgs/dadish-3d.webp",
         "url": "/cdn/games/dadish-3d",
         "tags": [],
         "categories": [
@@ -5969,7 +5957,7 @@
     },
     {
         "name": "Daily Dadish",
-        "image": "/cdn/imgs/daily-dadish.png",
+        "image": "/cdn/imgs/daily-dadish.webp",
         "url": "/cdn/games/daily-dadish",
         "tags": [],
         "categories": [
@@ -5981,7 +5969,7 @@
     },
     {
         "name": "EvoWars.io",
-        "image": "/cdn/imgs/evowars-io.png",
+        "image": "/cdn/imgs/evowars-io.webp",
         "url": "/cdn/games/evowars-io",
         "tags": [],
         "categories": [
@@ -5993,7 +5981,7 @@
     },
     {
         "name": "Google Feud",
-        "image": "/cdn/imgs/google-feud.png",
+        "image": "/cdn/imgs/google-feud.webp",
         "url": "/cdn/games/google-feud",
         "tags": [],
         "categories": [
@@ -6005,7 +5993,7 @@
     },
     {
         "name": "Idle Lumber Inc",
-        "image": "/cdn/imgs/idle-lumber-inc.png",
+        "image": "/cdn/imgs/idle-lumber-inc.webp",
         "url": "/cdn/games/idle-lumber-inc",
         "tags": [],
         "categories": [
@@ -6017,7 +6005,7 @@
     },
     {
         "name": "Idle Mining Empire",
-        "image": "/cdn/imgs/idle-mining-empire.png",
+        "image": "/cdn/imgs/idle-mining-empire.webp",
         "url": "/cdn/games/idle-mining-empire",
         "tags": [],
         "categories": [
@@ -6029,7 +6017,7 @@
     },
     {
         "name": "Merge Harvest",
-        "image": "/cdn/imgs/merge-harvest.png",
+        "image": "/cdn/imgs/merge-harvest.webp",
         "url": "/cdn/games/merge-harvest",
         "tags": [],
         "categories": [
@@ -6041,7 +6029,7 @@
     },
     {
         "name": "Parking Fury 3D",
-        "image": "/cdn/imgs/parking-fury-3d.png",
+        "image": "/cdn/imgs/parking-fury-3d.webp",
         "url": "/cdn/games/parking-fury-3d",
         "tags": [],
         "categories": [
@@ -6053,7 +6041,7 @@
     },
     {
         "name": "Slowroads",
-        "image": "/cdn/imgs/slowroads.png",
+        "image": "/cdn/imgs/slowroads.webp",
         "url": "/cdn/games/slowroads",
         "tags": [],
         "categories": [
@@ -6065,7 +6053,7 @@
     },
     {
         "name": "Stickman Climb",
-        "image": "/cdn/imgs/stickman-climb.png",
+        "image": "/cdn/imgs/stickman-climb.webp",
         "url": "/cdn/games/stickman-climb",
         "tags": [],
         "categories": [
@@ -6077,7 +6065,7 @@
     },
     {
         "name": "Build a Big Army",
-        "image": "/cdn/imgs/build-a-big-army.png",
+        "image": "/cdn/imgs/build-a-big-army.webp",
         "url": "/cdn/games/build-a-big-army",
         "tags": [],
         "categories": [
@@ -6089,7 +6077,7 @@
     },
     {
         "name": "Build a Plane",
-        "image": "/cdn/imgs/build-a-plane.png",
+        "image": "/cdn/imgs/build-a-plane.webp",
         "url": "/cdn/games/build-a-plane",
         "tags": [],
         "categories": [
@@ -6101,7 +6089,7 @@
     },
     {
         "name": "Camouflage and Sniper",
-        "image": "/cdn/imgs/camouflage-and-sniper.png",
+        "image": "/cdn/imgs/camouflage-and-sniper.webp",
         "url": "/cdn/games/camouflage-and-sniper",
         "tags": [],
         "categories": [
@@ -6113,7 +6101,7 @@
     },
     {
         "name": "Car Survival 3D",
-        "image": "/cdn/imgs/car-survival-3d.png",
+        "image": "/cdn/imgs/car-survival-3d.webp",
         "url": "/cdn/games/car-survival-3d",
         "tags": [],
         "categories": [
@@ -6125,7 +6113,7 @@
     },
     {
         "name": "City Defense",
-        "image": "/cdn/imgs/city-defense.png",
+        "image": "/cdn/imgs/city-defense.webp",
         "url": "/cdn/games/city-defense",
         "tags": [],
         "categories": [
@@ -6137,7 +6125,7 @@
     },
     {
         "name": "Clothing Shop 3D",
-        "image": "/cdn/imgs/clothing-shop-3d.png",
+        "image": "/cdn/imgs/clothing-shop-3d.webp",
         "url": "/cdn/games/clothing-shop-3d",
         "tags": [],
         "categories": [
@@ -6149,7 +6137,7 @@
     },
     {
         "name": "Crush Cars 3D",
-        "image": "/cdn/imgs/crush-cars-3d.png",
+        "image": "/cdn/imgs/crush-cars-3d.webp",
         "url": "/cdn/games/crush-cars-3d",
         "tags": [],
         "categories": [
@@ -6161,7 +6149,7 @@
     },
     {
         "name": "Destiny Run 3D",
-        "image": "/cdn/imgs/destiny-run-3d.png",
+        "image": "/cdn/imgs/destiny-run-3d.webp",
         "url": "/cdn/games/destiny-run-3d",
         "tags": [],
         "categories": [
@@ -6173,7 +6161,7 @@
     },
     {
         "name": "Destroy The Car 3D",
-        "image": "/cdn/imgs/destroy-the-car-3d.png",
+        "image": "/cdn/imgs/destroy-the-car-3d.webp",
         "url": "/cdn/games/destroy-the-car-3d",
         "tags": [],
         "categories": [
@@ -6185,7 +6173,7 @@
     },
     {
         "name": "Diamond Seeker",
-        "image": "/cdn/imgs/diamond-seeker.png",
+        "image": "/cdn/imgs/diamond-seeker.webp",
         "url": "/cdn/games/diamond-seeker",
         "tags": [],
         "categories": [
@@ -6197,7 +6185,7 @@
     },
     {
         "name": "Draw Joust",
-        "image": "/cdn/imgs/draw-joust.png",
+        "image": "/cdn/imgs/draw-joust.webp",
         "url": "/cdn/games/draw-joust",
         "tags": [],
         "categories": [
@@ -6209,7 +6197,7 @@
     },
     {
         "name": "Evolving Bombs 3D",
-        "image": "/cdn/imgs/evolving-bombs-3d.png",
+        "image": "/cdn/imgs/evolving-bombs-3d.webp",
         "url": "/cdn/games/evolving-bombs-3d",
         "tags": [],
         "categories": [
@@ -6221,7 +6209,7 @@
     },
     {
         "name": "Fire and Frost Master",
-        "image": "/cdn/imgs/fire-and-frost-master.png",
+        "image": "/cdn/imgs/fire-and-frost-master.webp",
         "url": "/cdn/games/fire-and-frost-master",
         "tags": [],
         "categories": [
@@ -6233,7 +6221,7 @@
     },
     {
         "name": "Fitness Empire",
-        "image": "/cdn/imgs/fitness-empire.png",
+        "image": "/cdn/imgs/fitness-empire.webp",
         "url": "/cdn/games/fitness-empire",
         "tags": [],
         "categories": [
@@ -6245,7 +6233,7 @@
     },
     {
         "name": "Flick Goal",
-        "image": "/cdn/imgs/flick-goal.png",
+        "image": "/cdn/imgs/flick-goal.webp",
         "url": "/cdn/games/flick-goal",
         "tags": [],
         "categories": [
@@ -6257,7 +6245,7 @@
     },
     {
         "name": "Flip Master",
-        "image": "/cdn/imgs/flip-master.png",
+        "image": "/cdn/imgs/flip-master.webp",
         "url": "/cdn/games/flip-master",
         "tags": [],
         "categories": [
@@ -6269,7 +6257,7 @@
     },
     {
         "name": "Giant Wanted",
-        "image": "/cdn/imgs/giant-wanted.png",
+        "image": "/cdn/imgs/giant-wanted.webp",
         "url": "/cdn/games/giant-wanted",
         "tags": [],
         "categories": [
@@ -6281,7 +6269,7 @@
     },
     {
         "name": "Gun Clone",
-        "image": "/cdn/imgs/gun-clone.png",
+        "image": "/cdn/imgs/gun-clone.webp",
         "url": "/cdn/games/gun-clone",
         "tags": [],
         "categories": [
@@ -6293,7 +6281,7 @@
     },
     {
         "name": "Gun Runner",
-        "image": "/cdn/imgs/gun-runner.png",
+        "image": "/cdn/imgs/gun-runner.webp",
         "url": "/cdn/games/gun-runner",
         "tags": [],
         "categories": [
@@ -6305,7 +6293,7 @@
     },
     {
         "name": "Kaji Run",
-        "image": "/cdn/imgs/kaji-run.png",
+        "image": "/cdn/imgs/kaji-run.webp",
         "url": "/cdn/games/kaji-run",
         "tags": [],
         "categories": [
@@ -6317,7 +6305,7 @@
     },
     {
         "name": "Make a SuperBoat",
-        "image": "/cdn/imgs/make-a-superboat.png",
+        "image": "/cdn/imgs/make-a-superboat.webp",
         "url": "/cdn/games/make-a-superboat",
         "tags": [],
         "categories": [
@@ -6329,7 +6317,7 @@
     },
     {
         "name": "Mega Car Jumps",
-        "image": "/cdn/imgs/mega-car-jumps.png",
+        "image": "/cdn/imgs/mega-car-jumps.webp",
         "url": "/cdn/games/mega-car-jumps",
         "tags": [],
         "categories": [
@@ -6341,7 +6329,7 @@
     },
     {
         "name": "Money Rush",
-        "image": "/cdn/imgs/money-rush.png",
+        "image": "/cdn/imgs/money-rush.webp",
         "url": "/cdn/games/money-rush",
         "tags": [],
         "categories": [
@@ -6353,7 +6341,7 @@
     },
     {
         "name": "Monster Box 3D",
-        "image": "/cdn/imgs/monster-box-3d.png",
+        "image": "/cdn/imgs/monster-box-3d.webp",
         "url": "/cdn/games/monster-box-3d",
         "tags": [],
         "categories": [
@@ -6365,7 +6353,7 @@
     },
     {
         "name": "Office Fight",
-        "image": "/cdn/imgs/office-fight.png",
+        "image": "/cdn/imgs/office-fight.webp",
         "url": "/cdn/games/office-fight",
         "tags": [],
         "categories": [
@@ -6377,7 +6365,7 @@
     },
     {
         "name": "Robot Invasion",
-        "image": "/cdn/imgs/robot-invasion.png",
+        "image": "/cdn/imgs/robot-invasion.webp",
         "url": "/cdn/games/robot-invasion",
         "tags": [],
         "categories": [
@@ -6389,7 +6377,7 @@
     },
     {
         "name": "Seat Jam 3D",
-        "image": "/cdn/imgs/seat-jam-3d.png",
+        "image": "/cdn/imgs/seat-jam-3d.webp",
         "url": "/cdn/games/seat-jam-3d",
         "tags": [],
         "categories": [
@@ -6401,7 +6389,7 @@
     },
     {
         "name": "Shooting Master",
-        "image": "/cdn/imgs/shooting-master.png",
+        "image": "/cdn/imgs/shooting-master.webp",
         "url": "/cdn/games/shooting-master",
         "tags": [],
         "categories": [
@@ -6413,7 +6401,7 @@
     },
     {
         "name": "Supermarket 3D",
-        "image": "/cdn/imgs/supermarket-3d.png",
+        "image": "/cdn/imgs/supermarket-3d.webp",
         "url": "/cdn/games/supermarket-3d",
         "tags": [],
         "categories": [
@@ -6425,7 +6413,7 @@
     },
     {
         "name": "Survive to Victory",
-        "image": "/cdn/imgs/survive-to-victory.png",
+        "image": "/cdn/imgs/survive-to-victory.webp",
         "url": "/cdn/games/survive-to-victory",
         "tags": [],
         "categories": [
@@ -6437,7 +6425,7 @@
     },
     {
         "name": "Telekinesis",
-        "image": "/cdn/imgs/telekinesis.png",
+        "image": "/cdn/imgs/telekinesis.webp",
         "url": "/cdn/games/telekinesis",
         "tags": [],
         "categories": [
@@ -6449,7 +6437,7 @@
     },
     {
         "name": "Tug of War with Cars",
-        "image": "/cdn/imgs/tug-of-war-with-cars.png",
+        "image": "/cdn/imgs/tug-of-war-with-cars.webp",
         "url": "/cdn/games/tug-of-war-with-cars",
         "tags": [],
         "categories": [
@@ -6461,7 +6449,7 @@
     },
     {
         "name": "Twerk Race 3D",
-        "image": "/cdn/imgs/twerk-race-3d.png",
+        "image": "/cdn/imgs/twerk-race-3d.webp",
         "url": "/cdn/games/twerk-race-3d",
         "tags": [],
         "categories": [
@@ -6473,7 +6461,7 @@
     },
     {
         "name": "Twisted Rope 3D",
-        "image": "/cdn/imgs/twisted-rope-3d.png",
+        "image": "/cdn/imgs/twisted-rope-3d.webp",
         "url": "/cdn/games/twisted-rope-3d",
         "tags": [],
         "categories": [
@@ -6485,7 +6473,7 @@
     },
     {
         "name": "Wall Crawler",
-        "image": "/cdn/imgs/wall-crawler.png",
+        "image": "/cdn/imgs/wall-crawler.webp",
         "url": "/cdn/games/wall-crawler",
         "tags": [],
         "categories": [
@@ -6497,7 +6485,7 @@
     },
     {
         "name": "War Regions",
-        "image": "/cdn/imgs/war-regions.png",
+        "image": "/cdn/imgs/war-regions.webp",
         "url": "/cdn/games/war-regions",
         "tags": [],
         "categories": [
@@ -6509,7 +6497,7 @@
     },
     {
         "name": "Weapon Craft Run",
-        "image": "/cdn/imgs/weapon-craft-run.png",
+        "image": "/cdn/imgs/weapon-craft-run.webp",
         "url": "/cdn/games/weapon-craft-run",
         "tags": [],
         "categories": [
@@ -6521,7 +6509,7 @@
     },
     {
         "name": "Weapon Upgrade Rush",
-        "image": "/cdn/imgs/weapon-upgrade-rush.png",
+        "image": "/cdn/imgs/weapon-upgrade-rush.webp",
         "url": "/cdn/games/weapon-upgrade-rush",
         "tags": [],
         "categories": [
@@ -6533,7 +6521,7 @@
     },
     {
         "name": "Weapon Scale",
-        "image": "/cdn/imgs/weapon-scale.png",
+        "image": "/cdn/imgs/weapon-scale.webp",
         "url": "/cdn/games/weapon-scale",
         "tags": [],
         "categories": [
@@ -6545,7 +6533,7 @@
     },
     {
         "name": "Rich Run 3D",
-        "image": "/cdn/imgs/rich-run-3d.png",
+        "image": "/cdn/imgs/rich-run-3d.webp",
         "url": "/cdn/games/rich-run-3d",
         "tags": [],
         "categories": [
@@ -6557,7 +6545,7 @@
     },
     {
         "name": "High Heels",
-        "image": "/cdn/imgs/high-heels.png",
+        "image": "/cdn/imgs/high-heels.webp",
         "url": "/cdn/games/high-heels",
         "tags": [],
         "categories": [
@@ -6569,7 +6557,7 @@
     },
     {
         "name": "WebFishing",
-        "image": "/cdn/imgs/webfishing.png",
+        "image": "/cdn/imgs/webfishing.webp",
         "url": "/cdn/games/webfishing",
         "tags": [],
         "categories": [
@@ -6581,7 +6569,7 @@
     },
     {
         "name": "Andy's Apple Farm",
-        "image": "/cdn/imgs/andys-apple-farm.png",
+        "image": "/cdn/imgs/andys-apple-farm.webp",
         "url": "/cdn/games/andys-apple-farm",
         "tags": [],
         "categories": [
@@ -6593,7 +6581,7 @@
     },
     {
         "name": "OMORI",
-        "image": "/cdn/imgs/omori.png",
+        "image": "/cdn/imgs/omori.webp",
         "url": "/cdn/games/omori",
         "tags": [],
         "categories": [
@@ -6605,7 +6593,7 @@
     },
     {
         "name": "Five Nights at Freddy's 4: Halloween",
-        "image": "/cdn/imgs/five-nights-at-freddys-4-halloween.png",
+        "image": "/cdn/imgs/five-nights-at-freddys-4-halloween.webp",
         "url": "/cdn/games/five-nights-at-freddys-4-halloween",
         "tags": [],
         "categories": [
@@ -6617,7 +6605,7 @@
     },
     {
         "name": "Code Editor",
-        "image": "/cdn/imgs/code-editor.png",
+        "image": "/cdn/imgs/code-editor.webp",
         "url": "/cdn/games/code-editor",
         "tags": [],
         "categories": [
@@ -6629,7 +6617,7 @@
     },
     {
         "name": "99 Balls",
-        "image": "/cdn/imgs/99-balls.png",
+        "image": "/cdn/imgs/99-balls.webp",
         "url": "/cdn/games/99-balls",
         "tags": [],
         "categories": [
@@ -6641,7 +6629,7 @@
     },
     {
         "name": "Abandoned",
-        "image": "/cdn/imgs/abandoned.png",
+        "image": "/cdn/imgs/abandoned.webp",
         "url": "/cdn/games/abandoned",
         "tags": [],
         "categories": [
@@ -6653,7 +6641,7 @@
     },
     {
         "name": "Yume Nikki",
-        "image": "/cdn/imgs/yume-nikki.png",
+        "image": "/cdn/imgs/yume-nikki.webp",
         "url": "/cdn/games/yume-nikki",
         "tags": [],
         "categories": [
@@ -6665,7 +6653,7 @@
     },
     {
         "name": "God's Flesh",
-        "image": "/cdn/imgs/gods-flesh.png",
+        "image": "/cdn/imgs/gods-flesh.webp",
         "url": "/cdn/games/gods-flesh",
         "tags": [],
         "categories": [
@@ -6677,7 +6665,7 @@
     },
     {
         "name": "A Small World Cup",
-        "image": "/cdn/imgs/a-small-world-cup.png",
+        "image": "/cdn/imgs/a-small-world-cup.webp",
         "url": "/cdn/games/a-small-world-cup",
         "tags": [],
         "categories": [
@@ -6689,7 +6677,7 @@
     },
     {
         "name": "Bouncemasters",
-        "image": "/cdn/imgs/bouncemasters.png",
+        "image": "/cdn/imgs/bouncemasters.webp",
         "url": "/cdn/games/bouncemasters",
         "tags": [],
         "categories": [
@@ -6701,7 +6689,7 @@
     },
     {
         "name": "Celeste",
-        "image": "/cdn/imgs/celeste.png",
+        "image": "/cdn/imgs/celeste.webp",
         "url": "/cdn/games/celeste",
         "tags": [],
         "categories": [
@@ -6713,7 +6701,7 @@
     },
     {
         "name": "Kitty Toy",
-        "image": "/cdn/imgs/kitty-toy.png",
+        "image": "/cdn/imgs/kitty-toy.webp",
         "url": "/cdn/games/kitty-toy",
         "tags": [],
         "categories": [
@@ -6725,7 +6713,7 @@
     },
     {
         "name": "Infinimoes",
-        "image": "/cdn/imgs/infinimoes.png",
+        "image": "/cdn/imgs/infinimoes.webp",
         "url": "/cdn/games/infinimoes",
         "tags": [],
         "categories": [
@@ -6737,7 +6725,7 @@
     },
     {
         "name": "Adventure Drivers",
-        "image": "/cdn/imgs/adventure-drivers.png",
+        "image": "/cdn/imgs/adventure-drivers.webp",
         "url": "/cdn/games/adventure-drivers",
         "tags": [],
         "categories": [
@@ -6749,7 +6737,7 @@
     },
     {
         "name": "Ages of Conflict",
-        "image": "/cdn/imgs/ages-of-conflict.png",
+        "image": "/cdn/imgs/ages-of-conflict.webp",
         "url": "/cdn/games/ages-of-conflict",
         "tags": [],
         "categories": [
@@ -6761,7 +6749,7 @@
     },
     {
         "name": "Kindergarten 3",
-        "image": "/cdn/imgs/kindergarten-3.png",
+        "image": "/cdn/imgs/kindergarten-3.webp",
         "url": "/cdn/games/kindergarten-3",
         "tags": [],
         "categories": [
@@ -6773,7 +6761,7 @@
     },
     {
         "name": "Nijika's Ahoge",
-        "image": "/cdn/imgs/nijikas-ahoge.png",
+        "image": "/cdn/imgs/nijikas-ahoge.webp",
         "url": "/cdn/games/nijikas-ahoge",
         "tags": [],
         "categories": [
@@ -6785,7 +6773,7 @@
     },
     {
         "name": "Aquapark.io",
-        "image": "/cdn/imgs/aquapark-io.png",
+        "image": "/cdn/imgs/aquapark-io.webp",
         "url": "/cdn/games/aquapark-io",
         "tags": [],
         "categories": [
@@ -6797,7 +6785,7 @@
     },
     {
         "name": "City Smash",
-        "image": "/cdn/imgs/city-smash.png",
+        "image": "/cdn/imgs/city-smash.webp",
         "url": "/cdn/games/city-smash",
         "tags": [],
         "categories": [
@@ -6809,7 +6797,7 @@
     },
     {
         "name": "Station Saturn",
-        "image": "/cdn/imgs/station-saturn.png",
+        "image": "/cdn/imgs/station-saturn.webp",
         "url": "/cdn/games/station-saturn",
         "tags": [],
         "categories": [
@@ -6821,7 +6809,7 @@
     },
     {
         "name": "BERGENTRUCK 201x",
-        "image": "/cdn/imgs/bergentruck-201x.png",
+        "image": "/cdn/imgs/bergentruck-201x.webp",
         "url": "/cdn/games/bergentruck-201x",
         "tags": [],
         "categories": [
@@ -6833,7 +6821,7 @@
     },
     {
         "name": "The Deadseat",
-        "image": "/cdn/imgs/the-deadseat.png",
+        "image": "/cdn/imgs/the-deadseat.webp",
         "url": "/cdn/games/the-deadseat",
         "tags": [],
         "categories": [
@@ -6845,7 +6833,7 @@
     },
     {
         "name": "The Man In The Window",
-        "image": "/cdn/imgs/the-man-in-the-window.png",
+        "image": "/cdn/imgs/the-man-in-the-window.webp",
         "url": "/cdn/games/the-man-in-the-window",
         "tags": [],
         "categories": [
@@ -6857,7 +6845,7 @@
     },
     {
         "name": "Fears to Fathom: Home Alone",
-        "image": "/cdn/imgs/fears-to-fathom-home-alone.png",
+        "image": "/cdn/imgs/fears-to-fathom-home-alone.webp",
         "url": "/cdn/games/fears-to-fathom-home-alone",
         "tags": [],
         "categories": [
@@ -6869,7 +6857,7 @@
     },
     {
         "name": "Slither.io",
-        "image": "/cdn/imgs/slither-io.png",
+        "image": "/cdn/imgs/slither-io.webp",
         "url": "/cdn/games/slither-io",
         "tags": [],
         "categories": [
@@ -6881,7 +6869,7 @@
     },
     {
         "name": "DEAD PLATE",
-        "image": "/cdn/imgs/dead-plate.png",
+        "image": "/cdn/imgs/dead-plate.webp",
         "url": "/cdn/games/dead-plate",
         "tags": [],
         "categories": [
@@ -6893,7 +6881,7 @@
     },
     {
         "name": "Lacey's Flash Games",
-        "image": "/cdn/imgs/laceys-flash-games.png",
+        "image": "/cdn/imgs/laceys-flash-games.webp",
         "url": "/cdn/games/laceys-flash-games",
         "tags": [],
         "categories": [
@@ -6905,7 +6893,7 @@
     },
     {
         "name": "Choppy Orc",
-        "image": "/cdn/imgs/choppy-orc.png",
+        "image": "/cdn/imgs/choppy-orc.webp",
         "url": "/cdn/games/choppy-orc",
         "tags": [],
         "categories": [
@@ -6917,7 +6905,7 @@
     },
     {
         "name": "sandstone",
-        "image": "/cdn/imgs/sandstone.png",
+        "image": "/cdn/imgs/sandstone.webp",
         "url": "/cdn/games/sandstone",
         "tags": [],
         "categories": [
@@ -6929,7 +6917,7 @@
     },
     {
         "name": "Madness Combat: Project Nexus (classic)",
-        "image": "/cdn/imgs/madness-combat-project-nexus-classic.png",
+        "image": "/cdn/imgs/madness-combat-project-nexus-classic.webp",
         "url": "/cdn/games/madness-combat-project-nexus-classic",
         "tags": [],
         "categories": [
@@ -6941,7 +6929,7 @@
     },
     {
         "name": "Worst Time Simulator",
-        "image": "/cdn/imgs/worst-time-simulator.png",
+        "image": "/cdn/imgs/worst-time-simulator.webp",
         "url": "/cdn/games/worst-time-simulator",
         "tags": [],
         "categories": [
@@ -6953,7 +6941,7 @@
     },
     {
         "name": "Spacebar Clicker",
-        "image": "/cdn/imgs/spacebar-clicker.png",
+        "image": "/cdn/imgs/spacebar-clicker.webp",
         "url": "/cdn/games/spacebar-clicker",
         "tags": [],
         "categories": [
@@ -6965,7 +6953,7 @@
     },
     {
         "name": "Friday Night Funkin' D-Sides",
-        "image": "/cdn/imgs/friday-night-funkin-d-sides.png",
+        "image": "/cdn/imgs/friday-night-funkin-d-sides.webp",
         "url": "/cdn/games/friday-night-funkin-d-sides",
         "tags": [],
         "categories": [
@@ -6977,7 +6965,7 @@
     },
     {
         "name": "Friday Night Funkin': Mistful Crimson Morning Reboot",
-        "image": "/cdn/imgs/friday-night-funkin-mistful-crimson-morning-reboot.png",
+        "image": "/cdn/imgs/friday-night-funkin-mistful-crimson-morning-reboot.webp",
         "url": "/cdn/games/friday-night-funkin-mistful-crimson-morning-reboot",
         "tags": [],
         "categories": [
@@ -6989,7 +6977,7 @@
     },
     {
         "name": "Human Expenditure Program",
-        "image": "/cdn/imgs/human-expenditure-program.png",
+        "image": "/cdn/imgs/human-expenditure-program.webp",
         "url": "/cdn/games/human-expenditure-program",
         "tags": [],
         "categories": [
@@ -7001,7 +6989,7 @@
     },
     {
         "name": "Friday Night Funkin': Hit Single Real",
-        "image": "/cdn/imgs/friday-night-funkin-hit-single-real.png",
+        "image": "/cdn/imgs/friday-night-funkin-hit-single-real.webp",
         "url": "/cdn/games/friday-night-funkin-hit-single-real",
         "tags": [],
         "categories": [
@@ -7013,7 +7001,7 @@
     },
     {
         "name": "Friday Night Funkin': Creepypasta JP",
-        "image": "/cdn/imgs/friday-night-funkin-creepypasta-jp.png",
+        "image": "/cdn/imgs/friday-night-funkin-creepypasta-jp.webp",
         "url": "/cdn/games/friday-night-funkin-creepypasta-jp",
         "tags": [],
         "categories": [
@@ -7025,7 +7013,7 @@
     },
     {
         "name": "Friday Night Funkin Vs. Cyber Sensation",
-        "image": "/cdn/imgs/friday-night-funkin-vs-cyber-sensation.png",
+        "image": "/cdn/imgs/friday-night-funkin-vs-cyber-sensation.webp",
         "url": "/cdn/games/friday-night-funkin-vs-cyber-sensation",
         "tags": [],
         "categories": [
@@ -7037,7 +7025,7 @@
     },
     {
         "name": "Friday Night Funkin': Darkness Takeover",
-        "image": "/cdn/imgs/friday-night-funkin-darkness-takeover.png",
+        "image": "/cdn/imgs/friday-night-funkin-darkness-takeover.webp",
         "url": "/cdn/games/friday-night-funkin-darkness-takeover",
         "tags": [],
         "categories": [
@@ -7049,7 +7037,7 @@
     },
     {
         "name": "I woke up next to you again.",
-        "image": "/cdn/imgs/i-woke-up-next-to-you-again.png",
+        "image": "/cdn/imgs/i-woke-up-next-to-you-again.webp",
         "url": "/cdn/games/i-woke-up-next-to-you-again",
         "tags": [],
         "categories": [
@@ -7061,7 +7049,7 @@
     },
     {
         "name": "UNDERWHEELS",
-        "image": "/cdn/imgs/underwheels.png",
+        "image": "/cdn/imgs/underwheels.webp",
         "url": "/cdn/games/underwheels",
         "tags": [],
         "categories": [
@@ -7073,7 +7061,7 @@
     },
     {
         "name": "RigBMX 2",
-        "image": "/cdn/imgs/rigbmx-2.png",
+        "image": "/cdn/imgs/rigbmx-2.webp",
         "url": "/cdn/games/rigbmx-2",
         "tags": [],
         "categories": [
@@ -7085,7 +7073,7 @@
     },
     {
         "name": "groon groon, babey!",
-        "image": "/cdn/imgs/groon-groon-babey.png",
+        "image": "/cdn/imgs/groon-groon-babey.webp",
         "url": "/cdn/games/groon-groon-babey",
         "tags": [],
         "categories": [
@@ -7097,7 +7085,7 @@
     },
     {
         "name": "Friday Night Funkin': Jeffy's Endless Aethos",
-        "image": "/cdn/imgs/friday-night-funkin-jeffys-endless-aethos.png",
+        "image": "/cdn/imgs/friday-night-funkin-jeffys-endless-aethos.webp",
         "url": "/cdn/games/friday-night-funkin-jeffys-endless-aethos",
         "tags": [],
         "categories": [
@@ -7109,7 +7097,7 @@
     },
     {
         "name": "Friday Night Funkin vs Tabi",
-        "image": "/cdn/imgs/friday-night-funkin-vs-tabi.png",
+        "image": "/cdn/imgs/friday-night-funkin-vs-tabi.webp",
         "url": "/cdn/games/friday-night-funkin-vs-tabi",
         "tags": [],
         "categories": [
@@ -7121,7 +7109,7 @@
     },
     {
         "name": "Friday Night Funkin': 17 Bucks: Floor 1",
-        "image": "/cdn/imgs/friday-night-funkin-17-bucks-floor-1.png",
+        "image": "/cdn/imgs/friday-night-funkin-17-bucks-floor-1.webp",
         "url": "/cdn/games/friday-night-funkin-17-bucks-floor-1",
         "tags": [],
         "categories": [
@@ -7133,7 +7121,7 @@
     },
     {
         "name": "Friday Night Funkin': FIRE IN THE HOLE: Lobotomy Dash Funkin'",
-        "image": "/cdn/imgs/friday-night-funkin-fire-in-the-hole-lobotomy-dash-funkin.png",
+        "image": "/cdn/imgs/friday-night-funkin-fire-in-the-hole-lobotomy-dash-funkin.webp",
         "url": "/cdn/games/friday-night-funkin-fire-in-the-hole-lobotomy-dash-funkin",
         "tags": [],
         "categories": [
@@ -7145,7 +7133,7 @@
     },
     {
         "name": "Friday Night Funkin': TWIDDLEFINGER",
-        "image": "/cdn/imgs/friday-night-funkin-twiddlefinger.png",
+        "image": "/cdn/imgs/friday-night-funkin-twiddlefinger.webp",
         "url": "/cdn/games/friday-night-funkin-twiddlefinger",
         "tags": [],
         "categories": [
@@ -7157,7 +7145,7 @@
     },
     {
         "name": "Stick With It",
-        "image": "/cdn/imgs/stick-with-it.png",
+        "image": "/cdn/imgs/stick-with-it.webp",
         "url": "/cdn/games/stick-with-it",
         "tags": [],
         "categories": [
@@ -7169,7 +7157,7 @@
     },
     {
         "name": "Five Nights at Candy's 2",
-        "image": "/cdn/imgs/five-nights-at-candys-2.png",
+        "image": "/cdn/imgs/five-nights-at-candys-2.webp",
         "url": "/cdn/games/five-nights-at-candys-2",
         "tags": [],
         "categories": [
@@ -7181,7 +7169,7 @@
     },
     {
         "name": "Pokemon Emerald",
-        "image": "/cdn/imgs/pokemon-emerald.png",
+        "image": "/cdn/imgs/pokemon-emerald.webp",
         "url": "/cdn/games/pokemon-emerald",
         "tags": [],
         "categories": [
@@ -7193,7 +7181,7 @@
     },
     {
         "name": "Tomodachi Collection",
-        "image": "/cdn/imgs/tomodachi-collection.png",
+        "image": "/cdn/imgs/tomodachi-collection.webp",
         "url": "/cdn/games/tomodachi-collection",
         "tags": [],
         "categories": [
@@ -7205,7 +7193,7 @@
     },
     {
         "name": "Swordfight!!",
-        "image": "/cdn/imgs/swordfight.png",
+        "image": "/cdn/imgs/swordfight.webp",
         "url": "/cdn/games/swordfight",
         "tags": [],
         "categories": [
@@ -7217,7 +7205,7 @@
     },
     {
         "name": "PortaBoy+",
-        "image": "/cdn/imgs/portaboy.png",
+        "image": "/cdn/imgs/portaboy.webp",
         "url": "/cdn/games/portaboy",
         "tags": [],
         "categories": [
@@ -7229,7 +7217,7 @@
     },
     {
         "name": "PacMan (Horror)",
-        "image": "/cdn/imgs/pacman-horror.png",
+        "image": "/cdn/imgs/pacman-horror.webp",
         "url": "/cdn/games/pacman-horror",
         "tags": [],
         "categories": [
@@ -7241,7 +7229,7 @@
     },
     {
         "name": "Oshi Oshi Punch!",
-        "image": "/cdn/imgs/oshi-oshi-punch.png",
+        "image": "/cdn/imgs/oshi-oshi-punch.webp",
         "url": "/cdn/games/oshi-oshi-punch",
         "tags": [],
         "categories": [
@@ -7253,7 +7241,7 @@
     },
     {
         "name": "Nubby's Number Factory",
-        "image": "/cdn/imgs/nubbys-number-factory.png",
+        "image": "/cdn/imgs/nubbys-number-factory.webp",
         "url": "/cdn/games/nubbys-number-factory",
         "tags": [],
         "categories": [
@@ -7265,7 +7253,7 @@
     },
     {
         "name": "Touhou: Luminous Strike",
-        "image": "/cdn/imgs/touhou-luminous-strike.png",
+        "image": "/cdn/imgs/touhou-luminous-strike.webp",
         "url": "/cdn/games/touhou-luminous-strike",
         "tags": [],
         "categories": [
@@ -7277,7 +7265,7 @@
     },
     {
         "name": "Generic Fighter Maybe",
-        "image": "/cdn/imgs/generic-fighter-maybe.png",
+        "image": "/cdn/imgs/generic-fighter-maybe.webp",
         "url": "/cdn/games/generic-fighter-maybe",
         "tags": [],
         "categories": [
@@ -7289,7 +7277,7 @@
     },
     {
         "name": "Bust a Loop",
-        "image": "/cdn/imgs/bust-a-loop.png",
+        "image": "/cdn/imgs/bust-a-loop.webp",
         "url": "/cdn/games/bust-a-loop",
         "tags": [],
         "categories": [
@@ -7301,7 +7289,7 @@
     },
     {
         "name": "Bad Monday Simulator",
-        "image": "/cdn/imgs/bad-monday-simulator.png",
+        "image": "/cdn/imgs/bad-monday-simulator.webp",
         "url": "/cdn/games/bad-monday-simulator",
         "tags": [],
         "categories": [
@@ -7313,7 +7301,7 @@
     },
     {
         "name": "Touhou Mother",
-        "image": "/cdn/imgs/touhou-mother.png",
+        "image": "/cdn/imgs/touhou-mother.webp",
         "url": "/cdn/games/touhou-mother",
         "tags": [],
         "categories": [
@@ -7325,7 +7313,7 @@
     },
     {
         "name": "Parappa The Rapper",
-        "image": "/cdn/imgs/parappa-the-rapper.png",
+        "image": "/cdn/imgs/parappa-the-rapper.webp",
         "url": "/cdn/games/parappa-the-rapper",
         "tags": [],
         "categories": [
@@ -7337,7 +7325,7 @@
     },
     {
         "name": "SpongeBob SquarePants: Sandy's Sponge Stacker",
-        "image": "/cdn/imgs/spongebob-squarepants-sandys-sponge-stacker.png",
+        "image": "/cdn/imgs/spongebob-squarepants-sandys-sponge-stacker.webp",
         "url": "/cdn/games/spongebob-squarepants-sandys-sponge-stacker",
         "tags": [],
         "categories": [
@@ -7349,7 +7337,7 @@
     },
     {
         "name": "SpongeBob SquarePants: SpongeBob Run",
-        "image": "/cdn/imgs/spongebob-squarepants-spongebob-run.png",
+        "image": "/cdn/imgs/spongebob-squarepants-spongebob-run.webp",
         "url": "/cdn/games/spongebob-squarepants-spongebob-run",
         "tags": [],
         "categories": [
@@ -7361,7 +7349,7 @@
     },
     {
         "name": "SpongeBob SquarePants: Squidward's Sizzlin' Scare",
-        "image": "/cdn/imgs/spongebob-squarepants-squidwards-sizzlin-scare.png",
+        "image": "/cdn/imgs/spongebob-squarepants-squidwards-sizzlin-scare.webp",
         "url": "/cdn/games/spongebob-squarepants-squidwards-sizzlin-scare",
         "tags": [],
         "categories": [
@@ -7373,7 +7361,7 @@
     },
     {
         "name": "SpongeBob SquarePants: Tasty Pastry Party",
-        "image": "/cdn/imgs/spongebob-squarepants-tasty-pastry-party.png",
+        "image": "/cdn/imgs/spongebob-squarepants-tasty-pastry-party.webp",
         "url": "/cdn/games/spongebob-squarepants-tasty-pastry-party",
         "tags": [],
         "categories": [
@@ -7385,7 +7373,7 @@
     },
     {
         "name": "SpongeBob SquarePants: The Kah-Ray-Tay Squid",
-        "image": "/cdn/imgs/spongebob-squarepants-the-kah-ray-tay-squid.png",
+        "image": "/cdn/imgs/spongebob-squarepants-the-kah-ray-tay-squid.webp",
         "url": "/cdn/games/spongebob-squarepants-the-kah-ray-tay-squid",
         "tags": [],
         "categories": [
@@ -7397,7 +7385,7 @@
     },
     {
         "name": "SpongeBob SquarePants: WereSquirrel",
-        "image": "/cdn/imgs/spongebob-squarepants-weresquirrel.png",
+        "image": "/cdn/imgs/spongebob-squarepants-weresquirrel.webp",
         "url": "/cdn/games/spongebob-squarepants-weresquirrel",
         "tags": [],
         "categories": [
@@ -7409,7 +7397,7 @@
     },
     {
         "name": "SpongeBob SquarePants: Krabby Katch",
-        "image": "/cdn/imgs/spongebob-squarepants-krabby-katch.png",
+        "image": "/cdn/imgs/spongebob-squarepants-krabby-katch.webp",
         "url": "/cdn/games/spongebob-squarepants-krabby-katch",
         "tags": [],
         "categories": [
@@ -7421,7 +7409,7 @@
     },
     {
         "name": "Teen Titans GO!: Jump Jousts 2",
-        "image": "/cdn/imgs/teen-titans-go-jump-jousts-2.png",
+        "image": "/cdn/imgs/teen-titans-go-jump-jousts-2.webp",
         "url": "/cdn/games/teen-titans-go-jump-jousts-2",
         "tags": [],
         "categories": [
@@ -7433,7 +7421,7 @@
     },
     {
         "name": "Cat Connection",
-        "image": "/cdn/imgs/cat-connection.png",
+        "image": "/cdn/imgs/cat-connection.webp",
         "url": "/cdn/games/cat-connection",
         "tags": [],
         "categories": [
@@ -7445,7 +7433,7 @@
     },
     {
         "name": "Cat Gunner: Super Zombie Shoot",
-        "image": "/cdn/imgs/cat-gunner-super-zombie-shoot.png",
+        "image": "/cdn/imgs/cat-gunner-super-zombie-shoot.webp",
         "url": "/cdn/games/cat-gunner-super-zombie-shoot",
         "tags": [],
         "categories": [
@@ -7457,7 +7445,7 @@
     },
     {
         "name": "Love Letters",
-        "image": "/cdn/imgs/love-letters.png",
+        "image": "/cdn/imgs/love-letters.webp",
         "url": "/cdn/games/love-letters",
         "tags": [],
         "categories": [
@@ -7469,7 +7457,7 @@
     },
     {
         "name": "Chiikawa Puzzle",
-        "image": "/cdn/imgs/chiikawa-puzzle.png",
+        "image": "/cdn/imgs/chiikawa-puzzle.webp",
         "url": "/cdn/games/chiikawa-puzzle",
         "tags": [],
         "categories": [
@@ -7481,7 +7469,7 @@
     },
     {
         "name": "myTeardrop",
-        "image": "/cdn/imgs/myteardrop.png",
+        "image": "/cdn/imgs/myteardrop.webp",
         "url": "/cdn/games/myteardrop",
         "tags": [],
         "categories": [
@@ -7493,7 +7481,7 @@
     },
     {
         "name": "Friday Night Funkin': Pibby: Apocalypse",
-        "image": "/cdn/imgs/friday-night-funkin-pibby-apocalypse.png",
+        "image": "/cdn/imgs/friday-night-funkin-pibby-apocalypse.webp",
         "url": "/cdn/games/friday-night-funkin-pibby-apocalypse",
         "tags": [],
         "categories": [
@@ -7505,7 +7493,7 @@
     },
     {
         "name": "Plinko",
-        "image": "/cdn/imgs/plinko.png",
+        "image": "/cdn/imgs/plinko.webp",
         "url": "/cdn/games/plinko",
         "tags": [],
         "categories": [
@@ -7517,7 +7505,7 @@
     },
     {
         "name": "Clash Of Vikings",
-        "image": "/cdn/imgs/clash-of-vikings.png",
+        "image": "/cdn/imgs/clash-of-vikings.webp",
         "url": "/cdn/games/clash-of-vikings",
         "tags": [],
         "categories": [
@@ -7529,7 +7517,7 @@
     },
     {
         "name": "Recoil",
-        "image": "/cdn/imgs/recoil.png",
+        "image": "/cdn/imgs/recoil.webp",
         "url": "/cdn/games/recoil",
         "tags": [],
         "categories": [
@@ -7541,7 +7529,7 @@
     },
     {
         "name": "Baseball Bros",
-        "image": "/cdn/imgs/baseball-bros.png",
+        "image": "/cdn/imgs/baseball-bros.webp",
         "url": "/cdn/games/baseball-bros",
         "tags": [],
         "categories": [
@@ -7553,7 +7541,7 @@
     },
     {
         "name": "Football Bros",
-        "image": "/cdn/imgs/football-bros.png",
+        "image": "/cdn/imgs/football-bros.webp",
         "url": "/cdn/games/football-bros",
         "tags": [],
         "categories": [
@@ -7565,7 +7553,7 @@
     },
     {
         "name": "Sonic the Hedgehog 3: Angel Island Remastered",
-        "image": "/cdn/imgs/sonic-the-hedgehog-3-angel-island-remastered.png",
+        "image": "/cdn/imgs/sonic-the-hedgehog-3-angel-island-remastered.webp",
         "url": "/cdn/games/sonic-the-hedgehog-3-angel-island-remastered",
         "tags": [],
         "categories": [
@@ -7577,7 +7565,7 @@
     },
     {
         "name": "Hypper Sandbox",
-        "image": "/cdn/imgs/hypper-sandbox.png",
+        "image": "/cdn/imgs/hypper-sandbox.webp",
         "url": "/cdn/games/hypper-sandbox",
         "tags": [],
         "categories": [
@@ -7589,7 +7577,7 @@
     },
     {
         "name": "Aviamasters",
-        "image": "/cdn/imgs/aviamasters.png",
+        "image": "/cdn/imgs/aviamasters.webp",
         "url": "/cdn/games/aviamasters",
         "tags": [],
         "categories": [
@@ -7601,7 +7589,7 @@
     },
     {
         "name": "Rolling Sky",
-        "image": "/cdn/imgs/rolling-sky.png",
+        "image": "/cdn/imgs/rolling-sky.webp",
         "url": "/cdn/games/rolling-sky",
         "tags": [],
         "categories": [
@@ -7613,7 +7601,7 @@
     },
     {
         "name": "Yandere Simulator",
-        "image": "/cdn/imgs/yandere-simulator.png",
+        "image": "/cdn/imgs/yandere-simulator.webp",
         "url": "/cdn/games/yandere-simulator",
         "tags": [],
         "categories": [
@@ -7625,7 +7613,7 @@
     },
     {
         "name": "Friday Night Funkin' vs Hypno Lullaby",
-        "image": "/cdn/imgs/friday-night-funkin-vs-hypno-lullaby.png",
+        "image": "/cdn/imgs/friday-night-funkin-vs-hypno-lullaby.webp",
         "url": "/cdn/games/friday-night-funkin-vs-hypno-lullaby",
         "tags": [],
         "categories": [
@@ -7637,7 +7625,7 @@
     },
     {
         "name": "Deltatraveler",
-        "image": "/cdn/imgs/deltatraveler.png",
+        "image": "/cdn/imgs/deltatraveler.webp",
         "url": "/cdn/games/deltatraveler",
         "tags": [],
         "categories": [
@@ -7649,7 +7637,7 @@
     },
     {
         "name": "CG FC 25",
-        "image": "/cdn/imgs/cg-fc-25.png",
+        "image": "/cdn/imgs/cg-fc-25.webp",
         "url": "/cdn/games/cg-fc-25",
         "tags": [],
         "categories": [
@@ -7661,7 +7649,7 @@
     },
     {
         "name": "Dalgona Candy Honeycomb Cookie",
-        "image": "/cdn/imgs/dalgona-candy-honeycomb-cookie.png",
+        "image": "/cdn/imgs/dalgona-candy-honeycomb-cookie.webp",
         "url": "/cdn/games/dalgona-candy-honeycomb-cookie",
         "tags": [],
         "categories": [
@@ -7673,7 +7661,7 @@
     },
     {
         "name": "Hula Hoop Race",
-        "image": "/cdn/imgs/hula-hoop-race.png",
+        "image": "/cdn/imgs/hula-hoop-race.webp",
         "url": "/cdn/games/hula-hoop-race",
         "tags": [],
         "categories": [
@@ -7685,7 +7673,7 @@
     },
     {
         "name": "Jelly Restaurant",
-        "image": "/cdn/imgs/jelly-restaurant.png",
+        "image": "/cdn/imgs/jelly-restaurant.webp",
         "url": "/cdn/games/jelly-restaurant",
         "tags": [],
         "categories": [
@@ -7697,7 +7685,7 @@
     },
     {
         "name": "Lazy Jumper",
-        "image": "/cdn/imgs/lazy-jumper.png",
+        "image": "/cdn/imgs/lazy-jumper.webp",
         "url": "/cdn/games/lazy-jumper",
         "tags": [],
         "categories": [
@@ -7709,7 +7697,7 @@
     },
     {
         "name": "Super Star Car",
-        "image": "/cdn/imgs/super-star-car.png",
+        "image": "/cdn/imgs/super-star-car.webp",
         "url": "/cdn/games/super-star-car",
         "tags": [],
         "categories": [
@@ -7721,7 +7709,7 @@
     },
     {
         "name": "Traffic Rider",
-        "image": "/cdn/imgs/traffic-rider.png",
+        "image": "/cdn/imgs/traffic-rider.webp",
         "url": "/cdn/games/traffic-rider",
         "tags": [],
         "categories": [
@@ -7733,7 +7721,7 @@
     },
     {
         "name": "Friday Night Funkin': Mario's Madness",
-        "image": "/cdn/imgs/friday-night-funkin-marios-madness.png",
+        "image": "/cdn/imgs/friday-night-funkin-marios-madness.webp",
         "url": "/cdn/games/friday-night-funkin-marios-madness",
         "tags": [],
         "categories": [
@@ -7745,7 +7733,7 @@
     },
     {
         "name": "Stone Grass Mowing Simulator",
-        "image": "/cdn/imgs/stone-grass-mowing-simulator.png",
+        "image": "/cdn/imgs/stone-grass-mowing-simulator.webp",
         "url": "/cdn/games/stone-grass-mowing-simulator",
         "tags": [],
         "categories": [
@@ -7757,7 +7745,7 @@
     },
     {
         "name": "Fallout",
-        "image": "/cdn/imgs/fallout.png",
+        "image": "/cdn/imgs/fallout.webp",
         "url": "/cdn/games/fallout",
         "tags": [],
         "categories": [
@@ -7769,7 +7757,7 @@
     },
     {
         "name": "The Oregon Trail",
-        "image": "/cdn/imgs/the-oregon-trail.png",
+        "image": "/cdn/imgs/the-oregon-trail.webp",
         "url": "/cdn/games/the-oregon-trail",
         "tags": [],
         "categories": [
@@ -7781,7 +7769,7 @@
     },
     {
         "name": "Newgrounds Rumble",
-        "image": "/cdn/imgs/newgrounds-rumble.png",
+        "image": "/cdn/imgs/newgrounds-rumble.webp",
         "url": "/cdn/games/newgrounds-rumble",
         "tags": [],
         "categories": [
@@ -7793,7 +7781,7 @@
     },
     {
         "name": "Sonic CD",
-        "image": "/cdn/imgs/sonic-cd.png",
+        "image": "/cdn/imgs/sonic-cd.webp",
         "url": "/cdn/games/sonic-cd",
         "tags": [],
         "categories": [
@@ -7805,7 +7793,7 @@
     },
     {
         "name": "Sonic Mania",
-        "image": "/cdn/imgs/sonic-mania.png",
+        "image": "/cdn/imgs/sonic-mania.webp",
         "url": "/cdn/games/sonic-mania",
         "tags": [],
         "categories": [
@@ -7817,7 +7805,7 @@
     },
     {
         "name": "Slime Rancher",
-        "image": "/cdn/imgs/slime-rancher.png",
+        "image": "/cdn/imgs/slime-rancher.webp",
         "url": "/cdn/games/slime-rancher",
         "tags": [],
         "categories": [
@@ -7829,7 +7817,7 @@
     },
     {
         "name": "Pac Man World 2",
-        "image": "/cdn/imgs/pac-man-world-2.png",
+        "image": "/cdn/imgs/pac-man-world-2.webp",
         "url": "/cdn/games/pac-man-world-2",
         "tags": [],
         "categories": [
@@ -7841,7 +7829,7 @@
     },
     {
         "name": "Shapez.io",
-        "image": "/cdn/imgs/shapez-io.png",
+        "image": "/cdn/imgs/shapez-io.webp",
         "url": "/cdn/games/shapez-io",
         "tags": [],
         "categories": [
@@ -7853,7 +7841,7 @@
     },
     {
         "name": "[!] COMMENTS",
-        "image": "/cdn/imgs/comments.png",
+        "image": "/cdn/imgs/comments.webp",
         "url": "/cdn/games/comments",
         "tags": [],
         "categories": [
@@ -7865,7 +7853,7 @@
     },
     {
         "name": "Metal Gear Solid",
-        "image": "/cdn/imgs/metal-gear-solid.png",
+        "image": "/cdn/imgs/metal-gear-solid.webp",
         "url": "/cdn/games/metal-gear-solid",
         "tags": [],
         "categories": [
@@ -7877,7 +7865,7 @@
     },
     {
         "name": "FNF Vs. Hypno's Lullaby v2",
-        "image": "/cdn/imgs/fnf-vs-hypnos-lullaby-v2.png",
+        "image": "/cdn/imgs/fnf-vs-hypnos-lullaby-v2.webp",
         "url": "/cdn/games/fnf-vs-hypnos-lullaby-v2",
         "tags": [],
         "categories": [
@@ -7889,7 +7877,7 @@
     },
     {
         "name": "Minesweeper Plus",
-        "image": "/cdn/imgs/minesweeper-plus.png",
+        "image": "/cdn/imgs/minesweeper-plus.webp",
         "url": "/cdn/games/minesweeper-plus",
         "tags": [],
         "categories": [
@@ -7901,7 +7889,7 @@
     },
     {
         "name": "Sonic.EXE (ORIGINAL)",
-        "image": "/cdn/imgs/sonic-exe-original.png",
+        "image": "/cdn/imgs/sonic-exe-original.webp",
         "url": "/cdn/games/sonic-exe-original",
         "tags": [],
         "categories": [
@@ -7913,7 +7901,7 @@
     },
     {
         "name": "Friday Night Funkin' VS Impostor B-Sides",
-        "image": "/cdn/imgs/friday-night-funkin-vs-impostor-b-sides.png",
+        "image": "/cdn/imgs/friday-night-funkin-vs-impostor-b-sides.webp",
         "url": "/cdn/games/friday-night-funkin-vs-impostor-b-sides",
         "tags": [],
         "categories": [
@@ -7925,7 +7913,7 @@
     },
     {
         "name": "Friday Night Funkin vs Undertale",
-        "image": "/cdn/imgs/friday-night-funkin-vs-undertale.png",
+        "image": "/cdn/imgs/friday-night-funkin-vs-undertale.webp",
         "url": "/cdn/games/friday-night-funkin-vs-undertale",
         "tags": [],
         "categories": [
@@ -7937,7 +7925,7 @@
     },
     {
         "name": "The Legend of Zelda Ocarina of Time",
-        "image": "/cdn/imgs/the-legend-of-zelda-ocarina-of-time.png",
+        "image": "/cdn/imgs/the-legend-of-zelda-ocarina-of-time.webp",
         "url": "/cdn/games/the-legend-of-zelda-ocarina-of-time",
         "tags": [],
         "categories": [
@@ -7949,7 +7937,7 @@
     },
     {
         "name": "The Legend of Zelda Majora's Mask",
-        "image": "/cdn/imgs/the-legend-of-zelda-majoras-mask.png",
+        "image": "/cdn/imgs/the-legend-of-zelda-majoras-mask.webp",
         "url": "/cdn/games/the-legend-of-zelda-majoras-mask",
         "tags": [],
         "categories": [
@@ -7961,7 +7949,7 @@
     },
     {
         "name": "Friday Night Funkin' Drop and Roll, but Playable",
-        "image": "/cdn/imgs/friday-night-funkin-drop-and-roll-but-playable.png",
+        "image": "/cdn/imgs/friday-night-funkin-drop-and-roll-but-playable.webp",
         "url": "/cdn/games/friday-night-funkin-drop-and-roll-but-playable",
         "tags": [],
         "categories": [
@@ -7973,7 +7961,7 @@
     },
     {
         "name": "Toy Rider",
-        "image": "/cdn/imgs/toy-rider.png",
+        "image": "/cdn/imgs/toy-rider.webp",
         "url": "/cdn/games/toy-rider",
         "tags": [],
         "categories": [
@@ -7985,7 +7973,7 @@
     },
     {
         "name": "Friday Night Funkin’ Wednesday's Infidelity",
-        "image": "/cdn/imgs/friday-night-funkin-wednesdays-infidelity.png",
+        "image": "/cdn/imgs/friday-night-funkin-wednesdays-infidelity.webp",
         "url": "/cdn/games/friday-night-funkin-wednesdays-infidelity",
         "tags": [],
         "categories": [
@@ -7997,7 +7985,7 @@
     },
     {
         "name": "Postal",
-        "image": "/cdn/imgs/postal.png",
+        "image": "/cdn/imgs/postal.webp",
         "url": "/cdn/games/postal",
         "tags": [],
         "categories": [
@@ -8009,7 +7997,7 @@
     },
     {
         "name": "FNF vs Bob v2.0 (Bob’s Onslaught)",
-        "image": "/cdn/imgs/fnf-vs-bob-v2-0-bob-s-onslaught.png",
+        "image": "/cdn/imgs/fnf-vs-bob-v2-0-bob-s-onslaught.webp",
         "url": "/cdn/games/fnf-vs-bob-v2-0-bob-s-onslaught",
         "tags": [],
         "categories": [
@@ -8021,7 +8009,7 @@
     },
     {
         "name": "Friday Night Funkin': Rev-Mixed",
-        "image": "/cdn/imgs/friday-night-funkin-rev-mixed.png",
+        "image": "/cdn/imgs/friday-night-funkin-rev-mixed.webp",
         "url": "/cdn/games/friday-night-funkin-rev-mixed",
         "tags": [],
         "categories": [
@@ -8033,7 +8021,7 @@
     },
     {
         "name": "Three Goblets",
-        "image": "/cdn/imgs/three-goblets.png",
+        "image": "/cdn/imgs/three-goblets.webp",
         "url": "/cdn/games/three-goblets",
         "tags": [],
         "categories": [
@@ -8045,7 +8033,7 @@
     },
     {
         "name": "Friday Night Funkin': AKAGE",
-        "image": "/cdn/imgs/friday-night-funkin-akage.png",
+        "image": "/cdn/imgs/friday-night-funkin-akage.webp",
         "url": "/cdn/games/friday-night-funkin-akage",
         "tags": [],
         "categories": [
@@ -8057,7 +8045,7 @@
     },
     {
         "name": "Oneshot (LEGACY)",
-        "image": "/cdn/imgs/oneshot-legacy.png",
+        "image": "/cdn/imgs/oneshot-legacy.webp",
         "url": "/cdn/games/oneshot-legacy",
         "tags": [],
         "categories": [
@@ -8069,7 +8057,7 @@
     },
     {
         "name": "Get Yoked",
-        "image": "/cdn/imgs/get-yoked.png",
+        "image": "/cdn/imgs/get-yoked.webp",
         "url": "/cdn/games/get-yoked",
         "tags": [],
         "categories": [
@@ -8081,7 +8069,7 @@
     },
     {
         "name": "Space Funeral",
-        "image": "/cdn/imgs/space-funeral.png",
+        "image": "/cdn/imgs/space-funeral.webp",
         "url": "/cdn/games/space-funeral",
         "tags": [],
         "categories": [
@@ -8093,7 +8081,7 @@
     },
     {
         "name": "Endroll",
-        "image": "/cdn/imgs/endroll.png",
+        "image": "/cdn/imgs/endroll.webp",
         "url": "/cdn/games/endroll",
         "tags": [],
         "categories": [
@@ -8105,7 +8093,7 @@
     },
     {
         "name": "Cave Story",
-        "image": "/cdn/imgs/cave-story.png",
+        "image": "/cdn/imgs/cave-story.webp",
         "url": "/cdn/games/cave-story",
         "tags": [],
         "categories": [
@@ -8117,7 +8105,7 @@
     },
     {
         "name": "Friday Night Funkin': Chaos Nightmare - Sonic Vs. Fleetway",
-        "image": "/cdn/imgs/friday-night-funkin-chaos-nightmare-sonic-vs-fleetway.png",
+        "image": "/cdn/imgs/friday-night-funkin-chaos-nightmare-sonic-vs-fleetway.webp",
         "url": "/cdn/games/friday-night-funkin-chaos-nightmare-sonic-vs-fleetway",
         "tags": [],
         "categories": [
@@ -8129,7 +8117,7 @@
     },
     {
         "name": "BFDIA 5b: 5*30",
-        "image": "/cdn/imgs/bfdia-5b-5-30.png",
+        "image": "/cdn/imgs/bfdia-5b-5-30.webp",
         "url": "/cdn/games/bfdia-5b-5-30",
         "tags": [],
         "categories": [
@@ -8141,7 +8129,7 @@
     },
     {
         "name": "Mutilate a Doll 2",
-        "image": "/cdn/imgs/mutilate-a-doll-2.png",
+        "image": "/cdn/imgs/mutilate-a-doll-2.webp",
         "url": "/cdn/games/mutilate-a-doll-2",
         "tags": [],
         "categories": [
@@ -8153,7 +8141,7 @@
     },
     {
         "name": "Godzilla Daikaiju Battle Royale",
-        "image": "/cdn/imgs/godzilla-daikaiju-battle-royale.png",
+        "image": "/cdn/imgs/godzilla-daikaiju-battle-royale.webp",
         "url": "/cdn/games/godzilla-daikaiju-battle-royale",
         "tags": [],
         "categories": [
@@ -8165,7 +8153,7 @@
     },
     {
         "name": "Friday Night Funkin' Sunday Night Suicide: Rookies Edition",
-        "image": "/cdn/imgs/friday-night-funkin-sunday-night-suicide-rookies-edition.png",
+        "image": "/cdn/imgs/friday-night-funkin-sunday-night-suicide-rookies-edition.webp",
         "url": "/cdn/games/friday-night-funkin-sunday-night-suicide-rookies-edition",
         "tags": [],
         "categories": [
@@ -8177,7 +8165,7 @@
     },
     {
         "name": "Rio Rex",
-        "image": "/cdn/imgs/rio-rex.png",
+        "image": "/cdn/imgs/rio-rex.webp",
         "url": "/cdn/games/rio-rex",
         "tags": [],
         "categories": [
@@ -8189,7 +8177,7 @@
     },
     {
         "name": "Friday Night Funkin vs Nonsense",
-        "image": "/cdn/imgs/friday-night-funkin-vs-nonsense.png",
+        "image": "/cdn/imgs/friday-night-funkin-vs-nonsense.webp",
         "url": "/cdn/games/friday-night-funkin-vs-nonsense",
         "tags": [],
         "categories": [
@@ -8201,7 +8189,7 @@
     },
     {
         "name": "Arthur's Nightmare",
-        "image": "/cdn/imgs/arthurs-nightmare.png",
+        "image": "/cdn/imgs/arthurs-nightmare.webp",
         "url": "/cdn/games/arthurs-nightmare",
         "tags": [],
         "categories": [
@@ -8213,7 +8201,7 @@
     },
     {
         "name": "Buster Jam",
-        "image": "/cdn/imgs/buster-jam.png",
+        "image": "/cdn/imgs/buster-jam.webp",
         "url": "/cdn/games/buster-jam",
         "tags": [],
         "categories": [
@@ -8225,7 +8213,7 @@
     },
     {
         "name": "Mindwave",
-        "image": "/cdn/imgs/mindwave.png",
+        "image": "/cdn/imgs/mindwave.webp",
         "url": "/cdn/games/mindwave",
         "tags": [],
         "categories": [
@@ -8237,7 +8225,7 @@
     },
     {
         "name": "Look Outside",
-        "image": "/cdn/imgs/look-outside.png",
+        "image": "/cdn/imgs/look-outside.webp",
         "url": "/cdn/games/look-outside",
         "tags": [],
         "categories": [
@@ -8249,7 +8237,7 @@
     },
     {
         "name": "Milk Inside a Bag of Milk Inside a Bag of Milk",
-        "image": "/cdn/imgs/milk-inside-a-bag-of-milk-inside-a-bag-of-milk.png",
+        "image": "/cdn/imgs/milk-inside-a-bag-of-milk-inside-a-bag-of-milk.webp",
         "url": "/cdn/games/milk-inside-a-bag-of-milk-inside-a-bag-of-milk",
         "tags": [],
         "categories": [
@@ -8261,7 +8249,7 @@
     },
     {
         "name": "Milk Outside A Bag Of Milk Outside A Bag Of Milk",
-        "image": "/cdn/imgs/milk-outside-a-bag-of-milk-outside-a-bag-of-milk.png",
+        "image": "/cdn/imgs/milk-outside-a-bag-of-milk-outside-a-bag-of-milk.webp",
         "url": "/cdn/games/milk-outside-a-bag-of-milk-outside-a-bag-of-milk",
         "tags": [],
         "categories": [
@@ -8273,7 +8261,7 @@
     },
     {
         "name": "1 Date Danger",
-        "image": "/cdn/imgs/1-date-danger.png",
+        "image": "/cdn/imgs/1-date-danger.webp",
         "url": "/cdn/games/1-date-danger",
         "tags": [],
         "categories": [
@@ -8285,7 +8273,7 @@
     },
     {
         "name": "Final Fantasy VII",
-        "image": "/cdn/imgs/final-fantasy-vii.png",
+        "image": "/cdn/imgs/final-fantasy-vii.webp",
         "url": "/cdn/games/final-fantasy-vii",
         "tags": [],
         "categories": [
@@ -8297,7 +8285,7 @@
     },
     {
         "name": "Goblin Goopmaxxing",
-        "image": "/cdn/imgs/goblin-goopmaxxing.png",
+        "image": "/cdn/imgs/goblin-goopmaxxing.webp",
         "url": "/cdn/games/goblin-goopmaxxing",
         "tags": [],
         "categories": [
@@ -8309,7 +8297,7 @@
     },
     {
         "name": "Rogue Sergeant The Final Operation",
-        "image": "/cdn/imgs/rogue-sergeant-the-final-operation.png",
+        "image": "/cdn/imgs/rogue-sergeant-the-final-operation.webp",
         "url": "/cdn/games/rogue-sergeant-the-final-operation",
         "tags": [],
         "categories": [
@@ -8321,7 +8309,7 @@
     },
     {
         "name": "Midnight Shift",
-        "image": "/cdn/imgs/midnight-shift.png",
+        "image": "/cdn/imgs/midnight-shift.webp",
         "url": "/cdn/games/midnight-shift",
         "tags": [],
         "categories": [
@@ -8333,7 +8321,7 @@
     },
     {
         "name": "Orange Roulette",
-        "image": "/cdn/imgs/orange-roulette.png",
+        "image": "/cdn/imgs/orange-roulette.webp",
         "url": "/cdn/games/orange-roulette",
         "tags": [],
         "categories": [
@@ -8345,7 +8333,7 @@
     },
     {
         "name": "Please Dont Touch Anything",
-        "image": "/cdn/imgs/please-dont-touch-anything.png",
+        "image": "/cdn/imgs/please-dont-touch-anything.webp",
         "url": "/cdn/games/please-dont-touch-anything",
         "tags": [],
         "categories": [
@@ -8357,7 +8345,7 @@
     },
     {
         "name": "Royal Towers: Medieval TD",
-        "image": "/cdn/imgs/royal-towers-medieval-td.png",
+        "image": "/cdn/imgs/royal-towers-medieval-td.webp",
         "url": "/cdn/games/royal-towers-medieval-td",
         "tags": [],
         "categories": [
@@ -8369,7 +8357,7 @@
     },
     {
         "name": "Going Balls",
-        "image": "/cdn/imgs/going-balls.png",
+        "image": "/cdn/imgs/going-balls.webp",
         "url": "/cdn/games/going-balls",
         "tags": [],
         "categories": [
@@ -8381,7 +8369,7 @@
     },
     {
         "name": "3D Bolt Master",
-        "image": "/cdn/imgs/3d-bolt-master.png",
+        "image": "/cdn/imgs/3d-bolt-master.webp",
         "url": "/cdn/games/3d-bolt-master",
         "tags": [],
         "categories": [
@@ -8393,7 +8381,7 @@
     },
     {
         "name": "Tall.io",
-        "image": "/cdn/imgs/tall-io.png",
+        "image": "/cdn/imgs/tall-io.webp",
         "url": "/cdn/games/tall-io",
         "tags": [],
         "categories": [
@@ -8405,7 +8393,7 @@
     },
     {
         "name": "Match Triple 3D",
-        "image": "/cdn/imgs/match-triple-3d.png",
+        "image": "/cdn/imgs/match-triple-3d.webp",
         "url": "/cdn/games/match-triple-3d",
         "tags": [],
         "categories": [
@@ -8417,7 +8405,7 @@
     },
     {
         "name": "In Stars and Time",
-        "image": "/cdn/imgs/in-stars-and-time.png",
+        "image": "/cdn/imgs/in-stars-and-time.webp",
         "url": "/cdn/games/in-stars-and-time",
         "tags": [],
         "categories": [
@@ -8429,7 +8417,7 @@
     },
     {
         "name": "Raldi's Crackhouse",
-        "image": "/cdn/imgs/raldis-crackhouse.png",
+        "image": "/cdn/imgs/raldis-crackhouse.webp",
         "url": "/cdn/games/raldis-crackhouse",
         "tags": [],
         "categories": [
@@ -8441,7 +8429,7 @@
     },
     {
         "name": "We Become What We Behold",
-        "image": "/cdn/imgs/we-become-what-we-behold.png",
+        "image": "/cdn/imgs/we-become-what-we-behold.webp",
         "url": "/cdn/games/we-become-what-we-behold",
         "tags": [],
         "categories": [
@@ -8453,7 +8441,7 @@
     },
     {
         "name": "A Difficult Game About Climbing",
-        "image": "/cdn/imgs/a-difficult-game-about-climbing.png",
+        "image": "/cdn/imgs/a-difficult-game-about-climbing.webp",
         "url": "/cdn/games/a-difficult-game-about-climbing",
         "tags": [],
         "categories": [
@@ -8465,7 +8453,7 @@
     },
     {
         "name": "Hobo 7",
-        "image": "/cdn/imgs/hobo-7.png",
+        "image": "/cdn/imgs/hobo-7.webp",
         "url": "/cdn/games/hobo-7",
         "tags": [],
         "categories": [
@@ -8477,7 +8465,7 @@
     },
     {
         "name": "Kirby Super Star Ultra",
-        "image": "/cdn/imgs/kirby-super-star-ultra.png",
+        "image": "/cdn/imgs/kirby-super-star-ultra.webp",
         "url": "/cdn/games/kirby-super-star-ultra",
         "tags": [],
         "categories": [
@@ -8489,7 +8477,7 @@
     },
     {
         "name": "Cooking Mama 3",
-        "image": "/cdn/imgs/cooking-mama-3.png",
+        "image": "/cdn/imgs/cooking-mama-3.webp",
         "url": "/cdn/games/cooking-mama-3",
         "tags": [],
         "categories": [
@@ -8501,7 +8489,7 @@
     },
     {
         "name": "Kirby Squeak Squad",
-        "image": "/cdn/imgs/kirby-squeak-squad.png",
+        "image": "/cdn/imgs/kirby-squeak-squad.webp",
         "url": "/cdn/games/kirby-squeak-squad",
         "tags": [],
         "categories": [
@@ -8513,7 +8501,7 @@
     },
     {
         "name": "FIFA 10",
-        "image": "/cdn/imgs/fifa-10.png",
+        "image": "/cdn/imgs/fifa-10.webp",
         "url": "/cdn/games/fifa-10",
         "tags": [],
         "categories": [
@@ -8525,7 +8513,7 @@
     },
     {
         "name": "Pico's School (1999)",
-        "image": "/cdn/imgs/picos-school-1999.png",
+        "image": "/cdn/imgs/picos-school-1999.webp",
         "url": "/cdn/games/picos-school-1999",
         "tags": [],
         "categories": [
@@ -8537,7 +8525,7 @@
     },
     {
         "name": "Peggle",
-        "image": "/cdn/imgs/peggle.png",
+        "image": "/cdn/imgs/peggle.webp",
         "url": "/cdn/games/peggle",
         "tags": [],
         "categories": [
@@ -8549,7 +8537,7 @@
     },
     {
         "name": "Friday Night Funkin': Heartbreak Havoc [Vs. Sky: REDUX]",
-        "image": "/cdn/imgs/friday-night-funkin-heartbreak-havoc-vs-sky-redux.png",
+        "image": "/cdn/imgs/friday-night-funkin-heartbreak-havoc-vs-sky-redux.webp",
         "url": "/cdn/games/friday-night-funkin-heartbreak-havoc-vs-sky-redux",
         "tags": [],
         "categories": [
@@ -8561,7 +8549,7 @@
     },
     {
         "name": "Kirby ~ Soft & Wet",
-        "image": "/cdn/imgs/kirby-soft-wet.png",
+        "image": "/cdn/imgs/kirby-soft-wet.webp",
         "url": "/cdn/games/kirby-soft-wet",
         "tags": [],
         "categories": [
@@ -8573,7 +8561,7 @@
     },
     {
         "name": "Pokemon Firered",
-        "image": "/cdn/imgs/pokemon-firered.png",
+        "image": "/cdn/imgs/pokemon-firered.webp",
         "url": "/cdn/games/pokemon-firered",
         "tags": [],
         "categories": [
@@ -8585,7 +8573,7 @@
     },
     {
         "name": "Pokemon HeartGold",
-        "image": "/cdn/imgs/pokemon-heartgold.png",
+        "image": "/cdn/imgs/pokemon-heartgold.webp",
         "url": "/cdn/games/pokemon-heartgold",
         "tags": [],
         "categories": [
@@ -8597,7 +8585,7 @@
     },
     {
         "name": "Stickman Duel",
-        "image": "/cdn/imgs/stickman-duel.png",
+        "image": "/cdn/imgs/stickman-duel.webp",
         "url": "/cdn/games/stickman-duel",
         "tags": [],
         "categories": [
@@ -8609,7 +8597,7 @@
     },
     {
         "name": "FNF vs Pibby Corrupted",
-        "image": "/cdn/imgs/fnf-vs-pibby-corrupted.png",
+        "image": "/cdn/imgs/fnf-vs-pibby-corrupted.webp",
         "url": "/cdn/games/fnf-vs-pibby-corrupted",
         "tags": [],
         "categories": [
@@ -8621,7 +8609,7 @@
     },
     {
         "name": "Real Flight Simulator",
-        "image": "/cdn/imgs/real-flight-simulator.png",
+        "image": "/cdn/imgs/real-flight-simulator.webp",
         "url": "/cdn/games/real-flight-simulator",
         "tags": [],
         "categories": [
@@ -8633,7 +8621,7 @@
     },
     {
         "name": "JavascriptPS1",
-        "image": "/cdn/imgs/javascriptps1.png",
+        "image": "/cdn/imgs/javascriptps1.webp",
         "url": "/cdn/games/javascriptps1",
         "tags": [],
         "categories": [
@@ -8645,7 +8633,7 @@
     },
     {
         "name": "VS Rewrite: ROUND 2",
-        "image": "/cdn/imgs/vs-rewrite-round-2.png",
+        "image": "/cdn/imgs/vs-rewrite-round-2.webp",
         "url": "/cdn/games/vs-rewrite-round-2",
         "tags": [],
         "categories": [
@@ -8657,7 +8645,7 @@
     },
     {
         "name": "Five Nights at Freddy's: World Refreshed",
-        "image": "/cdn/imgs/five-nights-at-freddys-world-refreshed.png",
+        "image": "/cdn/imgs/five-nights-at-freddys-world-refreshed.webp",
         "url": "/cdn/games/five-nights-at-freddys-world-refreshed",
         "tags": [],
         "categories": [
@@ -8669,7 +8657,7 @@
     },
     {
         "name": "Iron Lung",
-        "image": "/cdn/imgs/iron-lung.png",
+        "image": "/cdn/imgs/iron-lung.webp",
         "url": "/cdn/games/iron-lung",
         "tags": [],
         "categories": [
@@ -8681,7 +8669,7 @@
     },
     {
         "name": "Fear & Hunger",
-        "image": "/cdn/imgs/fear-hunger.png",
+        "image": "/cdn/imgs/fear-hunger.webp",
         "url": "/cdn/games/fear-hunger",
         "tags": [],
         "categories": [
@@ -8693,7 +8681,7 @@
     },
     {
         "name": "Traffic Racer",
-        "image": "/cdn/imgs/traffic-racer.png",
+        "image": "/cdn/imgs/traffic-racer.webp",
         "url": "/cdn/games/traffic-racer",
         "tags": [],
         "categories": [
@@ -8705,7 +8693,7 @@
     },
     {
         "name": "Needy Streamer Overload",
-        "image": "/cdn/imgs/needy-streamer-overload.png",
+        "image": "/cdn/imgs/needy-streamer-overload.webp",
         "url": "/cdn/games/needy-streamer-overload",
         "tags": [],
         "categories": [
@@ -8717,7 +8705,7 @@
     },
     {
         "name": "Survivor.io",
-        "image": "/cdn/imgs/survivor-io.png",
+        "image": "/cdn/imgs/survivor-io.webp",
         "url": "/cdn/games/survivor-io",
         "tags": [],
         "categories": [
@@ -8729,7 +8717,7 @@
     },
     {
         "name": "Five Nights at Epstein's",
-        "image": "/cdn/imgs/five-nights-at-epsteins.png",
+        "image": "/cdn/imgs/five-nights-at-epsteins.webp",
         "url": "/cdn/games/five-nights-at-epsteins",
         "tags": [],
         "categories": [
@@ -8741,7 +8729,7 @@
     },
     {
         "name": "Antonblast",
-        "image": "/cdn/imgs/antonblast.png",
+        "image": "/cdn/imgs/antonblast.webp",
         "url": "/cdn/games/antonblast",
         "tags": [],
         "categories": [
@@ -8753,7 +8741,7 @@
     },
     {
         "name": "Jumbo Mario",
-        "image": "/cdn/imgs/jumbo-mario.png",
+        "image": "/cdn/imgs/jumbo-mario.webp",
         "url": "/cdn/games/jumbo-mario",
         "tags": [],
         "categories": [
@@ -8765,7 +8753,7 @@
     },
     {
         "name": "Silent Hill",
-        "image": "/cdn/imgs/silent-hill.png",
+        "image": "/cdn/imgs/silent-hill.webp",
         "url": "/cdn/games/silent-hill",
         "tags": [],
         "categories": [
@@ -8777,7 +8765,7 @@
     },
     {
         "name": "Clover Pit",
-        "image": "/cdn/imgs/clover-pit.png",
+        "image": "/cdn/imgs/clover-pit.webp",
         "url": "/cdn/games/clover-pit",
         "tags": [],
         "categories": [
@@ -8789,7 +8777,7 @@
     },
     {
         "name": "Peaks of Yore",
-        "image": "/cdn/imgs/peaks-of-yore.png",
+        "image": "/cdn/imgs/peaks-of-yore.webp",
         "url": "/cdn/games/peaks-of-yore",
         "tags": [],
         "categories": [
@@ -8801,7 +8789,7 @@
     },
     {
         "name": "Untitled Goose Game",
-        "image": "/cdn/imgs/untitled-goose-game.png",
+        "image": "/cdn/imgs/untitled-goose-game.webp",
         "url": "/cdn/games/untitled-goose-game",
         "tags": [],
         "categories": [
@@ -8813,7 +8801,7 @@
     },
     {
         "name": "A Game About Feeding A Black Hole",
-        "image": "/cdn/imgs/a-game-about-feeding-a-black-hole.png",
+        "image": "/cdn/imgs/a-game-about-feeding-a-black-hole.webp",
         "url": "/cdn/games/a-game-about-feeding-a-black-hole",
         "tags": [],
         "categories": [
@@ -8825,7 +8813,7 @@
     },
     {
         "name": "Roulette Hero",
-        "image": "/cdn/imgs/roulette-hero.png",
+        "image": "/cdn/imgs/roulette-hero.webp",
         "url": "/cdn/games/roulette-hero",
         "tags": [],
         "categories": [
@@ -8837,7 +8825,7 @@
     },
     {
         "name": "Shift at Midnight",
-        "image": "/cdn/imgs/shift-at-midnight.png",
+        "image": "/cdn/imgs/shift-at-midnight.webp",
         "url": "/cdn/games/shift-at-midnight",
         "tags": [],
         "categories": [
@@ -8849,7 +8837,7 @@
     },
     {
         "name": "Fused 240",
-        "image": "/cdn/imgs/fused-240.png",
+        "image": "/cdn/imgs/fused-240.webp",
         "url": "/cdn/games/fused-240",
         "tags": [],
         "categories": [
@@ -8861,7 +8849,7 @@
     },
     {
         "name": "Brotato",
-        "image": "/cdn/imgs/brotato.png",
+        "image": "/cdn/imgs/brotato.webp",
         "url": "/cdn/games/brotato",
         "tags": [],
         "categories": [
@@ -8873,7 +8861,7 @@
     },
     {
         "name": "ShredSauce",
-        "image": "/cdn/imgs/shredsauce.png",
+        "image": "/cdn/imgs/shredsauce.webp",
         "url": "/cdn/games/shredsauce",
         "tags": [],
         "categories": [
@@ -8885,7 +8873,7 @@
     },
     {
         "name": "Breath of the Wild NDS",
-        "image": "/cdn/imgs/breath-of-the-wild-nds.png",
+        "image": "/cdn/imgs/breath-of-the-wild-nds.webp",
         "url": "/cdn/games/breath-of-the-wild-nds",
         "tags": [],
         "categories": [
@@ -8897,7 +8885,7 @@
     },
     {
         "name": "Dimension Incident",
-        "image": "/cdn/imgs/dimension-incident.png",
+        "image": "/cdn/imgs/dimension-incident.webp",
         "url": "/cdn/games/dimension-incident",
         "tags": [],
         "categories": [
@@ -8909,7 +8897,7 @@
     },
     {
         "name": "Fear Assessment",
-        "image": "/cdn/imgs/fear-assessment.png",
+        "image": "/cdn/imgs/fear-assessment.webp",
         "url": "/cdn/games/fear-assessment",
         "tags": [],
         "categories": [
@@ -8921,7 +8909,7 @@
     },
     {
         "name": "Undertale Last Breath PHASE THREE",
-        "image": "/cdn/imgs/undertale-last-breath-phase-three.png",
+        "image": "/cdn/imgs/undertale-last-breath-phase-three.webp",
         "url": "/cdn/games/undertale-last-breath-phase-three",
         "tags": [],
         "categories": [
@@ -8933,7 +8921,7 @@
     },
     {
         "name": "64 in 1 NES",
-        "image": "/cdn/imgs/64-in-1-nes.png",
+        "image": "/cdn/imgs/64-in-1-nes.webp",
         "url": "/cdn/games/64-in-1-nes",
         "tags": [],
         "categories": [
@@ -8945,7 +8933,7 @@
     },
     {
         "name": "Christmas Massacre",
-        "image": "/cdn/imgs/christmas-massacre.png",
+        "image": "/cdn/imgs/christmas-massacre.webp",
         "url": "/cdn/games/christmas-massacre",
         "tags": [],
         "categories": [
@@ -8957,7 +8945,7 @@
     },
     {
         "name": "Famidash",
-        "image": "/cdn/imgs/famidash.png",
+        "image": "/cdn/imgs/famidash.webp",
         "url": "/cdn/games/famidash",
         "tags": [],
         "categories": [
@@ -8969,7 +8957,7 @@
     },
     {
         "name": "Saihate Station (さいはて駅)",
-        "image": "/cdn/imgs/saihate-station.png",
+        "image": "/cdn/imgs/saihate-station.webp",
         "url": "/cdn/games/saihate-station",
         "tags": [],
         "categories": [
@@ -8981,7 +8969,7 @@
     },
     {
         "name": "Dumb Ways to Die",
-        "image": "/cdn/imgs/dumb-ways-to-die.png",
+        "image": "/cdn/imgs/dumb-ways-to-die.webp",
         "url": "/cdn/games/dumb-ways-to-die",
         "tags": [],
         "categories": [
@@ -8993,7 +8981,7 @@
     },
     {
         "name": "Soccer Random",
-        "image": "/cdn/imgs/soccer-random.png",
+        "image": "/cdn/imgs/soccer-random.webp",
         "url": "/cdn/games/soccer-random",
         "tags": [],
         "categories": [
@@ -9005,7 +8993,7 @@
     },
     {
         "name": "Bart Blast",
-        "image": "/cdn/imgs/bart-blast.png",
+        "image": "/cdn/imgs/bart-blast.webp",
         "url": "/cdn/games/bart-blast",
         "tags": [],
         "categories": [
@@ -9017,7 +9005,7 @@
     },
     {
         "name": "Resident Evil 2",
-        "image": "/cdn/imgs/resident-evil-2.png",
+        "image": "/cdn/imgs/resident-evil-2.webp",
         "url": "/cdn/games/resident-evil-2",
         "tags": [],
         "categories": [
@@ -9029,7 +9017,7 @@
     },
     {
         "name": "Power Hover",
-        "image": "/cdn/imgs/power-hover.png",
+        "image": "/cdn/imgs/power-hover.webp",
         "url": "/cdn/games/power-hover",
         "tags": [],
         "categories": [
@@ -9041,7 +9029,7 @@
     },
     {
         "name": "Fundamental Paper Novel",
-        "image": "/cdn/imgs/fundamental-paper-novel.png",
+        "image": "/cdn/imgs/fundamental-paper-novel.webp",
         "url": "/cdn/games/fundamental-paper-novel",
         "tags": [],
         "categories": [
@@ -9053,7 +9041,7 @@
     },
     {
         "name": "Five Nights at Last Breath",
-        "image": "/cdn/imgs/five-nights-at-last-breath.png",
+        "image": "/cdn/imgs/five-nights-at-last-breath.webp",
         "url": "/cdn/games/five-nights-at-last-breath",
         "tags": [],
         "categories": [
@@ -9065,7 +9053,7 @@
     },
     {
         "name": "Jeffrey Epstein Basics In Education And Kidnapping",
-        "image": "/cdn/imgs/jeffrey-epstein-basics-in-education-and-kidnapping.png",
+        "image": "/cdn/imgs/jeffrey-epstein-basics-in-education-and-kidnapping.webp",
         "url": "/cdn/games/jeffrey-epstein-basics-in-education-and-kidnapping",
         "tags": [],
         "categories": [
@@ -9077,7 +9065,7 @@
     },
     {
         "name": "Bad Piggies",
-        "image": "/cdn/imgs/bad-piggies.png",
+        "image": "/cdn/imgs/bad-piggies.webp",
         "url": "/cdn/games/bad-piggies",
         "tags": [],
         "categories": [
@@ -9089,7 +9077,7 @@
     },
     {
         "name": "Brawl Simulator 3D",
-        "image": "/cdn/imgs/brawl-simulator-3d.png",
+        "image": "/cdn/imgs/brawl-simulator-3d.webp",
         "url": "/cdn/games/brawl-simulator-3d",
         "tags": [],
         "categories": [
@@ -9101,7 +9089,7 @@
     },
     {
         "name": "Witch's Heart",
-        "image": "/cdn/imgs/witchs-heart.png",
+        "image": "/cdn/imgs/witchs-heart.webp",
         "url": "/cdn/games/witchs-heart",
         "tags": [],
         "categories": [
@@ -9113,7 +9101,7 @@
     },
     {
         "name": "Ultrapool",
-        "image": "/cdn/imgs/ultrapool.png",
+        "image": "/cdn/imgs/ultrapool.webp",
         "url": "/cdn/games/ultrapool",
         "tags": [],
         "categories": [
@@ -9125,7 +9113,7 @@
     },
     {
         "name": "CaseOh's Basics in Eating and Fast Food",
-        "image": "/cdn/imgs/caseohs-basics-in-eating-and-fast-food.png",
+        "image": "/cdn/imgs/caseohs-basics-in-eating-and-fast-food.webp",
         "url": "/cdn/games/caseohs-basics-in-eating-and-fast-food",
         "tags": [],
         "categories": [
@@ -9137,7 +9125,7 @@
     },
     {
         "name": "Dice a Million",
-        "image": "/cdn/imgs/dice-a-million.png",
+        "image": "/cdn/imgs/dice-a-million.webp",
         "url": "/cdn/games/dice-a-million",
         "tags": [],
         "categories": [
@@ -9149,7 +9137,7 @@
     },
     {
         "name": "Overburden",
-        "image": "/cdn/imgs/overburden.png",
+        "image": "/cdn/imgs/overburden.webp",
         "url": "/cdn/games/overburden",
         "tags": [],
         "categories": [
@@ -9161,7 +9149,7 @@
     },
     {
         "name": "Cheese Rolling",
-        "image": "/cdn/imgs/cheese-rolling.png",
+        "image": "/cdn/imgs/cheese-rolling.webp",
         "url": "/cdn/games/cheese-rolling",
         "tags": [],
         "categories": [
@@ -9173,7 +9161,7 @@
     },
     {
         "name": "Flying Gorilla 3D",
-        "image": "/cdn/imgs/flying-gorilla-3d.png",
+        "image": "/cdn/imgs/flying-gorilla-3d.webp",
         "url": "/cdn/games/flying-gorilla-3d",
         "tags": [],
         "categories": [
@@ -9185,7 +9173,7 @@
     },
     {
         "name": "Five Night's at Shrek's Hotel",
-        "image": "/cdn/imgs/five-nights-at-shreks-hotel.png",
+        "image": "/cdn/imgs/five-nights-at-shreks-hotel.webp",
         "url": "/cdn/games/five-nights-at-shreks-hotel",
         "tags": [],
         "categories": [
@@ -9197,7 +9185,7 @@
     },
     {
         "name": "Scary Shawarma Kiosk: the ANOMALY",
-        "image": "/cdn/imgs/scary-shawarma-kiosk-the-anomaly.png",
+        "image": "/cdn/imgs/scary-shawarma-kiosk-the-anomaly.webp",
         "url": "/cdn/games/scary-shawarma-kiosk-the-anomaly",
         "tags": [],
         "categories": [
@@ -9209,7 +9197,7 @@
     },
     {
         "name": "Suika Game",
-        "image": "/cdn/imgs/suika-game.png",
+        "image": "/cdn/imgs/suika-game.webp",
         "url": "/cdn/games/suika-game",
         "tags": [],
         "categories": [
@@ -9221,7 +9209,7 @@
     },
     {
         "name": "Stick Slasher",
-        "image": "/cdn/imgs/stick-slasher.png",
+        "image": "/cdn/imgs/stick-slasher.webp",
         "url": "/cdn/games/stick-slasher",
         "tags": [],
         "categories": [
@@ -9233,7 +9221,7 @@
     },
     {
         "name": "Stickman Kombat 2D",
-        "image": "/cdn/imgs/stickman-kombat-2d.png",
+        "image": "/cdn/imgs/stickman-kombat-2d.webp",
         "url": "/cdn/games/stickman-kombat-2d",
         "tags": [],
         "categories": [
@@ -9245,7 +9233,7 @@
     },
     {
         "name": "Sonic Robo Blast 2",
-        "image": "/cdn/imgs/sonic-robo-blast-2.png",
+        "image": "/cdn/imgs/sonic-robo-blast-2.webp",
         "url": "/cdn/games/sonic-robo-blast-2",
         "tags": [],
         "categories": [
