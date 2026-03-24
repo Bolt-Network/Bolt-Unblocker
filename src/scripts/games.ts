@@ -150,29 +150,39 @@ function renderGames(games: any[]) {
     gamesContainer.innerHTML = html;
 
     document.querySelectorAll('.game-card').forEach(card => {
-        if (card.getAttribute('data-link')?.includes('/play?url=/cdn/html/sug')) {
+        const link = card.getAttribute('data-link');
+        const originalUrl = card.getAttribute('data-original-url');
+        
+        if (originalUrl === 'sug') {
             card.addEventListener('click', () => {
                 window.open('https://discord.gg/j9taJKe7H8', '_blank');
             });
             return;
         }
-        if (card.getAttribute('data-link')?.includes('/play?url=/cdn/html/ran')) {
+        if (originalUrl === 'ran') {
             card.addEventListener('click', () => {
-                const randomGame = allGames[Math.floor(Math.random() * allGames.length)];
-                window.location.href = randomGame.url.includes('/pc/') ? `/play?url=${randomGame.url}&title=${randomGame.name}&icon=${randomGame.image}` : `/play?url=/cdn/html/${randomGame.url}&title=${randomGame.name}&icon=${randomGame.image}`;
+                const usableGames = allGames.filter(g => !['sug', 'ran'].includes(g.url));
+                const randomGame = usableGames[Math.floor(Math.random() * usableGames.length)];
+                
+                let gameUrl = randomGame.url;
+                if (!gameUrl.startsWith('http') && !gameUrl.startsWith('/cdn/games/')) {
+                    gameUrl = `/cdn/games/${gameUrl}`;
+                }
+                
+                const nextUrl = `/play?url=${encodeURIComponent(gameUrl)}&title=${encodeURIComponent(randomGame.name)}&icon=${encodeURIComponent(randomGame.image)}`;
+                window.location.href = nextUrl;
             });
             return;
         }
-        if (card.getAttribute('data-link')?.includes('https://')) {
+        if (originalUrl?.startsWith('https://')) {
             card.addEventListener('click', () => {
                 const Win = (window.top as any).Window || Window;
-                new Win({ url: String("/siterunner?url=" + card.getAttribute('data-link')?.split('?url=/cdn/html/')[1]), title: "Browser" });
+                new Win({ url: "/siterunner?url=" + encodeURIComponent(originalUrl), title: "Browser" });
             });
             return;
         }
         card.addEventListener('click', (e) => {
             if ((e.target as HTMLElement).closest('.fav-btn')) return;
-            const link = card.getAttribute('data-link');
             if (link) window.location.href = link;
         });
     });
@@ -188,11 +198,18 @@ function renderGames(games: any[]) {
 
 function createGameCard(game: any): string {
     const fallbackImageUrl = `https://mathclass.404.mn/cdn/imgs/${game.image.split('/').pop()}`;
-    const link = game.url.includes('/pc/') ? `/play?url=${game.url}&title=${game.name}&icon=${game.image}` : `/play?url=/cdn/html/${game.url}&title=${game.name}&icon=${game.image}`;
+    
+    let gameUrl = game.url;
+    // Normalize game URL if it's not a full URL and not a special word
+    if (!gameUrl.startsWith('http') && !['sug', 'ran'].includes(gameUrl) && !gameUrl.startsWith('/cdn/games/')) {
+        gameUrl = `/cdn/games/${gameUrl}`;
+    }
+    
+    const link = `/play?url=${encodeURIComponent(gameUrl)}&title=${encodeURIComponent(game.name)}&icon=${encodeURIComponent(game.image)}`;
     const isFav = favorites.has(game.url);
 
     return `
-        <div class="game-card glass cursor-pointer transform transition-transform" data-link="${link}">
+        <div class="game-card glass cursor-pointer transform transition-transform" data-link="${link}" data-original-url="${game.url}">
             <img 
                 src="${game.image}" 
                 alt="${game.name} image" 
