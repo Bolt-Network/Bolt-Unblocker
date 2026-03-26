@@ -107,6 +107,32 @@ function loadGames() {
                     window.location.href = nextUrl;
                 });
             }
+
+            // Sidebar toggle logic
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+            
+            if (sidebar && sidebarToggle) {
+                // Initialize state
+                if (window.innerWidth <= 1024) {
+                    sidebar.classList.add('collapsed');
+                }
+
+                sidebarToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('collapsed');
+                    
+                    // Save preference if needed
+                    if (window.innerWidth > 1024) {
+                        localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('collapsed').toString());
+                    }
+                });
+
+                // Load saved preference for desktop
+                const savedPreference = localStorage.getItem('sidebarCollapsed');
+                if (window.innerWidth > 1024 && savedPreference === 'true') {
+                    sidebar.classList.add('collapsed');
+                }
+            }
         })
         .catch(error => console.error('Error loading games:', error));
 }
@@ -232,7 +258,7 @@ function createGameCard(game: any): string {
                 class="game-image"
                 onerror="this.onerror=null;this.src='${fallbackImageUrl}';"
             >
-            <div class="p-4 flex justify-between items-center">
+            <div class="px-3 py-2 flex justify-between items-center">
                 <h3 class="text-white font-medium text-xl">${game.name}</h3>
                 <button class="fav-btn text-2xl text-blue-500" data-url="${game.url}">${isFav ? '★' : '☆'}</button>
             </div>
