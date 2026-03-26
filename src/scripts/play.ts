@@ -3,7 +3,8 @@ const gameTitleElement = document.getElementById('game-title') as HTMLHeadingEle
 const gameIconElement = document.getElementById('game-icon') as HTMLImageElement;
 const gameContainer = document.getElementById('game-container') as HTMLDivElement;
 const fullscreenBtn = document.getElementById('fullscreen-btn') as HTMLButtonElement;
-const reloadBtn = document.getElementById('reload-btn') as HTMLButtonElement;
+const backBtn = document.getElementById('back-btn') as HTMLButtonElement;
+const reloadBtn = document.getElementById('reload-btnp') as HTMLButtonElement;
 
 // Get URL parameters
 const urlParams = new URLSearchParams(window.location.search);
@@ -27,6 +28,11 @@ let isFullscreen = false;
 
 fullscreenBtn.addEventListener('click', () => {
     toggleFullscreen();
+});
+
+// Back functionality
+backBtn.addEventListener('click', () => {
+    window.location.href = '/games';
 });
 
 function toggleFullscreen() {

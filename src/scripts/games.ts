@@ -6,12 +6,12 @@ let currentSearch = '';
 let favorites: Set<string> = new Set();
 
 function loadFavorites() {
-    const saved = localStorage.getItem('gameFavorites');
+    const saved = window.top?.localStorage.getItem('gameFavorites');
     if (saved) favorites = new Set(JSON.parse(saved));
 }
 
 function saveFavorites() {
-    localStorage.setItem('gameFavorites', JSON.stringify([...favorites]));
+    window.top?.localStorage.setItem('gameFavorites', JSON.stringify([...favorites]));
 }
 
 function toggleFavorite(gameUrl: string) {
@@ -53,34 +53,58 @@ function categorizeGame(game: any): string[] {
     if (name.includes('tower') || name.includes('defense') || name.includes('strategy') || name.includes('td') || name.includes('bloons')) categories.push('Strategy');
     if (name.includes('.io') || name.includes('multiplayer') || name.includes('online')) categories.push('Multiplayer');
 
-    // Default to Arcade if no categories matched
     if (categories.length === 0) categories.push('Arcade');
 
     return categories;
 }
 
 function loadGames() {
-    const gamesContainer = document.getElementById('games');
-    if (!gamesContainer) return;
-
     loadFavorites();
 
     fetch('/json/games.json')
         .then(response => response.json())
         .then(games => {
-            allGames = games.map((game: any) => ({
-                ...game,
-                categories: (game.categories && game.categories.length > 0) ? game.categories : (game.category ? [game.category] : categorizeGame(game))
-            }));
+            allGames = games
+                // Filter out the old suggest/random special cards
+                .filter((game: any) => !['sug', 'ran'].includes(game.url))
+                .map((game: any) => ({
+                    ...game,
+                    categories: (game.categories && game.categories.length > 0) ? game.categories : (game.category ? [game.category] : categorizeGame(game))
+                }));
 
             renderCategories();
-            renderGames(allGames);
+            filterGames();
 
             const searchInput = document.getElementById('searchInput') as HTMLInputElement;
             if (searchInput) {
                 searchInput.addEventListener('input', () => {
                     currentSearch = searchInput.value.toLowerCase().trim();
                     filterGames();
+                });
+            }
+
+            // Wire up action buttons
+            const suggestBtn = document.getElementById('suggest-btn');
+            if (suggestBtn) {
+                suggestBtn.addEventListener('click', () => {
+                    window.open('https://discord.gg/j9taJKe7H8', '_blank');
+                });
+            }
+
+            const randomBtn = document.getElementById('random-btn');
+            if (randomBtn) {
+                randomBtn.addEventListener('click', () => {
+                    const usableGames = allGames.filter(g => !['sug', 'ran'].includes(g.url));
+                    if (usableGames.length === 0) return;
+                    const randomGame = usableGames[Math.floor(Math.random() * usableGames.length)];
+
+                    let gameUrl = randomGame.url;
+                    if (!gameUrl.startsWith('http') && !gameUrl.startsWith('/cdn/games/')) {
+                        gameUrl = `/cdn/games/${gameUrl}`;
+                    }
+
+                    const nextUrl = `/play?url=${encodeURIComponent(gameUrl)}&title=${encodeURIComponent(randomGame.name)}&icon=${encodeURIComponent(randomGame.image)}`;
+                    window.location.href = nextUrl;
                 });
             }
         })
@@ -127,55 +151,48 @@ function filterGames() {
 }
 
 function renderGames(games: any[]) {
-    const gamesContainer = document.getElementById('games');
-    if (!gamesContainer) return;
+    const favoritesSection = document.getElementById('favorites-section') as HTMLElement;
+    const favoritesGrid = document.getElementById('favorites-grid');
+    const featuredGrid = document.getElementById('featured-grid');
+    const allGamesGrid = document.getElementById('games');
+
+    if (!favoritesGrid || !featuredGrid || !allGamesGrid || !favoritesSection) return;
 
     const favoriteGames = games.filter(g => favorites.has(g.url));
-    const regularGames = games.filter(g => !favorites.has(g.url));
+    const featuredGames = games.filter(g => g.featured);
+    const allGamesToShow = games;
 
-    if (games.length === 0) {
-        gamesContainer.innerHTML = '<p class="text-white text-center text-lg opacity-70 col-span-full">No games found</p>';
-        return;
-    }
-
-    let html = '';
-
+    // Favorites section — hide if empty
     if (favoriteGames.length > 0) {
-        html += '<h2 class="text-white text-2xl font-bold mb-4 col-span-full">Favorites</h2>';
-        html += favoriteGames.map(game => createGameCard(game)).join('');
+        favoritesSection.style.display = '';
+        favoritesGrid.innerHTML = favoriteGames.map(game => createGameCard(game)).join('');
+    } else {
+        favoritesSection.style.display = 'none';
+        favoritesGrid.innerHTML = '';
     }
 
-    html += regularGames.map(game => createGameCard(game)).join('');
+    // Featured section
+    if (featuredGames.length > 0) {
+        featuredGrid.innerHTML = featuredGames.map(game => createGameCard(game)).join('');
+    } else {
+        featuredGrid.innerHTML = '<p class="no-games-msg">No featured games in this category</p>';
+    }
 
-    gamesContainer.innerHTML = html;
+    // All games section
+    if (allGamesToShow.length > 0) {
+        allGamesGrid.innerHTML = allGamesToShow.map(game => createGameCard(game)).join('');
+    } else {
+        allGamesGrid.innerHTML = '<p class="no-games-msg">No games found</p>';
+    }
 
+    // Attach click events to all cards across all grids
     document.querySelectorAll('.game-card').forEach(card => {
         const link = card.getAttribute('data-link');
         const originalUrl = card.getAttribute('data-original-url');
-        
-        if (originalUrl === 'sug') {
-            card.addEventListener('click', () => {
-                window.open('https://discord.gg/j9taJKe7H8', '_blank');
-            });
-            return;
-        }
-        if (originalUrl === 'ran') {
-            card.addEventListener('click', () => {
-                const usableGames = allGames.filter(g => !['sug', 'ran'].includes(g.url));
-                const randomGame = usableGames[Math.floor(Math.random() * usableGames.length)];
-                
-                let gameUrl = randomGame.url;
-                if (!gameUrl.startsWith('http') && !gameUrl.startsWith('/cdn/games/')) {
-                    gameUrl = `/cdn/games/${gameUrl}`;
-                }
-                
-                const nextUrl = `/play?url=${encodeURIComponent(gameUrl)}&title=${encodeURIComponent(randomGame.name)}&icon=${encodeURIComponent(randomGame.image)}`;
-                window.location.href = nextUrl;
-            });
-            return;
-        }
+
         if (originalUrl?.startsWith('https://')) {
-            card.addEventListener('click', () => {
+            card.addEventListener('click', (e) => {
+                if ((e.target as HTMLElement).closest('.fav-btn')) return;
                 const Win = (window.top as any).Window || Window;
                 new Win({ url: "/siterunner?url=" + encodeURIComponent(originalUrl), title: "Browser" });
             });
@@ -198,13 +215,12 @@ function renderGames(games: any[]) {
 
 function createGameCard(game: any): string {
     const fallbackImageUrl = `https://mathclass.404.mn/cdn/imgs/${game.image.split('/').pop()}`;
-    
+
     let gameUrl = game.url;
-    // Normalize game URL if it's not a full URL and not a special word
     if (!gameUrl.startsWith('http') && !['sug', 'ran'].includes(gameUrl) && !gameUrl.startsWith('/cdn/games/')) {
         gameUrl = `/cdn/games/${gameUrl}`;
     }
-    
+
     const link = `/play?url=${encodeURIComponent(gameUrl)}&title=${encodeURIComponent(game.name)}&icon=${encodeURIComponent(game.image)}`;
     const isFav = favorites.has(game.url);
 
