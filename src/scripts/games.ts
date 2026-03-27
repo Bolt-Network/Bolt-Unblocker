@@ -58,6 +58,38 @@ function categorizeGame(game: any): string[] {
     return categories;
 }
 
+function setupDelegatedListeners() {
+    const gridIds = ['favorites-grid', 'featured-grid', 'games'];
+
+    for (const gridId of gridIds) {
+        const grid = document.getElementById(gridId);
+        if (!grid) continue;
+
+        grid.addEventListener('click', (e) => {
+            const favBtn = (e.target as HTMLElement).closest('.fav-btn');
+            if (favBtn) {
+                e.stopPropagation();
+                const url = favBtn.getAttribute('data-url');
+                if (url) toggleFavorite(url);
+                return;
+            }
+
+            const card = (e.target as HTMLElement).closest('.game-card') as HTMLElement;
+            if (!card) return;
+
+            const originalUrl = card.getAttribute('data-original-url');
+            if (originalUrl?.startsWith('https://')) {
+                const Win = (window.top as any).Window || Window;
+                new Win({ url: "/siterunner?url=" + encodeURIComponent(originalUrl), title: "Browser" });
+                return;
+            }
+
+            const link = card.getAttribute('data-link');
+            if (link) window.location.href = link;
+        });
+    }
+}
+
 function loadGames() {
     loadFavorites();
 
@@ -111,7 +143,7 @@ function loadGames() {
             // Sidebar toggle logic
             const sidebar = document.getElementById('sidebar');
             const sidebarToggle = document.getElementById('sidebar-toggle');
-            
+
             if (sidebar && sidebarToggle) {
                 // Initialize state
                 if (window.innerWidth <= 1024) {
@@ -120,7 +152,7 @@ function loadGames() {
 
                 sidebarToggle.addEventListener('click', () => {
                     sidebar.classList.toggle('collapsed');
-                    
+
                     // Save preference if needed
                     if (window.innerWidth > 1024) {
                         localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('collapsed').toString());
@@ -175,7 +207,6 @@ function filterGames() {
 
     renderGames(filtered);
 }
-
 function renderGames(games: any[]) {
     const favoritesSection = document.getElementById('favorites-section') as HTMLElement;
     const favoritesGrid = document.getElementById('favorites-grid');
@@ -186,9 +217,7 @@ function renderGames(games: any[]) {
 
     const favoriteGames = games.filter(g => favorites.has(g.url));
     const featuredGames = games.filter(g => g.featured);
-    const allGamesToShow = games;
 
-    // Favorites section — hide if empty
     if (favoriteGames.length > 0) {
         favoritesSection.style.display = '';
         favoritesGrid.innerHTML = favoriteGames.map(game => createGameCard(game)).join('');
@@ -197,48 +226,14 @@ function renderGames(games: any[]) {
         favoritesGrid.innerHTML = '';
     }
 
-    // Featured section
-    if (featuredGames.length > 0) {
-        featuredGrid.innerHTML = featuredGames.map(game => createGameCard(game)).join('');
-    } else {
-        featuredGrid.innerHTML = '<p class="no-games-msg">No featured games in this category</p>';
-    }
+    featuredGrid.innerHTML = featuredGames.length > 0
+        ? featuredGames.map(game => createGameCard(game)).join('')
+        : '<p class="no-games-msg">No featured games in this category</p>';
 
-    // All games section
-    if (allGamesToShow.length > 0) {
-        allGamesGrid.innerHTML = allGamesToShow.map(game => createGameCard(game)).join('');
-    } else {
-        allGamesGrid.innerHTML = '<p class="no-games-msg">No games found</p>';
-    }
-
-    // Attach click events to all cards across all grids
-    document.querySelectorAll('.game-card').forEach(card => {
-        const link = card.getAttribute('data-link');
-        const originalUrl = card.getAttribute('data-original-url');
-
-        if (originalUrl?.startsWith('https://')) {
-            card.addEventListener('click', (e) => {
-                if ((e.target as HTMLElement).closest('.fav-btn')) return;
-                const Win = (window.top as any).Window || Window;
-                new Win({ url: "/siterunner?url=" + encodeURIComponent(originalUrl), title: "Browser" });
-            });
-            return;
-        }
-        card.addEventListener('click', (e) => {
-            if ((e.target as HTMLElement).closest('.fav-btn')) return;
-            if (link) window.location.href = link;
-        });
-    });
-
-    document.querySelectorAll('.fav-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const url = btn.getAttribute('data-url');
-            if (url) toggleFavorite(url);
-        });
-    });
+    allGamesGrid.innerHTML = games.length > 0
+        ? games.map(game => createGameCard(game)).join('')
+        : '<p class="no-games-msg">No games found</p>';
 }
-
 function createGameCard(game: any): string {
     const fallbackImageUrl = `https://mathclass.404.mn/cdn/imgs/${game.image.split('/').pop()}`;
 
@@ -266,4 +261,7 @@ function createGameCard(game: any): string {
     `;
 }
 
-document.addEventListener('DOMContentLoaded', loadGames);
+document.addEventListener('DOMContentLoaded', () => {
+    setupDelegatedListeners();
+    loadGames();
+});
