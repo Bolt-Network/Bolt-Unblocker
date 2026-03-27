@@ -55,6 +55,19 @@
         "controls": "Coming Soon"
     },
     {
+        "name": "Hollow Knight: Silksong",
+        "image": "/cdn/imgs/silksong.webp",
+        "url": "/cdn/games/hollow-knight-silksong",
+        "tags": [],
+        "categories": [
+            "Action",
+            "Adventure"
+        ],
+        "description": "By Team Cherry  (https://store.steampowered.com/app/367520/Hollow_Knight)",
+        "controls": "Coming Soon",
+        "featured": true
+    },
+    {
         "name": "Rainbow Obby",
         "image": "/cdn/imgs/rainbow-obby.webp",
         "url": "/cdn/games/rainbow-obby",
@@ -5901,7 +5914,8 @@
             "Adventure"
         ],
         "description": "By Blobfish, Individual/Stinkalistic  (https://store.steampowered.com/app/1942280/Brotato/)",
-        "controls": "Coming Soon"
+        "controls": "Coming Soon",
+        "featured": true
     },
     {
         "name": "ShredSauce",
