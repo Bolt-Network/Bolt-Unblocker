@@ -6,6 +6,11 @@ const appMenuButton = document.querySelector("#app-menu-button") as HTMLDivEleme
 const appMenu = document.querySelector("#app-menu") as HTMLDivElement;
 const appsGrid = document.querySelector("#apps-grid") as HTMLDivElement;
 
+const settings = JSON.parse(localStorage.getItem("bolt-settings") || "{}");
+if (settings.showAppsOnLaunch !== false) {
+    appMenu.classList.add("active");
+}
+
 const LIBRARY_KEY = "bolt-app-library";
 
 appMenuButton.addEventListener("click", () => {
