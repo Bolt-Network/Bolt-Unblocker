@@ -15,7 +15,7 @@ function initDiscordNotify() {
         return;
     }
 
-    const delay = Math.floor(Math.random() * (10000 - 5000 + 1)) + 5000;
+    const delay = Math.floor(Math.random() * (12000 - 10000 + 1)) + 10000;
 
     setTimeout(() => {
         notification.classList.remove("hidden");

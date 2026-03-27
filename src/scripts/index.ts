@@ -64,7 +64,7 @@ function search(event?: Event) {
 searchForm.addEventListener("submit", search);
 searchButton.addEventListener("click", search);
 const phrases = ["Proverbs 4:7", "Killing School Boredom", "If you're caught, I was never here", "lock in bro", "(not) developed by a donut", "fastest proxy since 2067", "RAHH 🦅🦅🇺🇸🇺🇸"];
-if (!settings.showGreeting) {
+if (settings.showGreeting === false) {
     mainTitle.textContent = "Bolt";
 
     const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];

@@ -25,6 +25,7 @@ interface BoltSettings {
     searchSuggestions: boolean;
     searchNewTab: boolean;
     customSearchUrl: string;
+    showAppsOnLaunch: boolean;
 }
 
 const STORAGE_KEY = 'bolt-settings';
@@ -47,6 +48,7 @@ const defaults: BoltSettings = {
     searchSuggestions: true,
     searchNewTab: false,
     customSearchUrl: '',
+    showAppsOnLaunch: true,
 };
 
 function loadSettings(): BoltSettings {
@@ -99,6 +101,7 @@ function init(): void {
     const customBg = getInput('custom-bg');
     const tabStyle = getSelect('tab-style');
     const showGreeting = getCheckbox('show-greeting');
+    const showAppsOnLaunch = getCheckbox('show-apps-on-launch');
 
     // Cloaking
     const tabCloak = getCheckbox('tab-cloak');
@@ -120,6 +123,7 @@ function init(): void {
     if (customBg) customBg.value = settings.customBg;
     if (tabStyle) tabStyle.value = settings.tabStyle;
     if (showGreeting) showGreeting.checked = settings.showGreeting;
+    if (showAppsOnLaunch) showAppsOnLaunch.checked = settings.showAppsOnLaunch;
 
     if (tabCloak) tabCloak.checked = settings.tabCloak;
     if (cloakTitle) cloakTitle.value = settings.cloakTitle;
@@ -160,6 +164,7 @@ function init(): void {
             searchSuggestions: searchSuggestions?.checked ?? defaults.searchSuggestions,
             searchNewTab: searchNewTab?.checked ?? defaults.searchNewTab,
             customSearchUrl: customSearchUrl?.value ?? defaults.customSearchUrl,
+            showAppsOnLaunch: showAppsOnLaunch?.checked ?? defaults.showAppsOnLaunch,
         };
     }
 
@@ -171,7 +176,7 @@ function init(): void {
     }
 
     // Attach listeners to all controls
-    const checkboxes = [showGreeting, tabCloak, searchSuggestions, searchNewTab, ultraPerformance, autoCloak];
+    const checkboxes = [showGreeting, tabCloak, searchSuggestions, searchNewTab, ultraPerformance, autoCloak, showAppsOnLaunch];
     const selects = [backgroundDetailLevel, proxyEngine, themeSelect, tabStyle, searchEngine];
     const inputs = [customBg, cloakTitle, panicKey, panicUrl, customSearchUrl];
 
@@ -245,6 +250,14 @@ export async function deepReset(): Promise<void> {
         sessionStorage.clear();
     } catch (e) {
         console.error('Reset failed:', e);
+        window.top!.notify({
+            title: "Reset Failed",
+            desc: "Bolt could not be reset. Please try again.",
+            img: "/img/warning.webp",
+            lifespan: 6,
+            important: false,
+            sound: true,
+        });
     }
 
     await new Promise(r => setTimeout(r, 300));

@@ -1,3 +1,24 @@
+html:has(#content),
+body:has(#content),
+main:has(#content) {
+    overflow: hidden !important;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body:has(#content) * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    box-sizing: border-box;
+}
+
+body:has(#content) *::-webkit-scrollbar {
+    display: none;
+}
+
 #top h1 {
     font-size: 4.5rem;
     color: #fff;
@@ -75,6 +96,7 @@
     align-items: center;
     text-align: center;
     flex-direction: column;
+    transition: all 0.3s ease;
 }
 
 #content {
@@ -86,6 +108,7 @@
     text-align: center;
     padding: 10px;
     flex-direction: column;
+    overflow: hidden;
 }
 
 #top {
@@ -194,6 +217,7 @@
     gap: 2rem;
     z-index: 10000;
     transition: all 0.2s ease;
+    box-shadow: 0 0px 15px #7ee1ff;
 }
 
 #app-menu-button {
@@ -414,29 +438,44 @@
     color: #ff453a;
 }
 
+#app-menu-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    width: 100%;
+    height: 10%;
+}
+
+#app-menu-title {
+    font-size: 2.5rem;
+    font-family: bold;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    text-shadow: 0 5px 10px #3d525e;
+}
+
 #app-menu {
     position: absolute;
-    bottom: 27%;
+    bottom: 50%;
     left: 50%;
-    transform: translate(-50%, 50%);
-    width: 30vw;
-    height: 37vh;
-    background-color: rgba(255, 255, 255, 0.171);
-    backdrop-filter: blur(10px);
+    transform: translate(-50%, 52%);
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(20px) brightness(80%);
     border-radius: 10px;
-    outline: 1.3px solid #ffffff86;
-    transition: all 0.3s ease;
     display: flex;
-
     align-items: flex-start;
     text-align: center;
     flex-direction: column;
-    padding: 1%;
+    padding: 5%;
     animation: app-menu-fade-out 0.2s ease-out forwards;
     display: none;
     opacity: 0;
-    z-index: 1000000;
-
+    z-index: 1000;
+    transition: all 0.3s ease;
 }
 
 
@@ -449,10 +488,14 @@
 @keyframes app-menu-fade-in {
     from {
         opacity: 0;
+        transform: translate(-50%, 55%) scale(1.1);
+
     }
 
     to {
         opacity: 1;
+        transform: translate(-50%, 50%) scale(1);
+
     }
 }
 
@@ -460,26 +503,33 @@
     from {
         opacity: 1;
         display: flex;
+        transform: translate(-50%, 50%) scale(1);
     }
 
     to {
         opacity: 0;
         display: none;
+        transform: translate(-50%, 55%) scale(1.1);
     }
 }
 
 
 #apps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 1rem;
     width: 100%;
     padding: 1%;
     overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: #ffffff86 #ffffff15;
-    border-radius: 1vw;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    border-radius: 10px;
 }
+
+#apps-grid::-webkit-scrollbar {
+    display: none;
+}
+
 
 .app {
     display: flex;
@@ -518,7 +568,7 @@
     left: 0;
     right: 0;
     margin: 0;
-    text-shadow: 0 0 10px #ffffff;
+    text-shadow: 0 0 10px #000000;
     opacity: 0;
     transition: all 0.2s ease;
 }
@@ -827,28 +877,9 @@
 
     }
 
-    #app-menu {
-        position: absolute;
-        bottom: 29%;
-        left: 50%;
-        transform: translate(-50%, 50%);
-        width: 30vw;
-        height: 37vh;
 
-        backdrop-filter: blur(10px);
-        border-radius: 10px;
-        outline: 1.3px solid #ffffff86;
-        transition: all 0.3s ease;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        flex-direction: column;
-        padding: 1%;
-        animation: app-menu-fade-out 0.2s ease-out forwards;
-        display: none;
-        opacity: 0;
-        z-index: 1000000;
+}
 
-    }
+#top-wrapper:has(+ #bottom-wrapper #app-menu.active) {
+    transform: translateY(-5%) scale(0.9);
 }

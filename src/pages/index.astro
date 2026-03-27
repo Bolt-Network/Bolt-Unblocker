@@ -86,7 +86,7 @@ import time from "../scripts/time.ts";
 			<div id="bottom-wrapper">
 				<div id="apps-tooltip" class="tooltip hidden">
 					<div class="tooltip-content">
-						<p>Click to show apps</p>
+						<p>Click to go home</p>
 						<div class="tooltip-buttons">
 							<button id="tooltip-ok">OK</button>
 							<button id="tooltip-no-show"
@@ -96,7 +96,12 @@ import time from "../scripts/time.ts";
 					</div>
 					<div class="tooltip-arrow"></div>
 				</div>
-				<div id="app-menu"><div id="apps-grid"></div></div>
+				<div id="app-menu">
+					<div id="app-menu-header">
+						<h1 id="app-menu-title">Bolt Apps</h1>
+					</div>
+					<div id="apps-grid"></div>
+				</div>
 				<div id="taskbar">
 					<div id="taskbar-left">
 						<div id="app-menu-button"><BoltIcon /></div>
