@@ -43,9 +43,8 @@ body:has(#content) *::-webkit-scrollbar {
     max-width: 800px;
     margin: 20px auto;
     padding: 24px;
-    background: rgba(255, 255, 255, 0.03);
+    background-color: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     position: relative;
@@ -65,9 +64,8 @@ body:has(#content) *::-webkit-scrollbar {
     position: absolute;
     top: -12px;
     left: 20px;
-    background: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     color: rgba(255, 255, 255, 0.5);
     font-size: 0.65rem;
@@ -390,7 +388,7 @@ body:has(#content) *::-webkit-scrollbar {
 .context-menu {
     position: fixed;
     z-index: 10001;
-    background: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
@@ -595,9 +593,8 @@ body:has(#content) *::-webkit-scrollbar {
 }
 
 .tooltip-content {
-    background: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     padding: 14px 18px;
@@ -670,9 +667,8 @@ body:has(#content) *::-webkit-scrollbar {
     bottom: 20px;
     left: 20px;
     z-index: 10000000;
-    background: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(25px) saturate(180%);
-    -webkit-backdrop-filter: blur(25px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 16px;
     padding: 24px;
@@ -791,9 +787,8 @@ body:has(#content) *::-webkit-scrollbar {
     left: 50%;
     transform: translateX(-50%);
     z-index: 999999;
-    background: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px) saturate(160%);
-    -webkit-backdrop-filter: blur(20px) saturate(160%);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 30px 20px 20px 20px;
