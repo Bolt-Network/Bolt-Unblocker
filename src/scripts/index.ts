@@ -107,7 +107,7 @@ if (typeof window !== 'undefined') {
         notify({
             title: "Update Available",
             desc: "Bolt needs an update! Some features may be broken until updated. Open settings to update.",
-            img: "/img/warning.png",
+            img: "/img/warning.webp",
             lifespan: 6,
             important: false,
             sound: true,

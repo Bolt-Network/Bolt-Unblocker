@@ -242,32 +242,35 @@ deepClean?.addEventListener('click', () => {
 
 export async function deepReset(): Promise<void> {
     console.log("Resetting Bolt...");
+    window.top!.notify({
+        title: "Resetting Bolt...",
+        desc: "Please wait while we reset Bolt.",
+        img: "/img/icons/settings.webp",
+        lifespan: 3,
+        important: false,
+        sound: true,
+    });
+
     try {
         await fetch('/api/deepreset', { method: 'POST' });
-        // Clear-Site-Data header handles almost everything automatically.
-        // Only need this as a fallback for browsers that don't support it:
+
         localStorage.clear();
         sessionStorage.clear();
-    } catch (e) {
-        console.error('Reset failed:', e);
+
         window.top!.notify({
-            title: "Reset Failed",
-            desc: "Bolt could not be reset. Please try again.",
-            img: "/img/warning.webp",
+            title: "Successfully Reset",
+            desc: "Bolt has been reset. Reloading...",
+            img: "/img/icons/settings.webp",
             lifespan: 6,
             important: false,
             sound: true,
         });
-    }
 
-    await new Promise(r => setTimeout(r, 300));
-    window.top!.notify({
-        title: "Successfully Reset",
-        desc: "Bolt has been reset to its default settings. Reloading to apply changes...",
-        img: "/img/icons/settings.webp",
-        lifespan: 6,
-        important: false,
-        sound: true,
-    });
-    setTimeout(() => window.top!.location.reload(), 1500);
+        setTimeout(() => {
+            window.top!.location.href = window.top!.location.origin;
+        }, 1000);
+
+    } catch (e) {
+        console.error('Reset failed:', e);
+    }
 }
