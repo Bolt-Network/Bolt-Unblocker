@@ -87,7 +87,12 @@ function setupDelegatedListeners() {
         }
 
         const link = card.getAttribute('data-link');
-        if (link) window.location.href = link;
+        if (link) {
+            window.location.href = link;
+        }
+        else {
+            console.log("No link found for game");
+        }
     });
 }
 function loadGames() {
