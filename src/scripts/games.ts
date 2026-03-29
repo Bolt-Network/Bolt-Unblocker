@@ -58,50 +58,38 @@ function categorizeGame(game: any): string[] {
 
     return categories;
 }
-
 function setupDelegatedListeners() {
-    const gridIds = ['favorites-grid', 'featured-grid', 'games'];
+    // Use document.body (or a persistent wrapper) instead of the grid elements,
+    // so click handling is ready before any game cards are rendered.
+    document.body.addEventListener('click', (e) => {
+        const favBtn = (e.target as HTMLElement).closest('.fav-btn');
+        if (favBtn) {
+            e.stopPropagation();
+            const url = favBtn.getAttribute('data-url');
+            if (url) toggleFavorite(url);
+            return;
+        }
 
-    for (const gridId of gridIds) {
-        const grid = document.getElementById(gridId);
-        if (!grid) continue;
+        const card = (e.target as HTMLElement).closest('.game-card') as HTMLElement;
+        if (!card) return;
 
-        grid.addEventListener('click', (e) => {
-            const favBtn = (e.target as HTMLElement).closest('.fav-btn');
-            if (favBtn) {
-                e.stopPropagation();
-                const url = favBtn.getAttribute('data-url');
-                if (url) toggleFavorite(url);
+        const needsProxy = card.getAttribute('data-proxy') === 'true';
+        if (needsProxy) {
+            const topWindow = window.top as any;
+            const link = card.getAttribute('data-link');
+            const title = card.querySelector('h3')?.textContent || "Game";
+            const icon = card.querySelector('img')?.getAttribute('src') || "/img/icons/browser.webp";
+
+            if (topWindow && topWindow.Window && link) {
+                new topWindow.Window({ url: link, title, icon, startMaximized: false });
                 return;
             }
+        }
 
-            const card = (e.target as HTMLElement).closest('.game-card') as HTMLElement;
-            if (!card) return;
-
-            const needsProxy = card.getAttribute('data-proxy') === 'true';
-            if (needsProxy) {
-                const topWindow = window.top as any;
-                const link = card.getAttribute('data-link');
-                const title = card.querySelector('h3')?.textContent || "Game";
-                const icon = card.querySelector('img')?.getAttribute('src') || "/img/icons/browser.webp";
-
-                if (topWindow && topWindow.Window && link) {
-                    new topWindow.Window({
-                        url: link,
-                        title: title,
-                        icon: icon,
-                        startMaximized: false,
-                    });
-                    return;
-                }
-
-            }
-            const link = card.getAttribute('data-link');
-            if (link) window.location.href = link;
-        });
-    }
+        const link = card.getAttribute('data-link');
+        if (link) window.location.href = link;
+    });
 }
-
 function loadGames() {
     loadFavorites();
 
