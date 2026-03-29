@@ -5,6 +5,7 @@ let allGames: any[] = [];
 let currentCategory = 'All';
 let currentSearch = '';
 let favorites: Set<string> = new Set();
+let isNavigating = false;
 
 function loadFavorites() {
     const saved = window.top?.localStorage.getItem('gameFavorites');
@@ -86,15 +87,15 @@ function setupDelegatedListeners() {
             }
         }
 
+
+
         const link = card.getAttribute('data-link');
         console.log("link value:", link);
         if (link) {
-            console.log("clicked game");
+            isNavigating = true;
             window.location.href = link;
         }
-        else {
-            console.log("No link found for game");
-        }
+
     });
 }
 function loadGames() {
@@ -215,6 +216,8 @@ function filterGames() {
     renderGames(filtered);
 }
 function renderGames(games: any[]) {
+    if (isNavigating) return;
+
     const favoritesSection = document.getElementById('favorites-section') as HTMLElement;
     const favoritesGrid = document.getElementById('favorites-grid');
     const featuredGrid = document.getElementById('featured-grid');
