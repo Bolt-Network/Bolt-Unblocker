@@ -88,6 +88,7 @@ function setupDelegatedListeners() {
 
         const link = card.getAttribute('data-link');
         if (link) {
+            console.log("clicked game");
             window.location.href = link;
         }
         else {
