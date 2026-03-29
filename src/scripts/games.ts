@@ -76,12 +76,12 @@ function setupDelegatedListeners() {
         const needsProxy = card.getAttribute('data-proxy') === 'true';
         if (needsProxy) {
             const topWindow = window.top as any;
-            const link = card.getAttribute('data-link');
+            const originalUrl = card.getAttribute('data-original-url');
             const title = card.querySelector('h3')?.textContent || "Game";
             const icon = card.querySelector('img')?.getAttribute('src') || "/img/icons/browser.webp";
 
-            if (topWindow && topWindow.Window && link) {
-                new topWindow.Window({ url: link, title, icon, startMaximized: false });
+            if (topWindow && topWindow.Window && originalUrl) {
+                new topWindow.Window({ url: `/siterunner?url=${originalUrl}`, title, icon, startMaximized: false });
                 return;
             }
         }
