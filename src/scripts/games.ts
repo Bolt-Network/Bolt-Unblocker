@@ -92,8 +92,10 @@ function setupDelegatedListeners() {
         const link = card.getAttribute('data-link');
         console.log("link value:", link);
         if (link) {
+            console.log("navigating");
             isNavigating = true;
             window.location.href = link;
+            return;
         }
 
     });
