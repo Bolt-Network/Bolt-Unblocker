@@ -2,15 +2,11 @@
 import Layout from "../Layouts/Layout.astro";
 ---
 
-<Layout title="Play">
+<Layout title="Play" proxy={false}>
     <main>
         <div id="ptop">
             <div id="game-container">
-                <iframe
-                    id="game-frame"
-                    src=""
-                    title="Game player"
-                    allowfullscreen></iframe>
+                <iframe id="game-frame" src="" allowfullscreen></iframe>
                 <div id="ptoolbar">
                     <div id="game-info">
                         <button

@@ -1,4 +1,4 @@
-import proxy, { swReady } from "./proxy";
+import dummyProxy, { swReady } from "./encoding";
 
 // --- Site Alert Logic ---
 let siteAlerts: any[] = [];
@@ -36,7 +36,7 @@ function checkForSiteAlerts(url: string) {
                     notifyFn({
                         title: "Site Alert",
                         desc: entry.alert,
-                        img: "/img/warning.png",
+                        img: "/img/warning.webp",
                         lifespan: 12,
                         important: true,
                         buttons: entry.button ? [
@@ -203,13 +203,13 @@ class TabManager {
                     finalUrl = destinationUrl;
                 } else if (addressInput.value.startsWith('https://') || addressInput.value.startsWith('http://')) {
                     destinationUrl = addressInput.value;
-                    finalUrl = proxy.encodeUrl(destinationUrl);
+                    finalUrl = dummyProxy.encodeUrl(destinationUrl);
                 } else if (addressInput.value.includes('.') && !addressInput.value.includes(' ')) {
                     destinationUrl = 'https://' + addressInput.value;
-                    finalUrl = proxy.encodeUrl(destinationUrl);
+                    finalUrl = dummyProxy.encodeUrl(destinationUrl);
                 } else {
                     destinationUrl = searchEngineUrl + addressInput.value;
-                    finalUrl = proxy.encodeUrl(destinationUrl);
+                    finalUrl = dummyProxy.encodeUrl(destinationUrl);
                 }
 
                 this.updateActiveTabUrl(finalUrl);
@@ -519,8 +519,8 @@ class TabManager {
             if (tab.isActive) {
                 const addressInput = document.getElementById('address-input') as HTMLInputElement;
                 if (addressInput) {
-                    if (proxy.isProxiedUrl(tab.url)) {
-                        addressInput.value = proxy.decodeProxiedUrl(tab.url);
+                    if (dummyProxy.isProxiedUrl(tab.url)) {
+                        addressInput.value = dummyProxy.decodeProxiedUrl(tab.url);
                     } else {
                         addressInput.value = tab.url;
                     }
@@ -535,7 +535,7 @@ class TabManager {
                 try {
                     const currentHref = iframe.contentWindow?.location.href;
                     if (currentHref && currentHref !== 'about:blank') {
-                        if (currentHref.startsWith(window.location.origin) && !proxy.isProxiedUrl(currentHref)) {
+                        if (currentHref.startsWith(window.location.origin) && !dummyProxy.isProxiedUrl(currentHref)) {
                             const path = new URL(currentHref).pathname.slice(1);
                             tab.url = 'bolt://' + (path || 'newtab');
                         } else {
@@ -558,8 +558,8 @@ class TabManager {
 
                 if (addressInput && tab.isActive) {
                     let displayUrl = '';
-                    if (proxy.isProxiedUrl(tab.url)) {
-                        displayUrl = proxy.decodeProxiedUrl(tab.url);
+                    if (dummyProxy.isProxiedUrl(tab.url)) {
+                        displayUrl = dummyProxy.decodeProxiedUrl(tab.url);
                     } else {
                         displayUrl = tab.url;
                     }
@@ -592,7 +592,7 @@ newTabBtn?.addEventListener('click', () => {
 
 // 3. Add a starting tab
 swReady.then(() => {
-    const initialDestination = url ? (url.startsWith('bolt://') ? url : proxy.encodeUrl(url)) : ('bolt://newtab');
+    const initialDestination = url ? (url.startsWith('bolt://') ? url : dummyProxy.encodeUrl(url)) : ('bolt://newtab');
     myBrowser.addTab('Loading...', initialDestination);
 });
 
@@ -611,7 +611,7 @@ function navigateTo(url: string) {
         newUrl = searchEngineUrl + url;
     }
 
-    myBrowser.updateActiveTabUrl(proxy.encodeUrl(newUrl));
+    myBrowser.updateActiveTabUrl(dummyProxy.encodeUrl(newUrl));
 }
 
 function openNewTab() {

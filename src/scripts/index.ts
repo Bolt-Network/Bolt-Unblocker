@@ -84,21 +84,6 @@ if (!localStorage.getItem(firstVisitKey)) {
 
     localStorage.setItem("current-version", latestVersion);
     localStorage.setItem(firstVisitKey, "true");
-
-    const debugWindow = new Window({
-        url: "/browser",
-        title: "Debug Browser",
-        icon: "/img/icons/browser.webp",
-        startMaximized: false,
-        width: 300,
-        height: 200,
-        backgroundWindow: true
-    });
-
-    // Close it but give it a second to load
-    setTimeout(() => {
-        debugWindow.destroy();
-    }, 1000);
 }
 
 
@@ -136,3 +121,4 @@ if (typeof window !== 'undefined') {
         });
     }
 }
+

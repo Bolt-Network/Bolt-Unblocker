@@ -1,4 +1,5 @@
-import Window from "./Window";
+
+
 
 let allGames: any[] = [];
 let currentCategory = 'All';
@@ -77,13 +78,26 @@ function setupDelegatedListeners() {
             const card = (e.target as HTMLElement).closest('.game-card') as HTMLElement;
             if (!card) return;
 
-            const originalUrl = card.getAttribute('data-original-url');
-            if (originalUrl?.startsWith('https://')) {
-                const Win = (window.top as any).Window || Window;
-                new Win({ url: "/siterunner?url=" + encodeURIComponent(originalUrl), title: "Browser" });
-                return;
-            }
+            const needsProxy = card.getAttribute('data-proxy') === 'true';
+            if (needsProxy) {
+                const mainIframe = window.parent.document.getElementById('game-hub') as HTMLIFrameElement;
+                mainIframe.src = card.getAttribute('data-link') + "&proxy=true";
+                /*  const topWindow = window.top as any;
+                 const link = card.getAttribute('data-link');
+                 const title = card.querySelector('h3')?.textContent || "Game";
+                 const icon = card.querySelector('img')?.getAttribute('src') || "/img/icons/browser.webp";
+ 
+                 if (topWindow && topWindow.Window && link) {
+                     new topWindow.Window({
+                         url: link,
+                         title: title,
+                         icon: icon,
+                         startMaximized: false,
+                     });
+                     return;
+                 } */
 
+            }
             const link = card.getAttribute('data-link');
             if (link) window.location.href = link;
         });
@@ -246,7 +260,7 @@ function createGameCard(game: any): string {
     const isFav = favorites.has(game.url);
 
     return `
-        <div class="game-card glass cursor-pointer transform transition-transform" data-link="${link}" data-original-url="${game.url}">
+        <div class="game-card glass cursor-pointer transform transition-transform" data-link="${link}" data-original-url="${game.url}" data-proxy="${game.proxy || 'false'}">
             <img 
                 src="${game.image}" 
                 alt="${game.name} image" 
