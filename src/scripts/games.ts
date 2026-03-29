@@ -80,22 +80,20 @@ function setupDelegatedListeners() {
 
             const needsProxy = card.getAttribute('data-proxy') === 'true';
             if (needsProxy) {
-                const mainIframe = window.parent.document.getElementById('game-hub') as HTMLIFrameElement;
-                mainIframe.src = card.getAttribute('data-link') + "&proxy=true";
-                /*  const topWindow = window.top as any;
-                 const link = card.getAttribute('data-link');
-                 const title = card.querySelector('h3')?.textContent || "Game";
-                 const icon = card.querySelector('img')?.getAttribute('src') || "/img/icons/browser.webp";
- 
-                 if (topWindow && topWindow.Window && link) {
-                     new topWindow.Window({
-                         url: link,
-                         title: title,
-                         icon: icon,
-                         startMaximized: false,
-                     });
-                     return;
-                 } */
+                const topWindow = window.top as any;
+                const link = card.getAttribute('data-link');
+                const title = card.querySelector('h3')?.textContent || "Game";
+                const icon = card.querySelector('img')?.getAttribute('src') || "/img/icons/browser.webp";
+
+                if (topWindow && topWindow.Window && link) {
+                    new topWindow.Window({
+                        url: link,
+                        title: title,
+                        icon: icon,
+                        startMaximized: false,
+                    });
+                    return;
+                }
 
             }
             const link = card.getAttribute('data-link');
