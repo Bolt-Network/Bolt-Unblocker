@@ -59,9 +59,9 @@ function createAppElement(app: any, onClick: () => void): HTMLDivElement {
                 }
             ]);
         } else {
-             // System apps - only "Open"
-             e.preventDefault();
-             ContextMenu.getInstance().show(e.clientX, e.clientY, [{ label: "Open App", action: () => onClick() }]);
+            // System apps - only "Open"
+            e.preventDefault();
+            ContextMenu.getInstance().show(e.clientX, e.clientY, [{ label: "Open App", action: () => onClick() }]);
         }
     });
 
@@ -72,7 +72,7 @@ function createAppElement(app: any, onClick: () => void): HTMLDivElement {
 function appendLibraryApps() {
     // Collect all library apps
     const libApps = getLibraryApps();
-    
+
     // Find Settings element to insert after it
     const allAppsInGrid = Array.from(appsGrid.children) as HTMLElement[];
     const settingsAppEl = allAppsInGrid.find(el => el.querySelector('p')?.textContent === "Settings");
@@ -82,7 +82,7 @@ function appendLibraryApps() {
     libApps.forEach(app => {
         const siteUrl = `/siterunner?url=${encodeURIComponent(app.url)}`;
         const icon = app.icon || getFaviconUrl(app.url);
-        
+
         const el = createAppElement({ ...app, icon }, () => {
             WindowManager.getInstance().openWindow(siteUrl, app.name, icon, false, false);
         });
@@ -108,7 +108,7 @@ async function loadApps() {
 
     apps.forEach((app: any) => {
         const el = createAppElement(app, () => {
-            WindowManager.getInstance().openWindow(app.url, app.name, app.icon, false, (app.credentialless || false));
+            WindowManager.getInstance().openWindow(app.url, app.name, app.icon, false, (app.credentialless || false), (app.frameId || ""));
         });
         appsGrid.appendChild(el);
     });
@@ -159,7 +159,7 @@ window.addEventListener("message", (event) => {
                 }
             }
         }
-        
+
         ContextMenu.getInstance().show(posX, posY, items.map((item: any) => ({
             label: item.label,
             danger: item.danger,

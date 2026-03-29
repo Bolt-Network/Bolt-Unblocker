@@ -1,3 +1,5 @@
+import dummyProxy from "./encoding";
+
 const gameFrame = document.getElementById('game-frame') as HTMLIFrameElement;
 const gameTitleElement = document.getElementById('game-title') as HTMLHeadingElement;
 const gameIconElement = document.getElementById('game-icon') as HTMLImageElement;
@@ -11,10 +13,17 @@ const urlParams = new URLSearchParams(window.location.search);
 const gameUrl = urlParams.get('url');
 const gameTitle = urlParams.get('title');
 const gameIcon = urlParams.get('icon');
+const proxy = urlParams.get('proxy');
 
 // Load game data
 if (gameUrl) {
-    gameFrame.src = String(gameUrl);
+    if (gameUrl.startsWith('https://') || gameUrl.startsWith('http://') || proxy === "true") {
+
+        gameFrame.src = dummyProxy.encodeUrl(gameUrl);
+
+    } else {
+        gameFrame.src = String(gameUrl);
+    }
     gameTitleElement.textContent = String(gameTitle || 'Game');
     gameIconElement.src = String(gameIcon || '/favicon.svg');
     gameIconElement.alt = `${gameTitle} icon`;

@@ -20,7 +20,7 @@
     {
         "name": "Fortnite",
         "image": "/cdn/imgs/fortnite.webp",
-        "url": "https://play.geforcenow.com/games?game-id=46bfab06-d864-465d-9e56-2d9e45cdee0a&lang=en_US&asset-id=01_030de162-3b58-4108-9499-43c825c5cf4c",
+        "url": "https://play.geforcenow.com/mall/#/deeplink?game-id=46bfab06-d864-465d-9e56-2d9e45cdee0a",
         "tags": [],
         "categories": [
             "All",
@@ -28,7 +28,8 @@
             "Shooting"
         ],
         "description": "",
-        "controls": "Coming Soon"
+        "controls": "Coming Soon",
+        "proxy": true
     },
     {
         "name": "ULTRAKILL",
