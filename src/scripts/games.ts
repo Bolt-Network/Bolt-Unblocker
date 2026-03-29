@@ -94,7 +94,8 @@ function setupDelegatedListeners() {
         if (link) {
             console.log("navigating");
             isNavigating = true;
-            window.location.href = link;
+            window.stop();                  // ← cancel all pending image/resource loads
+            window.location.replace(link);
             return;
         }
 
@@ -134,6 +135,7 @@ function loadGames() {
             }
 
             const randomBtn = document.getElementById('random-btn');
+            // Random button
             if (randomBtn) {
                 randomBtn.addEventListener('click', () => {
                     const usableGames = allGames.filter(g => !['sug', 'ran'].includes(g.url));
@@ -146,10 +148,11 @@ function loadGames() {
                     }
 
                     const nextUrl = `/play?url=${encodeURIComponent(gameUrl)}&title=${encodeURIComponent(randomGame.name)}&icon=${encodeURIComponent(randomGame.image)}`;
+                    isNavigating = true;
+                    window.stop();              // ← and here
                     window.location.href = nextUrl;
                 });
             }
-
             // Sidebar toggle logic
             const sidebar = document.getElementById('sidebar');
             const sidebarToggle = document.getElementById('sidebar-toggle');
@@ -247,7 +250,7 @@ function renderGames(games: any[]) {
         : '<p class="no-games-msg">No games found</p>';
 }
 function createGameCard(game: any): string {
-    const fallbackImageUrl = `https://mathclass.404.mn/cdn/imgs/${game.image.split('/').pop()}`;
+
 
     let gameUrl = game.url;
     if (!gameUrl.startsWith('http') && !['sug', 'ran'].includes(gameUrl) && !gameUrl.startsWith('/cdn/games/')) {
@@ -263,7 +266,7 @@ function createGameCard(game: any): string {
                 src="${game.image}" 
                 alt="${game.name} image" 
                 class="game-image"
-                onerror="this.onerror=null;this.src='${fallbackImageUrl}';"
+               
             >
             <div class="px-3 py-2 flex justify-between items-center">
                 <h3 class="text-white font-medium text-xl">${game.name}</h3>
