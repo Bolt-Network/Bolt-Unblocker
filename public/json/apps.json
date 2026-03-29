@@ -8,7 +8,7 @@
         "name": "Game Hub",
         "icon": "/img/icons/game-hub.webp",
         "url": "/games",
-        "credentialless": false,
+        "credentialless": true,
         "frameId": "game-hub"
     },
     {
