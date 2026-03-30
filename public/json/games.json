@@ -81,6 +81,18 @@
         "controls": "Coming Soon"
     },
     {
+        "name": "99 Nights in The Forest",
+        "image": "/cdn/imgs/99nights.webp",
+        "url": "/cdn/games/99-nights",
+        "tags": [],
+        "categories": [
+            "Action",
+            "Adventure"
+        ],
+        "description": "By Nulla Games, Ported by Bolt Network",
+        "controls": "Coming Soon"
+    },
+    {
         "name": "Bank Robbery 3",
         "image": "/cdn/imgs/bank-robbery-3.webp",
         "url": "/cdn/games/bank-robbery-3",
