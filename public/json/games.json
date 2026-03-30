@@ -90,7 +90,8 @@
             "Adventure"
         ],
         "description": "By Nulla Games, Ported by Bolt Network",
-        "controls": "Coming Soon"
+        "controls": "Coming Soon",
+        "featured": true
     },
     {
         "name": "Bank Robbery 3",
@@ -104,6 +105,18 @@
         "description": "By justaliendev  (https://www.crazygames.com/game/bank-robbery-3)",
         "controls": "Coming Soon",
         "featured": true
+    },
+    {
+        "name": "Monkey Mart",
+        "image": "/cdn/imgs/monkeymart.webp",
+        "url": "/cdn/games/monkey-mart",
+        "tags": [],
+        "categories": [
+            "Adventure",
+            "Arcade"
+        ],
+        "description": "By Monkey Mart, Ported by Bolt Network",
+        "controls": "Coming Soon"
     },
     {
         "name": "Terraria",
