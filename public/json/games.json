@@ -182,6 +182,18 @@
         "controls": "Coming Soon"
     },
     {
+        "name": "Roblox Obby",
+        "image": "/cdn/imgs/obbyrobby.webp",
+        "url": "/cdn/games/roblox-obby",
+        "tags": [],
+        "categories": [
+            "Adventure",
+            "Arcade"
+        ],
+        "description": "By Obby Robby, Ported by Bolt Network",
+        "controls": "Coming Soon"
+    },
+    {
         "name": "BLOODMONEY!",
         "image": "/cdn/imgs/bloodmoney-2.webp",
         "url": "/cdn/games/bloodmoney-2",
