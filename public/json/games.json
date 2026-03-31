@@ -158,6 +158,20 @@
         "controls": "Coming Soon"
     },
     {
+        "name": "Shell Shockers",
+        "image": "/cdn/imgs/shellshockers.webp",
+        "url": "/cdn/games/shell-shockers",
+        "tags": [],
+        "categories": [
+            "Adventure",
+            "Arcade",
+            "Shooting",
+            "Action"
+        ],
+        "description": "",
+        "controls": "Coming Soon"
+    },
+    {
         "name": "People Playground",
         "image": "/cdn/imgs/peopleplay.webp",
         "url": "/cdn/games/people-playground",
