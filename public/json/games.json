@@ -9295,14 +9295,16 @@
     {
         "name": "Smash Karts",
         "image": "/cdn/imgs/smash-karts.webp",
-        "url": "/cdn/games/smash-karts",
+        "url": "https://smashkarts.io/",
         "tags": [],
         "categories": [
             "Action",
             "Adventure"
         ],
         "description": "By Tall Team  (https://tall.team/)",
-        "controls": "Coming Soon"
+        "controls": "Coming Soon",
+        "featured": true,
+        "proxy": true
     },
     {
         "name": "Smokingbarrels",
