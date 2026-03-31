@@ -169,7 +169,8 @@
             "Action"
         ],
         "description": "",
-        "controls": "Coming Soon"
+        "controls": "Coming Soon",
+        "featured": true
     },
     {
         "name": "People Playground",
