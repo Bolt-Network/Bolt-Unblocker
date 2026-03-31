@@ -173,6 +173,19 @@
         "featured": true
     },
     {
+        "name": "Bloob.io (Party Games)",
+        "image": "/cdn/imgs/bloobio.webp",
+        "url": "https://bloob.io/",
+        "tags": [],
+        "categories": [
+            "Multiplayer"
+        ],
+        "description": "",
+        "controls": "Coming Soon",
+        "featured": true,
+        "proxy": true
+    },
+    {
         "name": "People Playground",
         "image": "/cdn/imgs/peopleplay.webp",
         "url": "/cdn/games/people-playground",
@@ -2700,7 +2713,8 @@
         "tags": [],
         "categories": [
             "Action",
-            "Adventure"
+            "Adventure",
+            "Multiplayer"
         ],
         "description": "By lax1dude  (https://eaglercraft.com)",
         "controls": "Coming Soon"
@@ -8501,7 +8515,8 @@
         "tags": [],
         "categories": [
             "Action",
-            "Adventure"
+            "Adventure",
+            "Multiplayer"
         ],
         "description": "By lax1dude  (https://eaglercraft.com)",
         "controls": "Coming Soon"
@@ -8512,7 +8527,9 @@
         "url": "/cdn/games/minecraft-1-8-8",
         "tags": [],
         "categories": [
-            "PC Games"
+            "Action",
+            "Adventure",
+            "Multiplayer"
         ],
         "description": "Coming Soon",
         "controls": "Coming Soon",
