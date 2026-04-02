@@ -9,6 +9,7 @@
 @import "./all/notifications.css";
 @import "./all/siterunner.css";
 @import "./all/appstore.css";
+@import "./all/injector.css";
 @import "tailwindcss";
 
 @font-face {

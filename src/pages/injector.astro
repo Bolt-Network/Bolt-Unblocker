@@ -1,0 +1,136 @@
+---
+import Layout from "../Layouts/Layout.astro";
+---
+
+<Layout title="Injector">
+    <main id="inj-page">
+
+        <!-- ── Header ── -->
+        <header id="inj-header">
+            <div id="inj-header-glow"></div>
+            <div id="inj-header-left">
+                <svg id="inj-logo-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 3L4 12L8 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 3L20 12L16 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 8V16M9 11L12 8L15 11M9 13L12 16L15 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div>
+                    <h1 id="inj-title">Injector</h1>
+                    <p id="inj-subtitle">Inject JavaScript into the top-level page</p>
+                </div>
+            </div>
+            <div id="inj-header-right">
+                <div id="inj-status-badge">
+                    <div id="inj-status-dot"></div>
+                    <span id="inj-status-text">Ready</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- ── Toolbar ── -->
+        <div id="inj-toolbar">
+            <div id="inj-toolbar-left">
+                <button class="inj-tool-btn" id="inj-btn-run" title="Run (Ctrl+Enter)">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 3L19 12L5 21V3Z" fill="currentColor"/>
+                    </svg>
+                    Run
+                </button>
+                <button class="inj-tool-btn inj-tool-ghost" id="inj-btn-clear" title="Clear editor">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 6H5H21M8 6V4C8 3.44772 8.44772 3 9 3H15C15.5523 3 16 3.44772 16 4V6M19 6L18.1351 18.1082C18.0544 19.2381 17.1177 20 15.9848 20H8.0152C6.88225 20 5.94557 19.2381 5.86494 18.1082L5 6H19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Clear
+                </button>
+                <button class="inj-tool-btn inj-tool-ghost" id="inj-btn-copy" title="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M8 4H6C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20H16C17.1046 20 18 19.1046 18 18V16M10 4H18C19.1046 4 20 4.89543 20 6V14C20 15.1046 19.1046 16 18 16H10C8.89543 16 8 15.1046 8 14V6C8 4.89543 8.89543 4 10 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Copy
+                </button>
+                <div class="inj-divider"></div>
+                <button class="inj-tool-btn inj-tool-ghost" id="inj-btn-snippet" title="Load snippet">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M4 6H20M4 10H20M4 14H14M4 18H10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Snippets
+                </button>
+            </div>
+            <div id="inj-toolbar-right">
+                <label class="inj-toggle-wrap" title="Wrap output on error">
+                    <span>Strict Mode</span>
+                    <div class="inj-toggle" id="inj-toggle-strict">
+                        <div class="inj-toggle-thumb"></div>
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <!-- ── Main Editor + Output Layout ── -->
+        <div id="inj-main">
+
+            <!-- Editor Panel -->
+            <div id="inj-editor-panel">
+                <div id="inj-editor-label">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M8 12H16M12 8L16 12L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    JavaScript Input
+                </div>
+                <div id="inj-editor-wrap">
+                    <div id="inj-line-numbers" aria-hidden="true"></div>
+                    <textarea
+                        id="inj-editor"
+                        spellcheck="false"
+                        autocomplete="off"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        placeholder="// Type your JavaScript here...&#10;// Press Ctrl+Enter or click Run to inject into the page&#10;&#10;console.log('Hello from Injector!');&#10;document.title = 'Injected!';"
+                    ></textarea>
+                </div>
+                <div id="inj-editor-footer">
+                    <span id="inj-cursor-pos">Ln 1, Col 1</span>
+                    <span id="inj-char-count">0 chars</span>
+                </div>
+            </div>
+
+            <!-- Output Panel -->
+            <div id="inj-output-panel">
+                <div id="inj-output-label">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                        <path d="M8 9L12 5L16 9M12 5V19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Console Output
+                    <button id="inj-btn-clear-output" title="Clear output">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div id="inj-output"></div>
+            </div>
+
+        </div>
+
+        <!-- ── Snippets Modal ── -->
+        <div id="inj-snippets-overlay" class="hidden">
+            <div id="inj-snippets-modal">
+                <div id="inj-snippets-header">
+                    <h2>Snippets</h2>
+                    <button id="inj-snippets-close">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div id="inj-snippets-list"></div>
+            </div>
+        </div>
+
+        <!-- ── Toast ── -->
+        <div id="inj-toast"></div>
+
+    </main>
+    <script src="../scripts/injector.ts"></script>
+</Layout>
