@@ -22,6 +22,11 @@
         "url": "/appstore"
     },
     {
+        "name": "Injector",
+        "icon": "/img/icons/injector.webp",
+        "url": "/injector"
+    },
+    {
         "name": "Settings",
         "icon": "/img/icons/settings.webp",
         "url": "/settings"
