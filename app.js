@@ -19,11 +19,10 @@ const fastify = Fastify({
 
 fastify.addHook("onSend", async (request, reply, payload) => {
     reply.header("Cross-Origin-Opener-Policy", "same-origin");
-    reply.header("Cross-Origin-Embedder-Policy", "credentialless");
 
+    reply.header("Cross-Origin-Embedder-Policy", "require-corp");
     return payload;
 });
-
 fastify.server.on("upgrade", (req, socket, head) => {
     wisp.routeRequest(req, socket, head);
 });
