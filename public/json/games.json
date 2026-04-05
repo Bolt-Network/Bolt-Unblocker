@@ -7947,6 +7947,16 @@
         "controls": "Coming Soon"
     },
     {
+        "name": "Geometry Dash",
+        "image": "/cdn/imgs/geodash.webp",
+        "url": "geometry-dash",
+        "tags": [],
+        "categories": [],
+        "description": "Coming Soon",
+        "controls": "Coming Soon",
+        "featured": true
+    },
+    {
         "name": "Geodash",
         "image": "/cdn/imgs/geodash.webp",
         "url": "geodash",
