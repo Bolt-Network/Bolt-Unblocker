@@ -14,16 +14,16 @@ function initAdPopup() {
 
         // Social Bar Ad logic
         const atOptions = {
-            key: "69b10d3b9c8111006883499edda2a660",
-            format: "iframe",
-            height: 90,
-            width: 728,
-            params: {},
+            'key': '69b10d3b9c8111006883499edda2a660',
+            'format': 'iframe',
+            'height': 90,
+            'width': 728,
+            'params': {}
         };
         (window as any).atOptions = atOptions;
 
         const s = document.createElement("script");
-        s.src = "/ads/invoke.js";
+        s.src = "https://cutleryneighbouringpurpose.com/69b10d3b9c8111006883499edda2a660/invoke.js";
         container?.appendChild(s);
         adLoaded = true;
     }
