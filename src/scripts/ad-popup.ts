@@ -23,6 +23,8 @@ function initAdPopup() {
         (window as any).atOptions = atOptions;
 
         const s = document.createElement("script");
+        s.type = "text/javascript";
+        s.crossOrigin = "anonymous";
         s.src = "https://cutleryneighbouringpurpose.com/69b10d3b9c8111006883499edda2a660/invoke.js";
         container?.appendChild(s);
         adLoaded = true;
