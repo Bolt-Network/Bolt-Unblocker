@@ -8546,6 +8546,20 @@
         "featured": true
     },
     {
+        "name": "Tuff Client - Minecraft Eaglercraft",
+        "image": "/cdn/imgs/minecraft_1.12.webp",
+        "url": "/cdn/games/minecraft-tuff",
+        "tags": [],
+        "categories": [
+            "Action",
+            "Adventure",
+            "Multiplayer"
+        ],
+        "description": "Coming Soon",
+        "controls": "Coming Soon",
+        "featured": true
+    },
+    {
         "name": "Minesweeper Mania",
         "image": "/cdn/imgs/minesweeper-mania.webp",
         "url": "/cdn/games/minesweeper-mania",
