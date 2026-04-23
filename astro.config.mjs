@@ -50,7 +50,9 @@ export default defineConfig({
     vite: {
         plugins: [tailwindcss()]
     },
-
+    build: {
+        concurrency: 1
+    },
     integrations: [
         customDevServer()
     ]
