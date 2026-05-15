@@ -80,14 +80,14 @@
   
   ```bash
   pnpm i
-  ```
+  ```pnpm i
   
   then run
 
 
   ```bash
   pnpm start
-  ```
+  ```pnpm start
   
   You should have Bolt running locally on <b>localhost:8080</b>!
 </p>
