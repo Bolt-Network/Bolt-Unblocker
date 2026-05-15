@@ -1,0 +1,161 @@
+---
+import Layout from "../Layouts/Layout.astro";
+---
+
+<style>
+    #links-container {
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+    #links-container a {
+        display: block;
+        padding: 14px 20px;
+        background: rgba(232, 255, 71, 0.05);
+        border: 1px solid rgba(232, 255, 71, 0.1);
+        border-radius: 12px;
+        color: #e8ff47;
+        text-decoration: none;
+        font-family:
+            "Inter",
+            system-ui,
+            -apple-system,
+            sans-serif;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        backdrop-filter: blur(8px);
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #links-container a:hover {
+        background: rgba(232, 255, 71, 0.1);
+        border-color: rgba(232, 255, 71, 0.4);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+    #links-container a::after {
+        content: "→";
+        font-size: 1.2rem;
+        opacity: 0.6;
+        transition: transform 0.3s ease;
+    }
+    #links-container a:hover::after {
+        transform: translateX(4px);
+        opacity: 1;
+    }
+    .link-meta {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.5);
+        margin-top: 4px;
+        display: block;
+    }
+</style>
+
+<Layout title="testing" proxy={false}>
+    <main>
+        <form id="tmbd-form">
+            <select name="type" id="type">
+                <option value="movie">Movie</option>
+                <option value="tv">TV Show</option>
+            </select>
+            <input type="text" id="tmbd-id" placeholder="enter tmbd id" />
+            <input
+                type="text"
+                id="season"
+                placeholder="enter season (only for tv shows)"
+            />
+            <input
+                type="text"
+                id="episode"
+                placeholder="enter episode (only for tv shows)"
+            />
+            <button type="submit">Enter</button>
+        </form>
+        <div
+            id="links-container"
+            style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem;"
+        >
+        </div>
+        <script>
+            const tmbdForm = document.getElementById(
+                "tmbd-form",
+            ) as HTMLFormElement;
+            const type = document.getElementById("type") as HTMLSelectElement;
+            const season = document.getElementById(
+                "season",
+            ) as HTMLInputElement;
+            const episode = document.getElementById(
+                "episode",
+            ) as HTMLInputElement;
+            let typev: "movie" | "tv" = "movie";
+
+            type.addEventListener("change", () => {
+                typev = type.value as "movie" | "tv";
+            });
+
+            tmbdForm.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                const tmbdId = (
+                    document.getElementById("tmbd-id") as HTMLInputElement
+                ).value;
+                if (!tmbdId) return;
+                submit(tmbdId, typev);
+            });
+
+            async function submit(tmbdId: string, typev: "movie" | "tv") {
+                const options = { method: "GET" };
+                const linksContainer =
+                    document.getElementById("links-container");
+                if (linksContainer) linksContainer.innerHTML = "";
+
+                const url =
+                    typev === "movie"
+                        ? `/strapi/v1/movies/${tmbdId}`
+                        : `/strapi/v1/tv/${tmbdId}/seasons/${season.value}/episodes/${episode.value}`;
+
+                try {
+                    const res = await fetch(url, options);
+                    const data = await res.json();
+
+                    // Transform URLs
+                    const transformedData = JSON.parse(
+                        JSON.stringify(data).replace(
+                            /http:\/\/localhost:3112/g,
+                            "/strapi",
+                        ),
+                    );
+
+                    console.log(transformedData);
+
+                    // Render links
+                    if (transformedData.sources && linksContainer) {
+                        transformedData.sources.forEach((source: any) => {
+                            const link = document.createElement("a");
+                            link.href = source.url;
+                            link.target = "_blank";
+
+                            const content = document.createElement("div");
+                            const title = document.createElement("div");
+                            title.textContent = `${source.provider?.name || "Streaming Provider"} — ${source.quality}`;
+
+                            const meta = document.createElement("span");
+                            meta.className = "link-meta";
+                            meta.textContent = source.url;
+
+                            content.appendChild(title);
+                            content.appendChild(meta);
+                            link.appendChild(content);
+
+                            linksContainer.appendChild(link);
+                        });
+                    }
+                } catch (err) {
+                    console.error(err);
+                }
+            }
+        </script>
+    </main>
+</Layout>
