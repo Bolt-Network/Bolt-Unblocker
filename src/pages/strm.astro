@@ -113,26 +113,16 @@ import Layout from "../Layouts/Layout.astro";
 
                 const url =
                     typev === "movie"
-                        ? `/strapi/v1/movies/${tmbdId}`
-                        : `/strapi/v1/tv/${tmbdId}/seasons/${season.value}/episodes/${episode.value}`;
+                        ? `/strapi/api/movie?id=${tmbdId}`
+                        : `/strapi/api/tv?id=${tmbdId}&season=${season.value}&episode=${episode.value}`;
 
                 try {
                     const res = await fetch(url, options);
                     const data = await res.json();
 
-                    // Transform URLs
-                    const transformedData = JSON.parse(
-                        JSON.stringify(data).replace(
-                            /http:\/\/localhost:3112/g,
-                            "/strapi",
-                        ),
-                    );
-
-                    console.log(transformedData);
-
                     // Render links
-                    if (transformedData.sources && linksContainer) {
-                        transformedData.sources.forEach((source: any) => {
+                    if (data.sources && linksContainer) {
+                        data.sources.forEach((source: any) => {
                             const link = document.createElement("a");
                             link.href = source.url;
                             link.target = "_blank";
