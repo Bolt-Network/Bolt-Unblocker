@@ -604,8 +604,8 @@ tmbdForm.addEventListener("submit", async (e) => {
 async function submit(tmbdId: string, type: "movie" | "tv") {
   const url =
     type === "movie"
-      ? `/strapi/v1/movies/${tmbdId}`
-      : `/strapi/v1/tv/${tmbdId}/seasons/1/episodes/1`;
+      ? `/strapi/api/movie?id=${tmbdId}`
+      : `/strapi/api/tv?id=${tmbdId}&season=1&episode=1`;
 
   let data: StreamResponse;
   try {
