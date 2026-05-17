@@ -98,6 +98,7 @@ import Layout from "../Layouts/Layout.astro";
 
             tmbdForm.addEventListener("submit", async (e) => {
                 e.preventDefault();
+                alert("submited");
                 const tmbdId = (
                     document.getElementById("tmbd-id") as HTMLInputElement
                 ).value;
