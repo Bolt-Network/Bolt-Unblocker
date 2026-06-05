@@ -3,150 +3,611 @@ import Layout from "../Layouts/Layout.astro";
 ---
 
 <style>
-    #links-container {
-        max-width: 600px;
-        margin: 2rem auto;
-        padding: 0 1rem;
+    :root {
+        --primary: #e8ff47;
+        --bg-dark: #0a0a0c;
+        --surface: #121216;
+        --surface-hover: #1c1c24;
+        --text-muted: rgba(255, 255, 255, 0.6);
     }
-    #links-container a {
-        display: block;
-        padding: 14px 20px;
-        background: rgba(232, 255, 71, 0.05);
-        border: 1px solid rgba(232, 255, 71, 0.1);
+
+    body {
+        background-color: var(--bg-dark);
+        color: #ffffff;
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: 2rem auto;
+        padding: 0 1.5rem;
+    }
+
+    /* Search Section UI */
+    .search-wrapper {
+        display: flex;
+        gap: 0.5rem;
+        background: var(--surface);
+        padding: 0.5rem;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        margin-bottom: 2rem;
+    }
+
+    .search-wrapper select,
+    .search-wrapper input {
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+        outline: none;
+    }
+
+    .search-wrapper select {
+        cursor: pointer;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--primary);
+        font-weight: 600;
+    }
+
+    .search-wrapper input {
+        flex-grow: 1;
+    }
+
+    /* Results Grid */
+    .results-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .result-card {
+        background: var(--surface);
         border-radius: 12px;
-        color: #e8ff47;
-        text-decoration: none;
-        font-family:
-            "Inter",
-            system-ui,
-            -apple-system,
-            sans-serif;
-        font-size: 0.95rem;
-        font-weight: 500;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        backdrop-filter: blur(8px);
-        margin-bottom: 0.75rem;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+        border: 1px solid transparent;
+    }
+
+    .result-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(232, 255, 71, 0.3);
+    }
+
+    .result-card img {
+        width: 100%;
+        aspect-ratio: 2/3;
+        object-fit: cover;
+        background: #1f1f27;
+    }
+
+    .result-info {
+        padding: 0.75rem;
+    }
+
+    .result-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .result-meta {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-top: 4px;
+    }
+
+    /* TV Show Episode Selector */
+    .tv-selectors {
+        display: none;
+        background: var(--surface);
+        padding: 1.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        gap: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .tv-selectors input {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 0.75rem;
+        border-radius: 8px;
+        color: white;
+        width: 120px;
+    }
+
+    .tv-selectors button {
+        background: var(--primary);
+        color: black;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    /* Player Container UI */
+    .player-section {
+        display: none;
+        margin-top: 2rem;
+    }
+
+    .video-wrapper {
+        position: relative;
+        width: 100%;
+        background: #000;
+        border-radius: 16px;
+        overflow: hidden;
+        aspect-ratio: 16/9;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+
+    video {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Custom Player Controls */
+    .custom-controls {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+        padding: 2rem 1rem 1rem 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .video-wrapper:hover .custom-controls {
+        opacity: 1;
+    }
+
+    .progress-bar-container {
+        width: 100%;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 3px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .progress-filled {
+        height: 100%;
+        background: var(--primary);
+        width: 0%;
+        border-radius: 3px;
+    }
+
+    .controls-row {
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
-    #links-container a:hover {
-        background: rgba(232, 255, 71, 0.1);
-        border-color: rgba(232, 255, 71, 0.4);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+
+    .controls-left, .controls-right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
     }
-    #links-container a::after {
-        content: "→";
-        font-size: 1.2rem;
-        opacity: 0.6;
-        transition: transform 0.3s ease;
+
+    .player-btn {
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 1.1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px;
+        transition: transform 0.1s ease;
     }
-    #links-container a:hover::after {
-        transform: translateX(4px);
-        opacity: 1;
+
+    .player-btn:hover {
+        color: var(--primary);
+        transform: scale(1.1);
     }
-    .link-meta {
-        font-size: 0.75rem;
-        color: rgba(255, 255, 255, 0.5);
-        margin-top: 4px;
-        display: block;
+
+    .time-display {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-variant-numeric: tabular-nums;
+    }
+
+    /* Source Selector & Meta below Video */
+    .player-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    .source-dropdown {
+        background: var(--surface);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .source-dropdown:focus {
+        border-color: var(--primary);
+    }
+
+    /* Native Subtitle Styling Overrides */
+    video::cue {
+        background: rgba(0, 0, 0, 0.75);
+        color: #fff;
+        font-family: "Inter", sans-serif;
+        font-size: 1.1rem;
     }
 </style>
 
-<Layout title="testing" proxy={false}>
-    <main>
-        <form id="tmbd-form">
-            <select name="type" id="type">
-                <option value="movie">Movie</option>
-                <option value="tv">TV Show</option>
+<Layout title="Stream Engine" proxy={false}>
+    <main class="container">
+        <div class="search-wrapper">
+            <select id="search-type">
+                <option value="movie">Movies</option>
+                <option value="tv">TV Shows</option>
             </select>
-            <input type="text" id="tmbd-id" placeholder="enter tmbd id" />
-            <input
-                type="text"
-                id="season"
-                placeholder="enter season (only for tv shows)"
-            />
-            <input
-                type="text"
-                id="episode"
-                placeholder="enter episode (only for tv shows)"
-            />
-            <button type="submit">Enter</button>
-        </form>
-        <div
-            id="links-container"
-            style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem;"
-        >
+            <input type="text" id="search-input" placeholder="Search for a title..." autocomplete="off" />
         </div>
-        <script>
-            const tmbdForm = document.getElementById(
-                "tmbd-form",
-            ) as HTMLFormElement;
-            const type = document.getElementById("type") as HTMLSelectElement;
-            const season = document.getElementById(
-                "season",
-            ) as HTMLInputElement;
-            const episode = document.getElementById(
-                "episode",
-            ) as HTMLInputElement;
-            let typev: "movie" | "tv" = "movie";
 
-            type.addEventListener("change", () => {
-                typev = type.value as "movie" | "tv";
+        <div id="tv-selectors" class="tv-selectors">
+            <div>
+                <label style="display:block; font-size:0.8rem; margin-bottom:4px; color:var(--text-muted)">Season</label>
+                <input type="number" id="season-input" value="1" min="1" />
+            </div>
+            <div>
+                <label style="display:block; font-size:0.8rem; margin-bottom:4px; color:var(--text-muted)">Episode</label>
+                <input type="number" id="episode-input" value="1" min="1" />
+            </div>
+            <div style="display: flex; align-items: flex-end;">
+                <button id="load-tv-btn">Load Episode</button>
+            </div>
+        </div>
+
+        <div id="results-grid" class="results-grid"></div>
+
+        <section id="player-section" class="player-section">
+            <div class="video-wrapper" id="video-wrapper">
+                <video id="video-player" crossorigin="anonymous">
+                    <p>Your browser doesn't support HTML5 video.</p>
+                </video>
+
+                <div class="custom-controls">
+                    <div class="progress-bar-container" id="progress-container">
+                        <div class="progress-filled" id="progress-filled"></div>
+                    </div>
+                    <div class="controls-row">
+                        <div class="controls-left">
+                            <button class="player-btn" id="play-btn" title="Play/Pause">▶</button>
+                            <button class="player-btn" id="rewind-btn" title="Rewind 10s">↺ 10s</button>
+                            <button class="player-btn" id="forward-btn" title="Forward 10s">10s ↻</button>
+                            <span class="time-display" id="time-display">0:00 / 0:00</span>
+                        </div>
+                        <div class="controls-right">
+                            <button class="player-btn" id="caption-btn" title="Toggle Captions">CC</button>
+                            <button class="player-btn" id="fullscreen-btn" title="Fullscreen">⛶</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="player-meta">
+                <h2 id="playing-title" style="margin:0; font-size:1.25rem;"></h2>
+                <div>
+                    <label for="source-select" style="font-size: 0.85rem; color: var(--text-muted); margin-right: 8px;">Source:</label>
+                    <select id="source-select" class="source-dropdown"></select>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // --- CONFIGURATION ---
+        const TMDB_API_KEY = "ca53aa13ab3965a3539b02d893865f94"; // Replace with your real key
+        const TMDB_IMAGE_BASE = "https://image.tmdb.org/t/p/w342";
+
+        // --- DOM ELEMENTS ---
+        const searchInput = document.getElementById("search-input") as HTMLInputElement;
+        const searchType = document.getElementById("search-type") as HTMLSelectElement;
+        const resultsGrid = document.getElementById("results-grid") as HTMLDivElement;
+        const tvSelectors = document.getElementById("tv-selectors") as HTMLDivElement;
+        const seasonInput = document.getElementById("season-input") as HTMLInputElement;
+        const episodeInput = document.getElementById("episode-input") as HTMLInputElement;
+        const loadTvBtn = document.getElementById("load-tv-btn") as HTMLButtonElement;
+
+        const playerSection = document.getElementById("player-section") as HTMLDivElement;
+        const videoWrapper = document.getElementById("video-wrapper") as HTMLDivElement;
+        const video = document.getElementById("video-player") as HTMLVideoElement;
+        const playingTitle = document.getElementById("playing-title") as HTMLHeadingElement;
+        const sourceSelect = document.getElementById("source-select") as HTMLSelectElement;
+
+        // Custom Control Elements
+        const playBtn = document.getElementById("play-btn") as HTMLButtonElement;
+        const rewindBtn = document.getElementById("rewind-btn") as HTMLButtonElement;
+        const forwardBtn = document.getElementById("forward-btn") as HTMLButtonElement;
+        const captionBtn = document.getElementById("caption-btn") as HTMLButtonElement;
+        const fullscreenBtn = document.getElementById("fullscreen-btn") as HTMLButtonElement;
+        const progressContainer = document.getElementById("progress-container") as HTMLDivElement;
+        const progressFilled = document.getElementById("progress-filled") as HTMLDivElement;
+        const timeDisplay = document.getElementById("time-display") as HTMLSpanElement;
+
+        // --- STATE STATE ---
+        let activeMedia: { id: string; type: "movie" | "tv"; title: string } | null = null;
+        let globalSourcesList: any[] = [];
+        let debounceTimer: any;
+
+        // --- TMDB SEARCH ENGINE ---
+        searchInput.addEventListener("input", () => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                performSearch();
+            }, 400);
+        });
+
+        searchType.addEventListener("change", () => {
+            performSearch();
+        });
+
+        async function performSearch() {
+            const query = searchInput.value.trim();
+            if (!query) {
+                resultsGrid.innerHTML = "";
+                return;
+            }
+
+            const type = searchType.value;
+            const url = `https://api.themoviedb.org/3/search/${type}?api_key=${TMDB_API_KEY}&query=${encodeURIComponent(query)}`;
+
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
+                renderResults(data.results, type as "movie" | "tv");
+            } catch (err) {
+                console.error("Error fetching from TMDB:", err);
+            }
+        }
+
+        function renderResults(results: any[], type: "movie" | "tv") {
+            resultsGrid.innerHTML = "";
+            if (!results || results.length === 0) {
+                resultsGrid.innerHTML = `<p style="color: var(--text-muted);">No results found.</p>`;
+                return;
+            }
+
+            results.forEach((item) => {
+                const title = item.title || item.name;
+                const releaseDate = item.release_date || item.first_air_date || "";
+                const year = releaseDate ? releaseDate.split("-")[0] : "N/A";
+                const posterPath = item.poster_path ? `${TMDB_IMAGE_BASE}${item.poster_path}` : "https://placehold.co/342x513/121216/FFFFFF?text=No+Poster";
+
+                const card = document.createElement("div");
+                card.className = "result-card";
+                card.innerHTML = `
+                    <img src="${posterPath}" alt="${title}" loading="lazy" />
+                    <div class="result-info">
+                        <div class="result-title">${title}</div>
+                        <div class="result-meta">${year} • ${type.toUpperCase()}</div>
+                    </div>
+                `;
+
+                card.addEventListener("click", () => {
+                    selectMedia(item.id.toString(), type, title);
+                });
+
+                resultsGrid.appendChild(card);
             });
+        }
 
-            tmbdForm.addEventListener("submit", async (e) => {
-                e.preventDefault();
-                alert("submited");
-                const tmbdId = (
-                    document.getElementById("tmbd-id") as HTMLInputElement
-                ).value;
-                if (!tmbdId) return;
-                submit(tmbdId, typev);
-            });
+        // --- MEDIA CONFIGURATION SELECTION ---
+        function selectMedia(id: string, type: "movie" | "tv", title: string) {
+            activeMedia = { id, type, title };
+            
+            if (type === "tv") {
+                tvSelectors.style.display = "flex";
+                playerSection.style.display = "none"; // Hide player until they click load episode
+                window.scrollTo({ top: tvSelectors.offsetTop - 20, behavior: "smooth" });
+            } else {
+                tvSelectors.style.display = "none";
+                loadMediaStreams();
+            }
+        }
 
-            async function submit(tmbdId: string, typev: "movie" | "tv") {
-                const options = { method: "GET" };
-                const linksContainer =
-                    document.getElementById("links-container");
-                if (linksContainer) linksContainer.innerHTML = "";
+        loadTvBtn.addEventListener("click", () => {
+            if (activeMedia && activeMedia.type === "tv") {
+                loadMediaStreams();
+            }
+        });
 
-                const url =
-                    typev === "movie"
-                        ? `/strapi/api/movie?id=${tmbdId}`
-                        : `/strapi/api/tv?id=${tmbdId}&season=${season.value}&episode=${episode.value}`;
+        // --- STRAPI STREAM & SUBTITLE HANDLING ---
+        async function loadMediaStreams() {
+            if (!activeMedia) return;
+            
+            const { id, type, title } = activeMedia;
+            playerSection.style.display = "block";
+            playingTitle.textContent = type === "movie" ? title : `${title} (S${seasonInput.value}E${episodeInput.value})`;
+            
+            window.scrollTo({ top: playerSection.offsetTop - 20, behavior: "smooth" });
 
-                try {
-                    const res = await fetch(url, options);
-                    const data = await res.json();
+            // Formulate active internal API Endpoint
+            const url = type === "movie"
+                ? `/strapi/api/movie?id=${id}`
+                : `/strapi/api/tv?id=${id}&season=${seasonInput.value}&episode=${episodeInput.value}`;
 
-                    // Render links
-                    if (data.sources && linksContainer) {
-                        data.sources.forEach((source: any) => {
-                            const link = document.createElement("a");
-                            link.href = source.url;
-                            link.target = "_blank";
+            sourceSelect.innerHTML = "<option>Loading streams...</option>";
 
-                            const content = document.createElement("div");
-                            const title = document.createElement("div");
-                            title.textContent = `${source.provider?.name || "Streaming Provider"} — ${source.quality}`;
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
 
-                            const meta = document.createElement("span");
-                            meta.className = "link-meta";
-                            meta.textContent = source.url;
+                if (data.sources && data.sources.length > 0) {
+                    globalSourcesList = data.sources;
+                    
+                    // Build Source Selection UI Dropdown
+                    sourceSelect.innerHTML = "";
+                    globalSourcesList.forEach((source, index) => {
+                        const opt = document.createElement("option");
+                        opt.value = index.toString();
+                        opt.textContent = `${source.provider?.name || "Provider"} — ${source.quality}`;
+                        sourceSelect.appendChild(opt);
+                    });
 
-                            content.appendChild(title);
-                            content.appendChild(meta);
-                            link.appendChild(content);
+                    // Auto-choose the fastest working source by default (index 0)
+                    setVideoSource(globalSourcesList[0].url);
+                } else {
+                    sourceSelect.innerHTML = "<option>No streams found</option>";
+                    video.src = "";
+                }
 
-                            linksContainer.appendChild(link);
-                        });
-                    }
-                } catch (err) {
-                    console.error(err);
+                // Separately handle Captions Injection
+                loadCaptions(id, type);
+
+            } catch (err) {
+                console.error("Error loading video streams:", err);
+                sourceSelect.innerHTML = "<option>Error loading streams</option>";
+            }
+        }
+
+        function setVideoSource(url: string) {
+            video.src = url;
+            video.load();
+            video.play().catch(() => { /* Handle auto-play blocks seamlessly */ });
+            playBtn.textContent = "⏸";
+        }
+
+        sourceSelect.addEventListener("change", () => {
+            const selectedIdx = parseInt(sourceSelect.value);
+            if (!isNaN(selectedIdx) && globalSourcesList[selectedIdx]) {
+                setVideoSource(globalSourcesList[selectedIdx].url);
+            }
+        });
+
+        async function loadCaptions(id: string, type: "movie" | "tv") {
+            // Clean out old tracks
+            while (video.querySelector("track")) {
+                video.removeChild(video.querySelector("track")!);
+            }
+
+            const subUrl = type === "movie"
+                ? `/strapi/api/subtitles/movie/${id}`
+                : `/strapi/api/subtitles/tv/${id}/${seasonInput.value}/${episodeInput.value}`;
+
+            try {
+                const res = await fetch(subUrl);
+                const subtitles = await res.json();
+
+                if (Array.isArray(subtitles)) {
+                    subtitles.forEach((sub: any, idx: number) => {
+                        const track = document.createElement("track");
+                        track.kind = "captions";
+                        track.label = sub.label;
+                        track.srclang = sub.label.toLowerCase().substring(0, 2);
+                        
+                        // Proxy standard track source configuration requirement
+                        track.src = `/strapi/api?url=${encodeURIComponent(sub.file)}`;
+                        
+                        // Turn on the first subtitle track by default if available
+                        if (idx === 0) track.default = true;
+
+                        video.appendChild(track);
+                    });
+                }
+            } catch (err) {
+                console.error("Error loading subtitles:", err);
+            }
+        }
+
+        // --- CUSTOM HTML5 PLAYER CONTROLS CORE ENGINE ---
+        
+        // Play & Pause
+        function togglePlay() {
+            if (video.paused) {
+                video.play();
+                playBtn.textContent = "⏸";
+            } else {
+                video.pause();
+                playBtn.textContent = "▶";
+            }
+        }
+        playBtn.addEventListener("click", togglePlay);
+        video.addEventListener("click", togglePlay);
+
+        // Fast Forward & Rewind
+        rewindBtn.addEventListener("click", () => {
+            video.currentTime = Math.max(0, video.currentTime - 10);
+        });
+
+        forwardBtn.addEventListener("click", () => {
+            video.currentTime = Math.min(video.duration, video.currentTime + 10);
+        });
+
+        // Track Progress & Duration Timestamps
+        function formatTime(seconds: number): string {
+            if (isNaN(seconds)) return "0:00";
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
+        }
+
+        video.addEventListener("timeupdate", () => {
+            const percentage = (video.currentTime / video.duration) * 100;
+            progressFilled.style.width = `${percentage}%`;
+            timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
+        });
+
+        // Scrubbing/Seeking inside Progress Bar
+        progressContainer.addEventListener("click", (e) => {
+            const rect = progressContainer.getBoundingClientRect();
+            const clickPosition = (e.clientX - rect.left) / rect.width;
+            video.currentTime = clickPosition * video.duration;
+        });
+
+        // Fullscreen Toggle
+        fullscreenBtn.addEventListener("click", () => {
+            if (!document.fullscreenElement) {
+                videoWrapper.requestFullscreen().catch((err) => {
+                    console.error(`Error attempting to enable fullscreen: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        });
+
+        // Toggle Captions Visibility Profile 
+        captionBtn.addEventListener("click", () => {
+            let foundEnabled = false;
+            // Loop over tracks and cycle configurations toggles
+            for (let i = 0; i < video.textTracks.length; i++) {
+                if (video.textTracks[i].mode === "showing") {
+                    video.textTracks[i].mode = "disabled";
+                    foundEnabled = true;
+                    break;
                 }
             }
-        </script>
-    </main>
+            // If none were enabled, turn the first track back on
+            if (!foundEnabled && video.textTracks.length > 0) {
+                video.textTracks[0].mode = "showing";
+                captionBtn.style.color = "var(--primary)";
+            } else if (foundEnabled) {
+                captionBtn.style.color = "white";
+            }
+        });
+    </script>
 </Layout>
