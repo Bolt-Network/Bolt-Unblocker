@@ -156,6 +156,35 @@ import Layout from "../Layouts/Layout.astro";
         height: 100%;
     }
 
+    /* Buffering Animation Overlay */
+    .buffering-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+        z-index: 10;
+    }
+
+    .spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid rgba(255, 255, 255, 0.1);
+        border-left-color: var(--primary);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
     /* Custom Player Controls */
     .custom-controls {
         position: absolute;
@@ -169,6 +198,7 @@ import Layout from "../Layouts/Layout.astro";
         gap: 0.75rem;
         opacity: 0;
         transition: opacity 0.3s ease;
+        z-index: 11;
     }
 
     .video-wrapper:hover .custom-controls {
@@ -227,15 +257,28 @@ import Layout from "../Layouts/Layout.astro";
         font-variant-numeric: tabular-nums;
     }
 
-    /* Source Selector & Meta below Video */
+    /* Option Dropdowns Panel below Video */
     .player-meta {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
         margin-top: 1rem;
     }
 
-    .source-dropdown {
+    @media (min-width: 600px) {
+        .player-meta {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    .dropdown-group {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .config-dropdown {
         background: var(--surface);
         color: white;
         border: 1px solid rgba(255, 255, 255, 0.1);
@@ -243,9 +286,10 @@ import Layout from "../Layouts/Layout.astro";
         border-radius: 8px;
         outline: none;
         cursor: pointer;
+        font-size: 0.9rem;
     }
 
-    .source-dropdown:focus {
+    .config-dropdown:focus {
         border-color: var(--primary);
     }
 
@@ -286,6 +330,10 @@ import Layout from "../Layouts/Layout.astro";
 
         <section id="player-section" class="player-section">
             <div class="video-wrapper" id="video-wrapper">
+                <div class="buffering-overlay" id="buffering-overlay">
+                    <div class="spinner"></div>
+                </div>
+
                 <video id="video-player" crossorigin="anonymous">
                     <p>Your browser doesn't support HTML5 video.</p>
                 </video>
@@ -311,9 +359,17 @@ import Layout from "../Layouts/Layout.astro";
 
             <div class="player-meta">
                 <h2 id="playing-title" style="margin:0; font-size:1.25rem;"></h2>
-                <div>
-                    <label for="source-select" style="font-size: 0.85rem; color: var(--text-muted); margin-right: 8px;">Source:</label>
-                    <select id="source-select" class="source-dropdown"></select>
+                <div class="dropdown-group">
+                    <div>
+                        <label for="source-select" style="display:block; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 4px;">Source:</label>
+                        <select id="source-select" class="config-dropdown"></select>
+                    </div>
+                    <div>
+                        <label for="caption-select" style="display:block; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 4px;">Captions Language:</label>
+                        <select id="caption-select" class="config-dropdown">
+                            <option value="off">Off</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </section>
@@ -321,7 +377,7 @@ import Layout from "../Layouts/Layout.astro";
 
     <script>
         // --- CONFIGURATION ---
-        const TMDB_API_KEY = "ca53aa13ab3965a3539b02d893865f94"; // Replace with your real key
+        const TMDB_API_KEY = "ca53aa13ab3965a3539b02d893865f94"; // Replace with your actual TMDB api key
         const TMDB_IMAGE_BASE = "https://image.tmdb.org/t/p/w342";
 
         // --- DOM ELEMENTS ---
@@ -336,8 +392,10 @@ import Layout from "../Layouts/Layout.astro";
         const playerSection = document.getElementById("player-section") as HTMLDivElement;
         const videoWrapper = document.getElementById("video-wrapper") as HTMLDivElement;
         const video = document.getElementById("video-player") as HTMLVideoElement;
+        const bufferingOverlay = document.getElementById("buffering-overlay") as HTMLDivElement;
         const playingTitle = document.getElementById("playing-title") as HTMLHeadingElement;
         const sourceSelect = document.getElementById("source-select") as HTMLSelectElement;
+        const captionSelect = document.getElementById("caption-select") as HTMLSelectElement;
 
         // Custom Control Elements
         const playBtn = document.getElementById("play-btn") as HTMLButtonElement;
@@ -416,13 +474,13 @@ import Layout from "../Layouts/Layout.astro";
             });
         }
 
-        // --- MEDIA CONFIGURATION SELECTION ---
+        // --- MEDIA SELECTION ---
         function selectMedia(id: string, type: "movie" | "tv", title: string) {
             activeMedia = { id, type, title };
             
             if (type === "tv") {
                 tvSelectors.style.display = "flex";
-                playerSection.style.display = "none"; // Hide player until they click load episode
+                playerSection.style.display = "none";
                 window.scrollTo({ top: tvSelectors.offsetTop - 20, behavior: "smooth" });
             } else {
                 tvSelectors.style.display = "none";
@@ -436,7 +494,7 @@ import Layout from "../Layouts/Layout.astro";
             }
         });
 
-        // --- STRAPI STREAM & SUBTITLE HANDLING ---
+        // --- STRAPI DATA PROCESSOR ---
         async function loadMediaStreams() {
             if (!activeMedia) return;
             
@@ -446,7 +504,6 @@ import Layout from "../Layouts/Layout.astro";
             
             window.scrollTo({ top: playerSection.offsetTop - 20, behavior: "smooth" });
 
-            // Formulate active internal API Endpoint
             const url = type === "movie"
                 ? `/strapi/api/movie?id=${id}`
                 : `/strapi/api/tv?id=${id}&season=${seasonInput.value}&episode=${episodeInput.value}`;
@@ -460,23 +517,23 @@ import Layout from "../Layouts/Layout.astro";
                 if (data.sources && data.sources.length > 0) {
                     globalSourcesList = data.sources;
                     
-                    // Build Source Selection UI Dropdown
                     sourceSelect.innerHTML = "";
                     globalSourcesList.forEach((source, index) => {
                         const opt = document.createElement("option");
                         opt.value = index.toString();
-                        opt.textContent = `${source.provider?.name || "Provider"} — ${source.quality}`;
+                        // Reading true mapping format: source.label / source.source
+                        opt.textContent = `${source.source || "Provider"} — ${source.label || "Default Server"}`;
                         sourceSelect.appendChild(opt);
                     });
 
-                    // Auto-choose the fastest working source by default (index 0)
+                    // Auto-choose the fastest working option (index 0)
                     setVideoSource(globalSourcesList[0].url);
                 } else {
                     sourceSelect.innerHTML = "<option>No streams found</option>";
                     video.src = "";
                 }
 
-                // Separately handle Captions Injection
+                // Fire Subtitles Loader Pipeline
                 loadCaptions(id, type);
 
             } catch (err) {
@@ -488,7 +545,7 @@ import Layout from "../Layouts/Layout.astro";
         function setVideoSource(url: string) {
             video.src = url;
             video.load();
-            video.play().catch(() => { /* Handle auto-play blocks seamlessly */ });
+            video.play().catch(() => { /* Prevent Auto-play browser lock alerts */ });
             playBtn.textContent = "⏸";
         }
 
@@ -500,10 +557,13 @@ import Layout from "../Layouts/Layout.astro";
         });
 
         async function loadCaptions(id: string, type: "movie" | "tv") {
-            // Clean out old tracks
+            // Flush legacy native tracks
             while (video.querySelector("track")) {
                 video.removeChild(video.querySelector("track")!);
             }
+            // Clear language selector options dropdown down to default state
+            captionSelect.innerHTML = '<option value="off">Off</option>';
+            captionBtn.style.color = "white";
 
             const subUrl = type === "movie"
                 ? `/strapi/api/subtitles/movie/${id}`
@@ -513,20 +573,28 @@ import Layout from "../Layouts/Layout.astro";
                 const res = await fetch(subUrl);
                 const subtitles = await res.json();
 
-                if (Array.isArray(subtitles)) {
+                if (Array.isArray(subtitles) && subtitles.length > 0) {
                     subtitles.forEach((sub: any, idx: number) => {
                         const track = document.createElement("track");
                         track.kind = "captions";
-                        track.label = sub.label;
-                        track.srclang = sub.label.toLowerCase().substring(0, 2);
+                        track.label = sub.label; // Multi-Language dynamic injection
+                        track.srclang = sub.label.toLowerCase().substring(0, 3);
+                        track.src = `/strapi/api?url=${encodeURIComponent(sub.file)}`; // Proxy validation routing
                         
-                        // Proxy standard track source configuration requirement
-                        track.src = `/strapi/api?url=${encodeURIComponent(sub.file)}`;
-                        
-                        // Turn on the first subtitle track by default if available
-                        if (idx === 0) track.default = true;
+                        // Default choice selection settings setup
+                        if (idx === 0) {
+                            track.default = true;
+                            captionBtn.style.color = "var(--primary)";
+                        }
 
                         video.appendChild(track);
+
+                        // Feed selection into custom dashboard dropdown menu
+                        const option = document.createElement("option");
+                        option.value = idx.toString();
+                        option.textContent = sub.label;
+                        if (idx === 0) option.selected = true;
+                        captionSelect.appendChild(option);
                     });
                 }
             } catch (err) {
@@ -534,9 +602,39 @@ import Layout from "../Layouts/Layout.astro";
             }
         }
 
+        // --- LANGUAGE TRACK DROPDOWN CONTROLLER ---
+        captionSelect.addEventListener("change", () => {
+            const val = captionSelect.value;
+            if (val === "off") {
+                for (let i = 0; i < video.textTracks.length; i++) {
+                    video.textTracks[i].mode = "disabled";
+                }
+                captionBtn.style.color = "white";
+            } else {
+                const trackIndex = parseInt(val);
+                for (let i = 0; i < video.textTracks.length; i++) {
+                    video.textTracks[i].mode = (i === trackIndex) ? "showing" : "disabled";
+                }
+                captionBtn.style.color = "var(--primary)";
+            }
+        });
+
         // --- CUSTOM HTML5 PLAYER CONTROLS CORE ENGINE ---
         
-        // Play & Pause
+        // Dynamic Buffer Triggers
+        video.addEventListener("waiting", () => {
+            bufferingOverlay.style.display = "flex";
+        });
+
+        video.addEventListener("playing", () => {
+            bufferingOverlay.style.display = "none";
+        });
+
+        video.addEventListener("seeked", () => {
+            bufferingOverlay.style.display = "none";
+        });
+
+        // Play & Pause controls
         function togglePlay() {
             if (video.paused) {
                 video.play();
@@ -549,7 +647,7 @@ import Layout from "../Layouts/Layout.astro";
         playBtn.addEventListener("click", togglePlay);
         video.addEventListener("click", togglePlay);
 
-        // Fast Forward & Rewind
+        // Forward / Rewind
         rewindBtn.addEventListener("click", () => {
             video.currentTime = Math.max(0, video.currentTime - 10);
         });
@@ -558,7 +656,7 @@ import Layout from "../Layouts/Layout.astro";
             video.currentTime = Math.min(video.duration, video.currentTime + 10);
         });
 
-        // Track Progress & Duration Timestamps
+        // Media Timer System formatting conversion rules
         function formatTime(seconds: number): string {
             if (isNaN(seconds)) return "0:00";
             const mins = Math.floor(seconds / 60);
@@ -572,40 +670,43 @@ import Layout from "../Layouts/Layout.astro";
             timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
         });
 
-        // Scrubbing/Seeking inside Progress Bar
+        // Progress timeline tracker scrub interactions
         progressContainer.addEventListener("click", (e) => {
             const rect = progressContainer.getBoundingClientRect();
             const clickPosition = (e.clientX - rect.left) / rect.width;
             video.currentTime = clickPosition * video.duration;
         });
 
-        // Fullscreen Toggle
+        // Display Fullscreen toggling modes
         fullscreenBtn.addEventListener("click", () => {
             if (!document.fullscreenElement) {
                 videoWrapper.requestFullscreen().catch((err) => {
-                    console.error(`Error attempting to enable fullscreen: ${err.message}`);
+                    console.error(`Fullscreen request rejected: ${err.message}`);
                 });
             } else {
                 document.exitFullscreen();
             }
         });
 
-        // Toggle Captions Visibility Profile 
+        // Simple Master CC click toggle button rules
         captionBtn.addEventListener("click", () => {
-            let foundEnabled = false;
-            // Loop over tracks and cycle configurations toggles
+            let trackingModeActive = false;
+            let standardFallbackIndex = 0;
+
             for (let i = 0; i < video.textTracks.length; i++) {
                 if (video.textTracks[i].mode === "showing") {
                     video.textTracks[i].mode = "disabled";
-                    foundEnabled = true;
+                    trackingModeActive = true;
+                    captionSelect.value = "off";
                     break;
                 }
             }
-            // If none were enabled, turn the first track back on
-            if (!foundEnabled && video.textTracks.length > 0) {
+
+            if (!trackingModeActive && video.textTracks.length > 0) {
                 video.textTracks[0].mode = "showing";
+                captionSelect.value = "0";
                 captionBtn.style.color = "var(--primary)";
-            } else if (foundEnabled) {
+            } else if (trackingModeActive) {
                 captionBtn.style.color = "white";
             }
         });
