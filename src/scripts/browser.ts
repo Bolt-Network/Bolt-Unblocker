@@ -1,4 +1,25 @@
+import { BareMuxConnection } from '@mercuryworkshop/bare-mux';
 import dummyProxy, { swReady } from "./encoding";
+
+const wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
+
+function getTransport(): string {
+    try {
+        const settings = JSON.parse(localStorage.getItem('bolt-settings') || '{}');
+        return settings.transport || 'libcurl';
+    } catch {
+        return 'libcurl';
+    }
+}
+
+const transportPath = getTransport() === 'epoxy'
+    ? '/epoxy-transport.mjs'
+    : '/libcurl/index.mjs';
+
+const bmc = new BareMuxConnection("/baremux/worker.js");
+export const transportReady: Promise<void> = (async () => {
+    await bmc.setTransport(transportPath, [{ wisp: wispUrl }]);
+})();
 
 // --- Site Alert Logic ---
 let siteAlerts: any[] = [];
@@ -47,7 +68,6 @@ function checkForSiteAlerts(url: string) {
                                     if (entry.buttonAction) {
                                         try {
                                             if (window.top) {
-                                                // Execute in top context to access Window class etc.
                                                 (window.top as any).eval(entry.buttonAction);
                                             } else {
                                                 new Function(entry.buttonAction)();
@@ -112,10 +132,6 @@ class Tab {
         this.isActive = false;
     }
 
-    /**
-     * Resolves the URL for the iframe src.
-     * bolt://page -> /page
-     */
     getResolvedUrl(): string {
         if (this.url === 'about:blank') return 'about:blank';
         if (this.url.startsWith('bolt://')) {
@@ -124,9 +140,6 @@ class Tab {
         return this.url;
     }
 
-    /**
-     * This "method" creates or updates the visual HTML for the tab.
-     */
     render() {
         if (!this.element) {
             this.element = document.createElement('div');
@@ -134,21 +147,16 @@ class Tab {
 
         if (!this.iframe) {
             this.iframe = document.createElement('iframe');
-
             this.iframe.src = this.getResolvedUrl();
         } else {
             try {
-                // Check current location to avoid redundant reloads
                 const currentActualUrl = this.iframe.contentWindow?.location.href;
                 const targetUrl = this.url === 'about:blank' ? 'about:blank' : new URL(this.getResolvedUrl(), window.location.href).href;
 
-                // Sync the iframe src if it doesn't match the target
-                // and the iframe isn't already at that URL.
                 if (currentActualUrl !== targetUrl && this.iframe.src !== targetUrl) {
                     this.iframe.src = this.getResolvedUrl();
                 }
             } catch (err) {
-                // Fallback for cross-origin or invalid URLs (though proxy usually keeps it same-origin)
                 if (this.iframe.src !== this.getResolvedUrl()) {
                     this.iframe.src = this.getResolvedUrl();
                 }
@@ -181,7 +189,6 @@ class TabManager {
     tabsContainer: HTMLElement;
     webSection: HTMLElement;
 
-    // Drag and drop state
     draggedTab: Tab | null = null;
     draggedOverTab: Tab | null = null;
     dragStartX: number = 0;
@@ -191,7 +198,6 @@ class TabManager {
         this.tabsContainer = document.getElementById(containerId) as HTMLElement;
         this.webSection = document.getElementById(webSectionId) as HTMLElement;
 
-        // Add event listener for address bar
         const addressInput = document.getElementById('address-input') as HTMLInputElement;
         addressInput?.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
@@ -216,7 +222,6 @@ class TabManager {
             }
         });
 
-        // Hook up navigation buttons
         document.getElementById('back-button')?.addEventListener('click', () => {
             const activeTab = this.tabs.find(t => t.id === this.activeTabId);
             if (activeTab?.iframe) activeTab.iframe.contentWindow?.history.back();
@@ -231,10 +236,8 @@ class TabManager {
             const activeTab = this.tabs.find(t => t.id === this.activeTabId);
             if (activeTab?.iframe) {
                 try {
-                    // Try to reload the content window directly to preserve current URL
                     activeTab.iframe.contentWindow?.location.reload();
                 } catch (e) {
-                    // Fallback to resetting src
                     activeTab.iframe.src = activeTab.iframe.src;
                 }
             }
@@ -242,7 +245,6 @@ class TabManager {
     }
 
     private popupTimeout: any = null;
-
 
     private showErrorPopup() {
         let popup = document.getElementById('error-popup');
@@ -266,23 +268,16 @@ class TabManager {
             clearTimeout(this.popupTimeout);
         }
 
-        // Trigger animation
         setTimeout(() => {
             popup?.classList.add('active');
         }, 10);
 
-        // Hide after some time
         this.popupTimeout = setTimeout(() => {
             popup?.classList.remove('active');
             this.popupTimeout = null;
         }, 6000);
     }
 
-
-
-    /**
-     * Updates the URL of the currently active tab.
-     */
     updateActiveTabUrl(url: string) {
         const activeTab = this.tabs.find(tab => tab.id === this.activeTabId);
         if (activeTab) {
@@ -291,21 +286,13 @@ class TabManager {
         }
     }
 
-    /**
-     * Adds a new Tab object to our list and the screen.
-     */
     addTab(title: string, url: string = 'about:blank') {
         const id = Math.random().toString(36).substr(2, 9);
         const newTab = new Tab(id, title, url);
-
         this.tabs.push(newTab);
-        // We only call activateTab here, which will trigger renderTabs
         this.activateTab(id);
     }
 
-    /**
-     * Removes a Tab object from our list.
-     */
     removeTab(id: string) {
         const tabToRemove = this.tabs.find(t => t.id === id);
         if (tabToRemove && tabToRemove.iframe) {
@@ -314,7 +301,6 @@ class TabManager {
 
         this.tabs = this.tabs.filter(tab => tab.id !== id);
 
-        // If we closed the active tab, pick a new one
         if (this.activeTabId === id && this.tabs.length > 0) {
             this.activateTab(this.tabs[this.tabs.length - 1].id);
         } else {
@@ -325,9 +311,6 @@ class TabManager {
         }
     }
 
-    /**
-     * Switches which tab is currently "Active".
-     */
     activateTab(id: string) {
         this.activeTabId = id;
         this.tabs.forEach(tab => {
@@ -336,9 +319,6 @@ class TabManager {
         this.renderTabs();
     }
 
-    /**
-     * Handles the start of a drag operation
-     */
     handleDragStart(tab: Tab, e: DragEvent) {
         this.draggedTab = tab;
         tab.isDragging = true;
@@ -348,7 +328,6 @@ class TabManager {
             e.dataTransfer.setData('text/html', tab.id);
         }
 
-        // Add dragging class for visual feedback
         setTimeout(() => {
             if (tab.element) {
                 tab.element.classList.add('dragging');
@@ -356,9 +335,6 @@ class TabManager {
         }, 0);
     }
 
-    /**
-     * Handles dragging over another tab
-     */
     handleDragOver(tab: Tab, e: DragEvent) {
         e.preventDefault();
 
@@ -370,19 +346,16 @@ class TabManager {
             e.dataTransfer.dropEffect = 'move';
         }
 
-        // Get the position to determine if we should insert before or after
         const targetElement = tab.element;
         if (!targetElement) return;
 
         const rect = targetElement.getBoundingClientRect();
         const midpoint = rect.left + rect.width / 2;
 
-        // Remove previous drag-over classes
         document.querySelectorAll('.drag-over-left, .drag-over-right').forEach(el => {
             el.classList.remove('drag-over-left', 'drag-over-right');
         });
 
-        // Add appropriate class based on cursor position
         if (e.clientX < midpoint) {
             targetElement.classList.add('drag-over-left');
         } else {
@@ -392,18 +365,12 @@ class TabManager {
         this.draggedOverTab = tab;
     }
 
-    /**
-     * Handles the drag leave event
-     */
     handleDragLeave(tab: Tab, e: DragEvent) {
         if (tab.element) {
             tab.element.classList.remove('drag-over-left', 'drag-over-right');
         }
     }
 
-    /**
-     * Handles dropping a tab
-     */
     handleDrop(tab: Tab, e: DragEvent) {
         e.preventDefault();
         e.stopPropagation();
@@ -412,7 +379,6 @@ class TabManager {
             return;
         }
 
-        // Determine drop position
         const targetElement = tab.element;
         if (!targetElement) return;
 
@@ -420,44 +386,32 @@ class TabManager {
         const midpoint = rect.left + rect.width / 2;
         const insertBefore = e.clientX < midpoint;
 
-        // Reorder the tabs array
         const draggedIndex = this.tabs.findIndex(t => t.id === this.draggedTab!.id);
         const targetIndex = this.tabs.findIndex(t => t.id === tab.id);
 
         if (draggedIndex !== -1 && targetIndex !== -1) {
-            // Remove the dragged tab from its current position
             const [draggedTabObj] = this.tabs.splice(draggedIndex, 1);
 
-            // Calculate the new index
             let newIndex = targetIndex;
             if (draggedIndex < targetIndex && !insertBefore) {
-                // If dragging forward and dropping after, don't adjust
                 newIndex = targetIndex;
             } else if (draggedIndex < targetIndex && insertBefore) {
-                // If dragging forward and dropping before
                 newIndex = targetIndex - 1;
             } else if (draggedIndex > targetIndex && insertBefore) {
-                // If dragging backward and dropping before
                 newIndex = targetIndex;
             } else {
-                // If dragging backward and dropping after
                 newIndex = targetIndex + 1;
             }
 
-            // Insert at the new position
             this.tabs.splice(newIndex, 0, draggedTabObj);
         }
 
         this.renderTabs();
     }
 
-    /**
-     * Handles the end of a drag operation
-     */
     handleDragEnd(tab: Tab) {
         tab.isDragging = false;
 
-        // Clean up all drag-related classes
         document.querySelectorAll('.dragging, .drag-over-left, .drag-over-right').forEach(el => {
             el.classList.remove('dragging', 'drag-over-left', 'drag-over-right');
         });
@@ -466,47 +420,36 @@ class TabManager {
         this.draggedOverTab = null;
     }
 
-    /**
-     * Updates the UI to match our internal list of Tab objects.
-     */
     renderTabs() {
         if (!this.tabsContainer) return;
 
-        // Clear only the tab elements from the tabs-section
         const existingTabs = this.tabsContainer?.querySelectorAll('.tab');
         existingTabs?.forEach(el => el.remove());
 
         this.tabs.forEach(tab => {
             const { tabElement, iframe } = tab.render();
 
-            // Make tab draggable
             tabElement.draggable = true;
 
-            // Set up drag event listeners
             tabElement.addEventListener('dragstart', (e) => this.handleDragStart(tab, e as DragEvent));
             tabElement.addEventListener('dragover', (e) => this.handleDragOver(tab, e as DragEvent));
             tabElement.addEventListener('dragleave', (e) => this.handleDragLeave(tab, e as DragEvent));
             tabElement.addEventListener('drop', (e) => this.handleDrop(tab, e as DragEvent));
             tabElement.addEventListener('dragend', () => this.handleDragEnd(tab));
 
-            // Set up event listeners (use onclick to avoid duplicates if element is reused)
             tabElement.onclick = (e) => {
-                // Don't activate if we're clicking the close button
                 if ((e.target as HTMLElement).closest('.close-tab-button')) {
                     return;
                 }
                 this.activateTab(tab.id);
             };
 
-            // Ensure the iframe is in the web-section
             if (this.webSection && !this.webSection.contains(iframe)) {
                 this.webSection.appendChild(iframe);
             }
 
-            // Sync iframe visibility
             iframe.classList.toggle('active', tab.isActive);
 
-            // Set up close button
             const closeBtn = tabElement.querySelector('.close-tab-button') as HTMLElement;
             if (closeBtn) {
                 closeBtn.onclick = (e: Event) => {
@@ -515,7 +458,6 @@ class TabManager {
                 };
             }
 
-            // If this tab is active, update the address bar
             if (tab.isActive) {
                 const addressInput = document.getElementById('address-input') as HTMLInputElement;
                 if (addressInput) {
@@ -524,14 +466,12 @@ class TabManager {
                     } else {
                         addressInput.value = tab.url;
                     }
-
                 }
             }
 
             iframe.onload = () => {
                 const addressInput = document.getElementById('address-input') as HTMLInputElement;
 
-                // Sync the tab's internal URL with the actual iframe location
                 try {
                     const currentHref = iframe.contentWindow?.location.href;
                     if (currentHref && currentHref !== 'about:blank') {
@@ -543,7 +483,7 @@ class TabManager {
                         }
                     }
                 } catch (e) {
-                    // Ignore cross-origin errors (proxy usually handles this)
+                    // Ignore cross-origin errors
                 }
 
                 const newTitle = iframe.contentWindow?.document.title;
@@ -568,7 +508,6 @@ class TabManager {
                 }
             }
 
-            // Insert the tab element into the container
             const newTabBtn = document.getElementById('new-tab');
             if (newTabBtn) {
                 this.tabsContainer.insertBefore(tabElement, newTabBtn);
@@ -590,13 +529,13 @@ newTabBtn?.addEventListener('click', () => {
     myBrowser.addTab('Loading...', 'bolt://newtab');
 });
 
-// 3. Add a starting tab
-swReady.then(() => {
+// 3. Add a starting tab — wait for both SW and transport to be ready
+Promise.all([swReady, transportReady]).then(() => {
     const initialDestination = url ? (url.startsWith('bolt://') ? url : dummyProxy.encodeUrl(url)) : ('bolt://newtab');
     myBrowser.addTab('Loading...', initialDestination);
 });
 
-//4. Global Functions
+// 4. Global Functions
 function navigateTo(url: string) {
     let newUrl;
     if (url == "" || url == null) {
@@ -623,7 +562,7 @@ export { navigateTo, openNewTab };
 (window as any).navigateTo = navigateTo;
 (window as any).openNewTab = openNewTab;
 
-// Listen for messages from iframes (alternative to direct calls)
+// Listen for messages from iframes
 window.addEventListener('message', (event) => {
     if (event.data.type === 'navigate') {
         navigateTo(event.data.url);

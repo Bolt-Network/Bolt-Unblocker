@@ -4,58 +4,10 @@ import Background from "../components/background.astro";
 import BoltIcon from "../components/boltIcon.astro";
 import time from "../scripts/time.ts";
 ---
-
 <Layout title="Home" proxy={true}>
 	<main>
 		<Background />
-
 		<div id="content">
-			<div id="ad-banner">
-				<div id="terra-1"></div>
-				<script type="text/javascript">
-					(function () {
-						setTimeout(function () {
-							var container = document.getElementById("terra-1");
-							if (!container) return;
-							atOptions = {
-								key: "69b10d3b9c8111006883499edda2a660",
-								format: "iframe",
-								height: 90,
-								width: 728,
-								params: {},
-							};
-							var s = document.createElement("script");
-							s.type = "text/javascript";
-							s.crossOrigin = "anonymous";
-							s.src =
-								"https://cutleryneighbouringpurpose.com/69b10d3b9c8111006883499edda2a660/invoke.js";
-							container.appendChild(s);
-						}, 1000);
-					})();
-				</script>
-			</div>
-
-			<div id="ad-popup" class="hidden">
-				<button id="ad-popup-close" aria-label="Close advertisement"
-					><svg
-						width="24"
-						height="24"
-						viewBox="0 0 24 24"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path
-							d="M17 7L7 17M7 7L17 17"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"></path>
-					</svg></button
-				>
-				<div class="ad-tag-popup">Advertisement</div>
-				<div id="terra-2"></div>
-			</div>
-
 			<div id="top-wrapper">
 				<div id="top">
 					<h1 id="main-title">Bolt</h1>
@@ -121,5 +73,4 @@ import time from "../scripts/time.ts";
 	<script src="../scripts/taskbar.ts"></script>
 	<script src="../scripts/tooltip.ts"></script>
 	<script src="../scripts/discord.ts"></script>
-	<script src="../scripts/ad-popup.ts"></script>
 </Layout>

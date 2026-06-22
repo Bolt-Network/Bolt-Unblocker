@@ -3,8 +3,11 @@ import fastifyStatic from "@fastify/static";
 import { libcurlPath } from "@mercuryworkshop/libcurl-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { hostname } from "node:os";
 import { server as wisp } from "@mercuryworkshop/wisp-js/server";
+
+const epoxyPath = fileURLToPath(new URL("./node_modules/@mercuryworkshop/epoxy-tls/full", import.meta.url));
 
 
 
@@ -18,12 +21,26 @@ const fastify = Fastify({
 });
 
 fastify.addHook("onSend", async (request, reply, payload) => {
+    // Always set these headers - they're needed for BroadcastChannel in iframes
     reply.header("Cross-Origin-Opener-Policy", "same-origin");
-    reply.header("Cross-Origin-Embedder-Policy-Report-Only", "require-corp");
+    reply.header("Cross-Origin-Embedder-Policy", "require-corp");
+    reply.header("Cross-Origin-Resource-Policy", "cross-origin");
     return payload;
 });
 fastify.server.on("upgrade", (req, socket, head) => {
-    wisp.routeRequest(req, socket, head);
+    console.log(`[WISP] Upgrade request: ${req.url}`);
+    try {
+        wisp.routeRequest(req, socket, head);
+    } catch (err) {
+        console.error(`[WISP] Error routing request:`, err);
+        socket.destroy();
+    }
+});
+
+// Explicit WISP endpoint for debugging
+fastify.get("/wisp/", (request, reply) => {
+    console.log("[WISP] GET request to /wisp/ (should be WebSocket)");
+    return reply.send({ error: "Use WebSocket, not HTTP" });
 });
 
 
@@ -54,6 +71,21 @@ await fastify.register(fastifyStatic, {
     decorateReply: false
 });
 
+await fastify.register(fastifyStatic, {
+    root: epoxyPath,
+    prefix: "/epoxy/",
+    decorateReply: false,
+    setHeaders: (res, path) => {
+        if (path.endsWith('.js') || path.endsWith('.mjs')) {
+            res.setHeader('Content-Type', 'application/javascript');
+        }
+    }
+});
+
+
+fastify.get("/wisp-health", (request, reply) => {
+    return reply.send({ status: "ok", wisp: "reachable" });
+});
 
 fastify.get("/", (request, reply) => {
     return reply.sendFile("index.html");

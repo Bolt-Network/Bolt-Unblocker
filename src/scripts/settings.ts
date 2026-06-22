@@ -7,6 +7,7 @@ interface BoltSettings {
     ultraPerformance: boolean;
     backgroundDetailLevel: string;
     proxyEngine: string;
+    transport: string;
 
     // Personalization
     theme: string;
@@ -34,6 +35,7 @@ const defaults: BoltSettings = {
     ultraPerformance: true,
     backgroundDetailLevel: 'eco',
     proxyEngine: 'scramjet',
+    transport: 'libcurl',
 
     theme: '0',
     customBg: '',
@@ -95,6 +97,7 @@ function init(): void {
     // Performance
     const backgroundDetailLevel = getSelect('background-detail-level');
     const proxyEngine = getSelect('proxy-engine');
+    const transportSelect = getSelect('transport-select');
     const ultraPerformance = getCheckbox('ultra-performance');
     // Personalization
     const themeSelect = getSelect('theme-select');
@@ -118,6 +121,7 @@ function init(): void {
     // Apply loaded values
     if (backgroundDetailLevel) backgroundDetailLevel.value = settings.backgroundDetailLevel;
     if (proxyEngine) proxyEngine.value = settings.proxyEngine;
+    if (transportSelect) transportSelect.value = settings.transport;
     if (ultraPerformance) ultraPerformance.checked = settings.ultraPerformance;
     if (themeSelect) themeSelect.value = settings.theme;
     if (customBg) customBg.value = settings.customBg;
@@ -151,6 +155,7 @@ function init(): void {
             ultraPerformance: ultraPerformance?.checked ?? defaults.ultraPerformance,
             backgroundDetailLevel: backgroundDetailLevel?.value ?? defaults.backgroundDetailLevel,
             proxyEngine: proxyEngine?.value ?? defaults.proxyEngine,
+            transport: transportSelect?.value ?? defaults.transport,
             theme: themeSelect?.value ?? defaults.theme,
             customBg: customBg?.value ?? defaults.customBg,
             tabStyle: tabStyle?.value ?? defaults.tabStyle,
@@ -177,7 +182,7 @@ function init(): void {
 
     // Attach listeners to all controls
     const checkboxes = [showGreeting, tabCloak, searchSuggestions, searchNewTab, ultraPerformance, autoCloak, showAppsOnLaunch];
-    const selects = [backgroundDetailLevel, proxyEngine, themeSelect, tabStyle, searchEngine];
+    const selects = [backgroundDetailLevel, proxyEngine, transportSelect, themeSelect, tabStyle, searchEngine];
     const inputs = [customBg, cloakTitle, panicKey, panicUrl, customSearchUrl];
 
     checkboxes.forEach((el) => {
@@ -191,7 +196,7 @@ function init(): void {
         el?.addEventListener('change', () => {
             if (saveTimeout) clearTimeout(saveTimeout);
             saveSettings(collect());
-            if (el === proxyEngine) {
+            if (el === proxyEngine || el === transportSelect) {
                 if (window.top) {
                     window.top.location.reload();
                 } else {

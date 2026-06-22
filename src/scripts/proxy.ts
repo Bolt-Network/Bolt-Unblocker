@@ -1,12 +1,41 @@
 import { BareMuxConnection } from '@mercuryworkshop/bare-mux';
 
-// temp: change default to lib
+console.log('[Proxy] Module loading...');
+
 const wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
-const bareUrl = (location.protocol === "https:" ? "https" : "http") + "://" + location.host + "/bare/";
 
+function getTransport(): string {
+    try {
+        const settings = JSON.parse(localStorage.getItem('bolt-settings') || '{}');
+        return settings.transport || 'libcurl';
+    } catch {
+        return 'libcurl';
+    }
+}
 
+const transportPath = getTransport() === 'epoxy'
+    ? '/epoxy-transport.mjs'
+    : '/libcurl/index.mjs';
 
-var transport = "/libcurl/index.mjs";
+export const swReady = new Promise<void>((resolve) => {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).then((reg) => {
+            if (navigator.serviceWorker.controller) {
+                resolve();
+            } else {
+                navigator.serviceWorker.addEventListener('controllerchange', () => resolve());
+            }
+            reg.update();
+        }).catch(err => {
+            console.error("Service worker registration failed:", err);
+            resolve();
+        });
+    } else {
+        resolve();
+    }
+});
+
+// Scramjet Controller - initialized after SW is ready
 const { ScramjetController } = typeof $scramjetLoadController !== 'undefined' ? $scramjetLoadController() : {
     ScramjetController: class {
         init() { }
@@ -14,51 +43,64 @@ const { ScramjetController } = typeof $scramjetLoadController !== 'undefined' ? 
     } as any
 };
 
-if (localStorage.getItem('transport') === 'lib') {
-    transport = '/libcurl/index.mjs';
-}
+let scramjet: any = {
+    init() { },
+    encodeUrl(url: string) { return url; }
+};
 
-const scramjet = new ScramjetController({
-    files: {
-        wasm: "/learn/scramjet.wasm.wasm",
-        all: "/learn/scramjet.all.js",
-        sync: "/learn/scramjet.sync.js",
-    },
-    flags: {
-        rewriterLogs: false,
-        scramitize: false,
-        cleanErrors: true,
-        sourcemaps: true,
-    },
-    siteFlags: {
-
-    },
-    prefix: '/$/'
-});
-
-if (scramjet.init) scramjet.init();
-export const swReady = new Promise<void>((resolve) => {
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js').then(() => {
-            if (navigator.serviceWorker.controller) {
-                resolve();
-            } else {
-                navigator.serviceWorker.addEventListener('controllerchange', () => resolve());
-            }
+// Initialize Scramjet after service worker is ready
+swReady.then(() => {
+    try {
+        console.log('[Proxy] Initializing Scramjet...');
+        scramjet = new ScramjetController({
+            files: {
+                wasm: "/learn/scramjet.wasm.wasm",
+                all: "/learn/scramjet.all.js",
+                sync: "/learn/scramjet.sync.js",
+            },
+            flags: {
+                rewriterLogs: false,
+                scramitize: true,
+                cleanErrors: true,
+                sourcemaps: false,
+            },
+            siteFlags: {
+                "youtube.com": { scramitize: true },
+                "youtu.be": { scramitize: true },
+                "googlevideo.com": { scramitize: true },
+                "googleapis.com": { scramitize: true },
+                "google.com": { scramitize: true },
+                "reddit.com": { scramitize: true },
+                "twitch.tv": { scramitize: true },
+                "instagram.com": { scramitize: true },
+                "tiktok.com": { scramitize: true },
+            },
+            prefix: '/$/'
         });
-    } else {
-        resolve();
+        if (scramjet.init) scramjet.init();
+        console.log('[Proxy] Scramjet initialized');
+    } catch (err) {
+        console.error('[Proxy] Scramjet init failed:', err);
     }
 });
 
-const bmc = new BareMuxConnection("/baremux/worker.js");
-(async () => {
-    if (!await bmc.getTransport()) {
-        await bmc.setTransport(transport, [{ wisp: wispUrl }]);
+let bmc: any;
+export const transportReady: Promise<void> = (async () => {
+    try {
+        // Wait for service worker to be ready first
+        await swReady;
+        console.log('[Transport] Service worker ready, creating BareMuxConnection...');
+        bmc = new BareMuxConnection("/baremux/worker.js");
+        console.log('[Transport] Setting up with WISP URL:', wispUrl);
+        await bmc.setTransport(transportPath, [{ wisp: wispUrl }]);
+        console.log('[Transport] Transport ready');
+    } catch (err) {
+        console.error('[Transport] Setup failed:', err instanceof Error ? err.message : err);
+        throw err;
     }
 })();
 
-function getProxyEngine(): string {
+export function getProxyEngine(): string {
     try {
         const settings = JSON.parse(localStorage.getItem('bolt-settings') || '{}');
         return settings.proxyEngine || 'scramjet';
@@ -67,38 +109,43 @@ function getProxyEngine(): string {
     }
 }
 
+function uvBase64Encode(str: string): string {
+    if (!str) return str;
+    try {
+        return btoa(str);
+    } catch {
+        return btoa(unescape(encodeURIComponent(str)));
+    }
+}
+
+function uvBase64Decode(str: string): string {
+    if (!str) return str;
+    try {
+        return atob(str);
+    } catch {
+        try {
+            return decodeURIComponent(escape(atob(str)));
+        } catch {
+            return str;
+        }
+    }
+}
+
 function encodeUrl(url: string): string {
     const engine = getProxyEngine();
 
-    if (engine === 'ultraviolet') {
-        const encoded = uvXorEncode(url);
-        return '/maths/' + encoded;
+    if (engine === 'ultraviolet' || engine === 'ultraviolet-max') {
+        return '/maths/' + uvBase64Encode(url);
     }
 
+    // scramjet and scramjet-max both use Scramjet
     return scramjet.encodeUrl(url);
 }
 
-function uvXorEncode(str: string): string {
-    if (!str) return str;
-    let result = '';
-    for (let i = 0; i < str.length; i++) {
-        if (i % 2) {
-            result += String.fromCharCode(str.charCodeAt(i) ^ 2);
-        } else {
-            result += str[i];
-        }
-    }
-    return encodeURIComponent(result);
-}
-
 function decodeProxiedUrl(proxiedUrl: string): string {
-    const engine = getProxyEngine();
-
-    if (engine === 'ultraviolet' && proxiedUrl.includes('/maths/')) {
+    if (proxiedUrl.includes('/maths/')) {
         const encoded = proxiedUrl.split('/maths/')[1];
-        if (encoded) {
-            return uvXorDecode(encoded);
-        }
+        if (encoded) return uvBase64Decode(encoded.split('?')[0]);
     }
 
     if (proxiedUrl.includes('/$/')) {
@@ -108,28 +155,13 @@ function decodeProxiedUrl(proxiedUrl: string): string {
     return proxiedUrl;
 }
 
-function uvXorDecode(str: string): string {
-    if (!str) return str;
-    let [input, ...search] = str.split('?');
-
-    let decodedInput = decodeURIComponent(input);
-    let result = '';
-    for (let i = 0; i < decodedInput.length; i++) {
-        if (i % 2) {
-            result += String.fromCharCode(decodedInput.charCodeAt(i) ^ 2);
-        } else {
-            result += decodedInput[i];
-        }
-    }
-    return result + (search.length ? '?' + search.join('?') : '');
-}
-
 function isProxiedUrl(url: string): boolean {
     return url.includes('/$/') || url.includes('/maths/');
 }
 
 function getProxyPrefix(): string {
-    return getProxyEngine() === 'ultraviolet' ? '/maths/' : '/$/';
+    const engine = getProxyEngine();
+    return (engine === 'ultraviolet' || engine === 'ultraviolet-max') ? '/maths/' : '/$/';
 }
 
 const proxy = {
@@ -141,4 +173,5 @@ const proxy = {
     scramjet,
 };
 
+console.log('[Proxy] Module loaded. Export:', proxy);
 export default proxy;

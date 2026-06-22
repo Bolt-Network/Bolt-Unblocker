@@ -1,8 +1,8 @@
-
 import Window from "./Window";
 import WindowManager from "./WindowManager";
 import { notify } from "./notifications";
 import { deepReset } from "./settings";
+import { transportReady } from "./proxy";
 
 // Initialize WindowManager singleton (windows self-register)
 const windowManager = WindowManager.getInstance();
@@ -35,7 +35,7 @@ switch (searchEngine) {
         break;
 }
 
-function search(event?: Event) {
+async function search(event?: Event) {
     event?.preventDefault();
     const query = searchBar?.value;
     let destinationUrl = "";
@@ -51,6 +51,8 @@ function search(event?: Event) {
     } else {
         destinationUrl = searchEngineUrl + query;
     }
+
+    await transportReady;
 
     new Window({
         url: "/browser?url=" + destinationUrl,
@@ -121,4 +123,3 @@ if (typeof window !== 'undefined') {
         });
     }
 }
-
